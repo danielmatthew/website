@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <span class="post-date">{{ page.date | date_to_string }}</span>
+  {{ content }}
+</div>
+
+<div class="promotion">
+  <p class="promo-headline">Great freelance leads, in your inbox daily</p>
+  <p class="promo-content">For a less than a dollar a day, the cool folks at <a href="http://superfluent.co">Superfluent</a> will pore through the latest web development and design leads, and email the best ones to you. All for less than a dollar a day.</p>
+  <a href="http://freelancedesignleads.com" title="The best web development leads in your inbox daily.">Find out more</a>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      <li>
+        <h3>
+          <a href="{{ post.url }}">
+            {{ post.title }}
+            <small>{{ post.date | date_to_string }}</small>
+          </a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
