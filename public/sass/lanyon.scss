@@ -36,9 +36,8 @@
 
 /* Prevent scroll on narrow devices */
 
-$serif: 'Lusitana', serif;
-$serif-2: 'Merriweather', serif;
-$sans-serif: 'Merriweather Sans', sans-serif;
+$sans-serif: 'PT Sans', sans-serif;
+$sans-serif-2: 'Titillium Web', sans-serif;
 
 html,
 body {
@@ -46,11 +45,11 @@ body {
 }
 
 html {
-  font-family: $serif;
+  font-family: $sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $serif;
+  font-family: $sans-serif-2;
   color: #313131;
 }
 
@@ -59,21 +58,23 @@ h1 {
 }
 
 h2 {
-  font-family: $serif-2;
-  font-style: italic;
+  font-family: $sans-serif;
   font-weight: 400;
 }
 
 h3 {
-  font-family: $serif;
+  font-family: $sans-serif-2;
   font-weight: 400;
 }
 
 p {
-  font-family: $serif-2;
+  font-family: $sans-serif;
+  font-weight: 300;
 
   span {
     font-family: $sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 }
 
@@ -109,7 +110,7 @@ p {
     max-width: 38rem;
   }
 }
-  
+
 
 
 /*
