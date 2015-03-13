@@ -1,26 +1,23 @@
 module.exports = function(grunt) {
-	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		watch: {
-			css: {
-				files: ['public/sass/**/*.scss'],
-				tasks: ['buildcss']
-			}	
-		},
 		sass: {
-			build: {
-				options: {
-					style: 'compressed'
-				},
+			dist: {
 				files: {
 					'public/css/styles.css':'public/sass/styles.scss'
 				}
 			}
+		},
+
+		watch: {
+			css: {
+				files: ['public/sass/**/*.scss'],
+				tasks: ['sass']
+			}
 		}
 	});
 
-	grunt.registerTask('default', []);
-	grunt.registerTask('buildcss', ['sass']);
+	grunt.loadNpmTasks('grunt-contrib-sass');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.registerTask('default', ['watch']);
 };

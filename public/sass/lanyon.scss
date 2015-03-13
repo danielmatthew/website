@@ -174,7 +174,7 @@ p {
   width: 14rem;
   visibility: hidden;
   overflow-y: auto;
-  font-family: "ff-meta-web-pro", Helvetica, Arial, sans-serif;
+  font-family: $sans-serif, Helvetica, Arial, sans-serif;
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
@@ -348,7 +348,7 @@ a.sidebar-nav-item:focus {
 
 /* Meta data line below post title */
 .post-date {
-  font-family: $serif-2;
+  font-family: $sans-serif-2;
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
@@ -395,7 +395,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "ff-meta-web-pro", Helvetica, Arial, sans-serif;
+  font-family: $sans-serif-2, Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }
