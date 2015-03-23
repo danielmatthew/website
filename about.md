@@ -18,8 +18,8 @@ A home for side-projects and a testing bed for ideas.
 
 
 
-### [Freelance Design Leads](http://freelancedesignleads.com)
-![Superfluent](/public/img/freelance.png)
+### [Freelance Design Leads](http://leads.danmatthew.co.uk)
+![Freelance](/public/img/freelance.png)
 
 A service for web freelancers: you get the best leads in your inbox daily, for less than a dollar.
 
@@ -44,7 +44,7 @@ The easy way to discover who have been in movies together. A project with [Ben H
 - JavaScript
 
 ### [Album Art: _A List Apart_ "10k Apart" Entry](http://lastfm.danmatthew.co.uk)
-![Superfluent](/public/img/lastfm.png)
+![Last.fm](/public/img/lastfm.png)
 
 A lightweight (< 10Kb) and responsive website which displays global and user-specific trending tracks.
 
@@ -62,7 +62,3 @@ Converted supplied PhotoShop documents into a skeleton markup and CSS framework.
 
 - HTML
 - CSS
-
-
-### Colophon
-Running on [Digital Ocean](http://digitalocean.com), this site is powered by [Jekyll](http://jekyllrb.com), using a bastardised version of [@mdo's](https://twitter.com/mdo) [Lanyon theme](http://lanyon.getpoole.com). The site is set in FF Meta Sans for headings, and FF Tisa Pro for body text. 
