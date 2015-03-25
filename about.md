@@ -29,6 +29,14 @@ A Cadbury-branded Breakout clone to explore [Phaser.js](http://phaser.io/)
 
 - JS
 
+### [Data Visualisations](http://datavis.danmatthew.co.uk)
+![Datavis](/public/img/build/datavis.png)
+
+Experimenting with [D3.js](http://d3js.org) to map the US population density with SVG.
+
+- D3.js
+- TopoJSON
+
 ### [Freelance Design Leads](http://leads.danmatthew.co.uk)
 ![Freelance](/public/img/build/freelance.png)
 
