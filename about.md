@@ -7,7 +7,7 @@ I'm a specialist in building responsive and elegant web user interfaces for appl
 
 ## Projects
 
-### Lanyards.co.uk [Lanyards.co.uk](http://lanyards.co.uk)
+### [Lanyards.co.uk](http://lanyards.co.uk)
 ![Lanyards](/public/img/lanyards.png)
 
 For this project I took a series of supplied designs and wrote the markup and stylesheets in order to make the site responsive across multiple breakpoints.
@@ -15,14 +15,14 @@ For this project I took a series of supplied designs and wrote the markup and st
 - HTML
 - Sass
 
-### Flappy Star Wars [Flappy Star Wars](http://flappy.danmatthew.co.uk)
-![Flappy Star Wars](/public/img/flappy.png)
+### [S-no-w Escape](http://flappy.danmatthew.co.uk)
+![S-no-w Escape](/public/img/flappy.png)
 
 A new take on Flappy Bird using [Phaser.js](http://phaser.io)! Pilot a snowspeeder between AT-AT legs and get a high-score. Medals awarded when you pass 10 and 20 legs - and your record is kept in local storage*.
 
 - JS
 
-### Breakout [Breakout](http://breakout.danmatthew.co.uk)
+### [Breakout](http://breakout.danmatthew.co.uk)
 ![Breakout](/public/img/breakout.png)
 
 A Cadbury-branded Breakout clone to explore [Phaser.js](http://phaser.io/)
