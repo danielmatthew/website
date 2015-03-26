@@ -5,7 +5,7 @@ title: Work
 
 A collection of work that I have undertaken over the past 12 months or so. Please feel free to ask any questions!
 
-<form action="//formspree.io/formspree@danmatthew.co.uk">
+<form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
     <input type="hidden" name="_subject" value="New website message">
     <input type="text" name="name" placeholder="Your name">
     <input type="email" name="_replyto" placeholder="Your email address" validate>
