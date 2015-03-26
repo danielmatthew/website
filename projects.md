@@ -3,7 +3,15 @@ layout: page
 title: Work
 ---
 
-## Work
+A collection of work that I have undertaken over the past 12 months or so. Please feel free to ask any questions!
+
+<form action="//formspree.io/formspree@danmatthew.co.uk">
+    <input type="hidden" name="_subject" value="New website message">
+    <input type="text" name="name" placeholder="Your name">
+    <input type="email" name="_replyto" placeholder="Your email address" validate>
+    <textarea name="message" placeholder="Your message here"></textarea>
+    <input type="submit" value="Send">
+</form>
 
 ### [Lanyards.co.uk](http://lanyards.co.uk)
 ![Lanyards](/public/img/build/lanyards.png)
