@@ -20,7 +20,11 @@ author:
 paginate:         10
 
 # Custom vars
-version:          1.0.0
+version:          1.1.0
+
+# Github repositories
+github_user: danielmatthew
+github_repo_url: https://github.com/danielmatthew/danielmatthew.github.io
 
 github:
   url:           https://github.com/danielmatthew
