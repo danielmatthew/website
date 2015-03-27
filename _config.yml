@@ -24,7 +24,7 @@ version:          1.1.0
 
 # Github repositories
 github_user: danielmatthew
-github_repo_url: https://github.com/danielmatthew/danielmatthew.github.io
+github_repo_url: https://github.com/danielmatthew/danielmatthew.github.io/
 
 github:
   url:           https://github.com/danielmatthew
