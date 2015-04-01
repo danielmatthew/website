@@ -97,3 +97,12 @@ Converted supplied PhotoShop documents into a skeleton markup and CSS framework.
 
 - HTML
 - CSS
+
+#### Github
+Here's a bunch of stuff I've been working on Github:
+
+<div>
+  {% for repository in site.github.public_repositories %}
+    <span>{{ repository.full_name }} </span>
+  {% endfor %}
+</div>
