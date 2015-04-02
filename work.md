@@ -5,14 +5,15 @@ title: Work
 
 A collection of work that I have undertaken over the past 12 months or so. Please feel free to ask any questions!
 
-I like to build responsive web sites.
+I like to build responsive web sites and rich web applications.
 
 ## Technology Stack
+
 ### Experimental
 A bunch of the new hotness that I'm tinkering with:
 
 - Ionic
-- React.js
+- React
 - Parse
 - Framer
 
