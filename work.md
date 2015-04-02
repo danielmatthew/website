@@ -5,6 +5,42 @@ title: Work
 
 A collection of work that I have undertaken over the past 12 months or so. Please feel free to ask any questions!
 
+I like to build responsive web sites.
+
+## Technology Stack
+### Experimental
+A bunch of the new hotness that I'm tinkering with:
+
+- Ionic
+- React.js
+- Parse
+- Framer
+
+### Picking up steam
+Keeping an eye out for projects that I can use these technologies with:
+
+- Angular
+- Ember
+- Meteor
+- Node
+
+### Stalwarts
+Tools that I work with day in, day out:
+
+- HTML
+- CSS
+- Sass
+- JavaScript
+- Underscore
+- Grunt
+- Yeoman
+- Bower
+- Jekyll
+- WordPress
+- Git
+- SVN
+- Photoshop
+
 <form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
     <input type="hidden" name="_subject" value="New website message">
     <input type="text" name="name" placeholder="Your name">
@@ -99,10 +135,10 @@ Converted supplied PhotoShop documents into a skeleton markup and CSS framework.
 - CSS
 
 #### Github
-Here's a bunch of stuff I've been working on Github:
+Here's the full listing of projects that I've been keeping under version control on Github:
 
-<div>
+<ul>
   {% for repository in site.github.public_repositories %}
-    <span>{{ repository.full_name }} </span>
+    <li>{{ repository.full_name }} </li>
   {% endfor %}
-</div>
+</ul>
