@@ -3,9 +3,33 @@ layout: page
 title: Work
 ---
 
-A collection of work that I have undertaken over the past 12 months or so. Please feel free to ask any questions!
+The following is a collection of work that I have undertaken over the past 12 months or so. On the whole, I like to build responsive web sites and rich web applications.
 
-I like to build responsive web sites and rich web applications.
+I'd like to hear from you if you have a website that you'd like to ensure works across mobile, tablet, desktop, and TV. Using the latest in web standards, I write clean and semantic markup, concise stylesheets using the power of Sass, and add interactions with modern JavaScript.
+
+Please get in touch if there's anything I can help you with:
+
+<form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
+    <input type="hidden" name="_subject" value="New website message">
+    <div class="form-controls">
+      <label for="name">Your name:</label>
+      <input type="text" name="name" placeholder="Your name">
+    </div>
+
+    <div class="form-controls">
+      <label for="_replyto">Your email address:</label>
+      <input type="email" name="_replyto" placeholder="Your email address" validate>
+    </div>
+
+    <div class="form-controls">
+      <label for="message">Your message:</label>
+      <textarea name="message" placeholder="Your message here" rows="5"></textarea>
+    </div>
+
+    <div class="form-controls">
+      <input type="submit" value="Send">
+    </div>
+</form>
 
 ## Technology Stack
 
@@ -17,8 +41,14 @@ A bunch of the new hotness that I'm tinkering with:
 - Parse
 - Framer
 
-### Picking up steam
-Keeping an eye out for projects that I can use these technologies with:
+### Learning
+Q: When is a developer never not learning?
+A: Never!
+
+- Swift
+
+### Modern
+Keeping an eye out for commercial projects that I can use these technologies with:
 
 - Angular
 - Ember
@@ -42,13 +72,13 @@ Tools that I work with day in, day out:
 - SVN
 - Photoshop
 
-<form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
-    <input type="hidden" name="_subject" value="New website message">
-    <input type="text" name="name" placeholder="Your name">
-    <input type="email" name="_replyto" placeholder="Your email address" validate>
-    <textarea name="message" placeholder="Your message here"></textarea>
-    <input type="submit" value="Send">
-</form>
+### Sunset
+Technologies I've used in the past, but don't actively use any longer:
+
+- CakePHP
+- CodeIgniter
+- Java
+
 
 ### [Lanyards.co.uk](http://lanyards.co.uk)
 ![Lanyards](/public/img/build/lanyards.png)

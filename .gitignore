@@ -2,10 +2,7 @@ node_modules/
 .sass-cache/
 public/img/src
 _site/
+public/sass/bourbon/
+public/sass/bitters/
+
 _posts/2014-05-19-that-equals-this.md
-
-public/sass/_variables.scss
-
-public/sass/_forms.scss
-
-public/sass/styles.scss
