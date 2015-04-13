@@ -300,6 +300,9 @@ input[type="search"] {
   -o-appearance: none;
   appearance: none; }
 
+#sidebar-checkbox {
+  display: none; }
+
 input[type="file"] {
   padding-bottom: 0.75em;
   width: 100%; }
