@@ -60,7 +60,7 @@ html {
 
 body {
   color: #515151;
-  background-color: #fff;
+  background-color: #f3f3f3;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -311,6 +311,8 @@ tbody tr:nth-child(odd) th {
 
 .page,
 .post {
+  background-color: #fff;
+  padding: 4em;
   margin-bottom: 4em;
 }
 

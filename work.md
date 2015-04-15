@@ -42,7 +42,7 @@ A bunch of the new hotness that I'm tinkering with:
 - Framer
 
 ### Learning
-Q: When is a developer never not learning?
+Q: When is a developer never _not_ learning?
 A: Never!
 
 - Swift
@@ -79,6 +79,14 @@ Technologies I've used in the past, but don't actively use any longer:
 - CodeIgniter
 - Java
 
+### [Ribbonworks.co.uk](http://ribbonworks.co.uk)
+![Ribbonworks](/public/img/build/ribbonworks-new.png)
+
+I refreshed the appearance of the site in order to increase white-space and introduce a sense of vertical rhythm. I unified and rewrote the site's stylesheets to enable the site to resize fluidly across devices. I took advantage of [`grunt-bake`](https://github.com/MathiasPaumgarten/grunt-bake) so that I could reuse components throughout the site.
+
+- HTML
+- Sass
+- Design
 
 ### [Lanyards.co.uk](http://lanyards.co.uk)
 ![Lanyards](/public/img/build/lanyards.png)
