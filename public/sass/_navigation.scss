@@ -5,7 +5,7 @@ header.navigation {
   $dark-gray: #333 !default;
   $large-screen: em(860) !default;
   $navigation-padding: 1em;
-  $navigation-background: #fff;
+  $navigation-background: blue;
   $navigation-color: transparentize($dark-gray, 0.3);
   $navigation-color-hover: $blue;
   $navigation-height: 60px;
@@ -102,7 +102,7 @@ header.navigation {
   // The nav items
 
   ul li.nav-link {
-    background: $navigation-background;
+    background: blue;
     display: block;
     line-height: $navigation-height;
     overflow: hidden;
