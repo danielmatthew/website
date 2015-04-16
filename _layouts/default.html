@@ -5,20 +5,25 @@
 
   <body>
 
-    {% include sidebar.html %} 
-
     <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
          content to avoid any CSS collisions with our real content. -->
     <div class="wrap">
+      {% include navigation.html %}
       <div class="masthead">
         <div class="container">
-          <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-
           <h3 class="masthead-title">
             <a href="/" title="Home">{{ site.title }}</a>
             <small>{{ site.tagline }}</small>
           </h3>
         </div>
+
+        <!-- <div id="js-parallax-window" class="parallax-window">
+          <div class="parallax-static-content">
+
+          </div>
+          <div id="js-parallax-background" class="parallax-background"></div>
+        </div> -->
+
       </div>
 
       <div class="container content">

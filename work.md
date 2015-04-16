@@ -31,54 +31,6 @@ Please get in touch if there's anything I can help you with:
     </div>
 </form>
 
-## Technology Stack
-
-### Experimental
-A bunch of the new hotness that I'm tinkering with:
-
-- Ionic
-- React
-- Parse
-- Framer
-
-### Learning
-Q: When is a developer never _not_ learning?
-A: Never!
-
-- Swift
-
-### Modern
-Keeping an eye out for commercial projects that I can use these technologies with:
-
-- Angular
-- Ember
-- Meteor
-- Node
-
-### Stalwarts
-Tools that I work with day in, day out:
-
-- HTML
-- CSS
-- Sass
-- JavaScript
-- Underscore
-- Grunt
-- Yeoman
-- Bower
-- Jekyll
-- WordPress
-- Git
-- SVN
-- Photoshop
-
-### Sunset
-Technologies I've used in the past, but don't actively use any longer:
-
-- CakePHP
-- CodeIgniter
-- Java
-
 ### [Ribbonworks.co.uk](http://ribbonworks.co.uk)
 ![Ribbonworks](/public/img/build/ribbonworks-new.png)
 
@@ -86,6 +38,13 @@ I refreshed the appearance of the site in order to increase white-space and intr
 
 - HTML
 - Sass
+- Design
+
+### [Hillcroft](http://hillcroft.ac.uk)
+![Hillcroft](/public/img/build/hillcroft.png)
+
+In response to the client wanting a responsive redesign of their existing site, I created the above mockup. I attempted to put myself in the shoes of new and existing students and surface information that would be most relevant to their requirements, and bring it higher up the site hierarchy.
+
 - Design
 
 ### [Lanyards.co.uk](http://lanyards.co.uk)

@@ -6,6 +6,7 @@ title: JavaScript Feature Detection
 Some JavaScript features just don't work in certain browsers. While it used to be a common practice to 'sniff' the user-agent string of the browser, [this is now frowned-upon](https://developer.mozilla.org/en-US/docs/Browser_Detection_and_Cross_Browser_Support). The preferred approach is for developers to implement feature detection. That is, testing the ability of the browser to carry out the desired task. If the feature is not supported, we write our code intelligently in order to cater for this eventuality.
 
 In Mark Pilgrim's _Dive Into HTML5_, he documents a selection of techniques:
+
 - Checking for the existence of a property on a global object
 - Creating an element and checking for the property on that
 - Calling a method on a generated element and examining the value it returns
@@ -26,7 +27,7 @@ if (window.XMLHttpRequest) {
   'MSXML2.XMLHTTP.3.0',
   'MSXML2.XMLHTTP',
   'Microsoft.XMLHTTP');
-  
+
   for (var i = 0; i < XmlHttpVersions.length && !xmlHttp; i++){
     try {
       xmlHttp = new ActiveXObject(XmlHttpVersions[i]);

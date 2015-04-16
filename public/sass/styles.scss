@@ -1,6 +1,9 @@
 // Bourbon
 @import "bourbon/bourbon";
 
+// Neat
+@import "neat/neat";
+
 // Bitters
 @import "bitters/bitters";
 
@@ -8,6 +11,8 @@
 @import 'variables';
 @import 'forms';
 @import 'syntax';
+@import 'parallax';
+@import 'navigation';
 @import 'poole';
-@import 'lanyon';
+// @import 'lanyon';
 @import 'themes';

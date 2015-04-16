@@ -48,7 +48,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: $serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -78,14 +78,15 @@ a:focus {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
+  font-family: $sans-serif;
   margin-bottom: .5rem;
-  font-weight: bold;
+  font-weight: 700;
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
 }
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 h2 {
   margin-top: 1rem;
@@ -102,8 +103,10 @@ h4, h5, h6 {
 
 /* Body text */
 p {
+  font-family: $serif;
   margin-top: 0;
   margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 strong {
@@ -197,7 +200,7 @@ blockquote p:last-child , .promotion p:last-child {
 .promo-headline {
   font-weight: 400;
   color: #313131;
-  font-family: "ff-meta-web-pro", sans-serif;
+  font-family: $sans-serif;
 }
 
 @media (min-width: 30rem) {
@@ -268,8 +271,8 @@ tbody tr:nth-child(odd) th {
 
 .container {
   max-width: 38rem;
-  padding-left:  1rem;
-  padding-right: 1rem;
+  padding-left:  0.5rem;
+  padding-right: 0.5rem;
   margin-left:  auto;
   margin-right: auto;
 }
@@ -282,8 +285,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
+  margin-top: 3rem;
   margin-bottom: 3rem;
 }
 .masthead-title {
@@ -309,11 +311,36 @@ tbody tr:nth-child(odd) th {
  * page is wrapped in `.page` and is only used on the page layout.
  */
 
+.posts {
+  background-color: #fff;
+  padding: 1rem;
+
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+  @media (min-width: 30rem) {
+    padding: 2em 3em;
+  }
+}
+
 .page,
 .post {
   background-color: #fff;
-  padding: 4em;
-  margin-bottom: 4em;
+  padding: 1em;
+  margin-bottom: 2em;
+
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+
+  @media (min-width: 30rem) {
+    padding: 4em;
+  }
+}
+
+.posts .post {
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 /* Blog post or page title */
@@ -329,6 +356,7 @@ tbody tr:nth-child(odd) th {
 
 /* Meta data line below post title */
 .post-date {
+  font-family: $sans-serif;
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
@@ -372,7 +400,7 @@ tbody tr:nth-child(odd) th {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: $sans-serif;
   color: #ccc;
   text-align: center;
 }
