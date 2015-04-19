@@ -18,45 +18,45 @@ I'm a specialist in building responsive and elegant web user interfaces for appl
 ### Experimental
 A bunch of the new hotness that I'm tinkering with:
 
-- Ionic
-- React
-- Parse
-- Framer
+<span class="badge">Ionic</span>
+<span class="badge">React</span>
+<span class="badge">Parse</span>
+<span class="badge">Framer</span>
 
 ### Learning
 Q: When is a developer never _not_ learning?
 A: Never!
 
-- Swift
+<span class="badge">Swift</span>
 
 ### Modern
 Keeping an eye out for commercial projects that I can use these technologies with:
 
-- Angular
-- Ember
-- Meteor
-- Node
+<span class="badge">Angular</span>
+<span class="badge">Ember</span>
+<span class="badge">Meteor</span>
+<span class="badge">Node</span>
 
 ### Stalwarts
 Tools that I work with day in, day out:
 
-- HTML
-- CSS
-- Sass
-- JavaScript
-- Underscore
-- Grunt
-- Yeoman
-- Bower
-- Jekyll
-- WordPress
-- Git
-- SVN
-- Photoshop
+<span class="badge">HTML</span>
+<span class="badge">CSS</span>
+<span class="badge">Sass</span>
+<span class="badge">JavaScript</span>
+<span class="badge">Underscore</span>
+<span class="badge">Grunt</span>
+<span class="badge">Yeoman</span>
+<span class="badge">Bower</span>
+<span class="badge">Jekyll</span>
+<span class="badge">WordPress</span>
+<span class="badge">Git</span>
+<span class="badge">SVN</span>
+<span class="badge">Photoshop</span>
 
 ### Sunset
-Technologies I've used in the past, but don't actively use any longer:
+Technologies I've used in the past, but don't actively use right now:
 
-- CakePHP
-- CodeIgniter
-- Java
+<span class="badge">CakePHP</span>
+<span class="badge">CodeIgniter</span>
+<span class="badge">Java</span>
