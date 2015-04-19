@@ -32,7 +32,10 @@ Please get in touch if there's anything I can help you with:
 </form>
 
 ### [Ribbonworks.co.uk](http://ribbonworks.co.uk)
-![Ribbonworks](/public/img/build/ribbonworks-new.png)
+<img src="/public/img/build/ribbonworks-new-full.jpg" 
+srcset="/public/img/build/ribbonworks-new-full.jpg 1307w,
+/public/img/build/ribbonworks-new-med.jpg 654w.
+/public/img/build/ribbonworks-new-small.jpg 327w" alt="Ribbonworks.co.uk" />
 
 I refreshed the appearance of the site in order to increase white-space and introduce a sense of vertical rhythm. I unified and rewrote the site's stylesheets to enable the site to resize fluidly across devices. I took advantage of [`grunt-bake`](https://github.com/MathiasPaumgarten/grunt-bake) so that I could reuse components throughout the site.
 
@@ -42,6 +45,7 @@ I refreshed the appearance of the site in order to increase white-space and intr
 
 ### [Hillcroft](http://hillcroft.ac.uk)
 ![Hillcroft](/public/img/build/hillcroft.png)
+
 
 In response to the client wanting a responsive redesign of their existing site, I created the above mockup. I attempted to put myself in the shoes of new and existing students and surface information that would be most relevant to their requirements, and bring it higher up the site hierarchy.
 
