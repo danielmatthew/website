@@ -25,7 +25,7 @@ There are a few options open to a developer wishing to implement responsive imag
 /public/img/build/ribbonworks-new-small.jpg 327w" 
 src="/public/img/build/ribbonworks-new-full.jpg" 
 alt="Ribbonworks.co.uk" />
-{& endhighlight %}
+{% endhighlight %}
 
 The `srcset` attribute is simply a comma-separated list of URIs and a "width descriptor", which is used by the browser as part of its decision-making process.
 
