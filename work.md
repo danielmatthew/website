@@ -80,9 +80,9 @@ A Cadbury-branded Breakout clone build in order to experiment with [Phaser.js](h
 - JS
 
 ### [Data Visualisations](http://datavis.danmatthew.co.uk)
-<img srcset="/public/img/build/datavis-f.jpg 1377w,
-/public/img/build/datavis-m.jpg 689w,
-/public/img/build/datavis-s.jpg 344w" src="/public/img/build/datavis-f.jpg" alt="Data visualisation with D3" />
+<img srcset="/public/img/build/datavis-f.jpg 1307w,
+/public/img/build/datavis-m.jpg 654w,
+/public/img/build/datavis-s.jpg 327w" src="/public/img/build/datavis-f.jpg" alt="Data visualisation with D3" />
 
 Experimenting with [D3.js](http://d3js.org) to map the US population density with SVG.
 
