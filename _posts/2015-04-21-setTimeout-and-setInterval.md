@@ -44,7 +44,7 @@ As with timeouts, we can run `clearInterval()` to call a halt to proceedings whe
 Imagine a searchbox that offers suggestions as you type. On each `keydown` event, a function is run that makes a network request. If the user enters a long query quickly, the browser (and remote server!) may quickly become overwhelmed and end up feeling unresponsive. 
 
 To overcome this, we can implement `setTimeout()` in order to _debounce_ the event: we prevent it from happening too often. 
-Instead of calling the function on each keypress, we wait for an opportune moment - perhaps a slight pause. When events occur closer than our timeout delay, the timeout from the previous keypress is cancelled. 
+Instead of calling the function on each keypress, we wait for an opportune moment - perhaps a slight pause. When events occur closer than our timeout delay, the timeout from the previous keypress is cancelled and a new one is executed.
 
 {% highlight js %}
 var myTextBox = document.querySelector('[type="search"]');

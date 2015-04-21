@@ -38,9 +38,11 @@ Please get in touch if there's anything I can help you with:
 
 I refreshed the appearance of the site in order to increase white-space and introduce a sense of vertical rhythm. I unified and rewrote the site's stylesheets to enable the site to resize fluidly across devices. I took advantage of [`grunt-bake`](https://github.com/MathiasPaumgarten/grunt-bake) so that I could reuse components throughout the site.
 
-- HTML
-- Sass
-- Design
+<ul class="badges">
+<li>HTML</li>
+<li>Sass</li>
+<li>Design</li>
+</ul>
 
 ### [Hillcroft](http://hillcroft.ac.uk)
 <img srcset="/public/img/build/hillcroft-f.jpg 1322w,
@@ -49,7 +51,9 @@ I refreshed the appearance of the site in order to increase white-space and intr
 
 In response to the client wanting a responsive redesign of their existing site, I created the above mockup. I attempted to put myself in the shoes of new and existing students and surface information that would be most relevant to their requirements, and bring it higher up the site hierarchy.
 
-- Design
+<ul class="badges">
+  <li>Design</li>
+</ul>
 
 ### [Lanyards.co.uk](http://lanyards.co.uk)
 <img srcset="/public/img/build/lanyards-f.jpg 1343w,
@@ -58,8 +62,11 @@ In response to the client wanting a responsive redesign of their existing site, 
 
 For this project I took a series of supplied designs and wrote the markup and stylesheets in order to make the site responsive across multiple breakpoints.
 
-- HTML
-- Sass
+<ul class="badges">
+  <li>HTML</li>
+  <li>Sass</li>
+</ul>
+
 
 ### [S-no-w Escape](http://flappy.danmatthew.co.uk)
 <img srcset="/public/img/build/flappy-f.jpg 1377w,
@@ -68,7 +75,9 @@ For this project I took a series of supplied designs and wrote the markup and st
 
 A new take on Flappy Bird using [Phaser.js](http://phaser.io)! Pilot a snowspeeder between AT-AT legs and get a high-score. Medals are awarded when you pass 10 and 20 legs, and your record is kept in local storage*.
 
-- JS
+<ul class="badges">
+  <li>JavaScript</li>
+</ul>
 
 ### [Breakout](http://breakout.danmatthew.co.uk)
 <img srcset="/public/img/build/breakout-f.jpg 1377w,
@@ -77,7 +86,9 @@ A new take on Flappy Bird using [Phaser.js](http://phaser.io)! Pilot a snowspeed
 
 A Cadbury-branded Breakout clone build in order to experiment with [Phaser.js](http://phaser.io/)
 
-- JS
+<ul class="badges">
+  <li>JavaScript</li>
+</ul>
 
 ### [Data Visualisations](http://datavis.danmatthew.co.uk)
 <img srcset="/public/img/build/datavis-f.jpg 1307w,
@@ -86,8 +97,11 @@ A Cadbury-branded Breakout clone build in order to experiment with [Phaser.js](h
 
 Experimenting with [D3.js](http://d3js.org) to map the US population density with SVG.
 
-- D3.js
-- TopoJSON
+<ul class="badges">
+  <li>JavaScript</li>
+  <li>D3</li>
+  <li>TopoJSON</li>
+</ul>
 
 ### [Freelance Design Leads](http://leads.danmatthew.co.uk)
 <img srcset="/public/img/build/freelance-f.jpg 1347w,
@@ -96,9 +110,13 @@ Experimenting with [D3.js](http://d3js.org) to map the US population density wit
 
 A service for web freelancers: you get the best leads in your inbox daily, for less than a dollar.
 
-- HTML
-- CSS
-- Copywriting
+<ul class="badges">
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Copywriting</li>
+  <li>Zapier</li>
+  <li>Mailchimp</li>
+</ul>
 
 
 ### [Superfluent](http://superfluent.co)
@@ -108,15 +126,19 @@ A service for web freelancers: you get the best leads in your inbox daily, for l
 
 A home for side-projects and a testing bed for ideas.
 
-- HTML
-- Sass
-- JS
+<ul class="badges">
+  <li>HTML</li>
+  <li>Sass</li>
+  <li>JavaScript</li>
+</ul>
 
 ### [Double Rainbow](http://hammr.co/7806257/2)
 An experiment with background colour animations, text-clipping and text-fill properties.
 
-- HTML
-- Sass
+<ul class="badges">
+  <li>HTML</li>
+  <li>Sass</li>
+</ul>
 
 ### [CoStarred](http://costarred.im)
 <img srcset="/public/img/build/costarred-f.jpg 1347w,
@@ -125,10 +147,12 @@ An experiment with background colour animations, text-clipping and text-fill pro
 
 The easy way to discover who have been in movies together. A project with [Ben Howdle](http://benhowdle.im).
 
-- Design
-- HTML
-- Sass
-- JavaScript
+<ul class="badges">
+  <li>HTML</li>
+  <li>Sass</li>
+  <li>JavaScript</li>
+  <li>Design</li>
+</ul>
 
 ### [Album Art: _A List Apart_ "10k Apart" Entry](http://lastfm.danmatthew.co.uk)
 <img srcset="/public/img/build/lastfm-f.jpg 1347w,
@@ -136,26 +160,33 @@ The easy way to discover who have been in movies together. A project with [Ben H
 /public/img/build/lastfm-s.jpg 337w" src="/public/img/build/lastfm-f.jpg" alt="Last.fm" />
 A lightweight (< 10Kb) and responsive website which displays global and user-specific trending tracks, built for A List Apart's "10k Apart" competition in 2011.
 
-- Design
-- HTML
-- Sass
-- JavaScript
-- jQuery
+<ul class="badges">
+  <li>HTML</li>
+  <li>Sass</li>
+  <li>jQuery</li>
+  <li>Design</li>
+</ul>
 
 ### [GymBuddy](http://gymbuddy.meteor.com)
-- MeteorJS
+
+<ul class="badges">
+  <li>Meteor.js</li>
+</ul>
+
 
 ### [RibbonWorks](http://ribbonworks.co.uk)
 Converted supplied PhotoShop documents into a skeleton markup and CSS framework.
 
-- HTML
-- CSS
+<ul class="badges">
+  <li>HTML</li>
+  <li>CSS</li>
+</ul>
 
 #### Github
 Here's the full listing of projects that I've been keeping under version control on Github:
 
-<ul>
+<ul class="badges">
   {% for repository in site.github.public_repositories %}
-    <li class="badge">{{ repository.full_name }} </li>
+    <li>{{ repository.full_name }} </li>
   {% endfor %}
 </ul>
