@@ -37,7 +37,7 @@ foo(); // 'this' is undefined
 {% endhighlight %}
 
 ### 2: Implicit Binding
-When calling a function as an object method, it's call site now has some context and the object in question should be used for the function's `this` binding.
+When calling a function as an object method, its call site now has some context and the object in question should be used for the function's `this` binding.
 
 {% highlight js %}
 function foo() {
