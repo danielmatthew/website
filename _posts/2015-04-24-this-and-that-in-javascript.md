@@ -7,12 +7,12 @@ layout: post
 
 ## What's `this`?
 
- The `this` keyword is dynamically bound based on how a particular function is executed. Because of this shifting nature, it can be tricky to keep track of what `this` might be referring to when it is called. With a little understanding of the rules behind `this`, we can be more confident when writing our code.
+ Unlike other languages where it refers to values stored in instance properties, the `this` keyword is dynamically bound based on how a particular function is executed. Because of its shifting nature, it can be tricky to keep track of what `this` might be referring to when it is called. With a little understanding of the rules behind `this`, we can be more confident when writing our code.
 
 There are four rules that help us figure out what `this` may be at a particular point in time, and these rules are based on the call-site of the function.
 
 ### 1: Default Binding
-When our function is invoked of its own accord, ala:
+When our function is invoked of its own accord, _ala_:
 
 {% highlight js %}
 function foo() {
@@ -37,7 +37,7 @@ foo(); // 'this' is undefined
 {% endhighlight %}
 
 ### 2: Implicit Binding
-When calling a function as an object method, it's call site now has _context_ and the object in question should be used for function's `this` binding.
+When calling a function as an object method, it's call site now has some context and the object in question should be used for the function's `this` binding.
 
 {% highlight js %}
 function foo() {
@@ -70,7 +70,7 @@ foo.call(obj); // 2
 
 
 #### Hard Binding
-Both implicit and explicit binding lose their `this` binding when passed around. The following pattern helps ensure that this doesn't happen.
+Both implicit and explicit binding lose their `this` binding when passed around. The following pattern helps ensure that this doesn't happen:
 
 {% highlight js %}
 function foo() {
@@ -91,7 +91,7 @@ setTimeout(bar, 100); // 2
 
 The new `bar()` function calls `foo()` with `this` bound to our object. `bar()` can be passed around, as it is to `setTimeout()`, and yet `this` remains 2.
 
-It might get a little tiresome wrapping functions for this purpose, and ES5 ([supported in IE9+ (or with ES5-shim)](https://kangax.github.io/compat-table/es5/)) gives us `bind()`: a utility that returns a new function that calls the original, with `this` set as required.
+It might get a little tiresome wrapping functions for this purpose, and ES5 ([supported natively in IE9+, or with ES5-shim](https://kangax.github.io/compat-table/es5/)) gives us `bind()`: a utility that returns a new function that calls the original, with `this` set as required.
 
 {% highlight js %}
 function foo(something) {
