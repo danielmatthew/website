@@ -3,7 +3,7 @@ title: setTimeout and setInterval
 layout: post
 ---
 
-JavaScript features a couple of useful utilities that allow the developer to schedule code to run outside of the normal execution flow.
+<p class="lead">JavaScript features a couple of useful utilities that allow the developer to schedule code to run outside of the normal execution flow.</p>
 
 ### setTimeout
 

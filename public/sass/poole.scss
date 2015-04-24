@@ -121,6 +121,10 @@ ul, ol, dl {
   margin-bottom: 1rem;
 }
 
+.post ul {
+  @extend %default-ul;
+}
+
 dt {
   font-weight: bold;
 }

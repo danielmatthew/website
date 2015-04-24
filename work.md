@@ -23,7 +23,7 @@ Please get in touch if there's anything I can help you with:
 
     <div class="form-controls">
       <label for="message">Your message:</label>
-      <textarea name="message" placeholder="Your message here" rows="5"></textarea>
+      <textarea name="message" placeholder="Your message here" rows="3"></textarea>
     </div>
 
     <div class="form-controls">
