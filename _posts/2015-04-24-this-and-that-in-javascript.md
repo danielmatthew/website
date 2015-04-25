@@ -91,7 +91,7 @@ setTimeout(bar, 100); // 2
 
 The new `bar()` function calls `foo()` with `this` bound to our object. `bar()` can be passed around, as it is to `setTimeout()`, and yet `this` remains 2.
 
-It might get a little tiresome wrapping functions for this purpose, and ES5 ([supported natively in IE9+, or with ES5-shim](https://kangax.github.io/compat-table/es5/)) gives us `bind()`: a utility that returns a new function that calls the original, with `this` set as required.
+It might get a little tiresome wrapping functions for this purpose, so ES5 ([supported natively in IE9+, or with ES5-shim](https://kangax.github.io/compat-table/es5/)) gives us `bind()`: a utility that returns a new function that calls the original, with `this` set as required.
 
 {% highlight js %}
 function foo(something) {
