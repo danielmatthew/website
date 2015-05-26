@@ -3,7 +3,7 @@ title: Each, Map, and Reduce
 layout: post
 ---
 
-<p class="lead">Functional programming (FP) aims to create predictable code by eliminating so-called <a href="https://programmers.stackexchange.com/questions/40297/what-is-a-side-effect">side effects"</a>: the confidence that the same code with the same arguments will produce the same resutlts. In order to achieve this, developers rely on <i>higher-order functions</i>: functions that operate on other functions.</p> 
+<p class="lead">Functional programming (FP) aims to create predictable code by eliminating so-called <a href="https://programmers.stackexchange.com/questions/40297/what-is-a-side-effect">side effects</a>: the confidence that the same code with the same arguments will produce the same resutlts. In order to achieve this, developers rely on <i>higher-order functions</i>: functions that operate on other functions.</p> 
 <p class="lead">JavaScript provides the developer with a number of useful functions that can be used to apply FP principles to their development.</p>
 
 ## forEach()
