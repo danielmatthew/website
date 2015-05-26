@@ -920,7 +920,7 @@ tbody tr:nth-child(odd) th {
 @media (max-width: 48rem) {
   .masthead-title small {
     display: none; } }
-.navigation {
+.navigation-menu {
   font-family: "Roboto", sans-serif; }
 
 .nav-link:first-child {
