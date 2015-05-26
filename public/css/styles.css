@@ -920,6 +920,9 @@ tbody tr:nth-child(odd) th {
 @media (max-width: 48rem) {
   .masthead-title small {
     display: none; } }
+.navigation {
+  font-family: "Roboto", sans-serif; }
+
 .nav-link:first-child {
   padding: 0 0.625em 0 0; }
 
@@ -950,6 +953,7 @@ tbody tr:nth-child(odd) th {
 /* Meta data line below post title */
 .post-date {
   display: block;
+  font-family: "Roboto", sans-serif;
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a; }
