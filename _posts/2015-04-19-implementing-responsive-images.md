@@ -3,6 +3,8 @@ title: Implementing Responsive Images
 layout: post
 ---
 
+**Updated 26/06/2015:** The [`sizes` attribute is no longer optional](http://alistapart.com/blog/post/article-update-dont-rely-on-default-sizes) if you want your code to validate. 
+
 I'm hoping that you'll notice the site - particularly my [work section](/work/) - is feeling a little snappier today: that's because I took it upon myself to implement a solution for responsive images.
 
 Take a look at this screenshot (also a responsive image, fact-fans): 
