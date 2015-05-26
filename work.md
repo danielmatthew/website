@@ -32,7 +32,7 @@ Please get in touch if there's anything I can help you with:
 </form>
 
 ### Article Search 
-<img src="/public/img/build/search-f.jpg 487w, /public/img/build/search-m.jpg 244w, /public/img/build/search-s.jpg 122w" src="/public/img/build/search-f.jpg" alt="Article Search App" />
+<img srcset="/public/img/build/search-f.jpg 487w, /public/img/build/search-m.jpg 244w, /public/img/build/search-s.jpg 122w" sizes="(max-width: 30em) 100vw" src="/public/img/build/search-f.jpg" alt="Article Search App" />
 
 Built using [Ionic framework](http://ionicframework.com/), this proof-of-concept mobile app allowed the user to search through a supplied data-set. Results were filtered live as the search-term was expanded upon. Article sub-sections could be expanded and collapsed to reveal relevant information.
 
