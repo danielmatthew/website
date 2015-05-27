@@ -19,7 +19,7 @@ if (foo > bar) {
 }
 
 console.log(baz); // 20
-{% highlight js %}
+{% endhighlight %}
 
 Look at that: five lines of code. We can do better than that, right? 
 
