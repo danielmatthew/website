@@ -326,6 +326,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -336,6 +337,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -346,6 +348,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -356,6 +359,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -366,6 +370,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -376,6 +381,7 @@ select {
   border-radius: 3.75em;
   color: white;
   display: inline-block;
+  font-family: "Roboto", sans-serif;
   font-size: 0.75em;
   font-weight: 600;
   line-height: 1;
@@ -867,6 +873,7 @@ tbody tr:nth-child(odd) th {
  */
 .lead {
   font-size: 1.25rem;
+  font-style: italic;
   font-weight: 300; }
 
 /*

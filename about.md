@@ -12,35 +12,22 @@ I'm a specialist in building responsive and elegant web user interfaces for appl
 
 This site is about learning in the best way: by doing.
 
-<form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
-    <input type="hidden" name="_subject" value="New website message">
-    <input type="text" name="name" placeholder="Your name">
-    <input type="email" name="_replyto" placeholder="Your email address" validate>
-    <textarea name="message" placeholder="Your message here"></textarea>
-    <input type="submit" value="Send">
-</form>
 
 ## Technology Stack
 
 ### Experimental
 A bunch of the new hotness that I'm tinkering with:
 
-<span class="badge">Ionic</span>
 <span class="badge">React</span>
 <span class="badge">Parse</span>
+<span class="badge">Firebase</span>
 <span class="badge">Framer</span>
-
-### Learning
-Q: When is a developer never _not_ learning?
-A: Never!
-
-<span class="badge">Swift</span>
 
 ### Modern
 Keeping an eye out for commercial projects that I can use these technologies with:
 
+<span class="badge">Ionic</span>
 <span class="badge">Angular</span>
-<span class="badge">Ember</span>
 <span class="badge">Meteor</span>
 <span class="badge">Node</span>
 

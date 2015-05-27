@@ -5,32 +5,6 @@ title: Work
 
 The following is a collection of work that I have undertaken over the past 12 months or so. On the whole, I like to build responsive web sites and rich web applications.
 
-I'd like to hear from you if you have a website that you'd like to ensure works across mobile, tablet, desktop, and TV. Using the latest in web standards, I write clean and semantic markup, concise stylesheets using the power of Sass, and add interactions with modern JavaScript.
-
-Please get in touch if there's anything I can help you with:
-
-<form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
-    <input type="hidden" name="_subject" value="New website message">
-    <div class="form-controls">
-      <label for="name">Your name:</label>
-      <input type="text" name="name" placeholder="Your name">
-    </div>
-
-    <div class="form-controls">
-      <label for="_replyto">Your email address:</label>
-      <input type="email" name="_replyto" placeholder="Your email address" validate>
-    </div>
-
-    <div class="form-controls">
-      <label for="message">Your message:</label>
-      <textarea name="message" placeholder="Your message here" rows="3"></textarea>
-    </div>
-
-    <div class="form-controls">
-      <input type="submit" value="Send">
-    </div>
-</form>
-
 ### Article Search 
 <img srcset="/public/img/build/search-f.jpg 487w, /public/img/build/search-m.jpg 244w, /public/img/build/search-s.jpg 122w" sizes="(max-width: 30em) 100vw" src="/public/img/build/search-f.jpg" alt="Article Search App" />
 
