@@ -56,10 +56,8 @@ html {
   padding-top: 1em;
 
   @media (min-width: 38em) {
-    html {
-      font-size: 20px;
-      padding: 1em;
-    }
+    font-size: 20px;
+    padding: 1em;
   }
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
