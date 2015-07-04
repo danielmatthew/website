@@ -3,7 +3,18 @@ layout: page
 title: Work
 ---
 
-The following is a collection of work that I have undertaken over the past 12 months or so. On the whole, I like to build responsive web sites and rich web applications.
+The following is a collection of work that I have undertaken for a multitude of clients over the past 12 months or so. The majority of my work consists of responsive web sites and single page applications, but I have recently begun building hybrid mobile applications.
+
+### Music Discovery App
+<img src="/public/img/build/music-f.jpg" alt="Music Discovery App" />
+
+This hybrid app using Ionic returns an array of tracks using Spotify's API. The user can listen to each 30-second sample in turn, and either favourite or skip the track. Favouriting the track pushes its entry to local storage in order to save state. When loaded again, this list is retrieved and can be used to choose which sample to listen to.
+
+<ul class="badges">
+  <li>Angular</li>
+  <li>Ionic</li>
+  <li>Spotify API</li>
+</ul>
 
 ### Article Search 
 <img srcset="/public/img/build/search-f.jpg 487w, /public/img/build/search-m.jpg 244w, /public/img/build/search-s.jpg 122w" sizes="(max-width: 30em) 100vw" src="/public/img/build/search-f.jpg" alt="Article Search App" />
