@@ -54,13 +54,19 @@ html {
   font-size: 16px;
   line-height: 1.5;
   padding-top: 1em;
-}
-@media (min-width: 38em) {
-  html {
-    font-size: 20px;
-    padding: 1em;
+
+  @media (min-width: 38em) {
+    html {
+      font-size: 20px;
+      padding: 1em;
+    }
+  }
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url('../geo-pattern@2x.png');
   }
 }
+
 
 body {
   border-top: 0.5em solid #f2422e;
