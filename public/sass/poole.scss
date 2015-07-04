@@ -49,27 +49,35 @@ body {
 }
 
 html {
+  background-image: url('../geo-pattern.png');
   font-family: $serif;
   font-size: 16px;
   line-height: 1.5;
+  padding-top: 1em;
 }
 @media (min-width: 38em) {
   html {
     font-size: 20px;
+    padding: 1em;
   }
 }
 
 body {
+  border-top: 0.5em solid #f2422e;
   color: #515151;
   background-color: #fff;
   font-family: $serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
+      @media (min-width: 38rem) {
+        border: 0.2em solid #f2422e;
+      }
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  color: #ee2e18;
   text-decoration: none;
 }
 a strong {
@@ -78,6 +86,7 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
+  color: #c4220f;
   text-decoration: underline;
 }
 
@@ -294,11 +303,17 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 38rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
   margin-right: auto;
+}
+
+.main {
+  flex: 1;
 }
 
 

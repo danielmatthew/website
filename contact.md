@@ -3,9 +3,9 @@ layout: page
 title: Contact
 ---
 
-I'd like to hear from you if you have a website or SPA that you'd like to ensure works across mobile, tablet, desktop. Using the latest in web standards, I write clean and semantic markup, concise stylesheets using the power of Sass, and add interactions with modern JavaScript.
+If you have a website or SPA that you'd like to ensure works across mobile, tablet, desktop, I'd love to hear from you. Using the latest in web standards, I write clean and semantic markup, concise stylesheets using the power of Sass, and add interactions with modern JavaScript.
 
-That said, I'm open to listening to interesting opportunities outside that remit. If my experiences in delivering mobile advertising solutions, mobile apps, and high-trafficked websites will complement your team, bring me in-house and lets see what we can achieve together.
+That said, I'm open to listening to interesting opportunities outside that remit. If my experiences in delivering mobile advertising solutions, hybrid mobile applications, and high-trafficked websites will complement your team, bring me in-house and lets see what we can achieve together.
 
 <form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
     <input type="hidden" name="_subject" value="New website message">
