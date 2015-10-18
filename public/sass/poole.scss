@@ -53,11 +53,9 @@ html {
   font-family: $serif;
   font-size: 16px;
   line-height: 1.5;
-  padding-top: 1em;
 
   @media (min-width: 38em) {
     font-size: 20px;
-    padding: 1em;
   }
 
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
@@ -75,9 +73,9 @@ body {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 
-      @media (min-width: 38rem) {
-        border: 0.2em solid #f2422e;
-      }
+  @media (min-width: 38rem) {
+    max-width: 38rem;
+  }
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
@@ -99,7 +97,7 @@ a:focus {
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-family: $sans-serif;
-  font-weight: bold;
+  font-weight: 300;
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
@@ -280,7 +278,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .lead {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-style: italic;
   font-weight: 300;
 }
@@ -304,7 +302,6 @@ tbody tr:nth-child(odd) th {
 /*
  * Container
  *
- * Center the page content.
  */
 
 .container {
@@ -313,8 +310,6 @@ tbody tr:nth-child(odd) th {
   max-width: 38rem;
   padding-left:  1rem;
   padding-right: 1rem;
-  margin-left:  auto;
-  margin-right: auto;
 }
 
 .main {
@@ -356,6 +351,7 @@ tbody tr:nth-child(odd) th {
 
 .navigation-menu {
   font-family: $sans-serif;
+  font-weight: 300;
 }
 
 .nav-link:first-child {
@@ -394,6 +390,7 @@ tbody tr:nth-child(odd) th {
 .post-date {
   display: block;
   font-family: $sans-serif;
+  font-variant: small-caps;
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;

@@ -2,7 +2,7 @@ exclude:		['node_modules', '.sass-cache']
 
 # Dependencies
 # markdown:         redcarpet
-pygments:         true
+highlighter:         true
 
 # Permalinks
 permalink:        pretty
@@ -14,8 +14,8 @@ description:      'Notes on modern web development with HTML, CSS, and JavaScrip
 url:              http://danmatthew.co.uk
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Daniel Matthew'
+  url:            https://twitter.com/danielm
 
 paginate:         10
 
@@ -30,9 +30,9 @@ github:
   url:           https://github.com/danielmatthew
 
 twitter:
-  url:			http://twitter.com/danielm
+  url:			https://twitter.com/danielm
 
 treehouse:
-  url:			http://teamtreehouse.com/danielmatthew
+  url:			https://teamtreehouse.com/danielmatthew
 
-updated: '08032015'
+updated: '18102015'
