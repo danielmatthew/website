@@ -2,7 +2,7 @@ exclude:		['node_modules', '.sass-cache']
 
 # Dependencies
 # markdown:         redcarpet
-highlighter:         true
+highlighter:         pygments
 
 # Permalinks
 permalink:        pretty
