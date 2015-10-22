@@ -70,6 +70,7 @@ body {
   color: #515151;
   background-color: #fff;
   font-family: $serif;
+  height: 100vh;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 
@@ -350,6 +351,9 @@ tbody tr:nth-child(odd) th {
 }
 
 .navigation-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   font-family: $sans-serif;
   font-weight: 300;
 }
