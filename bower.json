@@ -1,0 +1,23 @@
+{
+  "name": "danielmatthew.github.io",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danielmatthew/danielmatthew.github.io",
+  "authors": [
+    "Daniel Matthew <hello@danmatthew.co.uk>"
+  ],
+  "main": "index.html",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "basscss": "~7.0.4"
+  }
+}
