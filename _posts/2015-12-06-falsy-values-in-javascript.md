@@ -1,7 +1,7 @@
-—
+---
 title: Truthy and Falsy Values in JavaScript
 layout: post
-—
+---
 
 A common activity when writing code is to check whether a result is true or false before using it. You may have seen the following pattern: used to assign a default value to a parameter, should it be omitted.
 
