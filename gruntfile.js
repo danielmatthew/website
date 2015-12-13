@@ -33,11 +33,26 @@ module.exports = function(grunt) {
           spawn: false
         }
       }
+    },
+
+    styles: {
+      options: {
+        processors: []
+      },
+      dist: {
+        files: [{
+            expand: true,
+            cwd: 'public/',
+            src: ['**/*.css'],
+            dest: 'public/'
+        }]
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('watch', ['watch']);
