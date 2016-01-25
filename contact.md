@@ -9,7 +9,8 @@ That said, I'm open to listening to interesting opportunities outside that remit
 
 <form action="//formspree.io/formspree@danmatthew.co.uk" method="POST">
     <input type="hidden" name="_subject" value="New website message">
-    <div class="form-controls">
+    <input type="text" name="_gotcha" style="display:none" /> 
+   <div class="form-controls">
       <label for="name">Your name:</label>
       <input type="text" name="name" placeholder="Your name">
     </div>
