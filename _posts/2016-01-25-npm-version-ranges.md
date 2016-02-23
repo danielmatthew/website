@@ -18,3 +18,5 @@ layout: post
 | --- | --- | --- |
 | `^` | Caret range | Allows minor and patch updates |
 | `~` | Tilde range | Allows patch-level changes if minor version is specified |
+
+It's possible to add configure your project to help ensure only a specific version of a package is added. Create a file called `.npmrc`, and specify `save-exact=true`. As a bonus, you can also added `save=true` to make sure that any new installs are added to your projects' `package.json`
