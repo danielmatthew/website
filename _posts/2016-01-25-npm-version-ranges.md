@@ -1,5 +1,5 @@
 ---
-title: NPM101: Version Ranges
+title: NPM101 – Version Ranges
 layout: post
 ---
 
@@ -14,7 +14,7 @@ layout: post
   },
 {% endhighlight %}
 
-| Indicator | Name | Meaning | 
+| Indicator | Name | Meaning |
 | --- | --- | --- |
 | `^` | Caret range | Allows minor and patch updates |
 | `~` | Tilde range | Allows patch-level changes if minor version is specified |
