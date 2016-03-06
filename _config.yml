@@ -1,8 +1,8 @@
 exclude:		['node_modules', '.sass-cache']
 
 # Dependencies
-# markdown:         redcarpet
-highlighter:         pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
@@ -20,7 +20,7 @@ author:
 paginate:         10
 
 # Custom vars
-version:          1.1.0
+version:          1.1.1
 
 # Github repositories
 github_user: danielmatthew
@@ -35,4 +35,4 @@ twitter:
 treehouse:
   url:			https://teamtreehouse.com/danielmatthew
 
-updated: '18102015'
+updated: '06032016'
