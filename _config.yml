@@ -3,6 +3,7 @@ exclude:		['node_modules', '.sass-cache']
 # Dependencies
 markdown:         kramdown
 highlighter:      rouge
+gems: [jekyll-paginate]
 
 # Permalinks
 permalink:        pretty
