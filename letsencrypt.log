@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/usr/local/bin/letsencrypt", line 11, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python2.7/site-packages/letsencrypt/cli.py", line 1967, in main
+    setup_logging(config, _cli_log_handler, logfile='letsencrypt.log')
+  File "/usr/local/lib/python2.7/site-packages/letsencrypt/cli.py", line 1880, in setup_logging
+    config, logfile=logfile, fmt=fmt)
+  File "/usr/local/lib/python2.7/site-packages/letsencrypt/cli.py", line 1851, in setup_log_file_handler
+    log_file_path, maxBytes=2 ** 20, backupCount=10)
+  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/handlers.py", line 117, in __init__
+    BaseRotatingHandler.__init__(self, filename, mode, encoding, delay)
+  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/handlers.py", line 64, in __init__
+    logging.FileHandler.__init__(self, filename, mode, encoding, delay)
+  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/__init__.py", line 905, in __init__
+    StreamHandler.__init__(self, self._open())
+  File "/usr/local/Cellar/python/2.7.11/Frameworks/Python.framework/Versions/2.7/lib/python2.7/logging/__init__.py", line 935, in _open
+    stream = open(self.baseFilename, self.mode)
+IOError: [Errno 13] Permission denied: '/var/log/letsencrypt/letsencrypt.log'

@@ -1,16 +1,48 @@
-// Bourbon
-@import "bourbon/bourbon";
-
-// Neat
-@import "neat/neat";
-
-// Bitters
-@import "bitters/bitters";
-
-
 @import 'variables';
-@import 'forms';
-@import 'badges';
 @import 'syntax';
-@import 'poole';
-@import 'themes';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+html {
+  font-family: $serif;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @media (min-width: 38em) {
+    font-size: 18px;
+  }
+}
+
+body {
+  color: #515151;
+  background-color: #fff;
+  font-family: $serif;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+
+  @media (min-width: 38rem) {
+    max-width: 38rem;
+    margin: auto;
+  }
+}
+
+a {
+  color: $orange;
+  text-decoration: none;
+
+  // `:focus` is linked to `:hover` for basic accessibility */
+  :hover,
+  :focus {
+    color: #c4220f;
+    text-decoration: underline;
+  }
+}

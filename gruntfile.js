@@ -15,10 +15,11 @@ module.exports = function(grunt) {
     },
 
     sass: {
+      options: {
+        sourceMap: true,
+        style: 'compressed'
+      },
       dist: {
-        options: {
-          style: 'compressed'
-        },
         files: {
           'public/css/styles.css':'public/sass/styles.scss'
         }
@@ -26,12 +27,20 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      css: {
-        files: ['public/sass/**/*.scss'],
-        tasks: ['sass'],
-        options: {
-          spawn: false
-        }
+      options: {
+        dateFormat: function(time) {
+          grunt.log.writeln('The watch finished in ' + time + 'ms at ' + (new Date()).toString());
+          grunt.log.writeln('Waiting for more changes...');
+        },
+        livereload: true,
+        debounceDelay: 500
+      },
+      sass: {
+        files: ['public/sass/*.scss'],
+        tasks: ['sass']
+      },
+      livereload: {
+        files: ['public/**/*']
       }
     },
 
@@ -50,11 +59,11 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
   grunt.registerTask('watch', ['watch']);
-  grunt.registerTask('default', ['sass', 'imagemin']);
+  grunt.registerTask('default', ['sass']);
 };

@@ -3,10 +3,12 @@
   <body>
     <div class="container content">
       <header class="masthead" role="banner">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
-          </h3>
+          <hgroup>
+            <h1 class="masthead__title">
+              <a href="/" title="Home">{{ site.title }}</a>
+              <small>{{ site.tagline }}</small>
+            </h1>
+          </hgroup>
 
           {% include navigation.html %}
       </header>
