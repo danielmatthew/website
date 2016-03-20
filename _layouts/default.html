@@ -9,11 +9,11 @@
               <small>{{ site.tagline }}</small>
             </h1>
           </hgroup>
-
-          {% include navigation.html %}
       </header>
 
-      <main role="main">
+      {% include navigation.html %}
+
+      <main>
         {{ content }}
       </main>
 
@@ -21,5 +21,6 @@
         <small>&copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</small>
       </footer>
     </div>
+    <script src="http://localhost:35729/livereload.js"></script>
   </body>
 </html>

@@ -3,17 +3,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    imagemin: {
-      dynamic: {
-        files: [{
-          expand: true,
-          cwd: 'public/img/src/',
-          src: ['**/*.jpg'],
-          dest: 'public/img/build/'
-        }]
-      }
-    },
-
     sass: {
       options: {
         sourceMap: true,
@@ -32,31 +21,63 @@ module.exports = function(grunt) {
           grunt.log.writeln('The watch finished in ' + time + 'ms at ' + (new Date()).toString());
           grunt.log.writeln('Waiting for more changes...');
         },
-        livereload: true,
-        debounceDelay: 500
+        livereload: true
       },
       sass: {
+        files: ['public/sass/*.{scss,sass}'],
+        tasks: ['sass', 'postcss'],
+        options: {
+          livereload: true
+        }
+      },
+      css: {
         files: ['public/sass/*.scss'],
-        tasks: ['sass']
+        tasks: ['sass'],
+        options: {
+          livereload: true
+        }
+      },
+      gruntfile: {
+        files: ['gruntfile.js']
       },
       livereload: {
-        files: ['public/**/*']
+        files: ['public/**/*'],
+        options: {
+          livereload: true
+        }
       }
     },
 
-    styles: {
+    postcss: {
       options: {
-        processors: []
+        map: true,
+        processors: [
+          require('autoprefixer')({
+            browsers: ['last 2 versions']
+          })
+        ]
       },
       dist: {
         files: [{
-            expand: true,
-            cwd: 'public/',
-            src: ['**/*.css'],
-            dest: 'public/'
+          expand: true,
+          cwd: '.tmp/',
+          src: '{,*/}*.css',
+          dest: '.tmp/'
         }]
       }
-    }
+    },
+
+    imagemin: {
+      dynamic: {
+        files: [{
+          expand: true,
+          cwd: 'public/img/src/',
+          src: ['**/*.jpg'],
+          dest: 'public/img/build/'
+        }]
+      }
+    },
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -64,6 +85,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('watch', ['watch']);
-  grunt.registerTask('default', ['sass']);
+  grunt.registerTask('w', [
+    'sass',
+    'watch'
+  ]);
+  grunt.registerTask('default', ['postcss']);
 };

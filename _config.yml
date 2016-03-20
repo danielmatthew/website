@@ -9,7 +9,7 @@ gems: [jekyll-paginate]
 permalink:        pretty
 
 # Setup
-title:            Daniel Matthew
+title:            '@danielm'
 tagline:          'HTML, CSS, and JavaScript developer'
 description:      'Notes on modern web development with HTML, CSS, and JavaScript.'
 url:              http://danmatthew.co.uk

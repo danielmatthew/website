@@ -3,9 +3,5 @@ bower_components
 .sass-cache/
 public/img/src
 _site/
-public/sass/bourbon/
-public/sass/bitters/
-
-_drafts/2015-04-27-fizzbuzz-how-do-you-code-yours.md
-
 s3_website.yml
+letsencrypt.log

@@ -252,37 +252,103 @@
 * {
   box-sizing: border-box; }
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; }
-
 html {
-  font-family: Georgia, serif;
-  font-size: 16px;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1em;
   line-height: 1.5; }
   @media (min-width: 38em) {
     html {
-      font-size: 20px; } }
+      font-size: 24px; } }
 
 body {
   color: #515151;
   background-color: #fff;
-  font-family: Georgia, serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
-  @media (min-width: 38rem) {
-    body {
-      max-width: 38rem;
-      margin: auto; } }
 
 a {
   color: #477dca;
   text-decoration: none; }
   a :hover,
   a :focus {
-    color: #c4220f;
+    color: #3264ac;
     text-decoration: underline; }
+
+/* Code */
+code,
+pre {
+  font-family: Menlo, Monaco, "Courier New", monospace; }
+
+code {
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px; }
+
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  font-size: .8rem;
+  line-height: 1.4;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f9f9f9; }
+
+pre code {
+  padding: 0;
+  font-size: 100%;
+  color: inherit;
+  background-color: transparent; }
+
+/* Pygments via Jekyll */
+.highlight {
+  margin-bottom: 1rem;
+  border-radius: 4px; }
+
+.highlight pre {
+  margin-bottom: 0; }
+
+/*
+ * Container
+ *
+ */
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  margin: 1rem;
+  border: 2px solid #000; }
+
+.main {
+  flex: 0; }
+
+/*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+.masthead {
+  border-bottom: 2px solid #000;
+  text-align: center; }
+  .masthead .masthead__title {
+    text-transform: uppercase;
+    letter-spacing: 0.25em; }
+
+.masthead__title small {
+  display: block;
+  text-align: center;
+  font-size: 50%;
+  font-weight: 200;
+  color: #333;
+  letter-spacing: 0.125em;
+  font-variant: small-caps; }
+  @media (max-width: 48rem) {
+    .masthead__title small .masthead__title small {
+      display: none; } }
 
 /*# sourceMappingURL=styles.css.map */
