@@ -321,8 +321,7 @@ pre code {
   display: flex;
   flex-direction: column;
   max-width: 60rem;
-  margin: 1rem;
-  border: 2px solid #000; }
+  margin: 1rem; }
 
 .main {
   flex: 0; }
@@ -337,7 +336,7 @@ pre code {
   text-align: center; }
   .masthead .masthead__title {
     text-transform: uppercase;
-    letter-spacing: 0.25em; }
+    letter-spacing: 0.125em; }
 
 .masthead__title small {
   display: block;
