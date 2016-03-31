@@ -6,7 +6,7 @@
 }
 
 html {
-  font-family: $sans-serif;
+  font-family: $base-font-family;
   font-size: $base-font-size;
   line-height: $base-line-height;
 
@@ -88,7 +88,17 @@ pre code {
 }
 
 .main {
-  flex: 0;
+  flex: 1;
+}
+
+nav {
+  flex: 1;
+  order: -1;
+}
+
+.navigation-menu {
+  display: flex;
+  list-style: none;
 }
 
 /*
@@ -121,4 +131,8 @@ pre code {
       display: none;
     }
   }
+}
+
+main {
+    text-align: center;
 }
