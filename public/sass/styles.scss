@@ -87,18 +87,17 @@ pre code {
   margin: 1rem;
 }
 
-.main {
-  flex: 1;
-}
-
 nav {
-  flex: 1;
   order: -1;
 }
 
 .navigation-menu {
   display: flex;
   list-style: none;
+}
+
+.nav-link {
+  flex: 1;
 }
 
 /*
@@ -109,22 +108,22 @@ nav {
 
 .masthead {
   border-bottom: 2px solid #000;
-  text-align: center;
+  // text-align: center;
 
   .masthead__title {
-    text-transform: uppercase;
-    letter-spacing: 0.125em;
+    // text-transform: uppercase;
+    // letter-spacing: 0.125em;
   }
 }
 
 .masthead__title small {
   display: block;
-  text-align: center;
+  // text-align: center;
   font-size: 50%;
   font-weight: 200;
   color: $dark-gray;
-  letter-spacing: 0.125em;
-  font-variant: small-caps;;
+  // letter-spacing: 0.125em;
+  // font-variant: small-caps;;
 
   @media (max-width: 48rem) {
     .masthead__title small {
@@ -133,6 +132,6 @@ nav {
   }
 }
 
-main {
-    text-align: center;
+.post-title {
+  font-weight: normal;
 }

@@ -323,16 +323,15 @@ pre code {
   max-width: 60rem;
   margin: 1rem; }
 
-.main {
-  flex: 1; }
-
 nav {
-  flex: 1;
   order: -1; }
 
 .navigation-menu {
   display: flex;
   list-style: none; }
+
+.nav-link {
+  flex: 1; }
 
 /*
  * Masthead
@@ -340,25 +339,18 @@ nav {
  * Super small header above the content for site name and short description.
  */
 .masthead {
-  border-bottom: 2px solid #000;
-  text-align: center; }
-  .masthead .masthead__title {
-    text-transform: uppercase;
-    letter-spacing: 0.125em; }
+  border-bottom: 2px solid #000; }
 
 .masthead__title small {
   display: block;
-  text-align: center;
   font-size: 50%;
   font-weight: 200;
-  color: #333;
-  letter-spacing: 0.125em;
-  font-variant: small-caps; }
+  color: #333; }
   @media (max-width: 48rem) {
     .masthead__title small .masthead__title small {
       display: none; } }
 
-main {
-  text-align: center; }
+.post-title {
+  font-weight: normal; }
 
 /*# sourceMappingURL=styles.css.map */
