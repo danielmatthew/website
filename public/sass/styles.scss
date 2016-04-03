@@ -34,46 +34,7 @@ a {
   }
 }
 
-/* Code */
-code,
-pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
-}
-code {
-  padding: .25em .5em;
-  font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-}
-pre {
-  display: block;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  font-size: .8rem;
-  line-height: 1.4;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
-}
-pre code {
-  padding: 0;
-  font-size: 100%;
-  color: inherit;
-  background-color: transparent;
-}
 
-/* Pygments via Jekyll */
-.highlight {
-  margin-bottom: 1rem;
-  border-radius: 4px;
-}
-.highlight pre {
-  margin-bottom: 0;
-}
 
 /*
  * Container
@@ -85,10 +46,6 @@ pre code {
   flex-direction: column;
   max-width: 60rem;
   margin: 1rem;
-}
-
-nav {
-  order: -1;
 }
 
 .navigation-menu {
@@ -107,13 +64,10 @@ nav {
  */
 
 .masthead {
-  border-bottom: 2px solid #000;
-  // text-align: center;
-
-  .masthead__title {
-    // text-transform: uppercase;
-    // letter-spacing: 0.125em;
-  }
+  border: 1rem solid red;
+  background-image: url('http://placehold.it/1280x720');
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .masthead__title small {
@@ -134,4 +88,8 @@ nav {
 
 .post-title {
   font-weight: normal;
+}
+
+footer {
+  text-align: center;
 }
