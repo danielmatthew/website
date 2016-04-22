@@ -3,6 +3,8 @@ title: NPM101 – Version Ranges
 layout: post
 ---
 
+The following is a snippet from this site's `package.json`:
+
 {% highlight json %}
   "devDependencies": {
     "bower": "^1.6.5",
@@ -11,8 +13,10 @@ layout: post
     "grunt-contrib-sass": "~0.9.2",
     "grunt-contrib-watch": "~0.6.1",
     "matchdep": "~0.3.0"
-  },
+  }
 {% endhighlight %}
+
+As per the JSON spec, we've got a series of key/value pairs making up the `devDependencies` object: the name of the package we want installed for those working on the project, and the version number of that package. However, using `npm install <package>` will leave odd extra characters in the generated file. So what do they mean? 
 
 | Indicator | Name | Meaning |
 | --- | --- | --- |
