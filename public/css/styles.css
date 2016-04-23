@@ -336,7 +336,6 @@ a {
  * Super small header above the content for site name and short description.
  */
 .masthead {
-  border: 1rem solid red;
   background-image: url("http://placehold.it/1280x720");
   background-size: cover;
   min-height: 100vh; }
