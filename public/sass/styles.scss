@@ -1,16 +1,94 @@
-// Bourbon
-@import "bourbon/bourbon";
-
-// Neat
-@import "neat/neat";
-
-// Bitters
-@import "bitters/bitters";
-
-
 @import 'variables';
-@import 'forms';
-@import 'badges';
 @import 'syntax';
-@import 'poole';
-@import 'themes';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+
+  @media (min-width: 38em) {
+    font-size: 24px;
+  }
+}
+
+body {
+  color: #515151;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+
+  // `:focus` is linked to `:hover` for basic accessibility */
+  :hover,
+  :focus {
+    color: darken($blue, 10);;
+    text-decoration: underline;
+  }
+}
+
+
+
+/*
+ * Container
+ *
+ */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 60rem;
+  margin: 1rem;
+}
+
+.navigation-menu {
+  display: flex;
+  list-style: none;
+}
+
+.nav-link {
+  flex: 1;
+}
+
+/*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+
+.masthead {
+  background-image: url('http://placehold.it/1280x720');
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.masthead__title small {
+  display: block;
+  // text-align: center;
+  font-size: 50%;
+  font-weight: 200;
+  color: $dark-gray;
+  // letter-spacing: 0.125em;
+  // font-variant: small-caps;;
+
+  @media (max-width: 48rem) {
+    .masthead__title small {
+      display: none;
+    }
+  }
+}
+
+.post-title {
+  font-weight: normal;
+}
+
+footer {
+  text-align: center;
+}
