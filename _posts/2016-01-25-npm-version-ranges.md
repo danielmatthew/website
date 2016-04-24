@@ -1,9 +1,10 @@
 ---
 title: NPM101 – Version Ranges
 layout: post
+tags: [npm, json, bower, grunt]
 ---
 
-{% highlight json %}
+{% highlight json linenos %}
   "devDependencies": {
     "bower": "^1.6.5",
     "grunt": "~0.4.5",
@@ -11,7 +12,7 @@ layout: post
     "grunt-contrib-sass": "~0.9.2",
     "grunt-contrib-watch": "~0.6.1",
     "matchdep": "~0.3.0"
-  },
+  }
 {% endhighlight %}
 
 | Indicator | Name | Meaning |

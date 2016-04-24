@@ -292,7 +292,7 @@ pre code {
   box-sizing: border-box; }
 
 html {
-  font-family: Times, serif;
+  font-family: Georgia, serif;
   font-size: 1em;
   line-height: 1.5; }
   @media (min-width: 38em) {
@@ -300,6 +300,8 @@ html {
       font-size: 24px; } }
 
 body {
+  margin: 0;
+  padding: 0;
   color: #515151;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
@@ -312,6 +314,14 @@ a {
   a :focus {
     color: #3264ac;
     text-decoration: underline; }
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: "Helvetica Neue", sans-serif; }
 
 /*
  * Container
@@ -329,6 +339,9 @@ a {
 
 .nav-link {
   flex: 1; }
+
+nav {
+  background-color: #000; }
 
 /*
  * Masthead

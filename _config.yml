@@ -1,4 +1,4 @@
-exclude:		['node_modules', '.sass-cache']
+exclude:		['node_modules', 'bower_components', '.sass-cache']
 
 # Dependencies
 markdown:         kramdown
