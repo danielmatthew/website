@@ -10,8 +10,8 @@ permalink:        pretty
 
 # Setup
 title:            Daniel Matthew
-tagline:          'HTML, CSS, and JavaScript developer'
-description:      'Notes on modern web development with HTML, CSS, and JavaScript.'
+tagline:          'Web development and accessibility'
+description:      'Articles on web development, accessibility, and performance by Daniel Matthew.'
 url:              http://danmatthew.co.uk
 
 author:
@@ -21,7 +21,7 @@ author:
 paginate:         10
 
 # Custom vars
-version:          1.1.1
+version:          1.2.1
 
 # Github repositories
 github_user: danielmatthew
@@ -36,4 +36,4 @@ twitter:
 treehouse:
   url:			https://teamtreehouse.com/danielmatthew
 
-updated: '06032016'
+updated: '01062016'

@@ -5,7 +5,7 @@ $error-color: #fbe3e4 !default;
 $notice-color: #e5edf8 !default;
 $success-color: #e6efc2 !default;
 
-@mixin badge($color: $red) {
+@mixin badge($color: $orange) {
   background-color: $color;
   border-radius: $badge-font-size * 5;
   color: white;;

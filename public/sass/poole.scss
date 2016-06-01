@@ -83,8 +83,10 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  color: #c4220f;
-  text-decoration: underline;
+  color: #fff;
+  background-color: desaturate(#c4420f, 20%);
+  border-top: 1px solid $orange;
+  border-bottom: 1px solid $orange;
 }
 
 /* Headings */
@@ -374,10 +376,10 @@ tbody tr:nth-child(odd) th {
 
 /* Blog post or page title */
 .page-title,
-.post-title,
-.post-title a {
+.post-title {
   color: #303030;
 }
+
 .page-title,
 .post-title {
   margin-top: 0;
@@ -387,7 +389,6 @@ tbody tr:nth-child(odd) th {
 .post-date {
   display: block;
   font-family: $sans-serif;
-  font-variant: small-caps;
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
