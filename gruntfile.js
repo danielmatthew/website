@@ -47,13 +47,20 @@ module.exports = function(grunt) {
             dest: 'public/'
         }]
       }
+    },
+
+    rev: {
+      files: {
+        src: ['js/main.js', 'css/styles.css']
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-sass');
+  // grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-rev');
 
   grunt.registerTask('watch', ['watch']);
   grunt.registerTask('default', ['sass', 'imagemin']);
