@@ -196,8 +196,7 @@ pre code {
 
 /* Pygments via Jekyll */
 .highlight {
-  margin-bottom: 1rem;
-  border-radius: 4px;
+  margin: 0 0 1rem;
 }
 .highlight pre {
   margin-bottom: 0;
@@ -346,11 +345,11 @@ tbody tr:nth-child(odd) th {
 }
 
 .navigation-menu {
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   font-family: $sans-serif;
-  font-weight: 300;
 }
 
 .nav-link:first-child {
