@@ -1,4 +1,4 @@
-exclude:		['node_modules', '.sass-cache']
+exclude:		['node_modules', 'bower_components', '.sass-cache']
 
 # Dependencies
 markdown:         kramdown
@@ -12,7 +12,7 @@ permalink:        pretty
 title:            Daniel Matthew
 tagline:          'Web development and accessibility'
 description:      'Articles on web development, accessibility, and performance by Daniel Matthew.'
-url:              http://danmatthew.co.uk
+url:              https://danmatthew.co.uk
 
 author:
   name:           'Daniel Matthew'
@@ -36,4 +36,4 @@ twitter:
 treehouse:
   url:			https://teamtreehouse.com/danielmatthew
 
-updated: '01062016'
+updated: '02062016'
