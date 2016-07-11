@@ -24,6 +24,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    
+    postcss: {
+        options: {
+            map: true,
+            processors: [
+                require('autoprefixer')({browsers: 'last 2 versions'}),
+                require('cssnano')()
+            ]
+        },
+        dist: {
+            src: 'css/*.css'
+        }
+    },
 
     watch: {
       css: {
@@ -57,11 +70,11 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-sass');
-  // grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-rev');
+  // grunt.loadNpmTasks('grunt-rev');
 
   grunt.registerTask('watch', ['watch']);
-  grunt.registerTask('default', ['sass', 'imagemin']);
+  grunt.registerTask('css', ['postcss']);
+  grunt.registerTask('default', ['postcss', 'imagemin']);
 };
