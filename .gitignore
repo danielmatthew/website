@@ -3,5 +3,4 @@ bower_components
 .sass-cache/
 public/img/src
 _site/
-s3_website.yml
 letsencrypt.log
