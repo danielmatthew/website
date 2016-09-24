@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -25,6 +26,20 @@ module.exports = function(grunt) {
       }
     },
 
+    postcss: {
+        options: {
+            map: true,
+            processors: [
+                require('autoprefixer')({browsers: 'last 2 versions'}),
+                require('cssnano')()
+            ]
+        },
+        dist: {
+            src: 'public/sass/**/*.scss',
+            dest: 'css/styles.css'
+        }
+    },
+
     watch: {
       css: {
         files: ['public/sass/**/*.scss'],
@@ -49,19 +64,24 @@ module.exports = function(grunt) {
       }
     },
 
-    rev: {
-      files: {
-        src: ['js/main.js', 'css/styles.css']
-      }
+    filerev: {
+        options: {
+            algorithm: 'md5',
+            length: 8
+        },
+        styles: {
+            src: 'public/css/styles.css'
+        }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-sass');
-  // grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-rev');
+  grunt.loadNpmTasks('grunt-filerev');
 
   grunt.registerTask('watch', ['watch']);
-  grunt.registerTask('default', ['sass', 'imagemin']);
+  grunt.registerTask('css', ['postcss']);
+  grunt.registerTask('rev', ['filerev']);
+  grunt.registerTask('default', ['postcss', 'imagemin']);
 };
