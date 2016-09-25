@@ -9,7 +9,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'public/img/src/',
-          src: ['**/*.{jpg,png'],
+          src: ['*.{jpg,png'],
           dest: 'public/img/build/'
         }]
       }
@@ -35,17 +35,42 @@ module.exports = function(grunt) {
             ]
         },
         dist: {
-            src: 'public/sass/**/*.scss',
-            dest: 'css/styles.css'
+          files: [{
+            expand: true,
+            cwd: '.tmp/',
+            src: '{,*/}*.css',
+            dest: '.tmp/'
+          }]
         }
     },
 
     watch: {
+      options: {
+        dateFormat: function(time) {
+          grunt.log.writeln('The watch finished in: ' + time + 'ms at ' + (new Date()).toString());
+          grunt.log.writeln('Waiting for more changes...');
+        },
+        livereload: true
+      },
+      sass: {
+        files: ['public/sass/*.{scss,sass}'],
+        tasks: ['sass', 'postcss'],
+        options: {
+          livereload: true
+        }
+      },
       css: {
-        files: ['public/sass/**/*.scss'],
+        files: ['public/sass/*.scss'],
         tasks: ['sass'],
         options: {
-          spawn: false
+          spawn: false,
+          livereload: true
+        }
+      },
+      livereload: {
+        files: ['public/**/*'],
+        options: {
+          livereload: true
         }
       }
     },
@@ -75,13 +100,19 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-imagemin');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-filerev');
+
 
   grunt.registerTask('watch', ['watch']);
   grunt.registerTask('css', ['postcss']);
   grunt.registerTask('rev', ['filerev']);
-  grunt.registerTask('default', ['postcss', 'imagemin']);
+  grunt.registerTask('w', [
+    'sass',
+    'watch'
+  ]);
+  grunt.registerTask('default', ['postcss']);
 };
