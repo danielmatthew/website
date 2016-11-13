@@ -351,8 +351,7 @@
 html,
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden; }
+  padding: 0; }
 
 html {
   font-family: "freight-text-pro", serif;
@@ -364,14 +363,10 @@ html {
 
 body {
   color: #515151;
-  background-color: #fff;
+  background-color: #ffffff;
   font-family: "freight-text-pro", serif;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
-  @media (min-width: 38rem) {
-    body {
-      max-width: 38rem;
-      margin: auto; } }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
@@ -383,7 +378,7 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover {
   color: #fff;
-  background-color: #880e4f; }
+  background-color: #e91e63; }
 
 a:focus {
   text-decoration: none;
@@ -518,7 +513,7 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0; }
 
-@media (min-width: 30em) {
+@media (min-width: 38rem) {
   blockquote {
     padding-right: 5rem;
     padding-left: 1.25rem; } }
@@ -572,39 +567,11 @@ tbody tr:nth-child(odd) th {
  *
  */
 .container {
-  max-width: 38rem;
-  padding-left: 1rem;
-  padding-right: 1rem; }
-
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
-.masthead {
-  padding-top: 1rem;
-  padding-bottom: 1rem; }
-
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-  font-size: 1rem; }
-
-.masthead-title > a {
-  text-decoration: none;
-  color: inherit; }
-  .masthead-title > a:hover {
-    color: #ffffff; }
-
-.masthead-title small {
-  font-size: 75%;
-  color: #c0c0c0;
-  letter-spacing: 0; }
-
-@media (max-width: 48rem) {
-  .masthead-title small {
-    display: none; } }
+  margin: auto;
+  max-width: 38rem; }
+  @media (max-width: 38rem) {
+    .container {
+      padding: 0 1rem; } }
 
 .navigation-menu {
   padding: 0;
@@ -676,6 +643,30 @@ tbody tr:nth-child(odd) th {
   text-align: center; }
 
 /*
+ * Masthead
+ *
+ * Super small header above the content for site name and short description.
+ */
+.masthead {
+  padding-top: 1rem;
+  padding-bottom: 1rem; }
+  .masthead__title {
+    margin: 0 initial;
+    color: #505050;
+    font-size: 1rem; }
+    .masthead__title > a {
+      text-decoration: none;
+      color: inherit; }
+      .masthead__title > a:hover {
+        color: #ffffff; }
+    .masthead__title > small {
+      font-size: 75%;
+      color: #c0c0c0; }
+      @media (max-width: 48rem) {
+        .masthead__title > small {
+          display: none; } }
+
+/*
  * Pagination
  *
  * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
@@ -701,7 +692,7 @@ tbody tr:nth-child(odd) th {
 
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
-  background-color: #f5f5f5; }
+  background-color: #e91e63; }
 
 @media (min-width: 30em) {
   .pagination {

@@ -45,7 +45,6 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 html {
@@ -61,15 +60,11 @@ html {
 
 body {
   color: #515151;
-  background-color: #fff;
+  background-color: #ffffff;
   font-family: $serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 
-  @media (min-width: 38rem) {
-    max-width: 38rem;
-    margin: auto;
-  }
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
@@ -82,7 +77,7 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover {
   color: #fff;
-  background-color: #880e4f;
+  background-color: #e91e63;
 }
 
 a:focus {
@@ -230,7 +225,7 @@ blockquote {
 blockquote p:last-child {
   margin-bottom: 0;
 }
-@media (min-width: 30em) {
+@media (min-width: 38rem) {
   blockquote {
     padding-right: 5rem;
     padding-left: 1.25rem;
@@ -296,46 +291,15 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
+  margin: auto;
   max-width: 38rem;
-  padding-left:  1rem;
-  padding-right: 1rem;
-}
 
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
-
-.masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-}
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-  font-size: 1rem;
-}
-.masthead-title > a {
-  text-decoration: none;
-  color: inherit;
-
-  &:hover {
-    color: #ffffff;
+  @media (max-width: 38rem) {
+    padding: 0 1rem;
   }
 }
-.masthead-title small {
-  font-size: 75%;
-  color: #c0c0c0;
-  letter-spacing: 0;
-}
 
-@media (max-width: 48rem) {
-  .masthead-title small {
-    display: none;
-  }
-}
+
 
 .navigation-menu {
   padding: 0;
