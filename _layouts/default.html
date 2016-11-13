@@ -1,12 +1,12 @@
 {% include head.html %}
 
   <body>
-    <div class="container content">
+    <div class="container">
       <header class="masthead" role="banner">
-          <h3 class="masthead-title">
+          <h1 class="masthead-title">
             <a href="/" title="Home">{{ site.title }}</a>
             <small>{{ site.tagline }}</small>
-          </h3>
+          </h1>
 
           {% include navigation.html %}
       </header>
@@ -16,8 +16,18 @@
       </main>
 
       <footer class="footer" role="contentinfo">
-        <small>&copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</small>
+        <small>&copy; 2005 – <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</small>
       </footer>
     </div>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'ilm3ank',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
   </body>
 </html>

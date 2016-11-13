@@ -53,8 +53,8 @@ html {
   font-size: 16px;
   line-height: 1.5;
 
-  @media (min-width: 38em) {
-    font-size: 20px;
+  @media (min-width: 38rem) {
+    font-size: 28px;
   }
 }
 
@@ -74,26 +74,26 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #ee2e18;
-  text-decoration: none;
+  color: #e91e63;
 }
 a strong {
   color: inherit;
 }
 /* `:focus` is linked to `:hover` for basic accessibility */
-a:hover,
-a:focus {
+a:hover {
   color: #fff;
-  background-color: desaturate(#c4420f, 20%);
-  border-top: 1px solid $orange;
-  border-bottom: 1px solid $orange;
+  background-color: #880e4f;
+}
+
+a:focus {
+  text-decoration: none;
+  outline: 5px solid #e91e63;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-family: $sans-serif;
-  font-weight: 300;
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
@@ -129,10 +129,6 @@ strong {
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
-}
-
-.post ul {
-  @extend %default-ul;
 }
 
 dt {
@@ -300,17 +296,10 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  display: flex;
-  flex-direction: column;
   max-width: 38rem;
   padding-left:  1rem;
   padding-right: 1rem;
 }
-
-.main {
-  flex: 1;
-}
-
 
 /*
  * Masthead
@@ -321,19 +310,23 @@ tbody tr:nth-child(odd) th {
 .masthead {
   padding-top:    1rem;
   padding-bottom: 1rem;
-  margin-bottom: 3rem;
 }
 .masthead-title {
   margin-top: 0;
   margin-bottom: 0;
   color: #505050;
+  font-size: 1rem;
 }
-.masthead-title a {
-  color: #505050;
+.masthead-title > a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: #ffffff;
+  }
 }
 .masthead-title small {
   font-size: 75%;
-  font-weight: 400;
   color: #c0c0c0;
   letter-spacing: 0;
 }
@@ -346,9 +339,6 @@ tbody tr:nth-child(odd) th {
 
 .navigation-menu {
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
   font-family: $sans-serif;
 }
 
@@ -374,6 +364,9 @@ tbody tr:nth-child(odd) th {
 }
 
 /* Blog post or page title */
+.post-title > a {
+  text-decoration: none;
+}
 .page-title,
 .post-title {
   color: #303030;
@@ -416,58 +409,6 @@ tbody tr:nth-child(odd) th {
 }
 .related-posts li a:hover small {
   color: inherit;
-}
-
-
-/*
- * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
- */
-
-.pagination {
-  overflow: hidden; /* clearfix */
-  margin-left: -1rem;
-  margin-right: -1rem;
-  font-family: $sans-serif;
-  color: #ccc;
-  text-align: center;
-}
-
-/* Pagination items can be `span`s or `a`s */
-.pagination-item {
-  display: block;
-  padding: 1rem;
-  border: 1px solid #eee;
-}
-.pagination-item:first-child {
-  margin-bottom: -1px;
-}
-
-/* Only provide a hover state for linked pagination items */
-a.pagination-item:hover {
-  background-color: #f5f5f5;
-}
-
-@media (min-width: 30em) {
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    float: left;
-    width: 50%;
-  }
-  .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
-    border-bottom-left-radius: 4px;
-  }
-  .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
-    border-bottom-right-radius: 4px;
-  }
 }
 
 .footer {
