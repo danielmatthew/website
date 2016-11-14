@@ -49,7 +49,7 @@ body {
 
 html {
   font-family: $serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5;
 
   @media (min-width: 38rem) {
@@ -299,8 +299,6 @@ tbody tr:nth-child(odd) th {
   }
 }
 
-
-
 .navigation-menu {
   padding: 0;
   font-family: $sans-serif;
@@ -328,21 +326,24 @@ tbody tr:nth-child(odd) th {
 }
 
 /* Blog post or page title */
-.post-title > a {
+.post__info {
+  text-align: center;
+}
+
+.post__title > a {
   text-decoration: none;
 }
 .page-title,
-.post-title {
+.post__title {
   color: #303030;
-}
-
-.page-title,
-.post-title {
   margin-top: 0;
+  font-size: 3.5rem;
+  line-height: 1;
 }
 
 /* Meta data line below post title */
-.post-date {
+.post__tags,
+.post__date {
   display: block;
   font-family: $sans-serif;
   margin-top: -.5rem;

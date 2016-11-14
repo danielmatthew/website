@@ -355,7 +355,7 @@ body {
 
 html {
   font-family: "freight-text-pro", serif;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.5; }
   @media (min-width: 38rem) {
     html {
@@ -595,19 +595,22 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 4em; }
 
 /* Blog post or page title */
-.post-title > a {
+.post__info {
+  text-align: center; }
+
+.post__title > a {
   text-decoration: none; }
 
 .page-title,
-.post-title {
-  color: #303030; }
-
-.page-title,
-.post-title {
-  margin-top: 0; }
+.post__title {
+  color: #303030;
+  margin-top: 0;
+  font-size: 3.5rem;
+  line-height: 1; }
 
 /* Meta data line below post title */
-.post-date {
+.post__tags,
+.post__date {
   display: block;
   font-family: "freight-macro-pro", sans-serif;
   margin-top: -.5rem;
@@ -662,9 +665,6 @@ tbody tr:nth-child(odd) th {
     .masthead__title > small {
       font-size: 75%;
       color: #c0c0c0; }
-      @media (max-width: 48rem) {
-        .masthead__title > small {
-          display: none; } }
 
 /*
  * Pagination

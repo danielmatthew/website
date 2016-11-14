@@ -1,10 +1,13 @@
 ---
 title: Column Sizing and Captions in Safari
 layout: post
+tags: [css, web development]
 ---
 
 
-**Updated 25/09/2016:** It still appears to be an issue in Safari 10.0 (macOS Sierra).
+<p class="message">
+  <em>Updated 25/09/2016:</em> It still appears to be an issue in Safari 10.0 (macOS Sierra).
+</p>
 
 A couple of weeks ago, I encountered an odd rendering issue with Safari and column widths. I had planned to write about it, lest the afternoon I spent trying to debug it be of use to anyone who stumbles across this post. Before I could get round to it, lo and behold: I've fallen victim to it again! Safari on OSX - both Yosemite and El Capitan - does not like the following scenario:
 

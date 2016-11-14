@@ -25,10 +25,6 @@
     > small {
       font-size: 75%;
       color: #c0c0c0;
-
-      @media (max-width: 48rem) {
-        display: none;
-      }
     }
   }
 }
