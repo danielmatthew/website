@@ -7,3 +7,6 @@ public/sass/bourbon/
 public/sass/bitters/
 
 _drafts/2015-04-27-fizzbuzz-how-do-you-code-yours.md
+
+.tmp/
+s3_website.yml

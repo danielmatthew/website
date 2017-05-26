@@ -25,15 +25,12 @@ version:          1.2.1
 
 # Github repositories
 github_user: danielmatthew
-github_repo_url: https://github.com/danielmatthew/danielmatthew.github.io/
+github_repo_url: https://github.com/danielmatthew/danielmatthew.co.uk/
 
 github:
   url:           https://github.com/danielmatthew
 
 twitter:
   url:			https://twitter.com/danielm
-
-treehouse:
-  url:			https://teamtreehouse.com/danielmatthew
 
 updated: '02062016'

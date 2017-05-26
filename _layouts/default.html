@@ -1,12 +1,12 @@
 {% include head.html %}
 
   <body>
-    <div class="container content">
+    <div class="container">
       <header class="masthead" role="banner">
-          <h3 class="masthead-title">
+          <h1 class="masthead__title">
             <a href="/" title="Home">{{ site.title }}</a>
             <small>{{ site.tagline }}</small>
-          </h3>
+          </h1>
 
           {% include navigation.html %}
       </header>
@@ -16,7 +16,7 @@
       </main>
 
       <footer class="footer" role="contentinfo">
-        <small>&copy; <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</small>
+        <small>&copy; 2005 – <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: '%Y' }}</time>. All rights reserved.</small>
       </footer>
     </div>
   </body>
