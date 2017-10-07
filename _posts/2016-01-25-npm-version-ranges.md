@@ -1,7 +1,7 @@
 ---
 title: NPM101 – Version Ranges
 layout: post
-published: false
+published: true
 ---
 
 The following is a snippet from this site's `package.json`:
