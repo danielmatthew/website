@@ -16,18 +16,23 @@ before_script:
   - yarn
 script:
   # Build your site (e.g., HTML, CSS, JS) here.
-  yarn run build
+  yarn build
 deploy:
+  on:
+    branch: master
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: $S3_BUCKET_NAME
+    bucket: danmatthew.co.uk
     region: $AWS_DEFAULT_REGION
+    # Prevent Travis from deleting your built site so it can be uploaded.
     skip_cleanup: true
+    # Path to a directory containing your built site.
     local_dir: dist
+    # Set the Cache-Control header.
     cache_control: "max-age=21600"
-    on:
-      branch: master
 after_deploy:
+  # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
+  # Invalidate every object in the targeted distribution.
   - test $TRAVIS_BRANCH = "master" && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
