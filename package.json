@@ -10,6 +10,7 @@
     "gatsby-plugin-react-helmet": "^1.0.6",
     "gatsby-source-filesystem": "^1.4.11",
     "gatsby-transformer-remark": "^1.7.6",
+    "slug": "^0.9.1",
     "tachyons": "^4.9.0"
   },
   "devDependencies": {
