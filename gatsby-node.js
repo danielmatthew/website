@@ -2,7 +2,6 @@ const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  console.log("onCreateNode was called!");
   const { createNodeField } = boundActionCreators;
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode, basePath: "pages" });
