@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "gatsby-link";
-import Helmet from "react-helmet";
+import React from 'react'
+import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
 
 export default ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark;
+  const { edges: posts } = data.allMarkdownRemark
 
   return (
     <div>
@@ -15,32 +15,32 @@ export default ({ data }) => {
           <div key={post.id}>
             <Link to={post.fields.slug}>
               <h3>
-                {post.frontmatter.title} - <span>{post.frontmatter.date}</span>
+                {post.frontmatter.title} - <span>{post.fields.date}</span>
               </h3>
               <p>{post.excerpt}</p>
             </Link>
           </div>
         ))}
     </div>
-  );
-};
+  )
+}
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
       totalCount
       edges {
         node {
           id
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
           }
           fields {
             slug
+            date(formatString: "MMMM DD, YYYY")
           }
         }
       }
     }
   }
-`;
+`

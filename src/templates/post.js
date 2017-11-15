@@ -1,18 +1,15 @@
-import React from "react";
+import React from 'react'
 
 export default ({ data }) => {
-  const post = data.markdownRemark;
+  const post = data.markdownRemark
 
   return (
-    <div className="mw5 center bg-light-gray">
-      <h1 className="mt0">{post.frontmatter.title}</h1>
-      <div
-        className="1h-copy measure"
-        dangerouslySetInnerHTML={{ __html: post.html }}
-      />
+    <div>
+      <h1>{post.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
-  );
-};
+  )
+}
 
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
@@ -23,4 +20,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
