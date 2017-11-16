@@ -22,9 +22,11 @@ before_script:
 script:
   # Build your site (e.g., HTML, CSS, JS) here.
   yarn build
-after_script:
+deploy:
+  skip_cleanup: true
   s3_website push
-# deploy:
+  on:
+    branch: master
 #   provider: s3
 #   access_key_id: $AWS_ACCESS_KEY_ID
 #   secret_access_key: $AWS_SECRET_ACCESS_KEY
