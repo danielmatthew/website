@@ -1,10 +1,9 @@
 sudo: required
 dist: trusty
-language: node_js
-node_js:
-  - "8"
 python:
   - "3.6"
+env:
+  - TRAVIS_NODE_VERSION="8"
 cache:
   - pip
   - yarn
@@ -12,6 +11,10 @@ install:
   # Install any dependencies required for building your site here.
   # `awscli` is required for invalidation of CloudFront distributions.
   - pip install awscli
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+  - sudo apt-get install yarn
 before_script:
   - yarn
 script:
