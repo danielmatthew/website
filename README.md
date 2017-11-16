@@ -1,13 +1,12 @@
 # danmatthew.co.uk
 
 ## Development
-- Uses Jekyll to generate the static site.
-- We use Sass. Somewhere down in the murk of all this is Mdo's Poole theme.
+- Uses [Gatsbyjs](https://www.gatsbyjs.org/) to generate the static site.
 
 ## Deployment
-- Uses https://github.com/laurilehmijoki/s3_website to push to S3 and invalidate the CloudFront distribution at the same time.
+- On succesful Travis build, pushed to S3 and CloudFront distribution invalidated using AWS CLI
 
 ## Plans
-- Code for implementing a service worker to add all assets to local cache exists, but my implementation was buggy. Google released [sw-toolbox](https://github.com/GoogleChromeLabs/sw-toolbox) (now [Workbox](https://workboxjs.org/))
-- Improve build process so that static assets are versioned for indefinite caching.
-- Port to Gatsby.
+- [ ] Code for implementing a service worker to add all assets to local cache exists, but my implementation was buggy. Google released [sw-toolbox](https://github.com/GoogleChromeLabs/sw-toolbox) (now [Workbox](https://workboxjs.org/))
+- [ ] Improve build process so that static assets are versioned for indefinite caching.
+- [x] Port to Gatsby.
