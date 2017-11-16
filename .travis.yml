@@ -15,8 +15,11 @@ install:
   # Install any dependencies required for building your site here.
   # `awscli` is required for invalidation of CloudFront distributions.
   #- pip install awscli
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
   - gem install s3_website
-  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  #- rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
 before_script:
   - yarn
 script:
