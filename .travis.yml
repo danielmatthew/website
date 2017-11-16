@@ -1,11 +1,10 @@
-language: python
-python: 3.6
+language: ruby
+rvm: 2.2
 sudo: required
 dist: trusty
 env:
   - TRAVIS_NODE_VERSION="8"
 cache:
-  - pip
   - yarn
 before_install:
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -15,7 +14,8 @@ before_install:
 install:
   # Install any dependencies required for building your site here.
   # `awscli` is required for invalidation of CloudFront distributions.
-  - pip install awscli
+  #- pip install awscli
+  - gem install s3_website
   - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
 before_script:
   - yarn
@@ -23,21 +23,26 @@ script:
   # Build your site (e.g., HTML, CSS, JS) here.
   yarn build
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: danmatthew.co.uk
-  region: $AWS_DEFAULT_REGION
-  # Prevent Travis from deleting your built site so it can be uploaded.
   skip_cleanup: true
-  # Path to a directory containing your built site.
-  local_dir: public
-  # Set the Cache-Control header.
-  cache_control: "max-age=21600"
   on:
     branch: master
 after_deploy:
+  s3_website push
+#   provider: s3
+#   access_key_id: $AWS_ACCESS_KEY_ID
+#   secret_access_key: $AWS_SECRET_ACCESS_KEY
+#   bucket: danmatthew.co.uk
+#   region: $AWS_DEFAULT_REGION
+#   # Prevent Travis from deleting your built site so it can be uploaded.
+#   skip_cleanup: true
+#   # Path to a directory containing your built site.
+#   local_dir: public
+#   # Set the Cache-Control header.
+#   cache_control: "max-age=21600"
+#   on:
+#     branch: master
+#after_deploy:
   # Allow `awscli` to make requests to CloudFront.
-  - aws configure set preview.cloudfront true
+  #- aws configure set preview.cloudfront true
   # Invalidate every object in the targeted distribution.
-  - test $TRAVIS_BRANCH = "master" && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+  #- test $TRAVIS_BRANCH = "master" && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
