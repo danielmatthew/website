@@ -15,10 +15,9 @@ site: public
 
 # index_document: index.html
 # error_document: error.html
-
-# max_age:
-#   "assets/*": 6000
-#   "*": 300
+max_age:
+  "img/*": 6000
+  "*.js": 31536000
 
 gzip:
   - .html
@@ -37,17 +36,18 @@ exclude_from_upload:
    - node_modules
    - sass
 
-# s3_reduced_redundancy: true
+s3_reduced_redundancy: true
 
 cloudfront_distribution_id: <%= ENV['CLOUDFRONT_DISTRIBUTION_ID'] %>
 
-# cloudfront_distribution_config:
-#   default_cache_behavior:
-#     min_ttl: <%= 60 * 60 * 24 %>
-#   aliases:
-#     quantity: 1
-#     items:
-#       - your.website.com
+cloudfront_distribution_config:
+  default_cache_behavior:
+    min_ttl: <%= 60 * 60 * 24 %>
+  http_version: http2
+  aliases:
+    quantity: 1
+    items:
+      - danmatthew.co.uk
 
 # cloudfront_invalidate_root: true
 
