@@ -18,19 +18,19 @@ script:
   # Build your site (e.g., HTML, CSS, JS) here.
   yarn build
 deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: danmatthew.co.uk
+  region: $AWS_DEFAULT_REGION
+  # Prevent Travis from deleting your built site so it can be uploaded.
+  skip_cleanup: true
+  # Path to a directory containing your built site.
+  local_dir: public
+  # Set the Cache-Control header.
+  cache_control: "max-age=21600"
   on:
     branch: master
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: danmatthew.co.uk
-    region: $AWS_DEFAULT_REGION
-    # Prevent Travis from deleting your built site so it can be uploaded.
-    skip_cleanup: true
-    # Path to a directory containing your built site.
-    local_dir: public
-    # Set the Cache-Control header.
-    cache_control: "max-age=21600"
 after_deploy:
   # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
