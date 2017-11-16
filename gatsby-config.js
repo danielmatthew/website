@@ -4,6 +4,7 @@ module.exports = {
     author: `Daniel Matthew`
   },
   plugins: [
+    `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-catch-links`,
     {
