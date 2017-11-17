@@ -1,14 +1,14 @@
-import React from 'react'
-import Link from 'gatsby-link'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 
 export default ({ data }) => {
-  const { edges: posts } = data.allMarkdownRemark
+  const siteTitle = data.site.siteMetadata.title;
+  const { edges: posts } = data.allMarkdownRemark;
 
   return (
     <div>
-      <h4>{data.allMarkdownRemark.totalCount} posts</h4>
-
+      <Helmet title={siteTitle} />
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => (
@@ -22,11 +22,16 @@ export default ({ data }) => {
           </div>
         ))}
     </div>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
       totalCount
       edges {
@@ -37,10 +42,10 @@ export const pageQuery = graphql`
           }
           fields {
             slug
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD MMMM, YYYY")
           }
         }
       }
     }
   }
-`
+`;
