@@ -1,11 +1,7 @@
-node_modules
+node_modules/
 .cache/
-_site
-# Build directory
 public/
 .DS_Store
 .tmp
 yarn-error.log
 yarn.lock
-
-_drafts/2015-04-27-fizzbuzz-how-do-you-code-yours.md
