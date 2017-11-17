@@ -4,18 +4,18 @@ title: Function declarations versus function expressions
 ---
 ### Function declaration
 A function declaration is written like so:
-{% highlight js %}
+```js
 function example() {}
-{% endhighlight %}
+```
 
 A declared function is evaluated at parse-time - when the browser's Javascript engine gives it the once-over to see what it contains - and thus are loaded before any code is executed.
 In practical terms, this function can now be called at anytime: perhaps in code that is defined before the function. This is due to the idea of hoisting: a facet of the language that allows variables to be 'hoisted' to the top of the scope in which it is defined, regardless of where it's placed. As it happens, a variable is created with the same name as the function.
 
 ### Function expression
 A function expression looks like this:
-{% highlight js %}
+```js
 var example = function() {}
-{% endhighlight %}
+```
 This kind of function is evaluated at run-time and means that `example()` can't be called until the JS engine has reached that point in your code. If it's referenced before that, you'll get an error.
 
 In reality, they're incredibly similar functionality wise. Just make sure you're aware of how the Javascript interpreter is going to load them.
@@ -23,9 +23,9 @@ In reality, they're incredibly similar functionality wise. Just make sure you're
 ### Function constructor
 This is a concept that was new to me before writing this - so perhaps the self-documentation idea does have merits!
 It is possible to write:
-{% highlight js %}
+```js
 var example = new Function() {}
-{% endhighlight %}
+```
 However, Mozilla's Developer Network advises against this approach because:
 > it needs the function body as a string, which may prevent optimizations
 

@@ -11,7 +11,7 @@ tags: [css, web development]
 
 A couple of weeks ago, I encountered an odd rendering issue with Safari and column widths. I had planned to write about it, lest the afternoon I spent trying to debug it be of use to anyone who stumbles across this post. Before I could get round to it, lo and behold: I've fallen victim to it again! Safari on OSX - both Yosemite and El Capitan - does not like the following scenario:
 
-{% highlight css %}
+```css
 .col-checkbox {
   width: 28px;
 }
@@ -23,9 +23,9 @@ A couple of weeks ago, I encountered an odd rendering issue with Safari and colu
 .col-action-btn {
   width: 60px;
 }
-{% endhighlight %}
+```
 
-{% highlight html %}
+```html
 <table class="table table-striped">
  <caption class="sr-only">My caption to describe the table</caption>
   <colgroup>
@@ -55,7 +55,7 @@ A couple of weeks ago, I encountered an odd rendering issue with Safari and colu
   </tr>
 </tbody>
 </table>
-{% endhighlight %}
+```
 
 Safari refuses to apply the column widths specified in the stylesheet, and instead splits the columns based on their content, flagrantly ignoring the authors instructions.
 
