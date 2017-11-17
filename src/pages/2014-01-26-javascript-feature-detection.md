@@ -14,7 +14,7 @@ In Mark Pilgrim's _Dive Into HTML5_, he documents a selection of techniques:
 
 A common example of the first technique is when writing an AJAX function:
 
-{% highlight js %}
+```js
 var xmlHttp;
 if (window.XMLHttpRequest) {
   xmlHttp = new XMLHttpRequest();
@@ -36,18 +36,18 @@ if (window.XMLHttpRequest) {
     }
    }
   }
-{% endhighlight %}
+```
 
 Thankfully, libraries such as [Modernizr](http://modernizr.com) can be implemented in order to reduce the amount of boilerplate that needs to be written. It has an API that can be queried to easily check for feature support. If they're not present, we can write a fallback so that the user's experience isn't compromised:
 
-{% highlight js %}
+```js
 // Determine if font-face is supported
 if (Modernizr.fontface) {
   // Do something
 } else {
   // No fancy fonts
 }
-{% endhighlight %}
+```
 
 
 ### References

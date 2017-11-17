@@ -7,7 +7,7 @@ Variables belong to a scope, and that particular scope determines where a variab
 
 A function can use a variable declared outside of it, since it is available globally:
 
-{% highlight js %}
+```js
 var world = "world";
 
 function sayHello() {
@@ -17,7 +17,7 @@ function sayHello() {
 
 sayHello();
 // Hello world
-{% endhighlight %}
+```
 
 
 But trying to invoke a function's variable from outside will result in an error: `hello is not defined`.

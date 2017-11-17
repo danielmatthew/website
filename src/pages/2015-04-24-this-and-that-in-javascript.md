@@ -14,7 +14,7 @@ There are four rules that help us figure out what `this` may be at a particular 
 ### 1: Default Binding
 When our function is invoked of its own accord, _ala_:
 
-{% highlight js %}
+```js
 function foo() {
   console.log(this.a);
 }
@@ -22,11 +22,11 @@ function foo() {
 var a = 2;
 
 foo(); // 2
-{% endhighlight %}
+```
 
-The call to `this.a` resolves to the global variable of the same name. If  we were running in strict mode - [and you should](http://www.nczonline.net/blog/2012/03/13/its-time-to-start-using-javascript-strict-mode/) - we would find that it would be undefined: 
+The call to `this.a` resolves to the global variable of the same name. If  we were running in strict mode - [and you should](http://www.nczonline.net/blog/2012/03/13/its-time-to-start-using-javascript-strict-mode/) - we would find that it would be undefined:
 
-{% highlight js %}
+```js
 function foo() {
   console.log(this.a);
 }
@@ -34,12 +34,12 @@ function foo() {
 var a = 2;
 
 foo(); // 'this' is undefined
-{% endhighlight %}
+```
 
 ### 2: Implicit Binding
 When calling a function as an object method, its call site now has some context and the object in question should be used for the function's `this` binding.
 
-{% highlight js %}
+```js
 function foo() {
   console.log(this.a);
 }
@@ -50,13 +50,13 @@ var obj = {
 };
 
 obj.foo(); // 2
-{% endhighlight %}
+```
 
 
 ### 3: Explicit Binding
 We can use the `call()` and `apply()` utilities to force a function to use a particular object for its `this` binding. For both utilities, the first parameter is the object to use. [As we've discovered previously](/2014/01/05/call-and-apply) `call()` takes a list of parameters, while `apply()` is given an array as its second argument.
 
-{% highlight js %}
+```js
 function foo() {
   console.log(this.a);
 }
@@ -66,13 +66,13 @@ var obj = {
 };
 
 foo.call(obj); // 2
-{% endhighlight %}
+```
 
 
 #### Hard Binding
 Both implicit and explicit binding lose their `this` binding when passed around. The following pattern helps ensure that this doesn't happen:
 
-{% highlight js %}
+```js
 function foo() {
   console.log(this.a);
 }
@@ -87,13 +87,13 @@ var bar = function() {
 
 bar(); // 2
 setTimeout(bar, 100); // 2
-{% endhighlight %}
+```
 
 The new `bar()` function calls `foo()` with `this` bound to our object. `bar()` can be passed around, as it is to `setTimeout()`, and yet `this` remains 2.
 
 It might get a little tiresome wrapping functions for this purpose, so ES5 ([supported natively in IE9+, or with ES5-shim](https://kangax.github.io/compat-table/es5/)) gives us `bind()`: a utility that returns a new function that calls the original, with `this` set as required.
 
-{% highlight js %}
+```js
 function foo(something) {
   console.log(this.a, something);
   return this.a + something;
@@ -107,19 +107,19 @@ var bar = foo.bind(obj);
 
 var b = bar(3); // 2 3
 console.log(b); // 5
-{% endhighlight %}
+```
 
 ### 4: new Binding
 When using `new` to create a new object, the new object is set as the `this` binding.
 
-{% highlight js %}
+```js
 function foo(a) {
   this.a = a;
 }
 
 var bar = new foo(2);
 console.log(bar.a); // 2
-{% endhighlight %}
+```
 
 So, if the function is called:
 
@@ -132,7 +132,7 @@ So, if the function is called:
 
 <!-- So why use `that`? We know that JavaScript has lexical scope, and new scopes are only created when a function is called.  -->
 
-Each function call gets its own `this` binding. When a function is executed inside another, we no longer have access to the original `this` value. By aliasing it as `that` or `self` at the top level, we can retain a reference to the original value and make it visible to inner functions. 
+Each function call gets its own `this` binding. When a function is executed inside another, we no longer have access to the original `this` value. By aliasing it as `that` or `self` at the top level, we can retain a reference to the original value and make it visible to inner functions.
 
 As for the reasoning behind this convention, [Douglas Crockford](http://www.crockford.com/javascript/private.html) states that:
 

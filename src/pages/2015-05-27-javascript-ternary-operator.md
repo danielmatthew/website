@@ -7,7 +7,7 @@ layout: post
 
 A typical `if/else` statement looks like this:
 
-{% highlight js %}
+```js
 var foo = 10,
     bar = 20,
     baz;
@@ -19,23 +19,23 @@ if (foo > bar) {
 }
 
 console.log(baz); // 20
-{% endhighlight %}
+```
 
-Look at that: five lines of code. We can do better than that, right? 
+Look at that: five lines of code. We can do better than that, right?
 
-Right! 
+Right!
 
 JavaScript offers a ternary operator that takes three values: `condition ? expr1 : expr2`. The above code can be condensed to the following.
 
-{% highlight js %}
+```js
 var foo = 10,
     bar = 20,
     baz;
 
-baz = foo > bar ? foo : bar; 
+baz = foo > bar ? foo : bar;
 
 console.log(baz); // 20
-{% endhighlight %}
+```
 
 What we're saying is that if `foo` is greater than `bar`, `baz` is assigned the value of 10. If not, `baz` is 20.
 
