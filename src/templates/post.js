@@ -11,6 +11,7 @@ export default ({ data }) => {
     <div>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
       <h1>{post.frontmatter.title}</h1>
+      <time dateTime={post.fields.timestamp}>{post.fields.formattedDate}</time>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
     </div>
   );
@@ -27,6 +28,10 @@ export const query = graphql`
       html
       frontmatter {
         title
+      }
+      fields {
+        formattedDate: date(formatString: "DD MMMM, YYYY")
+        timestamp: date
       }
     }
   }

@@ -15,8 +15,9 @@ export default ({ data }) => {
           <div key={post.id}>
             <Link to={post.fields.slug}>
               <h3>
-                {post.frontmatter.title} - <span>{post.fields.date}</span>
+                {post.frontmatter.title}
               </h3>
+              <time dateTime={post.fields.timestamp}>{post.fields.formattedDate}</time>
               <p>{post.excerpt}</p>
             </Link>
           </div>
@@ -42,7 +43,8 @@ export const pageQuery = graphql`
           }
           fields {
             slug
-            date(formatString: "DD MMMM, YYYY")
+            formattedDate: date(formatString: "DD MMMM, YYYY")
+            timestamp: date
           }
         }
       }
