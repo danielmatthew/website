@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import 'prismjs-okaidia-theme/prism-okaidia.css';
+
 export default ({ data }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
