@@ -37,10 +37,16 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Daniel Matthew – Web Developer"
+      title="Daniel Matthew"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        {
+          name: 'description',
+          content: 'Articles on web development, accessibility, and performance by Daniel Matthew.'
+        },
+        {
+          name: 'keywords',
+          content: 'web development, accessibility, performance, javascript, css'
+        }
       ]}
     />
     <Header />
