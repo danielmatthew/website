@@ -4,7 +4,7 @@ layout: post
 published: true
 ---
 
-Before I ported this site over to Gatsby, I was a fan of Jekyll. I'd make an edit, run `jekyll build`, then push the output to S3 with `s3_website`. Not exactly onerous, but I noticed that I'd be drafting posts and then not publishing them in a timely manner.
+Before I ported this site over to [Gatsby](), it was powered by good old [Jekyll](). I'd make an edit, run `jekyll build`, then push the output to S3 with [`s3_website`](). Not exactly onerous, but I noticed that I'd be drafting posts and then not publishing them in a timely manner.
 
 Cue a Continuous Integration (CI) solution – although it took me many attempts to get it right. And by right, I mean, at least it builds the site, deploys to S3, and then invalidates the CloudFront distribution.
 
@@ -28,6 +28,8 @@ before_install:
 
 ^^ Seems overkill!
 
+### Configure S3 bucket
+
 ```yml
 deploy:
   provider: s3
@@ -43,10 +45,14 @@ deploy:
     branch: master
 ```
 
-- Doesn't invalidate Cloudfront distribution
+### Cloudfront?
+- Oh. Doesn't invalidate Cloudfront distribution by default; could add this task to a `after_deploy` block and use AWS CLI again?
+
+- Notice that this option doesn't sync - handy for cleaning up after itself, particularly when versioning files. Maybe not an issue in practice, but I quite like keeping my buckets tidy…
 
 ## Attempt #2: Use AWS CLI to perform additional tasks
-- How do I run the node tasks and python?
+- Need Python/Pip to install AWS CLI…
+- How do I run the node tasks _and_ python?
 - Change project type from Node to Python
 - Don't forget to install node
 - Install NVM
