@@ -14,10 +14,10 @@ export default ({ data }) => {
         .map(({ node: post }) => (
           <div key={post.id}>
             <Link to={post.fields.slug}>
-              <h3>
-                {post.frontmatter.title}
-              </h3>
-              <time dateTime={post.fields.timestamp}>{post.fields.formattedDate}</time>
+              <h3>{post.frontmatter.title}</h3>
+              <time dateTime={post.fields.timestamp}>
+                {post.fields.formattedDate}
+              </time>
               <p>{post.excerpt}</p>
             </Link>
           </div>

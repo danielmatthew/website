@@ -41,12 +41,14 @@ const TemplateWrapper = ({ children }) => (
       meta={[
         {
           name: 'description',
-          content: 'Articles on web development, accessibility, and performance by Daniel Matthew.'
+          content:
+            'Articles on web development, accessibility, and performance by Daniel Matthew.',
         },
         {
           name: 'keywords',
-          content: 'web development, accessibility, performance, javascript, css'
-        }
+          content:
+            'web development, accessibility, performance, javascript, css',
+        },
       ]}
     />
     <Header />
