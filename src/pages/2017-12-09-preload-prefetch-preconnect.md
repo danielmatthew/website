@@ -4,9 +4,11 @@ layout: post
 published: true
 ---
 
+Working on a Polymer project recently, I got to experiment with serving the content from Firebase Hosting, which now [offers support for HTTP/2 and Server Push](https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html). Server Push allows content to be delivered speculatively: content is delivered whether or not the user has it already, and in some cases it might not be required at all.
+
 ## Preload
 
-Working on a Polymer project recently, I got to experiment with serving the content from [Firebase Hosting, which offers support for HTTP/2 and Server Push.](https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html) Server Push allows content to be delivered speculatively: as it stands, it's delivered whether or not the user has it already, and in some cases might not be required at all. To take advantage of it though, I needed to declare the assets I wanted to be pushed down. In my `firebase.json` file I declared:
+To take advantage of this ability though, I needed to declare the assets I wanted to be pushed down. In my `firebase.json` file I declared:
 
 ```json
 "headers": [{
@@ -40,3 +42,14 @@ Preconnect can be used to 'warm-up' the connection to a resource in order to ["e
 ---
 
 All of these techniques can be used in an attempt to improve the performance of your site but it's a trade-off between second-guessing the behaviour of your guests, while not exhausting their bandwidth unneccessarily – especially for those on metered connections.
+
+### Sources
+
+- https://caniuse.com/#search=pre
+- https://www.w3.org/TR/resource-hints/
+- https://www.w3.org/TR/preload/
+- https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+- https://css-tricks.com/prefetching-preloading-prebrowsing/
+- https://blog.cloudflare.com/announcing-support-for-http-2-server-push-2/
+- https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html
+- http://www.bramstein.com/writing/preload-hints-for-web-fonts.html
