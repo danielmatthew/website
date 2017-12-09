@@ -4,6 +4,8 @@ layout: post
 published: true
 ---
 
+_Updated 9th December to illustrate latest iteration of Travis.yml_
+
 Before I ported this site over to [Gatsby](https://www.gatsbyjs.org), it was powered by good old [Jekyll](https://github.com/jekyll/jekyll). I'd make an edit, run `jekyll build`, then push the output to S3 with [`s3_website`](https://github.com/laurilehmijoki/s3_website). Not exactly onerous, but I noticed that I'd be drafting posts, or updating the structure of the site and then not pushing them live in a timely manner. _(And what do you know, it's happened again! – Ed., December 2nd)_
 
 Cue a Continuous Integration (CI) solution – although it took me many attempts to get it right. And by right, I mean it at least:
@@ -16,7 +18,7 @@ Cue a Continuous Integration (CI) solution – although it took me many attempt
 
 ```yml
 language: node_js
-node_js: 
+node_js:
  - "8"
 script:
  - yarn build
@@ -33,12 +35,12 @@ deploy:
   on:
     branch: master
 ```
-Because I have both `package.json` and `yarn.lock` in my repository, Travis is smart enough to figure I want to use Yarn to run during the `install` phase. 
+Because I have both `package.json` and `yarn.lock` in my repository, Travis is smart enough to figure I want to use Yarn to run during the `install` phase.
 
 I like this implementation, but Travis is only concerned with S3 here. I have a Cloudfront distribution sat in front of this bucket in the hope of saving a few pence and making the site feel snappy. Sure, I could manually log in to AWS and invalidate the distribution or do it via the command line, but y'know: let's automate it.
 
 ## Attempt #2: Use AWS CLI to invalidate the Cloudfront distribution
-This is where it feels messy, and there are a bunch of extra steps to mess up. AWS CLI is installed via Pip, so this implementation needs to be driven by Python. 
+This is where it feels messy, and there are a bunch of extra steps to mess up. AWS CLI is installed via Pip, so this implementation needs to be driven by Python.
 
 ```yml
 language: python
@@ -50,7 +52,7 @@ env:
 ```
 I had to explicitly specify the version of Python, because the default appeared to be 2.4 and I ran into issues… Java-related, _possibly?_.
 
-This is where it starts to be a blend of different tasks, and I'm piecing together instructions from various sources. 
+This is where it starts to be a blend of different tasks, and I'm piecing together instructions from various sources.
 
 ### Install Yarn
 ```yml
@@ -120,7 +122,7 @@ Inspecting the bucket, I notice that Travis doesn't doesn't sync the files – i
 Next!
 
 ## Attempt #3: Use s3_website
-I mentioned in the intro that when publshing the website from my computer I used the s3_website gem. I know it, it does all the tasks I want it to, and it's straightforward to configure. 
+I mentioned in the intro that when publshing the website from my computer I used the s3_website gem. I know it, it does all the tasks I want it to, and it's straightforward to configure.
 
 (Although, I fib: since upgrading to Sierra, I've not been ~~able~~ inclined to deploy since it requires a Java installation which I really don't want to do. I know, weaksauce.)
 
@@ -132,7 +134,7 @@ rvm: 2.2
 sudo: required
 dist: trusty
 # Again with the redundant env var
-env: 
+env:
  - TRAVIS_NODE_VERSION="8"
 before_install:
   - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -159,9 +161,35 @@ after_script:
  - test $TRAVIS_BRANCH = "master" && s3_website push
 ```
 
-Boom. All my `s3_website` settings are configured in environment variables and my `s3_website.yml` config, so that one line in the `after_script` block pushes to the correct bucket and invalidates the Cloudfront distribution. 
+Boom. All my `s3_website` settings are configured in environment variables and my `s3_website.yml` config, so that one line in the `after_script` block pushes to the correct bucket and invalidates the Cloudfront distribution.
 
-Looking back over it, I think I'd be quite happy to sack off the yarn installation and reply on NPM. Again I wonder whether the blocks can be consolidated into one and the commands listed sequentially? I'm not experienced enough with Travis to know what benefits I get from splitting the commands into the different stages, especially since this particular deployment process is not exactly complicated. Perhaps so the process can fail earlier if necessary? 
+Looking back over it, I think I'd be quite happy to sack off the yarn installation and reply on NPM. Again I wonder whether the blocks can be consolidated into one and the commands listed sequentially? I'm not experienced enough with Travis to know what benefits I get from splitting the commands into the different stages, especially since this particular deployment process is not exactly complicated. Perhaps so the process can fail earlier if necessary?
 
 ## Proposed attempt #4: Use AWS CLI for everything
 I suspect I could probably do all of the above with the AWS CLI, though it will need switching back over to Python again. Woe is me 😩.
+
+## Attemp #5: Concise
+…whereupon I decided to sack off Yarn, and after configuring Travis to build PR and branch merges, whitelist the `master` branch:
+
+```yml
+branches:
+  only:
+    - master
+language: ruby
+rvm: 2.2
+sudo: required
+dist: trusty
+cache:
+  - npm
+install:
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
+  - gem install s3_website
+before_script:
+  - npm install
+script:
+  - npm run build
+after_script:
+  - s3_website push
+```
