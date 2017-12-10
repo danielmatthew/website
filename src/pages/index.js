@@ -57,8 +57,6 @@ export const pageQuery = graphql`
           }
           fields {
             slug
-            formattedDate: date(formatString: "DD/MM/YY")
-            timestamp: date
           }
         }
       }
