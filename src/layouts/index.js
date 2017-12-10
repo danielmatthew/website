@@ -37,6 +37,9 @@ const Header = () => (
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
+      htmlAttributes={
+        {lang: 'en'}
+      }
       title="Daniel Matthew"
       meta={[
         {
