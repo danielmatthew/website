@@ -44,7 +44,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [fields___date], order: DESC },
+      limit: 10
+    ) {
       totalCount
       edges {
         node {
