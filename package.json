@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "prettier": "^1.6.1",
-    "firebase-cli": "1.2.0"
+    "firebase-tools": "3.16.0"
   },
   "scripts": {
     "build": "gatsby build",
