@@ -4,8 +4,6 @@ branches:
 language: node_js
 node_js:
   - "node"
-cache:
-  - npm
-install:
-  - npm install
-  - npm run deploy
+cache: yarn
+script:
+  - yarn deploy
