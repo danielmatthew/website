@@ -18,22 +18,24 @@
     "tachyons": "^4.9.0"
   },
   "devDependencies": {
-    "prettier": "^1.6.1"
+    "prettier": "^1.6.1",
+    "firebase-cli": "1.2.0"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "deploy": "gatsby build && firebase deploy",
     "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielmatthew/danielmatthew.co.uk.git"
+    "url": "https://github.com/danielmatthew/website.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/danielmatthew/danielmatthew.co.uk/issues"
+    "url": "https://github.com/danielmatthew/website/issues"
   },
-  "homepage": "https://github.com/danielmatthew/danielmatthew.co.uk"
+  "homepage": "https://github.com/danielmatthew/website"
 }
