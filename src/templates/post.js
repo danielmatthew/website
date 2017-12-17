@@ -19,6 +19,7 @@ export default ({ data }) => {
       </header>
 
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      <About />
     </article>
   );
 };
