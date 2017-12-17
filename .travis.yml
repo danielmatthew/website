@@ -1,6 +1,6 @@
 branches:
   only:
-    - master
+  - master
 language: ruby
 rvm: 2.2
 sudo: required
