@@ -1,19 +1,11 @@
 branches:
   only:
-    - master
-language: ruby
-rvm: 2.2
-sudo: required
-dist: trusty
+  - master
+language: node_js
+node_js:
+  - "node"
 cache:
   - npm
 install:
-  - . $HOME/.nvm/nvm.sh
-  - nvm install stable
-  - nvm use stable
-  - gem install s3_website
   - npm install
-script:
-  - npm run build
-after_script:
-  - s3_website push
+  - npm run deploy
