@@ -22,17 +22,17 @@ export default ({ data }) => {
             </Link>
           </div>
         ))}
-        <section>
-          <h2>Recent talks</h2>
-          <article>
-            <h3>Hydrahack, March 2017</h3>
-            <p></p>
-          </article>
-          <article>
-            <h3>Codelicious, July 2016</h3>
-            <p></p>
-          </article>
-        </section>
+      <section>
+        <h2>Recent talks</h2>
+        <article>
+          <h3>Hydrahack, March 2017</h3>
+          <p />
+        </article>
+        <article>
+          <h3>Codelicious, July 2016</h3>
+          <p />
+        </article>
+      </section>
     </div>
   );
 };
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [fields___date], order: DESC },
+      sort: { fields: [fields___date], order: DESC }
       limit: 10
     ) {
       totalCount
