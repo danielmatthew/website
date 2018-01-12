@@ -36,20 +36,21 @@ const Header = ({ location }) => {
         style={{
           margin: '0 auto',
           maxWidth: 960,
-          padding: '1.45rem 1.0875rem',
+          padding: '0.45rem 1.0875rem',
         }}
       >
-        <span style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: 'white',
-              textDecoration: 'none',
-            }}
-          >
-            Daniel Matthew
-          </Link>
-        </span>
+        <Link
+          to="/"
+          style={{
+            fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+            fontVariant: 'all-small-caps',
+            fontWeight: 'bold',
+            color: 'white',
+            textDecoration: 'none',
+          }}
+        >
+          Daniel Matthew
+        </Link>
       </div>
     );
   }
