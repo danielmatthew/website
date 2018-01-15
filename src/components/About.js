@@ -5,7 +5,7 @@ const About = () => {
     <section role="complementary">
       <p>
         Daniel is a front-end developer at Talis, with an interest in
-        accessibility, performance, and web components.{' '}
+        accessibility, performance, and web components.
       </p>
     </section>
   );
