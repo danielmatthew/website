@@ -12,6 +12,7 @@ const Header = ({ location }) => {
     header = (
       <div
         style={{
+          fontVariant: 'all-small-caps',
           margin: '0 auto',
           maxWidth: 960,
           padding: '1.45rem 1.0875rem',
@@ -58,7 +59,7 @@ const Header = ({ location }) => {
   return (
     <div
       style={{
-        background: 'rebeccapurple',
+        background: '#111',
         marginBottom: '1.45rem',
       }}
     >
