@@ -12,10 +12,12 @@ export default ({ data }) => {
   return (
     <article>
       <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
-      
+
       <header>
         <h1 class="mb0">{post.frontmatter.title}</h1>
-        <time dateTime={post.fields.timestamp}>{post.fields.formattedDate}</time>
+        <time dateTime={post.fields.timestamp}>
+          {post.fields.formattedDate}
+        </time>
       </header>
 
       <div dangerouslySetInnerHTML={{ __html: post.html }} />

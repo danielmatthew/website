@@ -12,7 +12,7 @@ export default ({ data }) => {
     <div>
       <Helmet title={siteTitle} />
       <About />
-      <h2>Recent posts</h2>
+      <h2>Words</h2>
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .map(({ node: post }) => (
@@ -22,17 +22,17 @@ export default ({ data }) => {
             </Link>
           </div>
         ))}
-        <section>
-          <h2>Recent talks</h2>
-          <article>
-            <h3>Hydrahack, March 2017</h3>
-            <p></p>
-          </article>
-          <article>
-            <h3>Codelicious, July 2016</h3>
-            <p></p>
-          </article>
-        </section>
+      <section>
+        <h2>Talks</h2>
+        <article class="mb1">
+          <h3 class="mb0">Hydrahack, March 2017</h3>
+          <p>A lightning talk about web components, side projects, and taking care of yourself.</p>
+        </article>
+        <article class="mb1">
+          <h3 class="mb0">"Guided By Voices" – Codelicious, July 2016</h3>
+          <p>A short talk demonstrating the difference in experience for screenreader users when a site has been created sympathetically.</p>
+        </article>
+      </section>
     </div>
   );
 };
@@ -45,7 +45,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      sort: { fields: [fields___date], order: DESC },
+      sort: { fields: [fields___date], order: DESC }
       limit: 10
     ) {
       totalCount
