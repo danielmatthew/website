@@ -15,6 +15,7 @@ export default ({ data }) => {
       <h2>Words</h2>
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
+        .filter(post => post.node.frontmatter.published === true)
         .map(({ node: post }) => (
           <div key={post.id}>
             <Link to={post.fields.slug}>
@@ -46,7 +47,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { fields: [fields___date], order: DESC }
-      limit: 10
+      limit: 5
     ) {
       totalCount
       edges {
@@ -54,6 +55,7 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            published
           }
           fields {
             slug
