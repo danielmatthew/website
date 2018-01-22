@@ -8,7 +8,7 @@ const Header = ({ location }) => {
     rootPath = __PATH_PREFIX__ + `/`;
   }
 
-  if (location.pathname === rootPath) {
+  if (typeof window !== `undefined` && location.pathname === rootPath) {
     header = (
       <div
         style={{
