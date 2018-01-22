@@ -2,6 +2,7 @@
 title: Column Sizing and Captions in Safari
 layout: post
 tags: [css, web development]
+published: true
 ---
 
 
