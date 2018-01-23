@@ -26,7 +26,7 @@ export default ({ data }) => {
       <section>
         <h2>Talks</h2>
         <article class="mb1">
-          <h3 class="mb0">Hydrahack, March 2017</h3>
+          <h3 class="mb0"><a href="https://mailtrack.io/trace/link/2fff9fef8d78340fbe73dae1e2c00ac438e8f13d?url=https%3A%2F%2Fpusher.com%2Fsessions%2Fmeetup%2Fhydrahack%2Fweb-components-and-me&userId=1088777&signature=00858d7edfa986e4">"Web Components and Me" – Hydrahack, March 2017</a></h3>
           <p>A lightning talk about web components, side projects, and taking care of yourself.</p>
         </article>
         <article class="mb1">
