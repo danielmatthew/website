@@ -13,20 +13,22 @@
     "gatsby-remark-prismjs": "^1.2.11",
     "gatsby-source-filesystem": "^1.5.11",
     "gatsby-transformer-remark": "^1.7.28",
+    "lighthouse": "^2.8.0",
     "prismjs-okaidia-theme": "^0.0.1",
+    "react-helmet": "5.2.0",
     "slug": "^0.9.1",
-    "tachyons": "^4.9.0",
-    "react-helmet": "5.2.0"
+    "tachyons": "^4.9.0"
   },
   "devDependencies": {
-    "prettier": "^1.10.2",
-    "firebase-tools": "3.16.0"
+    "firebase-tools": "3.16.0",
+    "prettier": "^1.10.2"
   },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "deploy": "gatsby build && firebase deploy",
     "format": "prettier --trailing-comma es5 --single-quote --write 'src/**/*.js'",
+    "lighthouse": "lighthouse https://danmatthew.co.uk --chrome-flags='--headless' --output html --output-path ./report.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

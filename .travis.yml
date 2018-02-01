@@ -6,4 +6,6 @@ node_js:
   - "node"
 cache: yarn
 script:
-  - yarn deploy
+  - yarn build
+after_script:
+  - yarn lighthouse
