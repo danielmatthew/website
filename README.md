@@ -6,4 +6,4 @@
 - Uses [Gatsbyjs](https://www.gatsbyjs.org/) to generate the static site.
 
 ## Deployment
-- On succesful build, deployed to Firebase Hosting.
+- On succesful build, deployed to Netlify.
