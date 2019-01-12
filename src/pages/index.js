@@ -12,7 +12,7 @@ export default ({data}) => {
   return (
       <Layout>
         <Helmet titleTemplate={ `%s | ${siteTitle}` } defaultTitle={siteTitle} />
-        <section class="grid-container">
+        <section className="grid-container">
           <h1 className="monogram">
             <span>D<span className="sr-only">aniel</span></span>
             <span>M<span className="sr-only">atthew</span></span>
