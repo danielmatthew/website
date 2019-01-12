@@ -183,7 +183,7 @@ textarea {
   font: inherit;
 }
 html {
-  font: 112.5%/1.45em georgia, serif;
+  font: 112.5%/1.45em BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -198,7 +198,6 @@ html {
 }
 body {
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -617,8 +616,53 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
   }
+}
+
+.monogram {
+  background-color: black;
+  padding: 1em;
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+}
+
+.grid-container {
+  display: grid;
+  padding: 1em;
+  height: 100vh;
+
+  grid-gap: 20px;
+  grid-template-columns: auto 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.grid-container > form {
+  grid-row: 1 / 4;
+  grid-column: 2 / 3;
+}
+
+.sr-only {
+  position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
 }

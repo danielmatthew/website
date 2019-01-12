@@ -4,10 +4,10 @@ module.exports = {
     author: `Daniel Matthew`
   },
   plugins: [
-    `gatsby-plugin-preact`,
+    // `gatsby-plugin-preact`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-catch-links`,
+    // `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -17,11 +17,11 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [{
-          resolve: `gatsby-remark-prismjs`
-        }]
-      }
+      // options: {
+      //   plugins: [{
+      //     resolve: `gatsby-remark-prismjs`
+      //   }]
+      // }
     }
   ]
 };
