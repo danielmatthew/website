@@ -1,6 +1,9 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
+import { graphql } from 'gatsby';
+
+import Layout from '../components/Layout';
 import About from '../components/About';
 
 import 'prismjs-okaidia-theme/prism-okaidia.css';
@@ -10,24 +13,26 @@ export default ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <article>
-      <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+    <Layout>
+      <article>
+        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
 
-      <header>
-        <h1 class="mb0">{post.frontmatter.title}</h1>
-        <time dateTime={post.fields.timestamp}>
-          {post.fields.formattedDate}
-        </time>
-      </header>
+        <header>
+          <h1 className="mb0">{post.frontmatter.title}</h1>
+          <time dateTime={post.fields.timestamp}>
+            {post.fields.formattedDate}
+          </time>
+        </header>
 
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <About />
-    </article>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <About />
+      </article>
+    </Layout>
   );
 };
 
 export const query = graphql`
-  query BlogPostQuery($slug: String!) {
+  query ($slug: String!) {
     site {
       siteMetadata {
         title
