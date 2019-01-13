@@ -48,6 +48,18 @@ button {
   margin-bottom: .75rem;
 }
 
+.input {
+  transition: 1s outline-color cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
 .input.is-hovered,
 .input:hover,
 .textarea.is-hovered,
@@ -133,6 +145,10 @@ vertical-align: top;
   border-color: #23d160;
 }
 
+input:valid {
+  outline-color: #23d160;
+}
+
 .input.is-danger,
 .textarea.is-danger {
   border-color: #ff3860;
@@ -147,7 +163,6 @@ vertical-align: top;
     display: block;
     font-size: 1em;
     max-width: 100%;
-    outline: 0;
 }
 
 .select select:not([multiple]) {

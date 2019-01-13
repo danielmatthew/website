@@ -1,0 +1,12 @@
+.monogram {
+  background-color: black;
+  padding: 1em;
+  color: white;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  grid-area: logo;
+}

@@ -141,15 +141,10 @@ button::-moz-focus-inner {
 button:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
-fieldset {
-  border: 1px solid silver;
-  margin: 0 2px;
-  padding: .35em .625em .75em;
-}
+
 legend {
   box-sizing: border-box;
   color: inherit;
-  display: table;
   max-width: 100%;
   padding: 0;
   white-space: normal;
@@ -425,6 +420,7 @@ table {
   width: 100%;
 }
 fieldset {
+  border: none;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
@@ -627,20 +623,6 @@ pre tt:after {
   }
 }
 
-.monogram {
-  background-color: black;
-  padding: 1em;
-  color: white;
-  font-size: 3rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  grid-area: logo;
-  /* grid-row: 1 / 1;
-  grid-column: 1 / 1; */
-}
 
 .grid-container {
   display: grid;
@@ -667,8 +649,6 @@ pre tt:after {
 
 .grid-container > form {
   grid-area: form;
-  /* grid-row: 1 / 4;
-  grid-column: 2 / 3; */
 }
 
 .sr-only {
