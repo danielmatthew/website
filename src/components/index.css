@@ -637,8 +637,9 @@ pre tt:after {
   justify-content: center;
   align-content: center;
   text-align: center;
-  grid-row: 1 / 1;
-  grid-column: 1 / 1;
+  grid-area: logo;
+  /* grid-row: 1 / 1;
+  grid-column: 1 / 1; */
 }
 
 .grid-container {
@@ -649,11 +650,25 @@ pre tt:after {
   grid-gap: 20px;
   grid-template-columns: auto 1fr 2fr;
   grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+    "logo . . "
+    "form form form"
+    "form form form";
+}
+
+@media (min-width: 900px) {
+  .grid-container {
+    grid-template-areas:
+    "logo form ."
+    ". form ."
+    ". form . "
+  }
 }
 
 .grid-container > form {
-  grid-row: 1 / 4;
-  grid-column: 2 / 3;
+  grid-area: form;
+  /* grid-row: 1 / 4;
+  grid-column: 2 / 3; */
 }
 
 .sr-only {
