@@ -12,12 +12,12 @@ const TemplateWrapper = ({ children, location }) => (
         {
           name: 'description',
           content:
-            'Articles on web development, accessibility, and performance by Daniel Matthew.',
+            'Daniel Matthew is an web developer and accessibility consultant. Available for audits and consultancy.',
         },
         {
           name: 'keywords',
           content:
-            'web development, accessibility, performance, javascript, css',
+            'web development, accessibility, performance, html, javascript, css',
         },
       ]}
     />
