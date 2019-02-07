@@ -6,7 +6,7 @@ export default () => {
   return (
     <form name="contact" method="post" data-netlify="true" data-netlify-honeypot="bot-field">
       <fieldset>
-        <legend>To discuss accessibility audits and consultancy, please use the following form.</legend>
+        <legend>If you would like to contact me in order to discuss accessibility audits and consultancy, please use the following form.</legend>
         <input type="hidden" name="bot-field" value="contact"></input>
 
         <div className="field">

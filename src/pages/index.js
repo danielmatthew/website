@@ -14,7 +14,9 @@ export default ({data}) => {
       <Layout>
         <Helmet titleTemplate={ `${siteTitle}` } defaultTitle={siteTitle} />
         <main className="grid-container">
-          <Monogram />
+          <div className="photo-container">
+            <Monogram />
+          </div>
           <ContactForm></ContactForm>
         </main>
       </Layout>
