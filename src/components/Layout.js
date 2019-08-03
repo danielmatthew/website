@@ -22,8 +22,7 @@ const TemplateWrapper = ({ children, location }) => (
       ]}
     />
 
-      { children }
-
+    {children}
   </div>
 );
 

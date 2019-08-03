@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Daniel Matthew`,
-    author: `Daniel Matthew`
+    author: `Daniel Matthew`,
   },
   plugins: [
     // `gatsby-plugin-preact`,
@@ -12,8 +12,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: "pages"
-      }
+        name: 'pages',
+      },
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -22,6 +22,6 @@ module.exports = {
       //     resolve: `gatsby-remark-prismjs`
       //   }]
       // }
-    }
-  ]
+    },
+  ],
 };

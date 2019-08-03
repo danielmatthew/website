@@ -18,7 +18,7 @@ export default ({ data }) => {
         ))}
     </ol>
   );
-}
+};
 
 export const postQuery = graphql`
   query IndexQuery {

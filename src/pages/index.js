@@ -7,22 +7,21 @@ import Monogram from '../components/Monogram';
 import About from '../components/About';
 import ContactForm from '../components/ContactForm';
 
-export default ({data}) => {
+export default ({ data }) => {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-      <Layout>
-        <Helmet titleTemplate={ `${siteTitle}` } defaultTitle={siteTitle} />
-        <main className="grid-container">
-          <div className="photo-container">
-            <Monogram />
-          </div>
-          <ContactForm></ContactForm>
-        </main>
-      </Layout>
-    );
+    <Layout>
+      <Helmet titleTemplate={`${siteTitle}`} defaultTitle={siteTitle} />
+      <main className="grid-container">
+        <div className="photo-container">
+          <Monogram />
+        </div>
+        <ContactForm></ContactForm>
+      </main>
+    </Layout>
+  );
 };
-
 
 export const pageQuery = graphql`
   query IndexQuery {
