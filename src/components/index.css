@@ -629,25 +629,39 @@ pre tt:after {
 
 .grid-container {
   display: grid;
-  padding: 1em;
+  /* padding: 1em; */
   height: 100vh;
-
-  grid-gap: 20px;
-  grid-template-columns: auto 1fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas:
-    'logo . . '
-    'form form form'
-    'form form form';
+  /* grid-template-columns: auto 1fr 1fr 1fr 2fr; */
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr;
+    grid-template-areas:
+    "photo photo"
+    "form form";
 }
 
 @media (min-width: 900px) {
   .grid-container {
     grid-template-areas:
-      'logo form .'
-      '. form .'
-      '. form . ';
+    "photo form";
   }
+}
+
+.photo-container {
+  grid-area: photo;
+
+  display: grid;
+  padding: 1em;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "logo . ."
+    ". . ."
+    ". . .";
+
+  background-color: black;
+
+  background-image: url('https://source.unsplash.com/random/800x600');
+  background-size: cover;
 }
 
 .grid-container > form {
