@@ -12,7 +12,7 @@ const TemplateWrapper = ({ children, location }) => (
         {
           name: 'description',
           content:
-            'Daniel Matthew is an web developer and accessibility consultant. Available for audits and consultancy.',
+            'Daniel Matthew is a web developer and accessibility consultant.',
         },
         {
           name: 'keywords',
