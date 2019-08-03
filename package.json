@@ -26,6 +26,7 @@
     "@open-wc/eslint-config": "^1.0.0",
     "@open-wc/prettier-config": "^0.1.10",
     "babel-preset-gatsby": "^0.1.11",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
     "husky": "^3.0.2",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2"

@@ -3,7 +3,8 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  plugins: ['react'],
+  extends: ['plugin:jsx-a11y/recommended'],
+  plugins: ['react', 'jsx-a11y'],
   globals: {
     graphql: false,
   },
