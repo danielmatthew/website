@@ -7,7 +7,7 @@ const TemplateWrapper = ({ children, location }) => (
   <div>
     <Helmet
       htmlAttributes={{ lang: 'en' }}
-      title="Daniel Matthew"
+      title="Daniel Matthew – Web accessibility consultant"
       meta={[
         {
           name: 'description',
