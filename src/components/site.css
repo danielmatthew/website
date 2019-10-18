@@ -1,0 +1,25 @@
+.grid-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  align-content: center;
+  justify-content: center;
+  border: 1em solid white;
+  background-color: #E91E63;
+  color: white;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

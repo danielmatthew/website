@@ -1,7 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 
-import './index.css';
+import './base.css';
+import './site.css';
 
 const TemplateWrapper = ({ children, location }) => (
   <div>
