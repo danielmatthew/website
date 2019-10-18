@@ -28,8 +28,6 @@
     "babel-preset-gatsby": "^0.1.11",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "gatsby-image": "^2.2.14",
-    "gatsby-plugin-sharp": "^2.2.18",
-    "gatsby-transformer-sharp": "^2.2.12",
     "husky": "^3.0.4",
     "lint-staged": "^9.2.3",
     "prettier": "^1.18.2"
