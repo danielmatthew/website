@@ -1,3 +1,9 @@
+:root {
+  --background-color: #E91E63;
+  --primary-hue: 340;
+  --primary-lightness: 52;
+}
+
 .grid-container {
   display: grid;
   height: 100vh;
@@ -5,7 +11,7 @@
   align-content: center;
   justify-content: center;
   border: 1em solid white;
-  background-color: #E91E63;
+  background-color: hsl(var(--primary-hue), 82%, 52%);
   color: white;
 }
 
