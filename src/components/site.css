@@ -2,6 +2,20 @@
   --background-color: #E91E63;
   --primary-hue: 340;
   --primary-lightness: 52;
+  --frame: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --frame: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-hue: 140;
+    --frame: #222222;
+  }
 }
 
 .grid-container {
@@ -10,9 +24,11 @@
   width: 100vw;
   align-content: center;
   justify-content: center;
-  border: 1em solid white;
+  border: 1em solid var(--frame);
   background-color: hsl(var(--primary-hue), 82%, 52%);
   color: white;
+
+  transition-property: background-color;
 }
 
 h1 {
