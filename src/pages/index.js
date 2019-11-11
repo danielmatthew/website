@@ -29,7 +29,7 @@ export default class Index extends React.Component {
     }
   }
 
-  handleMouseUp(e) {
+  handleMouseUp() {
     this.setState({ mouseDown: false });
     document.removeEventListener('mousemove', this.handleMouseMove);
   }
