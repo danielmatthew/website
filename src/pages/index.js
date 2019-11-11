@@ -72,7 +72,7 @@ export default class Index extends React.Component {
         `}</style>
         </Helmet>
         <main className="grid-container">
-          <h1>Daniel Matthew</h1>
+          <h1>{siteTitle}</h1>
         </main>
       </Layout>
     );
