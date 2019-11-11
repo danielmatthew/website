@@ -1,7 +1,26 @@
 import React from 'react';
-import graphql from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 
-export default ({ data }) => {
+export default () => {
+  const data = useStaticQuery(graphql`
+    query postTitleQuery {
+      allMarkdownRemark(sort: { fields: [fields___date], order: DESC }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              published
+            }
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
@@ -12,33 +31,10 @@ export default ({ data }) => {
         .map(({ node: post }) => (
           <li key={post.id}>
             <Link to={post.fields.slug}>
-              <h3>{post.frontmatter.title}</h3>
+              <h2>{post.frontmatter.title}</h2>
             </Link>
           </li>
         ))}
     </ol>
   );
 };
-
-export const postQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      sort: { fields: [fields___date], order: DESC }
-      limit: 5
-    ) {
-      totalCount
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            published
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  }
-`;

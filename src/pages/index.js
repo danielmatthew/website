@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import About from '../components/About';
 import ContactForm from '../components/ContactForm';
-// import PostList from '../components/PostList';
+import PostList from '../components/PostList';
 // import Photo from '../components/Photo'
 
 export default class Index extends React.Component {
@@ -73,6 +73,7 @@ export default class Index extends React.Component {
         </Helmet>
         <main className="grid-container">
           <h1>{siteTitle}</h1>
+          <PostList></PostList>
         </main>
       </Layout>
     );
