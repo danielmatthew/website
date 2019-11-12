@@ -1,6 +1,7 @@
 module.exports = {
   env: {
     browser: true,
+    node: true,
     es6: true,
   },
   extends: ['plugin:jsx-a11y/recommended'],
@@ -11,7 +12,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
-      ecmaVersion: 8,
+      ecmaVersion: 2018,
       experimentalObjectRestSpread: true,
       jsx: true,
     },
