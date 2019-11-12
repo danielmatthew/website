@@ -28,34 +28,35 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allMarkdownRemark {
-          edges {
-            node {
-              fields {
-                slug
-              }
+  const result = await graphql(`
+    {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
             }
           }
         }
       }
-    `).then(result => {
-      result.data.allMarkdownRemark.edges.map(({ node }) => {
-        createPage({
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/post.js`),
-          context: {
-            slug: node.fields.slug,
-            date: node.fields.date,
-          },
-        });
-      });
-      resolve();
+    }
+  `);
+
+  if (result.errors) {
+    console.error(result.errors);
+  }
+
+  result.data.allMarkdownRemark.edges.map(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/post.js`),
+      context: {
+        slug: node.fields.slug,
+        date: node.fields.date,
+      },
     });
   });
 };
