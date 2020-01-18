@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
   return (
-    <aside role="complementary">
+    <aside>
       <p>
         Daniel is a front-end developer at Talis, with expertise in
         accessibility, performance, and web components.
