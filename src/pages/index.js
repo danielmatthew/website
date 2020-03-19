@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 
 import Layout from '../components/Layout';
+import PostList from '../components/PostList';
 
 export default class Index extends React.Component {
   constructor(props) {
@@ -16,6 +17,14 @@ export default class Index extends React.Component {
       hue: 340,
       lightness: 52,
     };
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+
+    oscillator.type = 'square';
+    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
+    oscillator.connect(audioCtx.destination);
+    oscillator.start();
   }
 
   handleMouseDown(e) {
@@ -62,13 +71,15 @@ export default class Index extends React.Component {
             --primary-hue: ${this.state.hue};
             --primary-lightness: ${this.state.lightness}%;
             -webkit-user-select: ${this.state.mouseDown ? 'none' : 'auto'};
-              -moz-user-select: ${this.state.mouseDown ? 'none' : 'auto'};
-              user-select: ${this.state.mouseDown ? 'none' : 'auto'};
+            -moz-user-select: ${this.state.mouseDown ? 'none' : 'auto'};
+            user-select: ${this.state.mouseDown ? 'none' : 'auto'};
           }
         `}</style>
         </Helmet>
         <main className="grid-container">
           <h1>{siteTitle}</h1>
+
+          <PostList></PostList>
         </main>
       </Layout>
     );
