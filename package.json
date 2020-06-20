@@ -40,6 +40,7 @@
     ]
   },
   "scripts": {
+    "start": "gatsby develop",
     "build": "gatsby build",
     "develop": "gatsby develop",
     "deploy": "gatsby build && firebase deploy",
