@@ -17,14 +17,6 @@ export default class Index extends React.Component {
       hue: 340,
       lightness: 52,
     };
-
-    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    const oscillator = audioCtx.createOscillator();
-
-    oscillator.type = 'square';
-    oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
-    oscillator.connect(audioCtx.destination);
-    oscillator.start();
   }
 
   handleMouseDown(e) {
@@ -45,7 +37,15 @@ export default class Index extends React.Component {
     const hue = mouseYPositionPercent * hueIncrement;
     const lightness = (e.clientX / window.innerHeight) * 100;
 
-    this.setState({ hue, lightness });
+    const cursorX = window.Event ? e.pageX : event.clientX;
+    const cursorY = window.Event ? e.pageY : event.clientY;
+
+    const frequency = (oscillator.frequency.value =
+      (cursorX / window.innerWidth) * maxFreq);
+    const gain = (gainNode.gain.value =
+      (cursorY / window.innerHeight) * maxVol);
+
+    this.setState({ hue, lightness, frequency, gain });
   }
 
   componentDidMount() {
@@ -78,8 +78,6 @@ export default class Index extends React.Component {
         </Helmet>
         <main className="grid-container">
           <h1>{siteTitle}</h1>
-
-          <PostList></PostList>
         </main>
       </Layout>
     );
