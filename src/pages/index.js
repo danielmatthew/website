@@ -40,12 +40,7 @@ export default class Index extends React.Component {
     const cursorX = window.Event ? e.pageX : event.clientX;
     const cursorY = window.Event ? e.pageY : event.clientY;
 
-    const frequency = (oscillator.frequency.value =
-      (cursorX / window.innerWidth) * maxFreq);
-    const gain = (gainNode.gain.value =
-      (cursorY / window.innerHeight) * maxVol);
-
-    this.setState({ hue, lightness, frequency, gain });
+    this.setState({ hue, lightness });
   }
 
   componentDidMount() {
