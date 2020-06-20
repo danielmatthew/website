@@ -9,48 +9,48 @@ export default class Index extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleMouseUp = this.handleMouseUp.bind(this);
-    this.handleMouseDown = this.handleMouseDown.bind(this);
-    this.handleMouseMove = this.handleMouseMove.bind(this);
+    // this.handleMouseUp = this.handleMouseUp.bind(this);
+    // this.handleMouseDown = this.handleMouseDown.bind(this);
+    // this.handleMouseMove = this.handleMouseMove.bind(this);
     this.state = {
       mouseDown: false,
-      hue: 340,
-      lightness: 52,
+      hue: 0,
+      lightness: 0,
     };
   }
 
-  handleMouseDown(e) {
-    if (!e.target.matches(`body`)) {
-      this.setState({ mouseDown: true });
-      document.addEventListener('mousemove', this.handleMouseMove);
-    }
-  }
+  // handleMouseDown(e) {
+  //   if (!e.target.matches(`body`)) {
+  //     this.setState({ mouseDown: true });
+  //     document.addEventListener('mousemove', this.handleMouseMove);
+  //   }
+  // }
 
-  handleMouseUp() {
-    this.setState({ mouseDown: false });
-    document.removeEventListener('mousemove', this.handleMouseMove);
-  }
+  // handleMouseUp() {
+  //   this.setState({ mouseDown: false });
+  //   document.removeEventListener('mousemove', this.handleMouseMove);
+  // }
 
-  handleMouseMove(e) {
-    const hueIncrement = window.innerHeight / 360;
-    const mouseYPositionPercent = (e.clientY / window.innerHeight) * 100;
-    const hue = mouseYPositionPercent * hueIncrement;
-    const lightness = (e.clientX / window.innerHeight) * 100;
+  // handleMouseMove(e) {
+  //   const hueIncrement = window.innerHeight / 360;
+  //   const mouseYPositionPercent = (e.clientY / window.innerHeight) * 100;
+  //   const hue = mouseYPositionPercent * hueIncrement;
+  //   const lightness = (e.clientX / window.innerHeight) * 100;
 
-    const cursorX = window.Event ? e.pageX : event.clientX;
-    const cursorY = window.Event ? e.pageY : event.clientY;
+  //   const cursorX = window.Event ? e.pageX : event.clientX;
+  //   const cursorY = window.Event ? e.pageY : event.clientY;
 
-    this.setState({ hue, lightness });
-  }
+  //   this.setState({ hue, lightness });
+  // }
 
   componentDidMount() {
-    document.addEventListener('mousedown', this.handleMouseDown);
-    document.addEventListener('mouseup', this.handleMouseUp);
+    // document.addEventListener('mousedown', this.handleMouseDown);
+    // document.addEventListener('mouseup', this.handleMouseUp);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleMouseDown);
-    document.removeEventListener('mouseup', this.handleMouseUp);
+    // document.removeEventListener('mousedown', this.handleMouseDown);
+    // document.removeEventListener('mouseup', this.handleMouseUp);
   }
 
   render() {
