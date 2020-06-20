@@ -50,3 +50,12 @@ h1 {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.c-post-list {
+  margin: 0;
+  list-style: none;
+}
+
+.c-post-list a {
+
+}

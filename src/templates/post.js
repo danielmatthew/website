@@ -4,9 +4,8 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
-import About from '../components/About';
 
-import 'prismjs-okaidia-theme/prism-okaidia.css';
+import '../components/post.css';
 
 export default ({ data }) => {
   const post = data.markdownRemark;
@@ -14,19 +13,20 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <article>
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+      <main className="single-post">
+        <article>
+          <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
 
-        <header>
-          <h1 className="mb0">{post.frontmatter.title}</h1>
-          <time dateTime={post.fields.timestamp}>
-            {post.fields.formattedDate}
-          </time>
-        </header>
+          <header>
+            <h1 className="mb0">{post.frontmatter.title}</h1>
+            <time dateTime={post.fields.timestamp}>
+              {post.fields.formattedDate}
+            </time>
+          </header>
 
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <About />
-      </article>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </article>
+      </main>
     </Layout>
   );
 };

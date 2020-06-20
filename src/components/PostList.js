@@ -24,7 +24,7 @@ export default () => {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
-    <ol>
+    <ol className="c-post-list">
       {posts
         .filter(post => post.node.frontmatter.title.length > 0)
         .filter(post => post.node.frontmatter.published === true)
