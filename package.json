@@ -1,6 +1,6 @@
 {
   "name": "danielmatthew.co.uk",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -55,6 +55,7 @@
     "sass:process": "npm run sass:tokens && sass src/scss/global.scss src/_includes/assets/css/global.css --style=compressed",
     "cms:precompile": "make-dir dist/admin && nunjucks-precompile src/_includes > dist/admin/templates.js -i \"\\.(njk|css|svg)$\"",
     "cms:bundle": "rollup --config",
+    "release": "npx standard-version",
     "start": "concurrently \"npm run sass:process -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
     "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
     "production": "npm run sass:process && npm run cms:precompile && npm run cms:bundle && npx eleventy"

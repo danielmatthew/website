@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/danielmatthew/website/compare/v3.1.0...v3.2.0) (2020-07-02)
+
+
+### Features
+
+* display photo on splash ([eaa1e88](https://github.com/danielmatthew/website/commit/eaa1e88893fb97699755283379a7af1dd359871f))
+
 ## 3.1.0 (2020-07-02)
 
 
