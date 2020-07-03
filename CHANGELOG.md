@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.3.0](https://github.com/danielmatthew/website/compare/v3.2.1...v3.3.0) (2020-07-03)
+
+
+### Features
+
+* add speedcurve ([41a00c1](https://github.com/danielmatthew/website/commit/41a00c13d946cb265316f6a6d51d3c60b3052914))
+
+
+### Bug Fixes
+
+* add fonts to style-src ([0029a26](https://github.com/danielmatthew/website/commit/0029a26690544ac1f2b5cf690da4559f02282d8f))
+* **csp:** toml multiline fail ([aa2fa78](https://github.com/danielmatthew/website/commit/aa2fa78b2c16c72df7c7dbc955a8c2deee9ce98a))
+* **csp:** update values per report ([6b22a93](https://github.com/danielmatthew/website/commit/6b22a9324245170004b9daef77a76b26730ccb98))
+* add height and width attributes to hero ([b40f497](https://github.com/danielmatthew/website/commit/b40f49761a9b5a77477eb93fa602a689df613f05))
+* add suggested security headers ([29f81ec](https://github.com/danielmatthew/website/commit/29f81ec8550b299c0853cd3cb86137c3a9d1621a))
+* centre background image ([79c02ca](https://github.com/danielmatthew/website/commit/79c02cae19fd7bfa6dbf3983c0a22b5c60a31442))
+* comment out speedcurve ([9812e6c](https://github.com/danielmatthew/website/commit/9812e6cdb574bcb28726bc11da890b36845afa14))
+* convert and import splash partial ([3452abf](https://github.com/danielmatthew/website/commit/3452abf206fdd7947f40308bfe494f5ac04933d5))
+* enable speedcurve ([e10c4ec](https://github.com/danielmatthew/website/commit/e10c4ec204faa9f9357cdfdc4cd67a4558f179d0))
+* was preloading wrong image ([7d87147](https://github.com/danielmatthew/website/commit/7d87147b525db429974f2ed39aea1068c5c13d16))
+
 ### [3.2.1](https://github.com/danielmatthew/website/compare/v3.2.0...v3.2.1) (2020-07-03)
 
 
