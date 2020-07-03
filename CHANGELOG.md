@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.2.1](https://github.com/danielmatthew/website/compare/v3.2.0...v3.2.1) (2020-07-03)
+
+
+### Bug Fixes
+
+* update cloudinary query params ([ddee9c4](https://github.com/danielmatthew/website/commit/ddee9c429772d6812cf045f5874628ae9a3f99d4))
+
 ## [3.2.0](https://github.com/danielmatthew/website/compare/v3.1.0...v3.2.0) (2020-07-02)
 
 
