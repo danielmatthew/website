@@ -8,4 +8,9 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy-Report-Only = "default-src 'self'; img-src res.cloudinary.com; script-src 'self'; style-src 'self' fonts.googleapis.com"
+    Content-Security-Policy-Report-Only = '''
+      default-src "self";
+      img-src res.cloudinary.com;
+      script-src "self" "unsafe-inline";
+      style-src "self" "unsafe-inline" fonts.googleapis.com;
+      font-src fonts.gstatic.com'''
