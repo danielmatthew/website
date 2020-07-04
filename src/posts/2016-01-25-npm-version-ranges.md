@@ -1,7 +1,7 @@
 ---
-title: NPM101 – Version Ranges
+title: npm 101 – Version Ranges
 
-published: false
+published: true
 ---
 
 The following is a snippet from this site's `package.json`:
