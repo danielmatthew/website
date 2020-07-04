@@ -52,7 +52,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:tokens": "npx json-to-scss src/_data/tokens.json src/scss/_tokens.scss",
     "sass:process": "npm run sass:tokens && sass src/scss/global.scss src/_includes/assets/css/global.css --style=compressed",
-    "sass:splash": "sass src/scss/splash.scss src/_includes/assets/css/splash.css --style=compressed",
+    "sass:splash": "sass src/scss/splash.scss:src/_includes/assets/css/splash.css src/scss/global.scss:src/css/global.css --style=compressed",
     "cms:precompile": "make-dir dist/admin && nunjucks-precompile src/_includes > dist/admin/templates.js -i \"\\.(njk|css|svg)$\"",
     "cms:bundle": "rollup --config",
     "release": "npx standard-version",

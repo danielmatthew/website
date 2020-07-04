@@ -14,7 +14,7 @@ const parseTransform = require('./src/transforms/parse-transform.js');
 // Import data files
 const site = require('./src/_data/site.json');
 
-module.exports = function(config) {
+module.exports = function (config) {
   // Filters
   config.addFilter('dateFilter', dateFilter);
   config.addFilter('markdownFilter', markdownFilter);
@@ -41,14 +41,15 @@ module.exports = function(config) {
   const now = new Date();
 
   // Custom collections
-  const livePosts = post => post.date <= now && !post.data.draft;
-  config.addCollection('posts', collection => {
+  const livePosts = (post) =>
+    post.date <= now && !post.data.draft && post.data.published;
+  config.addCollection('posts', (collection) => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts),
     ].reverse();
   });
 
-  config.addCollection('postFeed', collection => {
+  config.addCollection('postFeed', (collection) => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts),
     ]
@@ -63,7 +64,7 @@ module.exports = function(config) {
   // 404
   config.setBrowserSyncConfig({
     callbacks: {
-      ready: function(err, browserSync) {
+      ready: function (err, browserSync) {
         const content_404 = fs.readFileSync('dist/404.html');
 
         browserSync.addMiddleware('*', (req, res) => {
