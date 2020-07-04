@@ -37,9 +37,9 @@
           media="print"
           onload="this.media='all'">
 
-    <script>performance.mark('CSS start');</script>
+    {# <script>performance.mark('CSS start');</script> #}
     <style>{% include "assets/css/splash.css" %}</style>
-    <script>performance.mark('CSS end'); performance.measure('CSS time', 'CSS start', 'CSS end');</script>
+    {# <script>performance.mark('CSS end'); performance.measure('CSS time', 'CSS start', 'CSS end');</script> #}
 
     <link rel="icon" type="image/svg+xml" href="{{ site.faviconPath }}">
     <link rel="alternate icon" href="{{ site.faviconFallbackPath }}">
