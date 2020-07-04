@@ -1,3 +1,13 @@
+{# Post list content #}
+{% set postListHeading = postsHeading %}
+{% set postListItems = collections.postFeed %}
+
+{# Archive link #}
+{% if postListItems.length < collections.posts.length %}
+  {% set paginationNextText = archiveButtonText %}
+  {% set paginationNextUrl = '/archive' %}
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
@@ -38,8 +48,10 @@
     <script src="https://cdn.speedcurve.com/js/lux.js?id=554314101" async defer crossorigin="anonymous"></script>
 
     {% include "partials/global/meta-info.njk" %}
+    <link rel="stylesheet" href="css/global.css" media="print" onload="this.media='all'">
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
     <header>
       <picture onload="performance.clearMarks('photo-mark'); performance.mark('photo-mark');">
         <source
@@ -65,7 +77,12 @@
         performance.clearMarks('photo-mark');
         performance.mark('photo-mark');
       </script>
-      <h1 data-sctrack="title">Daniel Matthew</h1>
+      <h1 class="c-hero__title" data-sctrack="title">Daniel Matthew</h1>
     </header>
+    <main id="main-content" tabindex="-1">
+      {% include "partials/components/post-list.njk" %}
+    </main>
+    {% include "partials/global/site-foot.njk" %}
+    {% block foot %}{% endblock %}
   </body>
 </html>
