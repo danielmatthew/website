@@ -8,7 +8,7 @@
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' res.cloudinary.com; script-src 'self' 'unsafe-inline' cdn.speedcurve.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com"
+    Content-Security-Policy = "default-src 'self'; img-src 'self' res.cloudinary.com lux.speedcurve.com; script-src 'self' 'unsafe-inline' cdn.speedcurve.com lux.speedcurve.com; style-src 'self' 'unsafe-inline' *.cloudfront.net fonts.googleapis.com; font-src fonts.gstatic.com"
 
 [[redirects]]
   from = "/:year/:month/:date/:slug"
