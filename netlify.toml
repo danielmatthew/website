@@ -12,5 +12,5 @@
 
 [[redirects]]
   from = "/:year/:month/:date/:slug"
-  to = "/notes/:slug
+  to = "/notes/:slug"
   status = 301
