@@ -1,4 +1,4 @@
 {
   "layout": "layouts/post.njk",
-  "permalink": "/notes/{{ title | slug }}/"
+  "permalink": "/notes/{{ page.fileSlug }}/"
 }
