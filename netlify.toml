@@ -9,3 +9,8 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = "default-src 'self'; img-src 'self' res.cloudinary.com; script-src 'self' 'unsafe-inline' cdn.speedcurve.com; style-src 'self' 'unsafe-inline' fonts.googleapis.com; font-src fonts.gstatic.com"
+
+[[redirects]]
+  from = "/:year/:month/:date/:slug"
+  to = "/notes/:slug
+  status = 301
