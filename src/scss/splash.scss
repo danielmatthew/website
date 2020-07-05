@@ -20,6 +20,9 @@ body {
   font-feature-settings: 'kern', 'liga', 'clig', 'calt';
 }
 
+@import 'utilities/visually-hidden';
+@import 'components/skip-link';
+
 header {
   position: relative;
   height: 100vh;
