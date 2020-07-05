@@ -87,5 +87,15 @@
     </main>
     {% include "partials/global/site-foot.njk" %}
     {% block foot %}{% endblock %}
+    <script type="module" src="/js/components/theme-toggle.js" async></script>
+    <script defer async>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator
+            .serviceWorker
+            .register('/service-worker.js');
+        });
+      }
+    </script>
   </body>
 </html>

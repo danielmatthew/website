@@ -27,7 +27,7 @@
     {% include "partials/global/site-foot.njk" %}
     {% block foot %}{% endblock %}
     <script type="module" src="/js/components/theme-toggle.js" async></script>
-    {# <script defer async>
+    <script defer async>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator
@@ -36,6 +36,6 @@
         });
       }
     </script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script> #}
+    {# <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" defer></script> #}
   </body>
 </html>
