@@ -6,3 +6,6 @@ public/
 dist
 srcbak
 src/posts/backup/
+
+# Local Netlify folder
+.netlify

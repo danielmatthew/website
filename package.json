@@ -29,6 +29,7 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "make-dir-cli": "^2.0.0",
+    "netlify-cli": "^2.57.0",
     "prettier": "^2.0.5",
     "rollup": "^1.32.1",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -55,7 +56,7 @@
     "sass:splash": "sass src/scss/splash.scss:src/_includes/assets/css/splash.css src/scss/global.scss:src/css/global.css --style=compressed",
     "cms:precompile": "make-dir dist/admin && nunjucks-precompile src/_includes > dist/admin/templates.js -i \"\\.(njk|css|svg)$\"",
     "cms:bundle": "rollup --config",
-    "release": "npx standard-version",
+    "release": "npx standard-version && git push --follow-tags && npx netlify deploy --prod",
     "start": "concurrently \"npm run sass:splash -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
     "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
     "production": "npm run sass:splash && npm run cms:precompile && npm run cms:bundle && npx eleventy"
