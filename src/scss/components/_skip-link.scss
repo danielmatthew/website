@@ -6,6 +6,7 @@
 .skip-link:focus {
   display: inline-block;
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   padding: get-size(300) get-size(500) get-size('base') get-size(500);
