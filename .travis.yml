@@ -6,4 +6,4 @@ node_js:
   - "node"
 cache: npm
 script:
-  - lint:eslint
+  - production
