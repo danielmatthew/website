@@ -1,6 +1,5 @@
 ---
 title: Hide An Element From A Screenreader
-
 published: true
 ---
 

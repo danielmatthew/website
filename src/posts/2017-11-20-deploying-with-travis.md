@@ -1,6 +1,5 @@
 ---
 title: Automating the Build Process with Travis-CI
-
 published: true
 ---
 
