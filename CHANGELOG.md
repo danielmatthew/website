@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.1](https://github.com/danielmatthew/website/compare/v3.3.0...v3.3.1) (2020-07-05)
+
+
+### Bug Fixes
+
+* remove speedcurve ([0428d61](https://github.com/danielmatthew/website/commit/0428d61266898da4c64761df289bd906f88ade38))
+* **csp:** use correct speedcurve domain ([81e3367](https://github.com/danielmatthew/website/commit/81e336703defbe04e30b99409104647d94b138be))
+* add performance markers ([9fb04e0](https://github.com/danielmatthew/website/commit/9fb04e0ede620ef6d4b23b9fdca5fc8d8069f2fd))
+* add z-index to skip link ([5e62ad5](https://github.com/danielmatthew/website/commit/5e62ad53a6501de6264e32484dadb3aaf34a9974))
+* attempt to redirect ([17f21fe](https://github.com/danielmatthew/website/commit/17f21feb12c24359ba2b8fb32cf95c2e042f3bca))
+* close redirect quote ([692f008](https://github.com/danielmatthew/website/commit/692f0081a294062379686710c9fc50726c9bb7c5))
+* disable the service worker ([063fdde](https://github.com/danielmatthew/website/commit/063fddee193a23e8b03cdbaa372dffa0f3606739))
+* include posts ([9cf6214](https://github.com/danielmatthew/website/commit/9cf6214743e7ca7d9dec862a54293cd6f0c739b0))
+* it were netlify's concatentation breaking my site ([48e29d9](https://github.com/danielmatthew/website/commit/48e29d9011ae45cc3d0bd1ee79317369cfab830d))
+* move skip link into critical styles ([5afc7a5](https://github.com/danielmatthew/website/commit/5afc7a57cb3f0389b025a5717743ba181a394c37))
+* permalinks to match redirect ([0aa5a3f](https://github.com/danielmatthew/website/commit/0aa5a3fff0266bf9d1cb78e977bc8745cff6f27b))
+* remove performance markers ([d17a4bc](https://github.com/danielmatthew/website/commit/d17a4bc7f3c61c9981125368e8d21f5be0e4f747))
+* remove references to Lora ([01c32f7](https://github.com/danielmatthew/website/commit/01c32f7ba21a1b01671c0616cd296d254526ca7c))
+* unleash the service worker ([c7c3852](https://github.com/danielmatthew/website/commit/c7c3852bd389fe2975322934d2823eff4f3b2d48))
+* update appearance ([cf2a653](https://github.com/danielmatthew/website/commit/cf2a65313efecacf58936e190e6bbaf958779fc4))
+* update csp. again ([9e14b29](https://github.com/danielmatthew/website/commit/9e14b291db2ec2dbaf886e32fdd18c0bf30e7405))
+* update page titles ([61d70ca](https://github.com/danielmatthew/website/commit/61d70ca8e4fc4732d41f71a099034918bdc4d3e7))
+* update service worker ([3ba5880](https://github.com/danielmatthew/website/commit/3ba5880a710f53fcebf64720072347b13f0209d7))
+* update static pages ([f8a8a60](https://github.com/danielmatthew/website/commit/f8a8a60f7ec5b801959901c8086d8606700ffef5))
+* use correct type of twitter card ([3ce9aa9](https://github.com/danielmatthew/website/commit/3ce9aa9824d20adb84dc8757bc274ff36015f44b))
+
 ## [3.3.0](https://github.com/danielmatthew/website/compare/v3.2.1...v3.3.0) (2020-07-03)
 
 
