@@ -1,5 +1,5 @@
 {
-  "name": "danielmatthew.co.uk",
+  "name": "danmatthew.co.uk",
   "version": "3.3.1",
   "description": "",
   "main": "index.js",
@@ -45,10 +45,10 @@
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint --ext .js,.html .",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
     "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
     "format": "npm run format:eslint && npm run format:prettier",
-    "format:eslint": "eslint --ext .js,.html . --fix",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "format:prettier": "prettier \"**/*.js\" --write",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass:tokens": "npx json-to-scss src/_data/tokens.json src/scss/_tokens.scss",
