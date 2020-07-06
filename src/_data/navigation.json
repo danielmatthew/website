@@ -6,14 +6,19 @@
       "external": false
     },
     {
-      "text": "GitHub",
-      "url": "https://github.com/danielmatthew",
-      "external": true
-    },
-    {
       "text": "Contact",
       "url": "/contact",
       "external": false
+    },
+    {
+      "text": "Twitter",
+      "url": "https://twitter.com/danielm",
+      "external": true
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/danielmatthew",
+      "external": true
     }
   ]
 }
