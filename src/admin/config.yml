@@ -38,9 +38,9 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "posts"
     label: "Posts"
-    folder: "src/posts"
+    folder: "src/notes"
     slug: "{{slug}}"
-    preview_path: "posts/{{slug}}"
+    preview_path: "notes/{{slug}}"
     create: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
@@ -90,7 +90,7 @@ collections:
           - label: "Size Scale"
             name: "size-scale"
             widget: "object"
-            fields: 
+            fields:
               - {label: "Base Size", name: "base", widget: "string", default: "1rem"}
               - {label: "Ratio: 300", name: "300", widget: "string", default: "0.8rem"}
               - {label: "Ratio: 500", name: "500", widget: "string", default: "1.25rem"}
@@ -102,7 +102,7 @@ collections:
           - label: "Colors"
             name: "colors"
             widget: "object"
-            fields: 
+            fields:
               - {label: "Primary", name: "primary", widget: "string", default: "hsl(208, 57%, 21%)"}
               - {label: "Primary Shade (darker)", name: "primary-shade", widget: "string", default: "hsl(208, 56%, 14%)"}
               - {label: "Primary Glare (lighter)", name: "primary-glare", widget: "string", default: "hsl(207, 57%, 31%)"}
@@ -114,4 +114,4 @@ collections:
           - label: "Fonts"
             name: "fonts"
             widget: "hidden"
-            default: { "base": "\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'\"", "serif": "\"'Lora', serif\""}
+            default: { "base": "\"Inter, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'\"", "serif": "\"'Lora', serif\""}
