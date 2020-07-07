@@ -1,15 +1,15 @@
 {
   "showThemeCredit": false,
   "name": "Dan Matthew",
-  "shortDesc": "Web accessibility and front-end performance expert.",
+  "shortDesc": "Articles on web accessibility and front-end development.",
   "url": "https://danmatthew.co.uk",
   "authorEmail": "dan.matthew@hey.com",
   "authorHandle": "@danielm",
   "authorName": "Dan Matthew",
   "enableThirdPartyComments": false,
   "paymentPointer": "",
-  "faviconPath": "/images/favicon.svg?v=rMJ5L8rjzp",
-  "faviconFallbackPath": "/images/favicon.ico?v=rMJ5L8rjzp",
-  "safariPinnedTabPath": "/images/safari-pinned-tab.svg?v=rMJ5L8rjzp",
+  "faviconPath": "/images/favicon.svg",
+  "faviconFallbackPath": "/images/favicon.ico",
+  "safariPinnedTabPath": "/images/safari-pinned-tab.svg",
   "maxPostsPerPage": 5
 }

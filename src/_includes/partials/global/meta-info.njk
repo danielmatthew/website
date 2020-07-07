@@ -1,10 +1,10 @@
-{% set pageTitle = title + ' - ' + site.name + ' - Web accessibility reviews and training'%}
-{% set pageDesc = 'Articles on web accessibility and front-end performance.' %}
+{% set pageTitle = title + ' - ' + site.name + ' - Web accessibility champion'%}
+{% set pageDesc = 'Articles on web accessibility and front-end development.' %}
 {% set siteTitle = site.name %}
 {% set currentUrl = site.url + page.url %}
 
 {% if page.url === '/' %}
-  {% set pageTitle = site.name + ' - Web accessibility reviews and training' %}
+  {% set pageTitle = site.name + ' - Web accessibility champion' %}
 {% endif %}
 
 {% if metaTitle %}
@@ -29,10 +29,10 @@
   <meta name="twitter:creator" content="@{{ site.authorHandle | replace('@', '') }}">
 {% endif %}
 
-{% if metaDesc %}
-  <meta name="description" content="{{ metaDesc }}" />
-  <meta property="og:description" content="{{ metaDesc }}" />
-  <meta name="twitter:description" content="{{ metaDesc }}" />
+{% if pageDesc %}
+  <meta name="description" content="{{ pageDesc }}" />
+  <meta property="og:description" content="{{ pageDesc }}" />
+  <meta name="twitter:description" content="{{ pageDesc }}" />
 {% endif %}
 
 {% if socialImage %}
