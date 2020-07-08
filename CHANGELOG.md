@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.3.2](https://github.com/danielmatthew/website/compare/v3.3.1...v3.3.2) (2020-07-08)
+
+
+### Bug Fixes
+
+* add blur to image load state ([e237529](https://github.com/danielmatthew/website/commit/e237529ad67b444700b2b0de908d39b7f3cb3fb4))
+* add lqip placeholder for hero ([f97f046](https://github.com/danielmatthew/website/commit/f97f0464e436bacc13259e8cf89adc35b177639a))
+* add twitter to nav ([8e4be72](https://github.com/danielmatthew/website/commit/8e4be725d28c8cf4e4fea697e8b32553a861b764))
+* ensure Inter is used ([4a0434f](https://github.com/danielmatthew/website/commit/4a0434fc5fb1b1736bae40fa451f36c247062b10))
+* surface feed on splash layout ([bbe2241](https://github.com/danielmatthew/website/commit/bbe2241510b34ad2877b78ff5a52f08ad726b59b))
+* update site meta ([ffc4642](https://github.com/danielmatthew/website/commit/ffc46422cbb159102b2de096119b806a82600095))
+
 ### [3.3.1](https://github.com/danielmatthew/website/compare/v3.3.0...v3.3.1) (2020-07-05)
 
 
