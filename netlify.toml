@@ -14,3 +14,14 @@
   from = "/:year/:month/:date/:slug"
   to = "/notes/:slug"
   status = 301
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "dist"
+
+[[plugins]]
+package = "netlify-plugin-hashfiles"
+
+
