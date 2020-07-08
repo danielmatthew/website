@@ -42,7 +42,7 @@ header {
   background-image: url('https://res.cloudinary.com/danmatthew/image/upload/c_thumb,w_200,g_face/v1593720656/_DSC2105_yxqwvc.jpg');
   background-size: cover;
   filter: blur(5rem);
-  transition: 1s filter ease-out;
+  transition: .25s filter ease-out;
 }
 
 .c-hero__title {
