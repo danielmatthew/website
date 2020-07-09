@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: local('Inter'), url("/fonts/Inter-roman.var.woff2?v=3.13") format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: local('Inter'), url("/fonts/Inter-italic.var.woff2?v=3.13") format("woff2");
+}
+
 *,
 :after,
 :before {
@@ -5,7 +23,7 @@
 }
 
 html {
-  font: 112.5%/1.45em Inter, sans-serif;
+  font: 112.5%/1.45em 'Inter var', sans-serif;
   box-sizing: border-box;
 }
 
@@ -54,8 +72,8 @@ header {
   font-weight: 700;
   text-rendering: optimizeLegibility;
   line-height: 1.1;
-  font-size: 10vw;
-  font-size: clamp(2rem, 10vw, 25rem);
+  font-size: 16vw;
+  font-size: clamp(2rem, 16vw, 25rem);
   letter-spacing: -0.05ch;
   margin: 0;
   transform: translateY(40%);
