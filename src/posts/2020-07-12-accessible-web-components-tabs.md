@@ -11,6 +11,8 @@ tags:
 
 I've finally published my first NPM package: a [web component to represent a tabbed interface](https://www.npmjs.com/package/@accessible-web-components/tabs).
 
+[View it in action at CodeSandbox](https://v505e.csb.app)
+
 __Rock and roll.__
 
 It might not be the most fashionable of side projects - or technologies - but I felt that a wrapping up the desired behaviour of a tabbed interface into a bog-standard web component might do some good. If it saves another developer spending an afternoon doing the same thing, or makes the life of the user a little easier, then I'd consider that worthwhile.
