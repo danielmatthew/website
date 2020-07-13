@@ -8,10 +8,11 @@ tags:
   - side-projects
 ---
 
+## The web component
 
 I've finally published my first NPM package: a [web component to represent a tabbed interface](https://www.npmjs.com/package/@accessible-web-components/tabs).
 
-[View it in action at CodeSandbox](https://v505e.csb.app)
+[View the demo](https://v505e.csb.app)
 
 __Rock and roll.__
 
@@ -19,20 +20,43 @@ It might not be the most fashionable of side projects - or technologies - but I 
 
 The component follows the behaviours specified in the [WAI-ARIA Authoring Practices document](https://www.w3.org/TR/wai-aria-practices-1.2/#tabpanel). It can be styled with CSS to suit its environment, and will display as a single column should there be a hitch. Alas, web components _do_ require JavaScript in order to be registered, and it certainly requires JS in order to enhance the markup with the required ARIA attributes.
 
-It takes the following structure:
+
+### Usage
+
+#### JavaScript
+
+Import the three components, and tell the browser about them:
+
+```js
+import { AwcTabs, AwcTab, AwcPanel } from "@accessible-web-components/tabs";
+
+window.customElements.define("awc-tabs", AwcTabs);
+window.customElements.define("awc-tab", AwcTab);
+window.customElements.define("awc-panel", AwcPanel);
+```
+
+#### HTML
+
+It takes the following structure.  Add as many tabs and panels as are required.
 
 ```html
 <awc-tabs>
-  <awc-tab>Tab 1</awc-tab>
-  <awc-panel>Panel 1 content goes here…</awc-panel>
-  <awc-tab>Tab 2</awc-tab>
-  <awc-panel>Panel 2 content goes here…</awc-panel>
-  <awc-tab>Tab 3</awc-tab>
-  <awc-panel>Panel 3 content goes here…</awc-panel>
+  <awc-tab role="heading" slot="tab">Tab 1</awc-tab>
+  <awc-panel role="region" slot="panel">
+    <h2>My first tab</h2>
+    <p>Here is some text…</p>
+    <ul>
+      <li>…and a list</p>
+    </ul>
+
+    <button type="button">I am a focusable element within the tab</button>
+  </awc-panel>
+  <awc-tab role="heading" slot="tab">Tab 2</awc-tab>
+  <awc-panel role="region" slot="panel">Content 2</awc-panel>
+  <awc-tab role="heading" slot="tab">Tab 3</awc-tab>
+  <awc-panel role="region" slot="panel">Content 3</awc-panel>
 </awc-tabs>
 ```
-
-While the roles of `heading` and `panel` can be added here, the component will do this at runtime. Additionally, it will add the necessary attributes to help browsers and assistive technologies make sense of it the structure.
 
 To the 67 brave souls who have downloaded it since yesterday morning: ~~you are brave~~ thanks ~~for being my guinea pigs~~!. I've put the package level as a pre-release, at `0.0.0-alpha.3`. I don't think it's going to break your project, but there are a few more features I want to include before it goes to `0.0.1`. I guess it would help if I wrote some tests, and I can certainly improve the documentation.
 
