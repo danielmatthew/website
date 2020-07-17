@@ -18,12 +18,7 @@
 [[headers]]
   for = "/admin*"
   [headers.values]
-    Content-Security-Policy = """
-      default-src 'self';
-      style-src * 'unsafe-inline';
-      img-src *;
-      script-src * 'unsafe-eval';
-      font-src *"""
+    Content-Security-Policy = "default-src 'self' 'unsafe-inline' 'unsafe-eval' *"
 
 [[redirects]]
   from = "/:year/:month/:date/:slug"

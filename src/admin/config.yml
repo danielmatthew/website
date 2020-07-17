@@ -38,8 +38,8 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
   - name: "posts"
     label: "Posts"
-    folder: "src/notes"
-    slug: "{{slug}}"
+    folder: "src/posts"
+    slug: "notes/{{slug}}"
     preview_path: "notes/{{slug}}"
     create: true
     fields:
