@@ -15,6 +15,15 @@
       style-src 'self' 'unsafe-inline' *.cloudfront.net fonts.googleapis.com;
       font-src 'self' *.cloudfront.net fonts.gstatic.com"""
 
+  for = "/admin*"
+  [headers.values]
+    Content-Security-Policy = """
+      default-src 'self';
+      style-src *;
+      img-src *;
+      script-src *;
+      font-src *"""
+
 [[redirects]]
   from = "/:year/:month/:date/:slug"
   to = "/notes/:slug"
