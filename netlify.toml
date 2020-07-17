@@ -20,9 +20,9 @@
   [headers.values]
     Content-Security-Policy = """
       default-src 'self';
-      style-src *;
+      style-src * 'unsafe-inline';
       img-src *;
-      script-src *;
+      script-src * 'unsafe-eval';
       font-src *"""
 
 [[redirects]]
