@@ -4,6 +4,9 @@ branches:
 language: node_js
 node_js:
   - "node"
-cache: npm
+cache:
+  npm: true
+  directories:
+    - ~/.cache
 script:
-  - npm run production
+  - "npm run ci"

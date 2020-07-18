@@ -26,6 +26,7 @@
     "bl": "^3.0.0",
     "chokidar-cli": "^2.1.0",
     "cross-env": "^5.2.1",
+    "cypress": "^4.10.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "make-dir-cli": "^2.0.0",
@@ -44,13 +45,14 @@
     ]
   },
   "scripts": {
+    "ci": "npm run serve:ci && npm test",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
     "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
     "format": "npm run format:eslint && npm run format:prettier",
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "format:prettier": "prettier \"**/*.js\" --write",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run --spec \"cypress/integration/home_page.spec.js\"",
     "sass:tokens": "npx json-to-scss src/_data/tokens.json src/scss/_tokens.scss",
     "sass:process": "npm run sass:tokens && sass src/scss/global.scss src/_includes/assets/css/global.css --style=compressed",
     "sass:splash": "sass src/scss/splash.scss:src/_includes/assets/css/splash.css src/scss/global.scss:src/css/global.css --style=compressed",
@@ -59,6 +61,7 @@
     "release": "npx standard-version && git push --follow-tags",
     "start": "concurrently \"npm run sass:splash -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
     "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
+    "serve:ci": "cross-env npx eleventy --serve",
     "production": "npm run sass:splash && npm run cms:precompile && npm run cms:bundle && npx eleventy"
   },
   "repository": {
