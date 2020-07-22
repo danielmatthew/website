@@ -11,4 +11,4 @@ deploy:
   provider: script
   script: npx netlify deploy
   on:
-    branch: master
+    branch: main
