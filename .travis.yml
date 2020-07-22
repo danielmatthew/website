@@ -10,7 +10,7 @@ cache:
 script:
   - npx netlify build
   - npx netlify deploy --alias $TRAVIS_JOB_ID
-  - npx cypress run --env host=$TRAVIS_JOB_ID--danmatthew.netlify.app --spec \"cypress/integration/home_page.spec.js\" --headless
+  - npx cypress run --env host=$TRAVIS_JOB_ID--danmatthew.netlify.app --headless
 deploy:
   skip_cleanup: true
   provider: script
