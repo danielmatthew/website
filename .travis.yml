@@ -1,9 +1,11 @@
-branches:
-  except:
-  - master
 language: node_js
 node_js:
   - "node"
 cache: npm
 script:
-  - npm run production
+  - npx netlify build
+deploy:
+  provider: script
+  script: npx netlify deploy
+  on:
+    branch: master
