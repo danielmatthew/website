@@ -1,3 +1,5 @@
+os: linux
+dist: xenial
 language: node_js
 node_js:
   - "node"
@@ -5,6 +7,7 @@ cache: npm
 script:
   - npx netlify build
 deploy:
+  skip_cleanup: true
   provider: script
   script: npx netlify deploy
   on:
