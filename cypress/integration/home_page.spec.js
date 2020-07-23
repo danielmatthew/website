@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 
-describe('Home page', () => {
+describe('Smoke test', () => {
   it('successfully loads', () => {
     cy.visit('/');
 
