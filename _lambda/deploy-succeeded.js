@@ -4,7 +4,7 @@ const Entities = require('html-entities').AllHtmlEntities;
 
 require('dotenv').config;
 
-const FEED = 'https://danmatthew.co.uk/feed.xml';
+const FEED = 'https://danmatthew.co.uk/feed.json';
 
 const twitter = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -33,11 +33,13 @@ const status = (code, message) => {
 };
 
 const processNotes = async (notes) => {
-  if (!notes.length) {
+  const postItems = notes.items;
+
+  if (!postItems.length) {
     return status(404, 'No notes to process');
   }
 
-  const latestNote = notes[0];
+  const latestNote = postItems[0];
 
   if (!latestNote.syndicate) {
     return status(400, 'Latest note has disabled syndication. No action taken');
