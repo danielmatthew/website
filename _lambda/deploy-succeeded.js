@@ -1,6 +1,7 @@
 import fetch from 'node-fetch';
 import dotenv from 'dotenv';
 import Twitter from 'twitter';
+import { AllHtmlEntities as Entities } from 'html-entities';
 
 dotenv.config();
 

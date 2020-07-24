@@ -1,6 +1,7 @@
 [build]
   command = "npm run production"
   publish = "dist"
+  functions = "_lambda"
 
 [[headers]]
   for = "/*"
