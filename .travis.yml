@@ -16,6 +16,6 @@ deploy:
   provider: script
   script:
     - npx netlify deploy --prod
-    - npx semantic-release
+    - npx semantic-release --branches "main"
   on:
     branch: main
