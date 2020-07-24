@@ -1,17 +1,16 @@
-import fetch from 'node-fetch';
-import dotenv from 'dotenv';
-import Twitter from 'twitter';
-import { AllHtmlEntities as Entities } from 'html-entities';
+const fetch = require('node-fetch');
+const Twitter = require('twitter');
+const Entities = require('html-entities').AllHtmlEntities;
 
-dotenv.config();
+require('dotenv').config;
 
 const FEED = 'https://danmatthew.co.uk/feed.xml';
 
 const twitter = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER.ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER.ACCESS_TOKEN_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
 const handleError = (error) => {
