@@ -12,10 +12,10 @@ script:
   - npx netlify deploy --alias $TRAVIS_JOB_ID
   - CYPRESS_BASE_URL=https://$TRAVIS_JOB_ID--danmatthew.netlify.app npx cypress run --headless --config-file false
 deploy:
-  cleanup: true
+  cleanup: false
   provider: netlify
-  site: NETLIFY_SITE_ID
-  auth: NETLIFY_AUTH_TOKEN
+  site: $NETLIFY_SITE_ID
+  auth: $NETLIFY_AUTH_TOKEN
   prod: true
   edge: true
   run: npx semantic-release --branches "main"
