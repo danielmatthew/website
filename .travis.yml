@@ -18,7 +18,7 @@ deploy:
   auth: $NETLIFY_AUTH_TOKEN
   prod: true
   edge: true
-  run: npx semantic-release --branches "main"
+  run: npx semantic-release
   # script:
   #   - npx netlify deploy --prod
   on:
