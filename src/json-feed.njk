@@ -13,7 +13,7 @@ permalink: '/feed.json'
     {
       "id": "{{ absolutePostUrl }}",
       "title": "{{ post.data.title }}",
-      "content_html": "{{ post.templateContent | excerpt | safe | striptags }}",
+      "content_html": "{{ post.templateContent | safe | excerpt | striptags }}",
       "date_published": "{{ post.date | rssDate }}",
       "url": "{{ absolutePostUrl }}",
       "syndicate": {{ post.data.syndicate | string }}
