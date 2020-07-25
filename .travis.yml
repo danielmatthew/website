@@ -1,3 +1,4 @@
+if: tag IS blank
 os: linux
 dist: xenial
 language: node_js
@@ -11,8 +12,6 @@ script:
   - npx netlify build
   - npx netlify deploy --alias $TRAVIS_JOB_ID
   - CYPRESS_BASE_URL=https://$TRAVIS_JOB_ID--danmatthew.netlify.app npx cypress run --headless --config-file false
-  on:
-    tags: false
 deploy:
   cleanup: false
   provider: netlify
