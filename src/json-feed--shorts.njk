@@ -17,7 +17,7 @@ permalink: '/shorts/feed.json'
       "date_published": "{{ post.date | rssDate }}",
       "url": "{{ absolutePostUrl }}",
       "syndicate": {{ post.data.syndicate | string }},
-      "link": {{ post.data.link }}
+      "link": "{{ post.data.link }}"
     }
     {%- if not loop.last -%},{% endif %}
     {% endfor %}
