@@ -11,6 +11,8 @@ script:
   - npx netlify build
   - npx netlify deploy --alias $TRAVIS_JOB_ID
   - CYPRESS_BASE_URL=https://$TRAVIS_JOB_ID--danmatthew.netlify.app npx cypress run --headless --config-file false
+  on:
+    tags: false
 deploy:
   cleanup: false
   provider: netlify
@@ -18,10 +20,9 @@ deploy:
   auth: $NETLIFY_AUTH_TOKEN
   prod: true
   edge: true
-  run: npx semantic-release
   # script:
   #   - npx netlify deploy --prod
   on:
     branch: main
-# after_deploy:
-#   - npx semantic-release --branches "main"
+after_deploy:
+  - npx semantic-release
