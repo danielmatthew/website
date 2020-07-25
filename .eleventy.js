@@ -45,6 +45,7 @@ module.exports = function (config) {
   // Custom collections
   const livePosts = (post) =>
     post.date <= now && !post.data.draft && post.data.published;
+
   config.addCollection('posts', (collection) => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts),
@@ -57,6 +58,10 @@ module.exports = function (config) {
     ]
       .reverse()
       .slice(0, site.maxPostsPerPage);
+  });
+
+  config.addCollection('shorts', (collection) => {
+    return [...collection.getFilteredByGlob('./src/shorts/*.md')].reverse();
   });
 
   // Plugins
