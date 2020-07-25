@@ -62,7 +62,7 @@ const prepareStatusText = (note) => {
   const maxLength = 280 - 3 - 1 - 23 - 20;
   const entities = new Entities();
 
-  let text = note.content.trim().replace(/<[^>]+>/g, '');
+  let text = note.content_html.trim().replace(/<[^>]+>/g, '');
   text = entities.decode(text);
 
   if (text.length > maxLength) {
@@ -87,7 +87,10 @@ const publishNote = async (note) => {
     });
 
     if (tweet) {
-      return status(200, `Note ${note.date} successfully posted to Twitter`);
+      return status(
+        200,
+        `Note ${note.date_published} successfully posted to Twitter`
+      );
     } else {
       return status(422, 'Error posting to Twitter API');
     }
