@@ -1,5 +1,5 @@
 ---
-title: Using continuous integration to build, test, and publish a Netlify site
+title: Using continuous integration to build, test, and publish with Netlify
 metaDesc: In which I document using Travis CI to build, test, and publish an eleventy-generated static site to Netlify
 published: true
 tags:
