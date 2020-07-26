@@ -46,7 +46,7 @@ Each call to `.visit()` will use the `baseUrl` as its root. While it's set to `l
 
 ## Testing against a local web server
 
-Netlify expects tests to be run elsewhere, since every commit to the linked VCS causes a build and publish. I'd [used Travis CI previously](/notes/deploying-with-travis/), so thought I'd pick up where I left off. I wanted it to operate like my local devlopment flow, where I'd run `npx eleventy serve`, then spawn Cypress in the background: `npm run serve:ci && npm test`
+Netlify expects tests to be run elsewhere, since every commit to the linked VCS causes a build and publish. I'd [used Travis CI previously](/notes/deploying-with-travis/), so thought I'd pick up where I left off. I wanted it to operate like my local development environment, where I'd run `npx eleventy serve` and then spawn Cypress in the background: `npm run serve:ci && npm test`
 
 This [did not work as anticipated](https://travis-ci.com/github/danielmatthew/website/builds/176151683). `serve` was never going to end, and Cypress was never going to be started 😂. The Cypress docs even warned against this, and do [cover a number of solutions](https://docs.cypress.io/guides/guides/continuous-integration.html#Solutions), but pig-headedly I didn't want to install yet another package.
 
@@ -55,7 +55,7 @@ Time to rethink.
 
 ## Building a Deploy Preview with the Netlify CLI
 
-When Netlify builds the site, I've configured it to use a couple of [Build Plugins](https://docs.netlify.com/configure-builds/build-plugins/) to hash and rename static files and create a sitemap. I didn't realise that these can be installed locally as devDependencies and they'll operate on the generated site just as they do on live. This meant using the CLI became a plausible alternative, once automatic builds were turned off.
+With Netlify in control of builds, I'd configured it to use a couple of [Build Plugins](https://docs.netlify.com/configure-builds/build-plugins/). I didn't realise that these can be installed locally as devDependencies and they'll operate on the generated site just as they do on live. This meant using the CLI became a plausible alternative – just as soon as automatic builds were turned off.
 
 This setting can be found at https://app.netlify.com/sites/{YOUR_SITE_NAME}/settings/deploys. Look for "Build Settings", and then "Stop builds". The following warning is displayed:
 
