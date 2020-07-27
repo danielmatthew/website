@@ -4,7 +4,7 @@ const Entities = require('html-entities').AllHtmlEntities;
 
 require('dotenv').config;
 
-const FEED = 'https://danmatthew.co.uk/feed.json';
+const FEED = 'https://danmatthew.co.uk/shorts/feed.json';
 
 const twitter = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
