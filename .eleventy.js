@@ -60,8 +60,12 @@ module.exports = function (config) {
       .slice(0, site.maxPostsPerPage);
   });
 
+  const liveShorts = (post) => post.date <= now && !post.data.draft;
+
   config.addCollection('shorts', (collection) => {
-    return [...collection.getFilteredByGlob('./src/shorts/*.md')].reverse();
+    return [
+      ...collection.getFilteredByGlob('./src/shorts/*.md').filter(liveShorts),
+    ].reverse();
   });
 
   // Plugins
