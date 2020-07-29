@@ -7,15 +7,6 @@
   src: local('Inter'), url("/fonts/Inter-roman.var.woff2?v=3.13") format("woff2");
 }
 
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: local('Inter'), url("/fonts/Inter-italic.var.woff2?v=3.13") format("woff2");
-}
-
 *,
 :after,
 :before {
@@ -49,8 +40,40 @@ header {
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, hsl(var(--hour), 71%, 52%) 2.01%, rgba(45, 156, 219, 0) 100%);
+  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, hsl(var(--hour), 71%, 52%) 2.01%, rgba(var(--hour), 156, 219, 0) 100%);
   overflow: hidden;
+}
+
+path:nth-child(8) {
+  fill: hsl(var(--hour), 59%, 34%)
+}
+
+path:nth-child(7) {
+  fill: hsl(var(--hour), 59%, 44%)
+}
+
+path:nth-child(6) {
+  fill: hsl(var(--hour), 59%, 54%)
+}
+
+path:nth-child(5) {
+  fill: hsl(var(--hour), 59%, 64%)
+}
+
+path:nth-child(4) {
+  fill: hsl(var(--hour), 59%, 74%)
+}
+
+path:nth-child(3) {
+  fill: hsl(var(--hour), 59%, 84%)
+}
+
+path:nth-child(2) {
+  fill: hsl(var(--hour), 59%, 90%)
+}
+
+path:nth-child(1) {
+  fill: hsl(var(--hour), 59%, 94%)
 }
 
 [data-user-color-scheme='dark'] header {
