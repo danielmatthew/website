@@ -15,13 +15,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <link rel="preconnect"
-          href="https://res.cloudinary.com">
-
-    <link rel="preload"
-          href="https://res.cloudinary.com/danmatthew/image/upload/c_thumb,w_200,g_face/v1593720656/_DSC2105_yxqwvc.jpg"
-          as="image">
-
     <script>performance.mark('CSS start');</script>
     <style>{% include "assets/css/splash.css" %}</style>
     <script>performance.mark('CSS end'); performance.measure('CSS time', 'CSS start', 'CSS end');</script>
@@ -36,35 +29,25 @@
           href="css/global.css"
           media="print"
           onload="this.media='all'">
+
+    <script>
+      const date = new Date(Date.now());
+      document.documentElement.style.setProperty('--hour', (date.getHours() * 15).toString());
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header>
-      <picture onload="performance.clearMarks('photo-mark'); performance.mark('photo-mark');">
-        <source
-          srcset="https://res.cloudinary.com/danmatthew/image/upload/ar_16:10,c_scale,w_0.7,q_auto,f_auto,dpr_1.0/v1593720656/_DSC2105_yxqwvc.jpg,
-                  https://res.cloudinary.com/danmatthew/image/upload/ar_16:10,c_scale,w_0.7,q_auto,f_auto/v1593720656/_DSC2105_yxqwvc.jpg 2x"
-          media="screen and (min-width: 60rem)">
-
-        <source
-          srcset="https://res.cloudinary.com/danmatthew/image/upload/c_crop,f_auto,dpr_1.0,g_auto,h_1.0,q_auto,w_0.3,x_0/v1593720656/_DSC2105_yxqwvc.jpg,
-                  https://res.cloudinary.com/danmatthew/image/upload/c_crop,f_auto,g_auto,h_1.0,q_auto,w_0.3,x_0/v1593720656/_DSC2105_yxqwvc.jpg 2x"
-          media="screen and (orientation: portrait)">
-
-        <img
-          class="c-hero"
-          height="100vh"
-          width="100vw"
-          srcset="https://res.cloudinary.com/danmatthew/image/upload/ar_16:10,c_scale,w_0.7,q_auto,f_auto,dpr_1.0/v1593720656/_DSC2105_yxqwvc.jpg,
-                  https://res.cloudinary.com/danmatthew/image/upload/ar_16:10,c_scale,w_0.7,q_auto,f_auto/v1593720656/_DSC2105_yxqwvc.jpg 2x"
-          src="https://res.cloudinary.com/danmatthew/image/upload/ar_16:10,c_scale,w_0.7,q_auto,f_auto,dpr_1.0/v1593720656/_DSC2105_yxqwvc.jpg"
-          alt=""
-          onload="this.style.filter = 'blur(0)'">
-      </picture>
-      <script>
-        performance.clearMarks('photo-mark');
-        performance.mark('photo-mark');
-      </script>
+      <svg preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
+        <path d="M1280 397.396H0V288.548L921.197 0H1280V397.396z" fill="#F4E7F9"/>
+        <path d="M1280 408.681H0V299.833l951.433-225.71 169.327 54.091L1280 143.573v265.108z" fill="#ECD6F5"/>
+        <path d="M1280 483.472H0V374.624l776.063-184.975 122.961-6.01 285.226 151.586 95.75 13.356v134.891z" fill="#E1BEEE"/>
+        <path d="M1280 563.606H0V454.758l904.063-136.895 111.877 31.386L1280 383.973v179.633z" fill="#CF95E4"/>
+        <path d="M1280 642.404H0V533.556l906.079-156.928 195.531 80.133L1280 480.134v162.27z" fill="#BC6DD9"/>
+        <path d="M1280 726.544H0V617.696l596.661-101.502 280.189-69.449 223.75 44.741 179.4 57.429v177.629z" fill="#A944CF"/>
+        <path d="M1280 800H0V691.152l421.291-62.104 491.843-98.163L1280 611.686V800z" fill="#8E2EB3"/>
+        <path d="M1280 800H0l700-145.5L876.5 593l403.5 30.706V800z" fill="#6E238A"/>
+      </svg>
       <h1 class="c-hero__title">Dan Matthew</h1>
     </header>
     <main id="main-content" tabindex="-1">

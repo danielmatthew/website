@@ -7,15 +7,6 @@
   src: local('Inter'), url("/fonts/Inter-roman.var.woff2?v=3.13") format("woff2");
 }
 
-@font-face {
-  font-family: 'Inter var';
-  font-weight: 100 900;
-  font-display: swap;
-  font-style: italic;
-  font-named-instance: 'Italic';
-  src: local('Inter'), url("/fonts/Inter-italic.var.woff2?v=3.13") format("woff2");
-}
-
 *,
 :after,
 :before {
@@ -49,18 +40,44 @@ header {
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-color: #000;
+  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, hsl(var(--hour), 71%, 52%) 2.01%, rgba(var(--hour), 156, 219, 0) 100%);
   overflow: hidden;
 }
 
-.c-hero {
-  height: 100vh;
-  width: 100vw;
-  object-fit: cover;
-  background-image: url('https://res.cloudinary.com/danmatthew/image/upload/c_thumb,w_200,g_face/v1593720656/_DSC2105_yxqwvc.jpg');
-  background-size: cover;
-  filter: blur(2rem);
-  transition: .25s filter ease-out;
+path:nth-child(8) {
+  fill: hsl(var(--hour), 59%, 34%)
+}
+
+path:nth-child(7) {
+  fill: hsl(var(--hour), 59%, 44%)
+}
+
+path:nth-child(6) {
+  fill: hsl(var(--hour), 59%, 54%)
+}
+
+path:nth-child(5) {
+  fill: hsl(var(--hour), 59%, 64%)
+}
+
+path:nth-child(4) {
+  fill: hsl(var(--hour), 59%, 74%)
+}
+
+path:nth-child(3) {
+  fill: hsl(var(--hour), 59%, 84%)
+}
+
+path:nth-child(2) {
+  fill: hsl(var(--hour), 59%, 90%)
+}
+
+path:nth-child(1) {
+  fill: hsl(var(--hour), 59%, 94%)
+}
+
+[data-user-color-scheme='dark'] header {
+  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, #1A082B 2.01%, rgba(187, 107, 217, 0) 100%);
 }
 
 .c-hero__title {

@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Inter var';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: local('Inter'), url("/fonts/Inter-italic.var.woff2?v=3.13") format("woff2");
+}
+
 @import 'config';
 
 // Pull in the stalfos lib
