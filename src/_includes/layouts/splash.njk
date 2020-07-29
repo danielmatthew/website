@@ -29,6 +29,13 @@
           href="css/global.css"
           media="print"
           onload="this.media='all'">
+
+    <script>
+      const date = new Date(Date.now());
+      console.log(date.getHours());
+
+      document.documentElement.style.setProperty('--hour', (date.getHours() * 15).toString());
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
