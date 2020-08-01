@@ -1,10 +1,12 @@
 ---
 title: "Weeknotes: 2020-08-01"
+metaDesc: A summary of the past week.
 tags:
   - weeknotes
   - august
   - 2020
 syndicate: true
+published: true
 ---
 
 - I spent a day off watching a series of talks from [JAMstack Conf](https://www.youtube.com/c/JAMstackConf), before getting wet and wild out on the bike: that was not a pleasurable experience.
