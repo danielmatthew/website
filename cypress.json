@@ -1,4 +1,3 @@
 {
-  "baseUrl": "http://localhost:8080",
-  "ignoreTestFiles": "cypress/integration/examples/*.js"
+  "video": false
 }
