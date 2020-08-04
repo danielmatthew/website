@@ -1,29 +1,38 @@
 ---
-title: Accessibility Resources
+title: Web Accessibility Resources
 permalink: '/accessibility/resources/'
 ---
 
-_This content used to live in a [Github repo](https://github.com/danielmatthew/a11y-resources/)_
-
 ## W3C Specifications
+- [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/)
 - [Accessible Rich Internet Applications (WAI-ARIA) 1.1](http://www.w3.org/TR/wai-aria-1.1/)
 
 ## W3C Supporting Documents
+- [Making Content Usable for People with Cognitive and Learning Disabilities](https://www.w3.org/TR/coga-usable/)
+- [Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/)
+- [Techniques for WCAG 2.1](https://www.w3.org/WAI/WCAG21/Techniques/)
 - [WAI-ARIA Authoring Practices](http://www.w3.org/TR/wai-aria-practices/)
 - [Notes on Using ARIA in HTML](https://w3c.github.io/aria-in-html/)
 
-## Online Tutorials
+## Tutorials
 - [Web Accessibility Tutorials [W3C]](http://www.w3.org/WAI/tutorials/)
 - [Accessibility Hike [Facebook]](http://accessibility.parseapp.com/)
 
-## Online Courses
+## Courses
 - [Introduction to Web Accessibility [Google]](https://webaccessibility.withgoogle.com/course)
 - [Web Accessibility [Udacity]](https://classroom.udacity.com/courses/ud891)
 - [Marcy Sutton's "Start Building Accessible Web Applications Today" [Egghead]](https://egghead.io/courses/start-building-accessible-web-applications-today)
 
-## Videos
+## Video
 - [A11ycasts](https://www.youtube.com/watch?v=fGLp_gfMMGU)
 - [Totally Tooling Tips S03 E08](https://www.youtube.com/watch?v=pBJZsp5LsOE)
+
+## People
+- [Marcy Sutton](https://marcysutton.com)
+- [Sarah Higley](https://sarahmhigley.com)
+- [Sara Soueidan](https://www.sarasoueidan.com)
+
+## Organisations
 
 ## Browser Extensions
 ### Chrome
