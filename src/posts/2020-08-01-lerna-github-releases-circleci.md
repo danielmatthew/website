@@ -1,5 +1,6 @@
 ---
-title: Automating Github Releases With Lerna
+title: Creating Github Releases With Lerna
+metaDesc: Automate all the things - using CircleCI with Lerna and Github
 tags:
  - circleci
  - lerna
@@ -9,6 +10,8 @@ syndicate: true
 published: true
 date: 2020-08-03
 ---
+
+Reducing the number of manual steps needed to get code live is a good thing. This is how I create Github releases from the CI process.
 
 ## Lerna
 Lerna is a tool to manage a monorepo. It can automate releases on Github when the version of a package changes, which is one less task to perform manually.
