@@ -28,8 +28,10 @@ body {
   height: 100%;
 }
 
-body {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 main {
