@@ -40,7 +40,7 @@ header {
   align-content: center;
   justify-content: center;
   align-items: center;
-  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, hsl(var(--hour), 71%, 52%) 2.01%, rgba(var(--hour), 156, 219, 0) 100%);
+  background-color: hsl(var(--hour), 71%, 52%);
   overflow: hidden;
 }
 
