@@ -41,6 +41,7 @@ permalink: '/accessibility/resources/'
 - [ChromeVox](https://chrome.google.com/webstore/detail/chromevox/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en)
 
 ## Browser Support
+- [https://a11ysupport.io](Accessibility Support)
 - [http://www.html5accessibility.com](HTML5Accessibililty)
 
 ## Review
