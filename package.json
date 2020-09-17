@@ -24,7 +24,7 @@
     "@netlify/plugin-sitemap": "^0.3.4",
     "@open-wc/eslint-config": "^2.0.6",
     "@open-wc/prettier-config": "^1.1.0",
-    "bl": "^3.0.0",
+    "bl": "^3.0.1",
     "chokidar-cli": "^2.1.0",
     "cross-env": "^5.2.1",
     "cypress": "^4.11.0",
