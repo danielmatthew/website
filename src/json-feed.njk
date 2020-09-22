@@ -8,7 +8,7 @@ permalink: '/feed.json'
   "home_page_url": "{{ site.url }}",
   "feed_url": "{{ site.url }}{{ permalink }}",
   "items": [
-    {% for post in collections.posts %}
+    {% for post in collections.postFeed %}
     {% set absolutePostUrl %}{{ site.url }}{{ post.url | url }}{% endset %}
     {
       "id": "{{ absolutePostUrl }}",
