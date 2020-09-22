@@ -65,7 +65,9 @@ module.exports = function (config) {
   config.addCollection('shorts', (collection) => {
     return [
       ...collection.getFilteredByGlob('./src/shorts/*.md').filter(liveShorts),
-    ].reverse();
+    ]
+      .reverse()
+      .slice(0, site.maxPostsPerPage);
   });
 
   // Plugins
