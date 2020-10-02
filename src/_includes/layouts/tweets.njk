@@ -1,0 +1,16 @@
+{% extends 'layouts/base.njk' %}
+
+{% set introHeading = title %}
+{% set introSummary %}
+  {{ content | safe }}
+{% endset %}
+
+{% set postListHeading = 'Latest shorts' %}
+{% set tweetListItems = collections.shorts %}
+
+{% block content %}
+  <main id="main-content" tabindex="-1">
+    {% include "partials/components/intro.njk" %}
+    {% include "partials/components/shorts-list.njk" %}
+  </main>
+{% endblock %}
