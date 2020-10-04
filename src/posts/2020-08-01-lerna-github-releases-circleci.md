@@ -6,7 +6,7 @@ tags:
  - lerna
  - monorepo
  - github
-syndicate: true
+syndicate: false
 published: true
 date: 2020-08-03
 ---
