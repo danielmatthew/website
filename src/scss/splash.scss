@@ -44,40 +44,32 @@ header {
   overflow: hidden;
 }
 
-path:nth-child(8) {
+path:nth-child(6) {
   fill: hsl(var(--hour), 59%, 34%)
 }
 
-path:nth-child(7) {
+path:nth-child(5) {
   fill: hsl(var(--hour), 59%, 44%)
 }
 
-path:nth-child(6) {
+path:nth-child(4) {
   fill: hsl(var(--hour), 59%, 54%)
 }
 
-path:nth-child(5) {
+path:nth-child(3) {
   fill: hsl(var(--hour), 59%, 64%)
 }
 
-path:nth-child(4) {
+path:nth-child(2) {
   fill: hsl(var(--hour), 59%, 74%)
 }
 
-path:nth-child(3) {
+path:nth-child(1) {
   fill: hsl(var(--hour), 59%, 84%)
 }
 
-path:nth-child(2) {
-  fill: hsl(var(--hour), 59%, 90%)
-}
-
-path:nth-child(1) {
-  fill: hsl(var(--hour), 59%, 94%)
-}
-
 [data-user-color-scheme='dark'] header {
-  background-image: radial-gradient(79.33% 186.85% at 4.34% 0%, #1A082B 2.01%, rgba(187, 107, 217, 0) 100%);
+  background-color: rgba(187, 107, 217, 0);
 }
 
 .c-hero__title {
