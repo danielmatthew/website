@@ -4,11 +4,7 @@ const CACHE_KEYS = {
 };
 
 // URLS that we don’t want to end up in the cache
-const EXCLUDED_URLS = [
-  '.netlify',
-  '/contact',
-  '/thank-you',
-];
+const EXCLUDED_URLS = ['.netlify', '/contact', '/thank-you'];
 
 // URLS that we want to be cached when the worker is installed
 const PRE_CACHE_URLS = ['/'];
