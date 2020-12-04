@@ -63,12 +63,10 @@
     "sass:tokens": "npx json-to-scss src/_data/tokens.json src/scss/_tokens.scss",
     "sass:process": "npm run sass:tokens && sass src/scss/global.scss src/_includes/assets/css/global.css --style=compressed",
     "sass:splash": "sass src/scss/splash.scss:src/_includes/assets/css/splash.css src/scss/global.scss:src/css/global.css --style=compressed",
-    "cms:precompile": "make-dir dist/admin && nunjucks-precompile src/_includes > dist/admin/templates.js -i \"\\.(njk|css|svg)$\"",
-    "cms:bundle": "rollup --config",
     "release": "npx standard-version && git push --follow-tags",
-    "start": "concurrently \"npm run sass:splash -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
+    "start": "concurrently \"npm run sass:splash -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \" \"npm run serve\"",
     "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
-    "production": "npm run sass:splash && npm run cms:precompile && npm run cms:bundle && npx eleventy"
+    "production": "npm run sass:splash && npx eleventy"
   },
   "repository": {
     "type": "git",
