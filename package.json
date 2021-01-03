@@ -20,6 +20,7 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@lhci/cli": "^0.6.1",
     "@netlify/plugin-sitemap": "^0.6.1",
     "@open-wc/eslint-config": "^4.2.0",
     "@open-wc/prettier-config": "^1.1.0",
@@ -46,6 +47,9 @@
       "eslint --fix",
       "prettier --write"
     ]
+  },
+  "eslintConfig": {
+    "extends": ["@open-wc/eslint-config", "eslint-config-prettier"]
   },
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",

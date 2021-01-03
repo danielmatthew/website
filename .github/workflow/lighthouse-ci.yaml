@@ -1,0 +1,22 @@
+# .github/workflow/lighthouse-ci.yaml
+name: lighthouse
+on: [push]
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
+
+      - name: Build site
+        run: eleventy
+
+      - name: Use Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: 15.x
+
+      - name: Run Lighthouse CI
+        run: lhci autorun
