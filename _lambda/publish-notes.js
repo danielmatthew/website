@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const Twitter = require('twitter');
 const Entities = require('html-entities').AllHtmlEntities;
 
-require('dotenv').config;
+require('dotenv').config();
 
 const FEED = 'https://danmatthew.co.uk/shorts/feed.json';
 

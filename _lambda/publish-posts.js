@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const Twitter = require('twitter');
 const Entities = require('html-entities').AllHtmlEntities;
 
-require('dotenv').config;
+require('dotenv').config();
 
 const FEED = 'https://danmatthew.co.uk/feed.json';
 
@@ -50,9 +50,9 @@ const processNotes = async (notes) => {
 
     if (query.statuses && query.statuses.length === 0) {
       return publishNote(latestNote);
-    } else {
-      return status(400, 'Latest post was already syndicated. No action taken');
     }
+      return status(400, 'Latest post was already syndicated. No action taken');
+
   } catch (error) {
     return handleError(error);
   }
@@ -66,13 +66,13 @@ const prepareStatusText = (note) => {
   text = entities.decode(text);
 
   if (text.length > maxLength) {
-    text = text.substring(0, maxLength) + '…';
+    text = `${text.substring(0, maxLength)  }…`;
   }
 
-  text += ' ' + note.url;
+  text += ` ${  note.url}`;
 
   if (note.link && note.link.length) {
-    text += ' ' + note.link;
+    text += ` ${  note.link}`;
   }
 
   return text;
@@ -91,17 +91,15 @@ const publishNote = async (note) => {
         200,
         `Post ${note.date_published} successfully posted to Twitter`
       );
-    } else {
-      return status(422, 'Error posting to Twitter API');
     }
+      return status(422, 'Error posting to Twitter API');
+
   } catch (error) {
     return handleError(error);
   }
 };
 
-exports.handler = async () => {
-  return fetch(FEED)
+exports.handler = async () => fetch(FEED)
     .then((response) => response.json())
     .then(processNotes)
     .catch(handleError);
-};
