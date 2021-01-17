@@ -39,12 +39,13 @@ collections:
   - name: "posts"
     label: "Posts"
     folder: "src/posts"
-    slug: "notes/{{slug}}"
-    preview_path: "notes/{{slug}}"
+    slug: "{{slug}}"
+    preview_path: "{{slug}}"
     create: true
     fields:
       - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
       - {label: "Title", name: "title", widget: "string"}
+      - {label: "Published", name: "published", widget: "boolean", required: true}
       - {label: "SEO Meta Title", name: "metaTitle", widget: "string", required: false}
       - {label: "SEO Meta Description", name: "metaDesc", widget: "string", required: false}
       - {label: "Social Image", name: "socialImage", widget: "image", required: false}
