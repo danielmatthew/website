@@ -24,7 +24,6 @@ module.exports = function (config) {
 
   // Layout aliases
   config.addLayoutAlias('home', 'layouts/home.njk');
-  config.addLayoutAlias('splash', 'layouts/splash.njk');
 
   // Transforms
   config.addTransform('htmlmin', htmlMinTransform);
@@ -55,16 +54,6 @@ module.exports = function (config) {
   config.addCollection('postFeed', (collection) => {
     return [
       ...collection.getFilteredByGlob('./src/posts/*.md').filter(livePosts),
-    ]
-      .reverse()
-      .slice(0, site.maxPostsPerPage);
-  });
-
-  const liveShorts = (post) => post.date <= now && !post.data.draft;
-
-  config.addCollection('shorts', (collection) => {
-    return [
-      ...collection.getFilteredByGlob('./src/shorts/*.md').filter(liveShorts),
     ]
       .reverse()
       .slice(0, site.maxPostsPerPage);

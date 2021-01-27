@@ -30,22 +30,11 @@
           media="print"
           onload="this.media='all'">
 
-    <script>
-      const date = new Date(Date.now());
-      document.documentElement.style.setProperty('--hour', (date.getHours() * 15).toString());
-    </script>
+    <script type="module" src="/js/components/theme-toggle.js" async></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header>
-      <svg preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 1280 800" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-        <path d="M1280 483.472H0V374.624l776.063-184.975 122.961-6.01 285.226 151.586 95.75 13.356v134.891z" fill="#E1BEEE" hidden/>
-        <path d="M1280 563.606H0V454.758l904.063-136.895 111.877 31.386L1280 383.973v179.633z" fill="#CF95E4"/>
-        <path d="M1280 642.404H0V533.556l906.079-156.928 195.531 80.133L1280 480.134v162.27z" fill="#BC6DD9"/>
-        <path d="M1280 726.544H0V617.696l596.661-101.502 280.189-69.449 223.75 44.741 179.4 57.429v177.629z" fill="#A944CF"/>
-        <path d="M1280 800H0V691.152l421.291-62.104 491.843-98.163L1280 611.686V800z" fill="#8E2EB3"/>
-        <path d="M1280 800H0l700-145.5L876.5 593l403.5 30.706V800z" fill="#6E238A"/>
-      </svg>
       <h1 class="c-hero__title">Dan Matthew</h1>
     </header>
     <main id="main-content" tabindex="-1">
@@ -53,7 +42,6 @@
     </main>
     {% include "partials/global/site-foot.njk" %}
     {% block foot %}{% endblock %}
-    <script type="module" src="/js/components/theme-toggle.js" async></script>
     {# <script defer async>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {

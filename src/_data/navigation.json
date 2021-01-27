@@ -6,12 +6,7 @@
       "external": false
     },
     {
-      "text": "Shorts",
-      "url": "/shorts/",
-      "external": false
-    },
-    {
-      "text": "Resources",
+      "text": "Accessibility Resources",
       "url": "/accessibility/resources/",
       "external": false
     },
@@ -19,16 +14,6 @@
       "text": "Contact",
       "url": "/contact",
       "external": false
-    },
-    {
-      "text": "Twitter",
-      "url": "https://twitter.com/danielm",
-      "external": true
-    },
-    {
-      "text": "GitHub",
-      "url": "https://github.com/danielmatthew",
-      "external": true
     }
   ]
 }

@@ -1,5 +1,0 @@
-{
-  "layout": "layouts/short.njk",
-  "permalink": "/shorts/{{ page.fileSlug }}/",
-  "syndicate": true
-}
