@@ -6,6 +6,6 @@ describe('Smoke test', () => {
     cy.visit('/');
 
     // eslint-disable-next-line no-undef
-    cy.get('h1').should('contain', 'Accessibility without the snark.');
+    cy.get('.post-list__heading').should('contain', 'Latest posts');
   });
 });
