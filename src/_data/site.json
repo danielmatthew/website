@@ -11,5 +11,5 @@
   "faviconPath": "/images/favicon.svg",
   "faviconFallbackPath": "/images/favicon.ico",
   "safariPinnedTabPath": "/images/safari-pinned-tab.svg",
-  "maxPostsPerPage": 5
+  "maxPostsPerPage": 10
 }
