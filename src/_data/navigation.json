@@ -1,16 +1,6 @@
 {
   "items": [
     {
-      "text": "Home",
-      "url": "/",
-      "external": false
-    },
-    {
-      "text": "Accessibility Resources",
-      "url": "/accessibility/resources/",
-      "external": false
-    },
-    {
       "text": "Contact",
       "url": "/contact",
       "external": false
