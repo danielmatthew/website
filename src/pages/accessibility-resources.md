@@ -42,7 +42,7 @@ permalink: '/accessibility/resources/'
 
 ## Browser Support
 - [https://a11ysupport.io](Accessibility Support)
-- [http://www.html5accessibility.com](HTML5Accessibililty)
+- [https://stevefaulkner.github.io/HTML5accessibility/](HTML5 Accessibililty)
 
 ## Review
 - [IBM's Accessibility Checklist for Web](http://www-03.ibm.com/able/guidelines/ci162/accessibility_checklist_web.html)
