@@ -1,16 +1,17 @@
 const jsdom = require('@tbranyen/jsdom');
+
 const { JSDOM } = jsdom;
-const minify = require('../utils/minify.js');
 const slugify = require('slugify');
 const getSize = require('image-size');
+const minify = require('../utils/minify.js');
 
-module.exports = function(value, outputPath) {
+module.exports = function (value, outputPath) {
   if (outputPath.endsWith('.html')) {
     const DOM = new JSDOM(value, {
       resources: 'usable',
     });
 
-    const document = DOM.window.document;
+    const { document } = DOM.window;
     const articleImages = [
       ...document.querySelectorAll('main article img, .intro img'),
     ];
@@ -20,13 +21,13 @@ module.exports = function(value, outputPath) {
     const articleEmbeds = [...document.querySelectorAll('main article iframe')];
 
     if (articleImages.length) {
-      articleImages.forEach(image => {
+      articleImages.forEach((image) => {
         image.setAttribute('loading', 'lazy');
 
         const file = image.getAttribute('src');
 
         if (file.indexOf('http') < 0) {
-          const dimensions = getSize('src' + file);
+          const dimensions = getSize(`src${file}`);
 
           image.setAttribute('width', dimensions.width);
           image.setAttribute('height', dimensions.height);
@@ -52,7 +53,7 @@ module.exports = function(value, outputPath) {
 
     if (articleHeadings.length) {
       // Loop each heading and add a little anchor and an ID to each one
-      articleHeadings.forEach(heading => {
+      articleHeadings.forEach((heading) => {
         const headingSlug = slugify(heading.textContent.toLowerCase());
         const anchor = document.createElement('a');
 
@@ -71,7 +72,7 @@ module.exports = function(value, outputPath) {
 
     // Look for videos are wrap them in a container element
     if (articleEmbeds.length) {
-      articleEmbeds.forEach(embed => {
+      articleEmbeds.forEach((embed) => {
         if (embed.hasAttribute('allowfullscreen')) {
           const player = document.createElement('div');
 
@@ -84,7 +85,7 @@ module.exports = function(value, outputPath) {
       });
     }
 
-    return '<!DOCTYPE html>\r\n' + document.documentElement.outerHTML;
+    return `<!DOCTYPE html>\r\n${document.documentElement.outerHTML}`;
   }
   return value;
 };
