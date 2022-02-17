@@ -14,7 +14,7 @@
     "image-size": "^0.9.3",
     "inaccessible.css": "^1.4.1",
     "json-to-scss": "^1.6.2",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "sass": "^1.32.0",
     "semver": "^7.3.4",
     "slugify": "^1.4.6",
