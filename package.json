@@ -37,7 +37,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "make-dir-cli": "^3.0.0",
-    "netlify-cli": "^11.7.1",
+    "netlify-cli": "^12.7.0",
     "netlify-plugin-hashfiles": "^4.0.2",
     "prettier": "^2.7.1",
     "rollup": "^2.79.0",
