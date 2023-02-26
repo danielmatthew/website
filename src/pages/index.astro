@@ -1,23 +1,140 @@
 ---
-// Welcome to Astro! Everything between these triple-dash code fences
-// is your "component front matter". It never runs in the browser.
-console.log('This runs in your terminal, not the browser!');
 ---
-<!-- Below is your "component template." It's just HTML, but with
-     some magic sprinkled in to help you build great templates. -->
-<html>
-  <body>
+<html lang="en">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dan Matthew - UX Engineer</title>
+<body>
     <h1>Hello, World!</h1>
+
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      action="/"
+      netlify-honeypot="bot-field"
+    >
+      <div>
+        <label for="name">What's your name?</label>
+        <input
+          type="text"
+          name="name"
+          autocomplete="name"
+          required="true"
+          autocapitalize="off"
+          autocorrect="off"
+        />
+      </div>
+      <div>
+        <label for="email">What's your email address?</label>
+        <input
+          type="email"
+          name="email"
+          autocomplete="email"
+          required="true"
+          autocapitalize="off"
+          autocorrect="off"
+        />
+      </div>
+      <div>
+        <label for="message">What's on your mind?</label>
+        <textarea
+          required="true"
+          autocapitalize="sentences"
+          spellcheck="true"
+          name="message"
+          id="message"></textarea>
+      </div>
+      <div hidden>
+        <label
+          >Don’t fill this out if you're human: <input
+            name="bot-field"
+          /></label
+        >
+      </div>
+      <button type="submit">Send message</button>
+    </form>
   </body>
 </html>
 <style>
+  :root {
+    --color-light: #000;
+    --color-dark: #eaeaea;
+
+    --scheme-color: var(--color-light);
+  }
+
+
   body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
     display: flex;
     margin: 0;
     padding: 0;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    flex-direction: column;
+    color: var(--scheme-color):
+  }
+
+  form {
+    font-size: 1.125rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  input, textarea, button {
+    display: block;
+    box-sizing: border-box;
+    border: 2px solid var(--scheme-color);
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+
+  :is(input,textarea, button):focus {
+    outline: 2px solid var(--scheme-color);
+    outline-offset: 2px;
+  }
+
+  @media(prefers-color-scheme: dark) {
+    :root {
+      --scheme-color: var(--color-dark);
+    }
+    body {
+      background-color: #111;
+      color: var(--scheme-color);
+    }
+
+    input, textarea, button {
+    border: 2px solid var(--scheme-color);
+  }
+
+  :is(input,textarea, button):focus {
+    outline-color: var(--scheme-color);
+  }
   }
 </style>
+<script>
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => console.info('Form successfully submitted'))
+    .then(() => form.reset());
+  };
+
+  document.forms[0].addEventListener('submit', handleSubmit);
+</script>
