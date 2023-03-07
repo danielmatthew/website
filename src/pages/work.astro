@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+const projects = (await getCollection('work')).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+---
+<BaseLayout title="Work | Dan Matthew">
+  <h1>Work</h1>
+
+  <ul>
+    {
+      projects.map((project) => (
+        <li>
+          <PortfolioPreview project={project} />
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+<style>
+  ul {
+    list-style: none;
+  }
+</style>
