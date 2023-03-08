@@ -8,7 +8,7 @@ const projects = (await getCollection('work')).sort(
 );
 ---
 <BaseLayout title="Work | Dan Matthew">
-  <h1>Work</h1>
+  <h1>Selected works</h1>
 
   <ul>
     {
@@ -22,6 +22,17 @@ const projects = (await getCollection('work')).sort(
 </BaseLayout>
 <style>
   ul {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
+  }
+
+  li {
+    flex: 1 1 0;
+    margin: 0 1rem;
+  }
+
+  a {
+    color: white;
   }
 </style>
