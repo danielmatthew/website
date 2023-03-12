@@ -1,15 +1,13 @@
 ---
-import type { CollectionEntry } from "astro:content";
-
 interface Props {
-  project: CollectionEntry<"work">;
+  fields: Object;
 }
 
-const { data, slug } = Astro.props.project;
+const { fields } = Astro.props.project;
 ---
 
-<a class="card" href={`/work/${slug}`}>
-  <span class="title">{data.title}</span>
+<a class="card" href={`/work/${fields.slug}`}>
+  <span class="title">{fields.title}</span>
 </a>
 
 <style>
