@@ -1,21 +1,86 @@
 ---
+import blob1 from '../images/blob-0.svg';
+import blob2 from '../images/blob-1.svg';
+import blob3 from '../images/blob-2.svg';
 interface Props {
   fields: Object;
 }
 
 const { fields } = Astro.props.project;
+let thumb;
+
+switch (Astro.props.index) {
+  case 0:
+    thumb = blob1;
+    break;
+  case 0:
+    thumb = blob2;
+  case 1:
+    thumb = blob3;
+  default:
+    break;
+}
 ---
 
 <a class="card" href={`/work/${fields.slug}`}>
+  <img
+    src={`../src/images/blob-${Astro.props.index}.svg`}
+    alt=""
+    width="257"
+    height="265"
+  >
+
+
+
   <span class="title">{fields.title}</span>
+  <p>{fields.summary}</p>
 </a>
 
 <style>
-  a {
+
+a {
     display: block;
-    background-color: #FABD37;
-    padding: 3rem;
     color: white;
-    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+  }
+
+  a:hover img {
+    /* transform: scale(1.1) rotate(10deg);
+    transition: transform 0.2s ease; */
+    animation: 3s infinite alternate blob;
+  }
+
+  @keyframes blob {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.1) rotate(20deg);
+    }
+    100% {
+      transform: scale(1);
+      transform: scale(1) rotate(0deg);
+    }
+  }
+
+  a:focus {
+    outline: 2px solid #FABD37;
+  }
+
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto var(--space-s);
+  }
+
+  .title {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--step-1);
+  }
+
+  p {
+    font-size: var(--step--1);
   }
 </style>

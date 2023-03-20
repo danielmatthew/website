@@ -1,0 +1,40 @@
+---
+import { contentfulClient } from '../lib/contentful';
+import type { portfolioEntry } from '../lib/contentful';
+
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+const projects = await contentfulClient.getEntries<portfolioEntry>({
+  content_type: 'blogPost',
+});
+---
+<section aria-labelledby="work">
+  <h2 id="work">Selected works</h2>
+  <ol role="list">
+    {
+      projects.items.map((project, index) => (
+        <li>
+          <PortfolioPreview project={project} index={index} />
+        </li>
+      ))
+    }
+  </ol>
+</section>
+<style>
+  ol {
+    display: flex;
+    padding-left: 0;
+    justify-content: space-evenly;
+    gap: 1rem;
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    flex: 1 1 20rem;
+  }
+
+  a {
+    color: white;
+  }
+</style>

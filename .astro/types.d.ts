@@ -74,6 +74,20 @@ declare module 'astro:content' {
   collection: "work",
   data: InferEntrySchema<"work">
 },
+"file-upload.md": {
+  id: "file-upload.md",
+  slug: "file-upload",
+  body: string,
+  collection: "work",
+  data: InferEntrySchema<"work">
+},
+"module-manager-finesse.md": {
+  id: "module-manager-finesse.md",
+  slug: "module-manager-finesse",
+  body: string,
+  collection: "work",
+  data: InferEntrySchema<"work">
+},
 },
 
 	};
