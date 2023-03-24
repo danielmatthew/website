@@ -1,0 +1,156 @@
+---
+
+---
+<form
+name="contact"
+method="POST"
+data-netlify="true"
+action="/"
+netlify-honeypot="bot-field"
+novalidate
+>
+<div>
+  <label for="name">What's your name?</label>
+  <input
+    type="text"
+    name="name"
+    autocomplete="name"
+    required="true"
+    autocapitalize="off"
+    autocorrect="off"
+  />
+</div>
+<div>
+  <label for="email">What's your email address?</label>
+  <input
+    type="email"
+    name="email"
+    autocomplete="email"
+    required="true"
+    autocapitalize="off"
+    autocorrect="off"
+  />
+</div>
+<div>
+  <label for="message">What's on your mind?</label>
+  <textarea
+    required="true"
+    autocapitalize="sentences"
+    spellcheck="true"
+    name="message"
+    id="message"></textarea>
+</div>
+<div hidden>
+  <label
+    >Don’t fill this out if you're human: <input
+      name="bot-field"
+    /></label
+  >
+</div>
+<button type="submit" class="form-button">Send message</button>
+</form>
+<style>
+    form {
+      background-color: var(--color-theme-400);
+      padding: 2rem;
+      border-radius: 1.5rem
+    }
+    .form-group + .form-group {
+      margin-top: 1.5em;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+      line-height: 1;
+    }
+
+    input, textarea, button, .form-field {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      border: 2px solid var(--scheme-color);
+      border-radius: 0.25rem;
+      padding: 0.25em 0.5em;
+      margin-bottom: 1rem;
+      font-family: inherit;
+      font-size: 16px;
+      font-size: max(16px, 1em);
+    }
+
+    .form-button {
+      border: none;
+      background-color: transparent;
+      font-family: inherit;
+      font-size: 1.125rem;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--border-radius, 0.25rem);
+      min-width: 10ch;
+      min-height: 44px;
+      text-align: center;
+      line-height: 1;
+      background-color: #D13745;
+      color: #fff;
+      transition: 180ms all ease-in-out;
+    }
+
+    .form-button:hover,
+    .form-button:focus {
+      outline-style: solid;
+      outline-color: transparent;
+      box-shadow: 0 0 0 0.05em currentColor, 0 0 0.15em 0.15em #e5653f;
+    }
+
+    .field-error {
+      color: var(--color-error, #D13745);
+    }
+
+    .field-error .field-description {
+      display: flex;
+      align-items: center;
+      opacity: 1;
+    }
+
+    .field-error .field-description:before {
+      content: '';
+      width: 0.8em;
+      height: 0.8em;
+      line-height: 1;
+      margin-right: 0.5em;
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+      .form-button {
+        border: 2px solid currentColor;
+      }
+    }
+
+    :is(input,textarea, button):focus {
+      outline: 2px solid var(--scheme-color);
+      outline-offset: 2px;
+      box-shadow: 0 0 0.35em -0.1em var(--scheme-color);
+    }
+
+    @media(prefers-color-scheme: dark) {
+      :root {
+        --scheme-color: var(--color-dark);
+      }
+
+      body {
+        color: var(--scheme-color);
+      }
+
+      input, textarea, button {
+      border: 2px solid var(--scheme-color);
+    }
+
+    :is(input,textarea, button):focus {
+      outline-color: var(--scheme-color);
+    }
+    }
+
+</style>

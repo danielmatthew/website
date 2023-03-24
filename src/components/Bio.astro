@@ -1,0 +1,12 @@
+---
+import { contentfulClient } from '../lib/contentful';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+
+const bio = await contentfulClient.getEntries({
+  content_type: 'description'
+})
+.then((response) => {
+  return documentToHtmlString(response.items[0].fields.role)
+});
+---
+<Fragment set:html={bio} />

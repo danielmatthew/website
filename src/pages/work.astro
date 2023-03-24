@@ -1,0 +1,46 @@
+---
+import { contentfulClient } from '../lib/contentful';
+import type { portfolioEntry } from '../lib/contentful';
+
+const projects = await contentfulClient.getEntries<portfolioEntry>({
+  content_type: 'blogPost',
+});
+
+// import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+
+// const projects = (await getCollection('work')).sort(
+// 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+// );
+
+---
+<BaseLayout title="Work | Dan Matthew">
+  <h1>Selected works</h1>
+
+  <ul>
+    {
+      projects.items.map((project) => (
+        <li>
+          <PortfolioPreview project={project} />
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+<style>
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  }
+
+  li {
+    flex: 1 1 0;
+    margin: 0 1rem;
+  }
+
+  a {
+    color: white;
+  }
+</style>

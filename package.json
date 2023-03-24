@@ -1,51 +1,16 @@
 {
   "name": "danmatthew.co.uk",
-  "version": "3.3.2",
+  "version": "4.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
-    "@11ty/eleventy-plugin-syntaxhighlight": "^4.1.0",
-    "@tbranyen/jsdom": "^13.0.0",
-    "dotenv": "^16.0.1",
-    "html-entities": "^2.3.3",
-    "html-minifier": "^4.0.0",
-    "image-size": "^1.0.2",
-    "inaccessible.css": "^1.4.1",
-    "json-to-scss": "^1.6.2",
-    "node-fetch": "^3.2.10",
-    "sass": "^1.54.9",
-    "semver": "^7.3.7",
-    "slugify": "^1.4.6",
-    "stalfos": "github:hankchizljaw/stalfos#c8971d22726326cfc04089b2da4d51eeb1ebb0eb",
-    "twitter": "^1.7.1"
-  },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@erquhart/rollup-plugin-node-builtins": "^2.1.5",
-    "@lhci/cli": "^0.9.0",
-    "@netlify/plugin-sitemap": "^0.8.1",
-    "@open-wc/eslint-config": "^8.0.2",
-    "@open-wc/prettier-config": "^1.1.0",
-    "bl": "^5.0.0",
-    "chokidar-cli": "^3.0.0",
-    "concurrently": "^7.4.0",
-    "cross-env": "^7.0.3",
+    "@open-wc/eslint-config": "^9.2.2",
     "cypress": "^10.7.0",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
-    "make-dir-cli": "^3.0.0",
-    "netlify-cli": "^12.7.0",
+    "lint-staged": "^13.1.0",
+    "netlify-cli": "^12.10.0",
     "netlify-plugin-hashfiles": "^4.0.2",
-    "prettier": "^2.7.1",
-    "rollup": "^2.79.0",
-    "@rollup/plugin-commonjs": "22.0.2",
-    "@rollup/plugin-json": "4.1.0",
-    "@rollup/plugin-node-resolve": "^14.1.0",
-    "semantic-release": "^19.0.5",
-    "standard-version": "^9.5.0"
+    "prettier": "^2.8.3"
   },
   "browserslist": [
     "last 2 versions"
@@ -63,6 +28,10 @@
     ]
   },
   "scripts": {
+    "dev": "astro dev",
+    "start": "astro start",
+    "build": "astro build",
+    "preview": "astro preview",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
     "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
@@ -70,15 +39,7 @@
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "format:prettier": "prettier \"**/*.js\" --write",
     "test": "cypress run --spec \"cypress/integration/home_page.spec.js\"",
-    "sass:tokens": "npx json-to-scss src/_data/tokens.json src/scss/_tokens.scss",
-    "sass:process": "npm run sass:tokens && sass src/scss/global.scss src/_includes/assets/css/global.css --style=compressed",
-    "sass:splash": "sass src/scss/splash.scss:src/_includes/assets/css/splash.css src/scss/global.scss:src/css/global.css --style=compressed",
-    "cms:precompile": "make-dir dist/admin && nunjucks-precompile src/_includes > dist/admin/templates.js -i \"\\.(njk|css|svg)$\"",
-    "cms:bundle": "npx rollup --config",
-    "release": "npx standard-version && git push --follow-tags",
-    "start": "concurrently \"npm run sass:splash -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
-    "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
-    "production": "npm run sass:splash && npm run cms:precompile && npm run cms:bundle && npx eleventy"
+    "release": "npx standard-version && git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -89,5 +50,11 @@
   "bugs": {
     "url": "https://github.com/danielmatthew/website/issues"
   },
-  "homepage": "https://github.com/danielmatthew/website"
+  "homepage": "https://github.com/danielmatthew/website",
+  "dependencies": {
+    "@astrojs/netlify": "^2.1.1",
+    "@contentful/rich-text-html-renderer": "^16.0.2",
+    "astro": "^2.0.6",
+    "contentful": "^9.3.3"
+  }
 }
