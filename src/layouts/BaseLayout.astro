@@ -4,9 +4,12 @@ import '../styles/global.css';
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
+  modifier?: string | undefined;
 }
 
-const { title, description } = Astro.props;
+const { title, description, modifier } = Astro.props;
+
+const cssModifier = 'home';
 ---
 <html lang="en">
   <head>
@@ -15,7 +18,7 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Sans+3&display=swap" rel="stylesheet">
 
     <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
@@ -38,10 +41,10 @@ const { title, description } = Astro.props;
       }
     </script>
   </head>
-  <body>
-    <header class="wrapper">
+  <body class={modifier}>
+    <nav class="wrapper">
       <a href="/" class="logotype">Dan Matthew</a>
-    </header>
+    </nav>
     <main>
       <slot />
     </main>

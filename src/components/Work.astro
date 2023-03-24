@@ -6,9 +6,10 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 
 const projects = await contentfulClient.getEntries<portfolioEntry>({
   content_type: 'blogPost',
+  order: '-fields.date',
 });
 ---
-<section aria-labelledby="work">
+<section class="flow" aria-labelledby="work">
   <h2 id="work">Selected works</h2>
   <ol role="list">
     {
@@ -21,6 +22,9 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
   </ol>
 </section>
 <style>
+  section {
+    margin-block-start: var(--space-s-l)
+  }
   ol {
     display: flex;
     padding-left: 0;
@@ -37,4 +41,6 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
   a {
     color: white;
   }
+
+
 </style>

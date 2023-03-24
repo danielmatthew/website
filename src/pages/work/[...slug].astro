@@ -2,6 +2,7 @@
 // import { CollectionEntry, getCollection } from "astro:content";
 import { contentfulClient } from '../../lib/contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 import type { portfolioEntry } from '../../lib/contentful';
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -20,6 +21,59 @@ export async function getStaticPaths() {
   //   props: { entry },
   // }));
 
+//   function renderOptions(links) {
+//     console.log(links);
+//   // const assetMap = new Map();
+//   // for (const asset of links.assets.block) {
+//   //   assetMap.set(asset.sys.id, asset);
+//   // }
+
+//   // const entryMap = new Map();
+//   // for (const entry of links.entries.block) {
+//   //   entryMap.set(entry.sys.id, entry);
+//   // }
+
+//   // for (const entry of links.entries.inline) {
+//   //   entryMap.set(entry.sys.id, entry);
+//   // }
+
+//   return {
+//     renderNode: {
+//       [BLOCKS.EMBEDDED_ASSET]: (node) => {
+//         const asset = assetMap.get(node.data.target.sys.id);
+//         return `<img src="${asset.fields.file.url}" alt="${asset.fields.title}" />`;
+//       },
+//       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+//         const entry = entryMap.get(node.data.target.sys.id);
+//         return `<a href="${entry.fields.slug}">${entry.fields.title}</a>`;
+//       },
+//       [INLINES.HYPERLINK]: (node) => {
+//         return `<a href="${node.data.uri}">${node.content[0].value}</a>`;
+//       }
+//     }
+//   };
+// }
+
+const renderOptions = {
+  renderNode: {
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      return `<figure><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
+        <figcaption>${node.data.target.fields.description}</figcaption>
+        </figure>`;
+    },
+    // [BLOCKS.LIST_ITEM]: (node, children) => {
+    //   const untaggedChildren = documentToHtmlString(node, {
+    //     renderNode: {
+    //       [BLOCKS.PARAGRAPH]: (node, children) => children,
+    //       [BLOCKS.LIST_ITEM]: (node, children) => children
+    //     }
+    //   })
+
+    //   return `<li>${untaggedChildren}</li>`;
+    // }
+  }
+}
+
   const entries = await contentfulClient.getEntries<portfolioEntry>({
     content_type: 'blogPost',
   });
@@ -28,58 +82,99 @@ export async function getStaticPaths() {
     params: { slug: item.fields.slug },
     props: {
       title: item.fields.title,
-      date: new Date(item.fields.date).toLocaleDateString(),
+      date: new Date(item.fields.date).toLocaleDateString('en-gb', {
+        year: 'numeric',
+        month: 'long',}),
       summary: item.fields.summary,
-      content: documentToHtmlString(item.fields.portfolioContent),
+      content: documentToHtmlString(item.fields.portfolioContent, renderOptions),
     }
   }));
 
   return pages;
 }
 
-// const { entry } = Astro.props;
-const { content, title, date } = Astro.props;
-// const { Content } = await entry.render();
+// Get list of projects to show in aside
+const projects = await contentfulClient.getEntries<portfolioEntry>({
+  content_type: 'blogPost',
+  order: '-fields.date',
+  include: 10
+});
 
-// const date = new Date(entry.data.publishDate).toLocaleDateString();
+// const { entry } = Astro.props;
+const { content, title, date, summary } = Astro.props;
+// const { Content } = await entry.render();
+const cssModifier = 'work';
+
+// const formattedDate = new Date(date).toLocaleDateString('en-gb', {
+//   year: 'numeric',
+//   month: 'long',
+// });
+
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={`${title} | Dan Matthew`} modifier={cssModifier}>
   <h1>{title}</h1>
-
-  <article class="content" set:html={content}></article>
+  <div class="meta">
+    <span class="org">Talis</span>
+    <time datetime={date}>{date}</time>
+  </div>
+  <article class="content flow prose" >
+    <p class="lede">{summary}</p>
+    <Fragment set:html={content} />
+  </article>
+  <!-- <aside>
+    <h2>In short…</h2>
+    <p>{summary}</p>
+    <h2>Related</h2>
+    <ol role="list">
+      {
+        projects.items.map((project) => (
+          <li>
+            <a href={`/work/${project.fields.slug}`}>
+              {project.fields.title}
+            </a>
+          </li>
+        ))
+      }
+    </ol>
+  </aside> -->
 </BaseLayout>
 
 <style>
   .content {
-    max-width: 60ch;
-    font-size: var(--step-0);
-  }
-
-  h2, h3 {
-    font-family: 'Playfair Display', serif;
-  }
-
-  h2 {
-    font-size: var(--step-2);
-  }
-
-  h3 {
+    /* max-width: 60ch; */
     font-size: var(--step-1);
   }
 
-  dd,dt {
-    display: block;
-  }
-  dt {
-    font-weight: bold;
-  }
-
-  dd {
-    margin: 0;
+  .meta {
+    display: flex;
+    font-size: var(--step-0);
+    margin-block-start: var(--space-s);
   }
 
-  a {
-    color: inherit;
+  .meta > *:not(:last-child)::after {
+    content: '·';
+    padding-inline-start: var(--space-3xs);
+    margin-inline-end: var(--space-3xs);
+  }
+
+  .meta > *+* {
+    margin-top: 0;
+  }
+  aside {
+    font-size: var(--step--1);
+  }
+
+  aside p {
+    margin-top: 0;
+    margin-bottom: var(--space-s);
+  }
+  aside h2 {
+    font-size: var(--step-0);
+    margin-bottom: var(--space-3xs)
+  }
+  [role=list] {
+    padding: 0;
+    list-style: none;
   }
 </style>

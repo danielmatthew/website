@@ -2,11 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 // import ContactCTA from "../components/ContactCTA.astro";
 import Work from "../components/Work.astro";
+import Bio from "../components/Bio.astro";
 ---
-<BaseLayout title="Dan Matthew - UX Engineer">
-  <header>
+<BaseLayout title="Dan Matthew - UX Engineer" modifier="home">
+  <header class="flow">
     <h1>Hello, world!</h1>
-    <p>I'm a UX Engineer at Talis, an EdTech company part of <a href="https://technologyfromsage.com">Technology from Sage</a></p>
+    <Bio />
   </header>
   <Work />
 </BaseLayout>
