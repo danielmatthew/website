@@ -1,7 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "astro build"
   publish = "dist"
-  functions = "_lambda"
 
 [[headers]]
   for = "/*"
