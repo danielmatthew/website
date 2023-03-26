@@ -39,6 +39,18 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 <style>
 .card {
   position: relative;
+  padding: var(--space-xs);
+  border-radius: var(--border-radius-m);
+  transition: background 0.2s ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.card:hover,
+.card:focus-within {
+  background-color: rgba(0,0,0,0.1);
+  /* backdrop-filter: blur(10px); */
+  transition: background 0.2s ease;
 }
 a {
     display: block;
@@ -57,6 +69,18 @@ a {
     transition: text-underline-offset 0.2s ease;
   }
 
+  a:focus {
+    outline: none;
+  }
+
+  a:hover:after,
+  a:focus:after {
+    outline: 2px solid #FABD37;
+    outline-offset: 2px;
+    border-radius: var(--border-radius-m);
+  }
+
+
   a:after {
     position: absolute;
     content: '';
@@ -66,9 +90,9 @@ a {
     right:0;
     bottom: 0;
   }
+
   img {
     display: block;
-    height: auto;
     width: 100%;
     margin: 0 auto var(--space-s);
     animation: 3s infinite alternate blob;
@@ -91,11 +115,6 @@ a {
       transform: scale(1);
       transform: scale(1) rotate(0deg);
     }
-  }
-
-  a:focus {
-    outline: 2px solid #FABD37;
-    outline-offset: 2px;
   }
   .title {
     font-family: 'Playfair Display', serif;
