@@ -23,13 +23,14 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
 </section>
 <style>
   section {
-    margin-block-start: var(--space-s-l)
+    margin-block-start: var(--space-xl)
   }
   ol {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     padding-left: 0;
     justify-content: space-evenly;
-    gap: 1rem;
+    gap: var(--space-3xs);
     list-style: none;
   }
 
@@ -41,6 +42,4 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
   a {
     color: white;
   }
-
-
 </style>

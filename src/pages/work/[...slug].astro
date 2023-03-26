@@ -21,56 +21,13 @@ export async function getStaticPaths() {
   //   props: { entry },
   // }));
 
-//   function renderOptions(links) {
-//     console.log(links);
-//   // const assetMap = new Map();
-//   // for (const asset of links.assets.block) {
-//   //   assetMap.set(asset.sys.id, asset);
-//   // }
-
-//   // const entryMap = new Map();
-//   // for (const entry of links.entries.block) {
-//   //   entryMap.set(entry.sys.id, entry);
-//   // }
-
-//   // for (const entry of links.entries.inline) {
-//   //   entryMap.set(entry.sys.id, entry);
-//   // }
-
-//   return {
-//     renderNode: {
-//       [BLOCKS.EMBEDDED_ASSET]: (node) => {
-//         const asset = assetMap.get(node.data.target.sys.id);
-//         return `<img src="${asset.fields.file.url}" alt="${asset.fields.title}" />`;
-//       },
-//       [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-//         const entry = entryMap.get(node.data.target.sys.id);
-//         return `<a href="${entry.fields.slug}">${entry.fields.title}</a>`;
-//       },
-//       [INLINES.HYPERLINK]: (node) => {
-//         return `<a href="${node.data.uri}">${node.content[0].value}</a>`;
-//       }
-//     }
-//   };
-// }
-
 const renderOptions = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      return `<figure><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
+      return `<figure class="flow"><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
         <figcaption>${node.data.target.fields.description}</figcaption>
         </figure>`;
-    },
-    // [BLOCKS.LIST_ITEM]: (node, children) => {
-    //   const untaggedChildren = documentToHtmlString(node, {
-    //     renderNode: {
-    //       [BLOCKS.PARAGRAPH]: (node, children) => children,
-    //       [BLOCKS.LIST_ITEM]: (node, children) => children
-    //     }
-    //   })
-
-    //   return `<li>${untaggedChildren}</li>`;
-    // }
+    }
   }
 }
 
@@ -104,24 +61,24 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
 const { content, title, date, summary } = Astro.props;
 // const { Content } = await entry.render();
 const cssModifier = 'work';
-
-// const formattedDate = new Date(date).toLocaleDateString('en-gb', {
-//   year: 'numeric',
-//   month: 'long',
-// });
-
 ---
 
 <BaseLayout title={`${title} | Dan Matthew`} modifier={cssModifier}>
-  <h1>{title}</h1>
-  <div class="meta">
-    <span class="org">Talis</span>
-    <time datetime={date}>{date}</time>
+  <header class="wrapper">
+    <h1>{title}</h1>
+    <div class="meta">
+      <span class="org">Talis</span>
+      <time datetime={date}>{date}</time>
+    </div>
+  </header>
+  <div class="layout">
+    <main class="wrapper">
+      <article class="content flow" >
+        <p class="lede">{summary}</p>
+        <Fragment set:html={content} />
+      </article>
+    </main>
   </div>
-  <article class="content flow prose" >
-    <p class="lede">{summary}</p>
-    <Fragment set:html={content} />
-  </article>
   <!-- <aside>
     <h2>In short…</h2>
     <p>{summary}</p>
@@ -139,10 +96,9 @@ const cssModifier = 'work';
     </ol>
   </aside> -->
 </BaseLayout>
-
 <style>
   .content {
-    /* max-width: 60ch; */
+    max-width: 60ch;
     font-size: var(--step-1);
   }
 
