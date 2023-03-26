@@ -27,7 +27,7 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
   }
   ol {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     padding-left: 0;
     justify-content: space-evenly;
     gap: var(--space-3xs);
