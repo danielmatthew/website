@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
+
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -46,9 +47,7 @@ const cssModifier = 'home';
     <nav class="wrapper">
       <a href="/" class="logotype">Dan Matthew</a>
     </nav>
-    <main>
-      <slot />
-    </main>
+    <slot />
     <Footer />
   </body>
   </html>
