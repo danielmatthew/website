@@ -147,10 +147,6 @@ a:hover, a:focus {
   color: var(--scheme-color);
 }
 
-.work {
-  color: var(--color-dark);
-}
-
 .wrapper {
   max-width: 80rem;
   margin-inline: auto;
@@ -185,14 +181,10 @@ a:hover, a:focus {
 
 main {
   max-width: 80rem;
-  /* margin: var(--space-s) auto; */
 }
 
-.home main {
-  display: flex;
-  gap: var(--space-s);
-  flex-direction: column;
-  justify-content: space-evenly;
+header {
+  margin-block-start: var(--space-xl);
 }
 
 .home header a {
@@ -205,11 +197,6 @@ main {
   max-width: 55ch;
 }
 
-.work h1 {
-  grid-column: 1 / -1;
-  /* grid-area: a; */
-}
-
 .work article > *:not(figure) {
   grid-column: 1 / -2;
   max-width: 80ch;
@@ -219,14 +206,6 @@ main {
   .work article > *:not(figure) {
     max-width: var(--line-length);
   }
-}
-
-.work figure {
-  grid-column: 1 / -1;
-}
-
-.work aside {
-  grid-area: c;
 }
 
 .lede {
@@ -270,7 +249,16 @@ footer {
   }
 
   body {
-    color: var(--scheme-color);
+    color: var(--color-light);
+    background-color: var(--color-dark);
+  }
+
+  .work {
+    color: var(--color-light);
+  }
+
+  .work a {
+    color: var(--color-accent-300);
   }
 
   input, textarea, button {
