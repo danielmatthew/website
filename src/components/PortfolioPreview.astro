@@ -1,14 +1,9 @@
 ---
-import blob1 from '../images/blob-0.svg';
-import blob2 from '../images/blob-1.svg';
-import blob3 from '../images/blob-2.svg';
-
 interface Props {
   fields: Object;
 }
 
 const { fields } = Astro.props.project;
-let thumb;
 
 if (Astro.props.index >= 3) {
   Astro.props.index = 0;
@@ -41,7 +36,7 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
   position: relative;
   padding: var(--space-xs);
   border-radius: var(--border-radius-m);
-  transition: background 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   will-change: transform;
   transform-style: preserve-3d;
 }
@@ -49,9 +44,9 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 .card:hover,
 .card:focus-within {
   background-color: rgba(0,0,0,0.1);
-  /* backdrop-filter: blur(10px); */
-  transition: background 0.2s ease;
+
 }
+
 a {
     display: block;
     color: white;
@@ -98,11 +93,7 @@ a {
     animation: 3s infinite alternate blob;
     animation-play-state: paused;
   }
-  img:has(+a:hover) {
-    animation: 3s infinite alternate blob;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
-  }
+
 
   @keyframes blob {
     0% {
@@ -146,4 +137,18 @@ a {
     margin-block-start: var(--space-xs);
     line-height: var(--leading-tight);
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    img:has(+a:hover) {
+    animation: 3s infinite alternate blob;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+  }
+  .card:hover,
+  .card:focus-within {
+    box-shadow: rgba(9, 11, 17, 0.01) 0px 28px 11px 0px, rgba(9, 11, 17, 0.03) 0px 16px 10px 0px, rgba(9, 11, 17, 0.05) 0px 7px 7px 0px, rgba(9, 11, 17, 0.06) 0px 2px 4px 0px;
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+    transform: scale(1.05);
+  }
+}
 </style>

@@ -39,6 +39,19 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
     flex: 1 1 20rem;
   }
 
+  /* li:first-child:nth-child(-2n+1) {
+    grid-column: 1 / -1;
+  } */
+
+  .offset {
+    --row-offset: 7.5rem;
+    padding-bottom: var(--row-offset);
+  }
+
+  /* .offset > :nth-child(2n) {
+    transform: translateY(var(--row-offset));
+  } */
+
   a {
     color: white;
   }
