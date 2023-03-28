@@ -245,13 +245,9 @@ footer {
 
 
 @media(prefers-color-scheme: dark) {
-  :root {
-    /* --scheme-color: var(--color-dark); */
-  }
-
   body {
     color: var(--color-light);
-    background-color: var(--color-dark);
+    background-color: #030935;
   }
 
   .work {
@@ -326,4 +322,14 @@ footer {
       210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
       300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right
   ;
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    opacity: .75;
+    transition: opacity .5s ease-in-out;
+  }
+  img:hover {
+    opacity: 1;
+  }
 }
