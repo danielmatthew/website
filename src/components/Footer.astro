@@ -2,7 +2,7 @@
 const currentYear = new Date().getFullYear();
 ---
 <footer>
-  <div class="custom-shape-divider-bottom-1679095416">
+  <!-- <div class="custom-shape-divider-bottom-1679095416">
     <svg
       data-name="Layer 1"
       id="wave"
@@ -17,17 +17,16 @@ const currentYear = new Date().getFullYear();
         class="shape-fill"></path>
     </svg>
     </div>
-  <div>
-    <div class="wrapper">
-    <p>&copy; { currentYear } Daniel Matthew</p>
+  <div> -->
+  <div class="wrapper space-apart">
+    <span>&copy; { currentYear } Daniel Matthew</span>
     <ul class="socials">
       <li><a rel="me" href="https://front-end.social/@danielm">Mastodon</a></li>
       <li><a rel="me" href="https://github.com/danielmatthew">Github</a></li>
       <li><a rel="me" href="https://linkedin.com/danielmatthew">LinkedIn</a></li>
-      <li><a rel="me" href="https://twitter.com/danielmatthew">Notist</a></li>
-      <li><a rel="me" href="1-on-1.com/danielm">1-1</a></li>
+      <li><a rel="me" href="https://noti.st/danielmatthew">Notist</a></li>
+      <li><a rel="me" href="1-on-1.com/danielm">Book a 1-on-1</a></li>
     </ul>
-    </div>
   </div>
 </footer>
 <style>
@@ -42,16 +41,23 @@ const currentYear = new Date().getFullYear();
     width: 100%;
     overflow: hidden;
     line-height: 0;
-  } */
+  }
 
-  /* .custom-shape-divider-bottom-1679095416 svg {
+  .custom-shape-divider-bottom-1679095416 svg {
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
     height: 126px;
-  } */
+  }
 
   .custom-shape-divider-bottom-1679095416 .shape-fill {
     fill: #061475;
+  } */
+
+  .space-apart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
   }
 </style>
