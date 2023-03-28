@@ -142,8 +142,9 @@ a:hover, a:focus {
 
 .home {
   background-color: var(--color-background);
-  background-image: linear-gradient(to left top, #061475, #09187f, #0b1d8a, #0d2195, #0f26a0, #122bab, #1530b5, #1735c0, #1b3ccd, #1e42da, #2049e7, #2250f4);
-  background-repeat: no-repeat;
+  background-image: url('../img/noise.png'), linear-gradient(to left top, #061475, #09187f, #0b1d8a, #0d2195, #0f26a0, #122bab, #1530b5, #1735c0, #1b3ccd, #1e42da, #2049e7, #2250f4);
+  background-repeat: repeat, no-repeat;
+  background-blend-mode: multiply, normal;
   color: var(--scheme-color);
 }
 
