@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.2.0](https://github.com/danielmatthew/website/compare/v4.1.0...v4.2.0) (2023-03-30)
+
+
+### Features
+
+* add footer links ([#84](https://github.com/danielmatthew/website/issues/84)) ([8a6c958](https://github.com/danielmatthew/website/commit/8a6c958b97144d77da94add0a7cfb7bac462e518))
+* add theme toggle ([#85](https://github.com/danielmatthew/website/issues/85)) ([c72771b](https://github.com/danielmatthew/website/commit/c72771bd31f10a898d0282b8f82acfa9144b047c))
+
+
+### Bug Fixes
+
+* dark mode styles ([216ed36](https://github.com/danielmatthew/website/commit/216ed3645110df3e9806215b0d2f6bada0e70355))
+* layout ([056fcf3](https://github.com/danielmatthew/website/commit/056fcf30122330fec1b3dc8b9aaab0b919424aee))
+* style updates ([0e6d28e](https://github.com/danielmatthew/website/commit/0e6d28e8711d92cd1bc9f72ac5b902b7637acd26))
+* update background ([7b212a6](https://github.com/danielmatthew/website/commit/7b212a6c53759da575ec96eedb1d31162692f9e7))
+* update favicon ([81d5cac](https://github.com/danielmatthew/website/commit/81d5caca4e6f721477f76fb095dc4f2e77786ff5))
+
 ### [3.3.2](https://github.com/danielmatthew/website/compare/v3.3.1...v3.3.2) (2020-07-08)
 
 
