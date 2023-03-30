@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -44,9 +45,7 @@ const cssModifier = 'home';
     </script>
   </head>
   <body class={modifier}>
-    <nav class="wrapper">
-      <a href="/" class="logotype">Dan Matthew</a>
-    </nav>
+    <Nav />
     <slot />
     <Footer />
   </body>
