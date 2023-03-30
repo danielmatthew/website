@@ -63,7 +63,7 @@
   --border-radius-s: 2px;
 
   --theme-transition: 0.2s ease-in-out;
-  --theme-gradient: var(--light, linear-gradient(to left top, #061475, #09187f, #0b1d8a, #0d2195, #0f26a0, #122bab, #1530b5, #1735c0, #1b3ccd, #1e42da, #2049e7, #2250f4)) var(--dark, linear-gradient(to right bottom, #061475, #09187f, #0b1d8a, #0d2195, #0f26a0, #0f26a0, #0f26a0, #0f26a0, #0d2195, #0b1d8a, #09187f, #061475));
+  --theme-gradient: var(--light, linear-gradient(to left top, #061475, #09187f, #0b1d8a, #0d2195, #0f26a0, #122bab, #1530b5, #1735c0, #1b3ccd, #1e42da, #2049e7, #2250f4)) var(--dark, linear-gradient(to right bottom, #030935, #000e41, #00114d, #001259, #001365, #001365, #001365, #001365, #001259, #00114d, #000e41, #030935));
 
   --theme-article-bg: var(--light, #fff) var(--dark, #030935);
 
@@ -74,7 +74,7 @@
   color-scheme: light dark;
 }
 
-body,
+html,
 .theme-light {
   --light: var(--ON);
   --dark: var(--OFF);
