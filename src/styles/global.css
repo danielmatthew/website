@@ -297,15 +297,6 @@ footer {
     background-color: var(--theme-article-bg);
   }
 
-  .work {
-    color: var(--color-light);
-    background-color: var(--theme-article-bg);
-  }
-
-  .work a {
-    color: var(--color-accent-300);
-  }
-
   input, textarea, button {
   border: 2px solid var(--scheme-color);
 }
