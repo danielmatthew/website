@@ -91,13 +91,7 @@ const quotes = await contentfulClient.getEntries({
   }
 
   blockquote p::after {
-    content: close-quote;
-    position: absolute;
-    right: 1rem;
-    font-size: var(--step-4);
-    font-weight: bold;
-    line-height: 1;
-    color: var(--color-theme-300);
+    content: no-close-quote;
   }
 
   blockquote p {
