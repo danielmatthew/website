@@ -1,0 +1,126 @@
+---
+import { contentfulClient } from '../lib/contentful';
+
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
+}
+
+const quotes = await contentfulClient.getEntries({
+  content_type: 'testimonial',
+}).then((response) => {
+  return {
+    items: shuffle(response.items),
+  };
+}).then((response) => {
+  return {
+    items: response.items.slice(0, 3),
+  };
+});
+---
+
+<section class="flow">
+  <h2>Testimonials</h2>
+  <ul>
+    {quotes.items.map((quote) => (
+      <li>
+        <blockquote class="flow">
+          <p>{quote.fields.quote}</p>
+          <div class="meta">
+            {quote.fields.author && <span class="author">{quote.fields.author}</span>}
+            {quote.fields.authorOrganisation && <span class="org">{quote.fields.authorOrganisation}</span>}
+          </div>
+        </blockquote>
+      </li>
+    ))}
+  </ul>
+</section>
+<style>
+  section {
+    margin-block-start: var(--space-xl);
+  }
+  ul {
+    --flow-space: var(--space-m);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    grid-gap: var(--space-s);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    background-color: white;
+    border-radius: var(--border-radius-m);
+    box-shadow: 0 0 1rem var(--color-theme-300);
+    color: #232323;
+    overflow: hidden;
+  }
+
+  blockquote {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:100%;
+  }
+
+  blockquote p::before {
+    content: open-quote;
+    position: absolute;
+    left: 1rem;
+    font-size: var(--step-4);
+    font-weight: bold;
+    line-height: 1;
+    color: var(--color-theme-300);
+  }
+
+  blockquote p::after {
+    content: close-quote;
+    position: absolute;
+    right: 1rem;
+    font-size: var(--step-4);
+    font-weight: bold;
+    line-height: 1;
+    color: var(--color-theme-300);
+  }
+
+  blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--step--1);
+    padding: var(--space-s);
+    padding-inline-start: var(--step-4);
+    padding-inline-end: var(--step-4);
+    line-height: var(--leading-loose);
+  }
+
+  .meta {
+    display: flex;
+    margin-top: auto;
+    background-color: var(--color-accent-300);
+    font-size: var(--step--2);
+    padding: var(--space-s);
+    background-clip: padding-box;
+  }
+
+  .meta > *:not(:last-child)::after {
+    content: '·';
+    padding-inline-start: var(--space-3xs);
+    margin-inline-end: var(--space-3xs);
+  }
+</style>

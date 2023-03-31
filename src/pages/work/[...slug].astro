@@ -39,6 +39,7 @@ const renderOptions = {
     params: { slug: item.fields.slug },
     props: {
       title: item.fields.title,
+      machineDate: item.fields.date,
       date: new Date(item.fields.date).toLocaleDateString('en-gb', {
         year: 'numeric',
         month: 'long',}),
@@ -58,7 +59,7 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
 });
 
 // const { entry } = Astro.props;
-const { content, title, date, summary } = Astro.props;
+const { content, title, date, machineDate, summary } = Astro.props;
 // const { Content } = await entry.render();
 const cssModifier = 'work';
 ---
@@ -68,7 +69,7 @@ const cssModifier = 'work';
     <h1>{title}</h1>
     <div class="meta">
       <span class="org">Talis</span>
-      <time datetime={date}>{date}</time>
+      <time datetime={machineDate}>{date}</time>
     </div>
   </header>
   <div class="layout">
