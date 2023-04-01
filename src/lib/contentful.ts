@@ -1,9 +1,11 @@
 import contentful from 'contentful';
-import type { Document, AssetLinkBlock } from '@contentful/rich-text-types';
+import type { Document } from '@contentful/rich-text-types';
 
 export interface portfolioEntry {
   title: string;
   date: string;
+  role: Array<string>;
+  organisation: string;
   summary: string;
   portfolioContent: Document;
   slug: string;
