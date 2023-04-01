@@ -60,7 +60,7 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
 });
 
 // const { entry } = Astro.props;
-const { content, title, date, machineDate, summary } = Astro.props;
+const { content, title, date, machineDate, roles, summary } = Astro.props;
 // const { Content } = await entry.render();
 const cssModifier = 'work';
 ---
