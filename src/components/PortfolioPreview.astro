@@ -1,4 +1,5 @@
 ---
+import Artwork from '../components/Artwork.astro';
 interface Props {
   fields: Object;
 }
@@ -13,16 +14,17 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
   year: 'numeric',
   month: 'long',
 });
-
 ---
 
 <div class="card">
-  <img
+  <!-- <img
     src={`../src/images/blob-${Astro.props.index}.svg`}
     alt=""
     width="257"
     height="265"
-  >
+  > -->
+  <Artwork />
+
   <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
   <div class="meta">
     <span class="org">Talis</span>
@@ -152,3 +154,4 @@ a {
   }
 }
 </style>
+

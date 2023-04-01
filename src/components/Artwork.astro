@@ -1,0 +1,67 @@
+---
+
+---
+<div class="artwork"></div>
+<script>
+  import Quadtree from "https://cdn.skypack.dev/@timohausmann/quadtree-js@1.2.4";
+  import {
+    createQtGrid,
+    randomBias,
+    randomSnap,
+    random
+  } from "https://cdn.skypack.dev/@georgedoescode/generative-utils";
+  import { SVG } from "https://cdn.skypack.dev/@svgdotjs/svg.js";
+
+  const width = 200;
+  const height = 200;
+  let svg;
+  [...document.querySelectorAll('.artwork')].forEach(art => {
+  svg = SVG().viewbox(0, 0, width, height).addTo(".artwork");
+
+  });
+
+  const focus = {
+    x: random(0, width),
+    y: random(0, height)
+  };
+
+  const points = [...Array(100)].map(() => {
+    return {
+      x: randomBias(0, width, focus.x, 1),
+      y: randomBias(0, height, focus.y, 1),
+      width: 1,
+      height: 1
+    };
+  });
+
+  points.forEach((point) => {
+    svg.circle(0).cx(point.x).cy(point.y);
+  });
+
+  const grid = createQtGrid({
+    width,
+    height,
+    points,
+    gap: 1,
+    maxQtLevels: 4
+  });
+
+  grid.areas.forEach((area) => {
+    if (random(0, 1) > 0.75) {
+      if (random(0, 1) > 0.25) {
+        svg
+          .rect(area.width, area.height)
+          .x(area.x)
+          .y(area.y)
+          .fill(random(["#FABD37", "#f25c54"]));
+      } else {
+        svg
+          .circle(Math.min(area.width, area.height))
+          .x(area.x)
+          .y(area.y)
+          .fill(random(["#FABD37", "#f25c54"]));
+      }
+    }
+  });
+
+  </script>
