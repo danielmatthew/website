@@ -13,13 +13,13 @@ let src;
 
 switch (Astro.props.index) {
   case 0:
-    src = 'forms';
+    src = 'combobox';
     break;
   case 1:
     src = 'elevate';
     break;
   case 2:
-    src = 'combobox';
+    src = 'forms';
   default:
     break;
 }
@@ -34,10 +34,11 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 <div class="card">
   <div class="thumbnail-backdrop">
     <img
-      src={`../img/${src}.svg`}
+      src={`../img/${src}@2x.png`}
       alt=""
       width="326"
       height="263"
+      loading="lazy"
     >
   </div>
   <div class="project-details">
