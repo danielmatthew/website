@@ -9,6 +9,21 @@ if (Astro.props.index >= 3) {
   Astro.props.index = 0;
 }
 
+let src;
+
+switch (Astro.props.index) {
+  case 0:
+    src = 'forms';
+    break;
+  case 1:
+    src = 'elevate';
+    break;
+  case 2:
+    src = 'combobox';
+  default:
+    break;
+}
+
 const date = new Date(fields.date).toLocaleDateString('en-gb', {
   year: 'numeric',
   month: 'long',
@@ -17,34 +32,37 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 ---
 
 <div class="card">
-  <img
-    src={`../src/images/blob-${Astro.props.index}.svg`}
-    alt=""
-    width="257"
-    height="265"
-  >
-  <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
-  <div class="meta">
-    <span class="org">Talis</span>
-    <time class="date" datetime={fields.date}>{date}</time>
+  <div class="thumbnail-backdrop">
+    <img
+      src={`../img/${src}.svg`}
+      alt=""
+      width="326"
+      height="263"
+    >
   </div>
-  <p>{fields.summary}</p>
+  <div class="project-details">
+    <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
+    <div class="meta">
+      <span class="org">Talis</span>
+      <time class="date" datetime={fields.date}>{date}</time>
+    </div>
+    <p>{fields.summary}</p>
+  </div>
 </div>
 
 <style>
 .card {
   position: relative;
-  padding: var(--space-xs);
   border-radius: var(--border-radius-m);
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   will-change: transform;
   transform-style: preserve-3d;
+  background-color: var(--color-theme-400);
 }
 
 .card:hover,
 .card:focus-within {
-  background-color: rgba(0,0,0,0.1);
-
+  z-index: 1;
 }
 
 a {
@@ -86,12 +104,25 @@ a {
     bottom: 0;
   }
 
+  .thumbnail-backdrop {
+    background-color: #017d87;
+    background-image: linear-gradient(to bottom, #017d87, var(--color-theme-300));
+    margin: 0 auto var(--space-s);
+    border-radius:  var(--border-radius-m) var(--border-radius-m) 0 0;
+  }
   img {
     display: block;
     width: 100%;
-    margin: 0 auto var(--space-s);
     animation: 3s infinite alternate blob;
     animation-play-state: paused;
+    object-fit: cover;
+    mix-blend-mode: soft-light;
+    border-radius:  var(--border-radius-m) var(--border-radius-m) 0 0;
+  }
+
+  .project-details {
+    padding: 0 var(--space-xs) var(--space-s) ;
+
   }
 
 
@@ -109,6 +140,7 @@ a {
   }
   .title {
     font-family: 'Playfair Display', serif;
+    font-weight: 700;
     font-size: var(--step-1);
     margin-block-start: var(--space-2xs);
     line-height: var(--leading-tight);
@@ -138,7 +170,7 @@ a {
     line-height: var(--leading-tight);
   }
 
-  @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine){
     img:has(+a:hover) {
     animation: 3s infinite alternate blob;
     animation-fill-mode: forwards;
