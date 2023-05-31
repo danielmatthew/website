@@ -1,0 +1,30 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Nav from '../components/Nav.astro';
+import Bio from "../components/Bio.astro";
+
+---
+
+<BaseLayout title="Dan Matthew - UX Engineer" modifier="home">
+  <header class="dm-hero">
+    <Nav />
+    <div class="flow wrapper">
+      <h1>Hello, world!</h1>
+      <Bio />
+    </div>
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+      <path id="page-divide" fill="#fff" x="50" y="0" d="M-160 44c30 0
+          58-18 88-18s
+          58 18 88 18
+          58-18 88-18
+          58 18 88 18
+          v44h-352z"></path>
+        </defs>
+        <g>
+          <use xlink:href="#page-divide" x="50" y="0" fill="#fff"></use>
+        </g>
+      </svg>
+  </header>
+  <slot />
+</BaseLayout>

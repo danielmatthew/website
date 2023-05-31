@@ -1,22 +1,17 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-// import ContactCTA from "../components/ContactCTA.astro";
+import HomeLayout from "../layouts/HomeLayout.astro";
+import ContactCTA from "../components/ContactCTA.astro";
 import Quotes from "../components/Quotes.astro";
 import Work from "../components/Work.astro";
-import Bio from "../components/Bio.astro";
 import List from '../components/List.astro';
 ---
-<BaseLayout title="Dan Matthew - UX Engineer" modifier="home">
-  <header class="flow wrapper">
-    <h1>Hello, world!</h1>
-    <Bio />
-  </header>
+<HomeLayout >
   <main class="wrapper">
     <Work />
     <List />
     <Quotes />
   </main>
-</BaseLayout>
+</HomeLayout>
 <!-- <script>
   const handleSubmit = (event) => {
     event.preventDefault();
