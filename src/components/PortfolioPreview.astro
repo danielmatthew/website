@@ -32,15 +32,13 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 ---
 
 <div class="card">
-  <div class="thumbnail-backdrop">
-    <img
-      src={`../img/${src}@2x.png`}
-      alt=""
-      width="326"
-      height="263"
-      loading="lazy"
-    >
-  </div>
+  <img
+    src={`../img/${src}@2x.png`}
+    alt=""
+    width="326"
+    height="263"
+    loading="lazy"
+  >
   <div class="project-details">
     <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
     <div class="meta">
@@ -54,21 +52,14 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
 <style>
 .card {
   position: relative;
-  border-radius: var(--border-radius-m);
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
   will-change: transform;
   transform-style: preserve-3d;
-  background-color: var(--color-theme-400);
-}
-
-.card:hover,
-.card:focus-within {
-  z-index: 1;
 }
 
 a {
     display: block;
-    color: white;
+    color: black;
     transition: transform 0.2s ease;
     text-decoration: underline;
     text-decoration-color: #FABD37;
@@ -86,12 +77,10 @@ a {
   a:focus {
     outline: none;
   }
-
-  a:hover:after,
-  a:focus:after {
+  a:focus-visible {
     outline: 2px solid #FABD37;
     outline-offset: 2px;
-    border-radius: var(--border-radius-m);
+    /* border-radius: 32px; */
   }
 
 
@@ -105,25 +94,15 @@ a {
     bottom: 0;
   }
 
-  .thumbnail-backdrop {
-    background-color: #017d87;
-    background-image: linear-gradient(to bottom, #017d87, var(--color-theme-300));
-    margin: 0 auto var(--space-s);
-    border-radius:  var(--border-radius-m) var(--border-radius-m) 0 0;
-  }
   img {
     display: block;
     width: 100%;
-    animation: 3s infinite alternate blob;
-    animation-play-state: paused;
     object-fit: cover;
-    mix-blend-mode: soft-light;
-    border-radius:  var(--border-radius-m) var(--border-radius-m) 0 0;
+    border-radius: var(--border-radius-m);
   }
 
   .project-details {
     padding: 0 var(--space-xs) var(--space-s) ;
-
   }
 
 
@@ -139,11 +118,12 @@ a {
       transform: scale(1) rotate(0deg);
     }
   }
+
   .title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: var(--step-1);
-    margin-block-start: var(--space-2xs);
+    margin-block-start: var(--space-s);
     line-height: var(--leading-tight);
   }
   .meta {
@@ -171,17 +151,23 @@ a {
     line-height: var(--leading-tight);
   }
 
+  .card:hover img,
+  .card:focus-within img {
+    box-shadow: 0 0 20px 3px hsla(0,0%,40%,.2);
+
+  }
+
   @media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine){
-    img:has(+a:hover) {
+    img:has(+ a:hover) {
     animation: 3s infinite alternate blob;
     animation-fill-mode: forwards;
     animation-play-state: running;
   }
-  .card:hover,
-  .card:focus-within {
-    box-shadow: rgba(9, 11, 17, 0.01) 0px 28px 11px 0px, rgba(9, 11, 17, 0.03) 0px 16px 10px 0px, rgba(9, 11, 17, 0.05) 0px 7px 7px 0px, rgba(9, 11, 17, 0.06) 0px 2px 4px 0px;
+  .card:hover img,
+  .card:focus-within img {
+    /* box-shadow: 0 8px 30px rgba(0,0,0,0.06); */
     transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
   }
 }
 </style>
