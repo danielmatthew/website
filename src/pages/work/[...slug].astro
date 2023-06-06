@@ -6,6 +6,8 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import type { portfolioEntry } from '../../lib/contentful';
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Nav from '../../components/Nav.astro';
+
 
 // interface Props {
 //   entry: CollectionEntry<"work">;
@@ -66,22 +68,41 @@ const cssModifier = 'work';
 ---
 
 <BaseLayout title={`${title} | Dan Matthew`} modifier={cssModifier}>
-  <header class="wrapper">
-    <h1>{title}</h1>
-    <div class="meta">
-      <span class="org">Talis</span>
-      <time datetime={machineDate}>{date}</time>
+  <header class="dm-hero">
+    <Nav />
+    <div class="flow wrapper">
+      <h1>{title}</h1>
+
+      <div class="meta">
+        <span class="org">Talis</span>
+        <time datetime={machineDate}>{date}</time>
+      </div>
+      {roles && <ul class="roles">
+        {roles.map((role) => (
+          <li>{role}</li>
+        ))}
+      </ul>}
+      <p class="lede">{summary}</p>
     </div>
-    {roles && <ul class="roles">
-      {roles.map((role) => (
-        <li>{role}</li>
-      ))}
-    </ul>}
+
+    <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+      <path id="page-divide" fill="#fff" x="50" y="0" d="M-160 44c30 0
+          58-18 88-18s
+          58 18 88 18
+          58-18 88-18
+          58 18 88 18
+          v44h-352z"></path>
+        </defs>
+        <g>
+          <use xlink:href="#page-divide" x="50" y="0" fill="#fff"></use>
+        </g>
+      </svg>
   </header>
+
   <div class="layout">
     <main class="wrapper">
       <article class="content flow" >
-        <p class="lede">{summary}</p>
         <Fragment set:html={content} />
       </article>
     </main>
@@ -105,6 +126,7 @@ const cssModifier = 'work';
 </BaseLayout>
 <style>
   .content {
+    padding-block-start: var(--space-xl);
     font-size: var(--step-1);
   }
 
