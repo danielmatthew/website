@@ -16,9 +16,12 @@ const cssModifier = 'home';
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="view-transition" content="same-origin">
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3&display=swap" rel="stylesheet">
+
     <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
@@ -39,9 +42,6 @@ const cssModifier = 'home';
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,900&family=Source+Sans+3&family=Inter:wght@400;900&display=swap" rel="stylesheet">
-
-    <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

@@ -22,17 +22,40 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
     }
   </ol>
   </div>
-  <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-    <defs>
-    <path id="page-divide" fill="hsl(0,0,99%)" x="50" y="0" d="M-160 44c30 0
-        58-18 88-18s
-        58 18 88 18
-        58-18 88-18
-        58 18 88 18
-        v44h-352z"></path>
-      </defs>
-      <g>
-        <use xlink:href="#page-divide" x="50" y="0" fill="hsl(0,0,99%)"></use>
-      </g>
-    </svg>
 </section>
+<style>
+  section {
+    padding-block-start: var(--space-xl);
+    padding-block-end: var(--space-2xl);
+  }
+  ol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    padding-left: 0;
+    justify-content: space-evenly;
+    gap: var(--space-xl);
+    list-style: none;
+  }
+
+  li {
+    margin: 0;
+    flex: 1 1 20rem;
+  }
+
+  /* li:first-child:nth-child(-2n+1) {
+    grid-column: 1 / -1;
+  } */
+
+  .offset {
+    --row-offset: 7.5rem;
+    padding-bottom: var(--row-offset);
+  }
+
+  /* .offset > :nth-child(2n) {
+    transform: translateY(var(--row-offset));
+  } */
+
+  a {
+    color: white;
+  }
+</style>
