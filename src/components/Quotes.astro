@@ -1,161 +1,91 @@
 ---
-import { contentfulClient } from '../lib/contentful';
+import { contentfulClient } from "../lib/contentful";
 
 function shuffle(array) {
-    let counter = array.length;
+  let counter = array.length;
 
-    // While there are elements in the array
-    while (counter > 0) {
-        // Pick a random index
-        let index = Math.floor(Math.random() * counter);
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    let index = Math.floor(Math.random() * counter);
 
-        // Decrease counter by 1
-        counter--;
+    // Decrease counter by 1
+    counter--;
 
-        // And swap the last element with it
-        let temp = array[counter];
-        array[counter] = array[index];
-        array[index] = temp;
-    }
+    // And swap the last element with it
+    let temp = array[counter];
+    array[counter] = array[index];
+    array[index] = temp;
+  }
 
-    return array;
+  return array;
 }
 
-const quotes = await contentfulClient.getEntries({
-  content_type: 'testimonial',
-}).then((response) => {
-  return {
-    items: shuffle(response.items),
-  };
-}).then((response) => {
-  return {
-    items: response.items.slice(0, 9),
-  };
-});
+const quotes = await contentfulClient
+  .getEntries({
+    content_type: "testimonial",
+  })
+  .then((response) => {
+    return {
+      items: shuffle(response.items),
+    };
+  })
+  .then((response) => {
+    return {
+      items: response.items.slice(0, 9),
+    };
+  });
 ---
 
 <section class="flow quotes">
+
   <div class="wrapper">
-  <h2 id="testimonials">Testimonials</h2>
-  <ul>
-    {quotes.items.map((quote) => (
-      <li>
-        <blockquote class="flow">
-          <p>{quote.fields.quote}</p>
-          <div class="meta">
-            {quote.fields.author && <span class="author">{quote.fields.author}</span>}
-            {quote.fields.authorOrganisation && <span class="org">{quote.fields.authorOrganisation}</span>}
-          </div>
-          <svg class="quote" width="85" height="67" viewBox="0 0 85 67" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-<path d="M27.328 2.57599C30.912 0.271988 35.52 4.87999 32.192 8.20799C22.72 17.168 19.648 23.056 17.856 30.992C17.344 33.296 17.856 34.832 20.16 34.832C27.328 34.832 32.96 40.976 32.96 49.936C32.96 59.664 26.816 66.576 17.344 66.576C8.384 66.576 0.96 59.664 0.96 47.632C0.96 30.736 9.92 14.608 27.328 2.57599ZM76.736 2.57599C80.32 0.271988 84.928 4.87999 81.6 8.20799C71.872 17.168 68.8 23.056 67.264 30.992C66.752 33.296 67.264 34.832 69.568 34.832C76.736 34.832 82.112 40.976 82.112 49.936C82.112 59.664 75.968 66.576 66.752 66.576C57.792 66.576 50.368 59.664 50.368 47.632C50.368 30.736 59.328 14.608 76.736 2.57599Z" fill="white"/>
-</svg>
-
-        </blockquote>
-      </li>
-    ))}
-  </ul>
-</div>
+    <h2 id="testimonials">Testimonials</h2>
+    <ul>
+      {
+        quotes.items.map((quote) => (
+          <li>
+            <blockquote class="flow">
+              <p>{quote.fields.quote}</p>
+              <div class="meta">
+                {quote.fields.author && (
+                  <span class="author">{quote.fields.author}</span>
+                )}
+                {quote.fields.authorOrganisation && (
+                  <span class="org">{quote.fields.authorOrganisation}</span>
+                )}
+              </div>
+              <svg
+                class="quote"
+                width="85"
+                height="67"
+                viewBox="0 0 85 67"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                role="presentation"
+              >
+                <path
+                  d="M27.328 2.57599C30.912 0.271988 35.52 4.87999 32.192 8.20799C22.72 17.168 19.648 23.056 17.856 30.992C17.344 33.296 17.856 34.832 20.16 34.832C27.328 34.832 32.96 40.976 32.96 49.936C32.96 59.664 26.816 66.576 17.344 66.576C8.384 66.576 0.96 59.664 0.96 47.632C0.96 30.736 9.92 14.608 27.328 2.57599ZM76.736 2.57599C80.32 0.271988 84.928 4.87999 81.6 8.20799C71.872 17.168 68.8 23.056 67.264 30.992C66.752 33.296 67.264 34.832 69.568 34.832C76.736 34.832 82.112 40.976 82.112 49.936C82.112 59.664 75.968 66.576 66.752 66.576C57.792 66.576 50.368 59.664 50.368 47.632C50.368 30.736 59.328 14.608 76.736 2.57599Z"
+                  fill="white"
+                />
+              </svg>
+            </blockquote>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+    <defs>
+    <path id="page-divide" fill="red" x="50" y="0" d="M-160 44c30 0
+        58-18 88-18s
+        58 18 88 18
+        58-18 88-18
+        58 18 88 18
+        v44h-352z"></path>
+      </defs>
+      <g>
+        <use xlink:href="#page-divide" x="50" y="0" fill="red"></use>
+      </g>
+    </svg>
 </section>
-<style>
-  section {
-    padding-block-start: var(--space-2xl);
-
-    background-color: var(--light, hsl(0,0%,99%)) var(--dark, var(--theme-article-bg));
-  }
-
-  ul {
-    --flow-space: 10rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-    grid-gap: var(--space-xl);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    margin-block-start: var(--space-xl);
-  }
-
-  @media (min-width: 54rem) {
-    ul {
-      margin-block-start: calc(7.5rem + var(--space-xl));
-    }
-
-    li:nth-child(odd) {
-    transform: translateY(-7.5rem);
-  }
-
-  }
-
-  li {
-    background-color: var(--light, #fff) var(--dark, var(--color-theme-400));
-    border-radius: 32px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-  }
-
-
-  blockquote {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-
-  blockquote::before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    content:"";
-    background-color: var(--color-theme-400);
-    color: #fff;
-    border-radius: 50%;
-    height: 3rem;
-    width: 3rem;
-    transform: translate(-1.5rem, -1.5rem);
-    z-index: 1;
-  }
-
-  .quote {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 3rem;
-  height: 3rem;
-  margin: 0;
-  transform: translate(-1.5rem, -1.5rem) scale(0.5);
-  z-index: 10;
-  }
-
-  /* blockquote p::before {
-    content: open-quote;
-    position: absolute;
-    left: 1rem;
-    font-size: var(--step-4);
-    font-weight: bold;
-    line-height: 1;
-    color: var(--color-theme-300);
-  }
-
-  blockquote p::after {
-    content: no-close-quote;
-  } */
-
-  blockquote p {
-    font-size: var(--step-0);
-    line-height: var(--leading-loose);
-    padding: var(--space-xl);
-  }
-
-  .meta {
-    display: flex;
-    padding: var(--space-xl);
-    font-size: var(--step--1);
-    background-clip: padding-box;
-
-  }
-
-  .meta > *:not(:last-child)::after {
-    content: '·';
-    padding-inline-start: var(--space-3xs);
-    margin-inline-end: var(--space-3xs);
-  }
-</style>
