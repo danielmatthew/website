@@ -108,8 +108,8 @@
   --OFF: ;
 
   --serif: Georgia, "Times New Roman", Times, serif;
-  --sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --sans-serif: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
   color-scheme: light dark;
 }
@@ -213,6 +213,7 @@ body {
   h5,
   h6 {
     font-weight: 700;
+    text-wrap: balance;
   }
 
   h1 {
@@ -264,13 +265,14 @@ body {
   }
 
   .lede {
+    max-width: 50ch;
+    margin: auto;
+    margin-block-start: var(--flow-space, 1em);
     font-size: var(--step-1);
     font-weight: 300;
     font-style: italic;
-    max-width: 50ch;
-    margin: auto;
     text-wrap: balance;
-    margin-block-start: var(--flow-space, 1em);
+    line-height: var(--leading-tight);
   }
 
   .lede + * {
@@ -289,8 +291,10 @@ figure > img {
 
 @layer utilities {
   .wrapper {
-    /* max-width: var(--wrapper-width); */
-    padding-inline: max(var(--space-xl), (50% - 40rem));
+    padding-inline: max(
+      clamp(var(--space-s), var(--space-m), var(--space-xl)),
+      (50% - 40rem)
+    );
   }
 
   .img-fluid {
@@ -310,12 +314,17 @@ figure > img {
   }
 }
 
-
 .banner {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-block: var(--space-2xl);
+  margin-block: var(--space-m);
+}
+
+@media (min-width: 30rem) {
+  .banner {
+    margin-block: var(--space-xl);
+  }
 }
 
 .logotype {
@@ -323,12 +332,19 @@ figure > img {
   font-weight: 700;
 }
 
+@media (max-width: 30rem) {
+.grid > * {
+  margin-block-end: var(--space-xl);
+}
+}
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
-  grid-auto-flow: dense;
-  gap: var(--space-xl);
+@media (min-width: 30rem) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-auto-flow: dense;
+    gap: var(--space-xl);
+  }
 }
 
 @supports (grid-template-rows: masonry) {
@@ -337,23 +353,37 @@ figure > img {
   }
 }
 
-.card--quote {
-  grid-column: span 3;
-}
+
 
 .card--project {
-  grid-column: span 3;
+  /* grid-column: span 3; */
   padding: 0;
   overflow: hidden;
   container-type: inline-size;
   container-name: work;
 }
 
-.card--project:first-of-type {
-  grid-column: span 6;
+.card--project {
+  grid-column: span 9;
 }
 
-@container work (min-width: 480px) {
+.card--quote {
+  grid-column: span 9;
+}
+
+
+@media (min-width: 40rem) {
+  .card--project:first-of-type {
+    grid-column: span 6;
+  }
+
+  .card--project,
+  .card--quote {
+    grid-column: span 3;
+  }
+}
+
+@container work (min-width: 30rem) {
   .project-details {
     font-size: 3rem;
   }
@@ -410,6 +440,7 @@ footer {
   display: inline-flex;
   padding: 0;
   list-style: none;
+  flex-wrap: wrap;
 }
 
 .socials li:not(:last-child) {
@@ -529,11 +560,6 @@ footer {
     display: block;
   }
 
-  p {
-    margin-block-start: var(--space-xs);
-    line-height: var(--leading-standard);
-  }
-
   .card--quote {
     position: relative;
     display: flex;
@@ -581,7 +607,7 @@ footer {
     display: flex;
     font-size: var(--step--1);
     padding: var(--space-s) var(--space-l);
-    background-color: #FAFBFF;
+    background-color: #fafbff;
     border-bottom-left-radius: 32px;
     border-bottom-right-radius: 32px;
     justify-content: center;
