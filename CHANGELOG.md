@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.2.1](https://github.com/danielmatthew/website/compare/v4.3.0...v4.2.1) (2023-07-12)
+
+
+### Bug Fixes
+
+* big changes ([1e5bb68](https://github.com/danielmatthew/website/commit/1e5bb68760f88274af38e4cac309978ab1613e5f))
+* responsive styles ([ec67f6b](https://github.com/danielmatthew/website/commit/ec67f6bbed36f37bfd0b5b81f3481e2b5e2efc6e))
+* update head order per capo ([48a9000](https://github.com/danielmatthew/website/commit/48a90006012ed89dbb35ac272bbc1e59ecaeb61a))
+* update post ([45b1632](https://github.com/danielmatthew/website/commit/45b163247398ba5dcfe0c8cc5ac608a7be232e5f))
+* update quote appearance ([f5f78bb](https://github.com/danielmatthew/website/commit/f5f78bbab9c77743dacaee2a9f4852ae56620fcf))
+
 ## [4.2.0](https://github.com/danielmatthew/website/compare/v4.1.0...v4.2.0) (2023-03-30)
 
 
