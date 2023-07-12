@@ -2,14 +2,67 @@
 import HomeLayout from "../layouts/HomeLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Quotes from "../components/Quotes.astro";
-import Work from "../components/Work.astro";
-import List from '../components/List.astro';
+
+
+import { contentfulClient } from '../lib/contentful';
+import type { portfolioEntry } from '../lib/contentful';
+
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Quote from '../components/Quote.astro';
+
+const projects = await contentfulClient.getEntries<portfolioEntry>({
+  content_type: 'blogPost',
+  order: '-fields.date',
+});
+
+function shuffle(array) {
+  let counter = array.length;
+
+  // While there are elements in the array
+  while (counter > 0) {
+    // Pick a random index
+    let index = Math.floor(Math.random() * counter);
+
+    // Decrease counter by 1
+    counter--;
+
+    // And swap the last element with it
+    let temp = array[counter];
+    array[counter] = array[index];
+    array[index] = temp;
+  }
+
+  return array;
+}
+
+const quotes = await contentfulClient
+  .getEntries({
+    content_type: "testimonial",
+  })
+  .then((response) => {
+    return {
+      items: shuffle(response.items),
+    };
+  })
+  .then((response) => {
+    return {
+      items: response.items.slice(0, 9),
+    };
+  });
+
+const newQuotes = quotes.items.map((quote) => quote);
 ---
 <HomeLayout >
-  <main>
-    <Work />
-    <!-- <List /> -->
-    <Quotes />
+  <main class="grid wrapper">
+    <PortfolioPreview project={projects.items[0]} index={0}} />
+    <Quote quote={newQuotes[0]} />
+    <Quote quote={newQuotes[4]} />
+    <PortfolioPreview project={projects.items[2]} index={2}} />
+    <Quote quote={newQuotes[1]} />
+    <Quote quote={newQuotes[2]} />
+    <PortfolioPreview project={projects.items[1]} index={1}} />
+    <Quote quote={newQuotes[5]} />
+    <Quote quote={newQuotes[3]} />
   </main>
 </HomeLayout>
 <!-- <script>

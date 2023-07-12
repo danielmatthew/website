@@ -9,10 +9,9 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
   order: '-fields.date',
 });
 ---
-<section class="flow work" aria-labelledby="work">
+<section class="flow work" aria-label="Work">
   <div class="wrapper">
-  <h2 id="work">Selected works</h2>
-  <ol role="list">
+  <ul role="list">
     {
       projects.items.map((project, index) => (
         <li>
@@ -20,42 +19,6 @@ const projects = await contentfulClient.getEntries<portfolioEntry>({
         </li>
       ))
     }
-  </ol>
+  </ul>
   </div>
 </section>
-<style>
-  section {
-    padding-block-start: var(--space-xl);
-    padding-block-end: var(--space-2xl);
-  }
-  ol {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-    padding-left: 0;
-    justify-content: space-evenly;
-    gap: var(--space-xl);
-    list-style: none;
-  }
-
-  li {
-    margin: 0;
-    flex: 1 1 20rem;
-  }
-
-  /* li:first-child:nth-child(-2n+1) {
-    grid-column: 1 / -1;
-  } */
-
-  .offset {
-    --row-offset: 7.5rem;
-    padding-bottom: var(--row-offset);
-  }
-
-  /* .offset > :nth-child(2n) {
-    transform: translateY(var(--row-offset));
-  } */
-
-  a {
-    color: white;
-  }
-</style>

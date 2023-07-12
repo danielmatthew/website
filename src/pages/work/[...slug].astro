@@ -67,46 +67,48 @@ const { content, title, date, machineDate, roles, summary } = Astro.props;
 const cssModifier = 'work';
 ---
 
-<BaseLayout title={`${title} | Dan Matthew`} modifier={cssModifier}>
-  <header class="dm-hero">
-    <Nav />
-    <div class="flow wrapper">
-      <h1>{title}</h1>
+<BaseLayout title={`${title} | Dan Matthew – Interaction Designer`} modifier={cssModifier}>
 
-      <div class="meta">
-        <span class="org">Talis</span>
-        <time datetime={machineDate}>{date}</time>
+
+  <article class="wrapper">
+    <header>
+      <div class="flow masthead">
+        <h1>{title}</h1>
+
+        <div class="meta">
+          <span class="org">Talis</span>
+          <time datetime={machineDate}>{date}</time>
+        </div>
+        {roles && <ul class="roles">
+          {roles.map((role) => (
+            <li>{role}</li>
+          ))}
+        </ul>}
+        <p class="lede">{summary}</p>
       </div>
-      {roles && <ul class="roles">
-        {roles.map((role) => (
-          <li>{role}</li>
-        ))}
-      </ul>}
-      <p class="lede">{summary}</p>
-    </div>
 
-    <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-      <defs>
-      <path id="page-divide" fill="#fff" x="50" y="0" d="M-160 44c30 0
-          58-18 88-18s
-          58 18 88 18
-          58-18 88-18
-          58 18 88 18
-          v44h-352z"></path>
-        </defs>
-        <g>
-          <use xlink:href="#page-divide" x="50" y="0" fill="#fff"></use>
-        </g>
-      </svg>
-  </header>
-
+      <!-- <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <defs>
+        <path id="page-divide" fill="#fff" x="50" y="0" d="M-160 44c30 0
+            58-18 88-18s
+            58 18 88 18
+            58-18 88-18
+            58 18 88 18
+            v44h-352z"></path>
+          </defs>
+          <g>
+            <use xlink:href="#page-divide" x="50" y="0" fill="#fff"></use>
+          </g>
+        </svg> -->
+    </header>
   <div class="layout">
-    <main class="wrapper">
+    <main>
       <article class="content flow" >
         <Fragment set:html={content} />
       </article>
     </main>
   </div>
+  </article>
   <!-- <aside>
     <h2>In short…</h2>
     <p>{summary}</p>
@@ -126,7 +128,6 @@ const cssModifier = 'work';
 </BaseLayout>
 <style>
   .content {
-    padding-block-start: var(--space-xl);
     font-size: var(--step-1);
   }
 
@@ -138,13 +139,17 @@ const cssModifier = 'work';
 
   .meta, .roles {
     display: flex;
+    justify-content: center;
     font-size: var(--step-0);
+  }
+
+  .meta {
     margin-block-start: var(--space-s);
   }
 
   .roles {
-    margin-block-start: var(--space-3xs);
     font-size: var(--step--1);
+    flex-wrap: wrap;
   }
 
   .roles li {
@@ -153,6 +158,7 @@ const cssModifier = 'work';
     color: #fff;
     border-radius: var(--border-radius-m);
     margin-inline-end: var(--space-3xs);
+    margin-block-start: var(--space-3xs);
   }
 
   .meta > *:not(:last-child)::after {
@@ -179,5 +185,14 @@ const cssModifier = 'work';
   [role=list] {
     padding: 0;
     list-style: none;
+  }
+
+  .layout {
+    margin-block-start: var(--space-m);
+    margin-inline: auto;
+    padding: var(--space-xl);
+    background-color: white;
+    border-radius: 32px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
   }
 </style>
