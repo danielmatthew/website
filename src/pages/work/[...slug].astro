@@ -190,7 +190,7 @@ const cssModifier = 'work';
   .layout {
     margin-block-start: var(--space-m);
     margin-inline: auto;
-    padding: var(--space-xl);
+    padding: clamp(var(--space-xs), 2.5vw, var(--space-xl));
     background-color: white;
     border-radius: 32px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);

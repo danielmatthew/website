@@ -291,8 +291,7 @@ figure > img {
 
 @layer utilities {
   .wrapper {
-    padding-inline: max(
-      clamp(var(--space-s), var(--space-m), var(--space-xl)),
+    padding-inline: max(var(--space-s),
       (50% - 40rem)
     );
   }
