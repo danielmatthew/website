@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Nav from "../components/Nav.astro";
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -53,6 +54,7 @@ const cssModifier = 'home';
     <meta name="theme-color" content="#112CAF">
   </head>
   <body class={modifier}>
+    <Nav />
     <slot />
     <Footer />
   </body>
