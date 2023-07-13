@@ -111,6 +111,14 @@
   --sans-serif: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
+  --shadows: 0px 0px 1px rgba(20, 20, 21, 0.18), 0px 8px 16px -8px rgba(20, 20, 21, .15), 0px 12px 26px -8px rgba(20, 20, 21, .2);
+
+  --shadows-alt: 0px 0px 1px rgba(20, 20, 21, 0.18), 0px 3px 8px rgba(20, 20, 21, .11), 0px 13px 20px rgba(20, 20, 21, .09);
+
+  --shadows-elevation1: 0px 0px 1px rgba(20, 20, 21, 0.18), 0px 2px 3px -2px rgba(20, 20, 21, 0.3);
+--shadows-elevation2: 0px 0px 1px rgba(20, 20, 21, 0.14), 0px 4px 8px -4px rgba(20, 20, 21, 0.35);
+--shadows-elevation3: 0px 0px 1px rgba(20, 20, 21, 0.14), 0px 6px 16px -6px rgba(20, 20, 21, 0.4);
+
   color-scheme: light dark;
 }
 
@@ -280,15 +288,6 @@ body {
   }
 }
 
-figure > img {
-  border-radius: max(
-    0px,
-    min(var(--border-radius-m), calc((100vw - 4px - 100%) * 9999))
-  );
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  margin-left: -1rem;
-}
-
 @layer utilities {
   .wrapper {
     padding-inline: max(var(--space-s),
@@ -310,6 +309,18 @@ figure > img {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 }
 
@@ -372,14 +383,37 @@ figure > img {
 
 
 @media (min-width: 40rem) {
+  /* .card--quote,
+  .card--project {
+    grid-column: span 3;
+  } */
+
+  .card:nth-child(even) {
+    grid-column: span 4;
+  }
+
+  .card:nth-child(odd) {
+    grid-column: span 5;
+  }
+
+  .card--project:first-of-type {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 60rem) {
+  .card:nth-child(n) {
+    grid-column: span 3;
+  }
+
   .card--project:first-of-type {
     grid-column: span 6;
   }
 
-  .card--project,
-  .card--quote {
+  /* .card--project:nth-child(even),
+  .card--project:nth-child(odd) {
     grid-column: span 3;
-  }
+  } */
 }
 
 @container work (min-width: 30rem) {
@@ -417,29 +451,14 @@ footer {
   img:hover {
     opacity: 1;
   }
-
-  footer {
-    color: var(--light, var(--color-dark)) var(--dark, var(--color-dark));
-  }
-}
-
-.theme-dark .work {
-  color: var(--color-light);
-}
-
-.theme-dark .quotes {
-  color: var(--color-light);
-}
-
-.theme-dark .work a {
-  color: var(--color-light);
 }
 
 .socials {
-  display: inline-flex;
+  display: flex;
   padding: 0;
   list-style: none;
   flex-wrap: wrap;
+  margin-block: 0;
 }
 
 .socials li:not(:last-child) {
@@ -447,29 +466,33 @@ footer {
 }
 
 .socials a {
-  padding: var(--space-xs);
+  /* padding: var(--space-xs); */
   color: inherit;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+figure > img {
+  border-radius: max(
+    0px,
+    min(var(--border-radius-m), calc((100vw - 4px - 100%) * 9999))
+  );
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  margin-left: -1rem;
 }
 
 @layer components {
   .card {
     position: relative;
     background-color: #fff;
-    border-radius: 32px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    border-radius: clamp(4px, 2vw, 32px);
+    box-shadow: var(--shadows-alt);
     padding: var(--space-l);
+    will-change: transform;
+    transition: all 700ms cubic-bezier(0.16, 1, 0.3, 1) 0s;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+  }
+
+  .card:hover .glare-wrapper {
+    transform: translateZ(1rem);
   }
 
   .card a {
@@ -496,7 +519,6 @@ footer {
   .card a:focus-visible {
     outline: 2px solid #fabd37;
     outline-offset: 2px;
-    /* border-radius: 32px; */
   }
 
   .card a:after {
@@ -529,7 +551,7 @@ footer {
     background: rgb(0 0 0 / 0.5);
     color: white;
     margin: var(--space-s);
-    border-radius: calc(32px - var(--space-s));
+    border-radius: calc(max(var(--space-s), 32px) - var(--space-s));
   }
 
   a.title {
@@ -608,8 +630,8 @@ footer {
     font-size: var(--step--1);
     padding: var(--space-s) var(--space-l);
     background-color: #fafbff;
-    border-bottom-left-radius: 32px;
-    border-bottom-right-radius: 32px;
+    border-bottom-left-radius: clamp(4px, 2vw, 32px);
+    border-bottom-right-radius: clamp(4px, 2vw, 32px);
     justify-content: center;
   }
 
