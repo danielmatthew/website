@@ -226,6 +226,8 @@ body {
 
   h1 {
     font-size: var(--step-5);
+    max-width: 25ch;
+    margin-inline: auto;
   }
 
   .jumbo {
@@ -290,8 +292,8 @@ body {
 
 @layer utilities {
   .wrapper {
-    padding-inline: max(var(--space-s),
-      (50% - 40rem)
+    padding-inline: max(var(--space-3xs),
+      (50% - 35rem)
     );
   }
 
@@ -475,8 +477,7 @@ figure > img {
     0px,
     min(var(--border-radius-m), calc((100vw - 4px - 100%) * 9999))
   );
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  margin-left: -1rem;
+  box-shadow: var(--shadows-elevation3);
 }
 
 @layer components {
