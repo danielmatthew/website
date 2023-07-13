@@ -18,7 +18,7 @@ const cssModifier = 'home';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title}</title>
-    <script is:inline>
+    <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -37,7 +37,7 @@ const cssModifier = 'home';
         });
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
-    </script>
+    </script> -->
 
     <meta name="description" content="Dan is an interaction designer from the UK."
     <meta name="view-transition" content="same-origin">
@@ -55,5 +55,6 @@ const cssModifier = 'home';
     <Nav />
     <slot />
     <Footer />
+    <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
   </body>
 </html>
