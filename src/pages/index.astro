@@ -54,32 +54,25 @@ const newQuotes = quotes.items.map((quote) => quote);
 ---
 <HomeLayout >
   <main class="grid wrapper">
-    <PortfolioPreview project={projects.items[0]} index={0}} />
+    <PortfolioPreview project={projects.items[0]} index={0} />
     <Quote quote={newQuotes[0]} />
     <Quote quote={newQuotes[4]} />
-    <PortfolioPreview project={projects.items[2]} index={2}} />
+    <PortfolioPreview project={projects.items[2]} index={2} />
     <Quote quote={newQuotes[1]} />
     <Quote quote={newQuotes[2]} />
-    <PortfolioPreview project={projects.items[1]} index={1}} />
+    <PortfolioPreview project={projects.items[1]} index={1} />
     <Quote quote={newQuotes[5]} />
     <Quote quote={newQuotes[3]} />
   </main>
 </HomeLayout>
-<!-- <script>
-  const handleSubmit = (event) => {
-    event.preventDefault();
+<script>
+  import VanillaTilt from "vanilla-tilt";
 
-    const form = event.target;
-    const formData = new FormData(form);
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => console.info('Form successfully submitted'))
-    .then(() => form.reset());
-  };
-
-  document.forms[0].addEventListener('submit', handleSubmit);
-</script> -->
+  if (!window.matchMedia("(prefers-reduced-motion)").matches) {
+    VanillaTilt.init(document.querySelectorAll(".card--project"), {
+      max: 2,
+      glare: true,
+      "max-glare": 0.25,
+    });
+  }
+</script>

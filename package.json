@@ -55,6 +55,7 @@
     "@astrojs/netlify": "^2.1.1",
     "@contentful/rich-text-html-renderer": "^16.0.2",
     "astro": "^2.0.6",
-    "contentful": "^9.3.3"
+    "contentful": "^9.3.3",
+    "vanilla-tilt": "^1.8.0"
   }
 }

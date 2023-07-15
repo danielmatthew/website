@@ -18,6 +18,8 @@ const cssModifier = 'home';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title}</title>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
@@ -39,7 +41,7 @@ const cssModifier = 'home';
       }
     </script> -->
 
-    <meta name="description" content="Dan is an interaction designer from the UK."
+    <meta name="description" content="Dan is an interaction designer from the UK.">
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -49,12 +51,11 @@ const cssModifier = 'home';
     <link rel="manifest" href="/site.webmanifest">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#112caf">
     <meta name="msapplication-TileColor" content="#ffc40d">
-    <meta name="theme-color" content="#112CAF">
+    <meta name="theme-color" content="hsl(0, 0%, 99%)">
   </head>
   <body class={modifier}>
     <Nav />
     <slot />
     <Footer />
-    <script src="//instant.page/5.2.0" type="module" integrity="sha384-jnZyxPjiipYXnSU0ygqeac2q7CVYMbh84q0uHVRRxEtvFPiQYbXWUorga2aqZJ0z"></script>
   </body>
 </html>

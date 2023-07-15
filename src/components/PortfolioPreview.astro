@@ -13,22 +13,21 @@ let src;
 
 switch (Astro.props.index) {
   case 0:
-    src = 'combobox';
+    src = "combobox";
     break;
   case 1:
-    src = 'elevate';
+    src = "elevate";
     break;
   case 2:
-    src = 'forms';
+    src = "forms";
   default:
     break;
 }
 
-const date = new Date(fields.date).toLocaleDateString('en-gb', {
-  year: 'numeric',
-  month: 'long',
+const date = new Date(fields.date).toLocaleDateString("en-gb", {
+  year: "numeric",
+  month: "long",
 });
-
 ---
 
 <article class="card card--project">
@@ -38,7 +37,7 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
     width="326"
     height="263"
     loading="lazy"
-  >
+  />
   <div class="project-details">
     <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
     <div class="meta">
@@ -46,8 +45,4 @@ const date = new Date(fields.date).toLocaleDateString('en-gb', {
       <time class="date" datetime={fields.date}>{date}</time>
     </div>
   </div>
-
-<div class="glare-wrapper" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; border-radius: 0px; mask-image: -webkit-radial-gradient(white, black); pointer-events: none;"><div class="glare" style="position: absolute; top: 50%; left: 50%; transform-origin: 0% 0% 0px; pointer-events: none; width: 480.337px; height: 480.337px; transform: rotate(-180deg) translate(-50%, -50%); opacity: 0; background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgb(255, 255, 255) 100%); transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1) 0s;"></div></div>
 </article>
-
-
