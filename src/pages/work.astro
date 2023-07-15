@@ -16,31 +16,26 @@ import PortfolioPreview from '../components/PortfolioPreview.astro';
 
 ---
 <BaseLayout title="Work | Dan Matthew">
-  <h1>Selected works</h1>
+  <main class="wrapper">
+  <h1>Work</h1>
 
-  <ul>
+  <ul class="">
     {
-      projects.items.map((project) => (
+      projects.items.map((project, idx) => (
         <li>
-          <PortfolioPreview project={project} />
+          <PortfolioPreview project={project} index={idx} />
         </li>
       ))
     }
   </ul>
+  </main>
 </BaseLayout>
 <style>
   ul {
-    display: flex;
-    justify-content: space-between;
     list-style: none;
   }
 
   li {
-    flex: 1 1 0;
-    margin: 0 1rem;
-  }
-
-  a {
-    color: white;
+    margin-block-end: var(--space-xl);
   }
 </style>

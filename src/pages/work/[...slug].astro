@@ -1,13 +1,12 @@
 ---
 // import { CollectionEntry, getCollection } from "astro:content";
-import { contentfulClient } from '../../lib/contentful';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
-import type { portfolioEntry } from '../../lib/contentful';
+import { contentfulClient } from "../../lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
+import type { portfolioEntry } from "../../lib/contentful";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Nav from '../../components/Nav.astro';
-
+import Nav from "../../components/Nav.astro";
 
 // interface Props {
 //   entry: CollectionEntry<"work">;
@@ -23,18 +22,18 @@ export async function getStaticPaths() {
   //   props: { entry },
   // }));
 
-const renderOptions = {
-  renderNode: {
-    [BLOCKS.EMBEDDED_ASSET]: (node) => {
-      return `<figure class="flow"><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
+  const renderOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        return `<figure class="flow"><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
         <figcaption>${node.data.target.fields.description}</figcaption>
         </figure>`;
-    }
-  }
-}
+      },
+    },
+  };
 
   const entries = await contentfulClient.getEntries<portfolioEntry>({
-    content_type: 'blogPost',
+    content_type: "blogPost",
   });
 
   const pages = entries.items.map((item) => ({
@@ -42,13 +41,17 @@ const renderOptions = {
     props: {
       title: item.fields.title,
       machineDate: item.fields.date,
-      date: new Date(item.fields.date).toLocaleDateString('en-gb', {
-        year: 'numeric',
-        month: 'long',}),
+      date: new Date(item.fields.date).toLocaleDateString("en-gb", {
+        year: "numeric",
+        month: "long",
+      }),
       summary: item.fields.summary,
       roles: item.fields.role,
-      content: documentToHtmlString(item.fields.portfolioContent, renderOptions),
-    }
+      content: documentToHtmlString(
+        item.fields.portfolioContent,
+        renderOptions
+      ),
+    },
   }));
 
   return pages;
@@ -56,75 +59,48 @@ const renderOptions = {
 
 // Get list of projects to show in aside
 const projects = await contentfulClient.getEntries<portfolioEntry>({
-  content_type: 'blogPost',
-  order: '-fields.date',
-  include: 10
+  content_type: "blogPost",
+  order: "-fields.date",
+  include: 10,
 });
 
 // const { entry } = Astro.props;
 const { content, title, date, machineDate, roles, summary } = Astro.props;
 // const { Content } = await entry.render();
-const cssModifier = 'work';
+const cssModifier = "work";
 ---
 
-<BaseLayout title={`${title} | Dan Matthew – Interaction Designer`} modifier={cssModifier}>
+<BaseLayout
+  title={`${title} | Dan Matthew – Interaction Designer`}
+  modifier={cssModifier}
+>
+  <main>
+    <article class="wrapper">
+      <header>
+        <div class="flow masthead">
+          <h1>{title}</h1>
 
-
-  <article class="wrapper">
-    <header>
-      <div class="flow masthead">
-        <h1>{title}</h1>
-
-        <div class="meta">
-          <span class="org">Talis</span>
-          <time datetime={machineDate}>{date}</time>
+          <div class="meta">
+            <span class="org">Talis</span>
+            <time datetime={machineDate}>{date}</time>
+          </div>
+          {
+            roles && (
+              <ul class="roles">
+                {roles.map((role) => (
+                  <li>{role}</li>
+                ))}
+              </ul>
+            )
+          }
+          <p class="lede">{summary}</p>
         </div>
-        {roles && <ul class="roles">
-          {roles.map((role) => (
-            <li>{role}</li>
-          ))}
-        </ul>}
-        <p class="lede">{summary}</p>
-      </div>
-
-      <!-- <svg class="wave" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-        <defs>
-        <path id="page-divide" fill="#fff" x="50" y="0" d="M-160 44c30 0
-            58-18 88-18s
-            58 18 88 18
-            58-18 88-18
-            58 18 88 18
-            v44h-352z"></path>
-          </defs>
-          <g>
-            <use xlink:href="#page-divide" x="50" y="0" fill="#fff"></use>
-          </g>
-        </svg> -->
-    </header>
-  <div class="layout">
-    <main>
-      <article class="content flow" >
+      </header>
+      <section class="layout content flow">
         <Fragment set:html={content} />
-      </article>
-    </main>
-  </div>
-  </article>
-  <!-- <aside>
-    <h2>In short…</h2>
-    <p>{summary}</p>
-    <h2>Related</h2>
-    <ol role="list">
-      {
-        projects.items.map((project) => (
-          <li>
-            <a href={`/work/${project.fields.slug}`}>
-              {project.fields.title}
-            </a>
-          </li>
-        ))
-      }
-    </ol>
-  </aside> -->
+      </section>
+    </article>
+  </main>
 </BaseLayout>
 <style>
   .content {
@@ -137,7 +113,8 @@ const cssModifier = 'work';
     margin-block-end: 0;
   }
 
-  .meta, .roles {
+  .meta,
+  .roles {
     display: flex;
     justify-content: center;
     font-size: var(--step-0);
@@ -162,27 +139,15 @@ const cssModifier = 'work';
   }
 
   .meta > *:not(:last-child)::after {
-    content: '·';
+    content: "·";
     padding-inline-start: var(--space-3xs);
     margin-inline-end: var(--space-3xs);
   }
 
-  .meta > *+* {
+  .meta > * + * {
     margin-top: 0;
   }
-  aside {
-    font-size: var(--step--1);
-  }
-
-  aside p {
-    margin-top: 0;
-    margin-bottom: var(--space-s);
-  }
-  aside h2 {
-    font-size: var(--step-0);
-    margin-bottom: var(--space-3xs)
-  }
-  [role=list] {
+  [role="list"] {
     padding: 0;
     list-style: none;
   }
