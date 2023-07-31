@@ -115,8 +115,22 @@ body {
 main {
   display: grid;
   margin-block-start: var(--space-m);
-  grid-template-columns: 65ch 1fr;
-  gap: var(--space-m);
+  grid-template-areas:
+  "a a"
+  "c c"
+  "b b";
+  gap: var(--space-s);
+}
+
+@media (min-width: 55rem) {
+  main {
+    display: grid;
+    grid-template-columns: 65ch 1fr;
+    grid-template-areas:
+    "a a"
+    "b c";
+    gap: var(--space-m);
+  }
 }
 
 
@@ -169,6 +183,19 @@ ol {
 ol > li:not(:first-child) {
   margin-block-start: var(--space-xs);
 }
+
+.banner {
+  grid-area: a;
+}
+
+.history {
+  grid-area: b;
+}
+
+.meta {
+  grid-area: c;
+}
+
 
 .abstract {
   margin-block-start: var(--space-m);
@@ -223,6 +250,10 @@ section:not(:first-child) {
   background: transparent;
   border: 1px solid var(--colour-light);
   color: var(--colour-light);
+}
+
+svg {
+  fill: var(--colour-light);
 }
 
 .pill--hollow svg {
