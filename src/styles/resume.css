@@ -262,7 +262,7 @@ svg {
 }
 
 .pill--hollow a {
-  color: vaR(--color-light);
+  color: var(--color-light);
   text-decoration: none;
 }
 
@@ -325,4 +325,56 @@ blockquote > span {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+
+@media print {
+  :root {
+    --step--2: 8pt;
+    --step--1: 10pt;
+    --step-0: 12pt;
+    --step-1: 15pt;
+    --step-2: 19pt;
+    --step-3: 24pt;
+    --step-4: 30pt;
+    --step-5: 37pt;
+  }
+
+  @page {
+    margin: 0.5cm;
+    size: a4 portrait;
+  }
+
+  html {
+    border-top: 0;
+  }
+
+  body {
+    padding-inline: 0;
+    margin: auto;
+    max-width: 65ch;
+  }
+
+  main {
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a::after:not(.pill--hollow a) {
+    content: ' – ('attr(href)')';
+  }
+
+  .job {
+    break-after: avoid-page;
+  }
+
+  .pill {
+    background: none;
+    border: 1px solid var(--colour-light);
+    color: var(--colour-light);
+  }
+
 }
