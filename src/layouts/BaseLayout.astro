@@ -20,9 +20,7 @@ const cssModifier = 'home';
     <title>{title}</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://cdn.usefathom.com/script.js" data-site="XISHJDYZ" defer></script>
-    <!-- / Fathom -->
+    <script src="https://cdn.usefathom.com/script.js" data-site="XISHJDYZ" data-excluded-domains="localhost" defer></script>
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
@@ -43,7 +41,21 @@ const cssModifier = 'home';
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
     </script> -->
+    <script defer>
+      const konamiCode = '38,38,40,40,37,39,37,39,66,65';
+      const keyPresses = [];
+      const checkKonami = (e) => {
+        keyPresses.push(e.keyCode);
+        if (keyPresses.slice(keyPresses.length - 10).join() === konamiCode) {
+          runKonami();
+        }
+      }
+      const runKonami = () => {
+        console.info('Cheat code activated!');
+      }
 
+      document.addEventListener('keyup', checkKonami);
+    </script>
     <meta name="description" content="Dan is an interaction designer from the UK.">
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -57,8 +69,23 @@ const cssModifier = 'home';
     <meta name="theme-color" content="hsl(0, 0%, 99%)">
   </head>
   <body class={modifier}>
+    <!-- <canvas></canvas> -->
     <Nav />
     <slot />
     <Footer />
   </body>
 </html>
+<style>
+  html {
+    position: relative;
+  }
+  canvas {
+    position: absolute;
+  width: 100%;
+    height: 100dvh;
+    --gradient-color-1: #c3e4ff;
+    --gradient-color-2: #6ec3f4;
+    --gradient-color-3: #eae2ff;
+    --gradient-color-4: #b9beff;
+  }
+</style>

@@ -3,7 +3,6 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 import ContactCTA from "../components/ContactCTA.astro";
 import Quotes from "../components/Quotes.astro";
 
-
 import { contentfulClient } from '../lib/contentful';
 import type { portfolioEntry } from '../lib/contentful';
 
@@ -53,6 +52,9 @@ const quotes = await contentfulClient
 const newQuotes = quotes.items.map((quote) => quote);
 ---
 <HomeLayout >
+  <div class="pointer">
+    You have a coarse pointer
+  </div>
   <main class="grid wrapper">
     <PortfolioPreview project={projects.items[0]} index={0} />
     <Quote quote={newQuotes[0]} />
@@ -65,14 +67,35 @@ const newQuotes = quotes.items.map((quote) => quote);
     <Quote quote={newQuotes[3]} />
   </main>
 </HomeLayout>
+<style>
+  .pointer {
+    display: none;
+  }
+
+  @media(pointer: coarse) {
+    .pointer {
+      display: block;
+    }
+  }
+</style>
 <script>
+  import { Gradient } from './mesh.js'
+
   import VanillaTilt from "vanilla-tilt";
 
-  if (!window.matchMedia("(prefers-reduced-motion)").matches) {
+  const isReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches;
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+  console.log(isCoarsePointer);
+  if (!isReducedMotion || !isCoarsePointer) {
     VanillaTilt.init(document.querySelectorAll(".card--project"), {
       max: 2,
       glare: true,
       "max-glare": 0.25,
+      gyroscope: false
     });
   }
+
+  // const gradient = new Gradient();
+  // gradient.initGradient('canvas');
 </script>

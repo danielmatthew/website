@@ -11,3 +11,4 @@ cypress/integration/examples
 # Local Netlify folder
 .netlify
 .env
+.astro
