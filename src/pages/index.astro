@@ -86,8 +86,7 @@ const newQuotes = quotes.items.map((quote) => quote);
   const isReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches;
   const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
-  console.log(isCoarsePointer);
-  if (!isReducedMotion || !isCoarsePointer) {
+  if (!isReducedMotion && !isCoarsePointer) {
     VanillaTilt.init(document.querySelectorAll(".card--project"), {
       max: 2,
       glare: true,
