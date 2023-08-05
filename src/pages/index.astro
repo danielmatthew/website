@@ -52,9 +52,6 @@ const quotes = await contentfulClient
 const newQuotes = quotes.items.map((quote) => quote);
 ---
 <HomeLayout >
-  <div class="pointer">
-    You have a coarse pointer
-  </div>
   <main class="grid wrapper">
     <PortfolioPreview project={projects.items[0]} index={0} />
     <Quote quote={newQuotes[0]} />
@@ -68,14 +65,7 @@ const newQuotes = quotes.items.map((quote) => quote);
   </main>
 </HomeLayout>
 <style>
-  .pointer {
-    display: none;
-  }
 
-  @media(pointer: coarse) {
-    .pointer {
-      display: block;
-    }
   }
 </style>
 <script>
