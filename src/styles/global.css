@@ -108,7 +108,7 @@
   --OFF: ;
 
   --serif: Georgia, "Times New Roman", Times, serif;
-  --sans-serif: "Inter", sans-serif;
+  --sans-serif: "Barlow", sans-serif;
 
   --shadows: 0px 0px 1px rgba(20, 20, 21, 0.18),
     0px 8px 16px -8px rgba(20, 20, 21, 0.15),
@@ -126,13 +126,17 @@
 
   color-scheme: light dark;
 
-  --mesh-gradient: radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%);
-}
-
-@supports (font-variation-settings: normal) {
-  :root {
-    --sans-serif: "Inter var", sans-serif;
-  }
+  --mesh-gradient: radial-gradient(
+      at 40% 20%,
+      hsla(28, 100%, 74%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 1) 0px, transparent 50%),
+    radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 1) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 1) 0px, transparent 50%);
 }
 
 html,
@@ -180,7 +184,7 @@ html,
   }
   body {
     min-height: 100vh;
-    text-rendering: optimizeSpeed;
+    text-rendering: optimizeLegibility;
     line-height: 1.5;
   }
   a:not([class]) {
@@ -415,14 +419,37 @@ body {
     grid-column: span 3;
   }
 
+  .card--header.card--header {
+    grid-column: span 4;
+  }
+
   .card--project:first-of-type {
-    grid-column: span 6;
+    grid-column: span 5;
   }
 }
 
 @container work (min-width: 30rem) {
   .project-details {
     font-size: 3rem;
+  }
+}
+
+canvas {
+  --hue-rotate: 40deg;
+  opacity: 0.25;
+  filter: hue-rotate(var(--hue-rotate));
+  animation: pulse 20s linear infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 0.25;
   }
 }
 
@@ -465,8 +492,14 @@ figure > img {
     position: relative;
     background-color: #fff;
     border-radius: clamp(4px, 2vw, 32px);
-    box-shadow: var(--shadows-alt);
+    box-shadow: var(--shadows-elevation2);
     padding: var(--space-l);
+    transition: box-shadow 0.4s cubic-bezier(0.645, 0.045, 0.355, 1)
+  }
+
+  .card:hover,
+  .card:focus-within {
+    box-shadow: var(--shadows-elevation3);
   }
 
   .card a {
@@ -594,14 +627,14 @@ figure > img {
   }
 
   .card--quote p {
-    font-size: var(--step-0);
-    line-height: var(--leading-tight);
-    padding: var(--space-l);
+    font-size: var(--step--1);
+    line-height: var(--leading-standard);
+    padding: var(--space-m-l);
   }
 
   .card--quote .meta {
     display: flex;
-    font-size: var(--step--1);
+    font-size: var(--step--2);
     padding: var(--space-s) var(--space-l);
     background-color: #fafbff;
     border-bottom-left-radius: clamp(4px, 2vw, 32px);
@@ -636,7 +669,6 @@ figure > img {
     opacity: 1;
   }
 }
-
 
 @keyframes fade-in {
   from {

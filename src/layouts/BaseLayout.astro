@@ -18,8 +18,9 @@ const cssModifier = 'home';
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title}</title>
-    <link rel="preconnect" href="https://rsms.me/">
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,300;1,600&display=swap" rel="stylesheet">
     <script src="https://cdn.usefathom.com/script.js" data-site="XISHJDYZ" data-excluded-domains="localhost" defer></script>
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
@@ -69,23 +70,36 @@ const cssModifier = 'home';
     <meta name="theme-color" content="hsl(0, 0%, 99%)">
   </head>
   <body class={modifier}>
-    <!-- <canvas></canvas> -->
     <Nav />
     <slot />
     <Footer />
+    <canvas id="gradient-canvas" />
+
   </body>
 </html>
 <style>
-  html {
-    position: relative;
-  }
-  canvas {
-    position: absolute;
-  width: 100%;
-    height: 100dvh;
-    --gradient-color-1: #c3e4ff;
-    --gradient-color-2: #6ec3f4;
-    --gradient-color-3: #eae2ff;
-    --gradient-color-4: #b9beff;
-  }
+:root {
+  --gradient-color-1: #c3e4ff;
+  --gradient-color-2: #6ec3f4;
+  --gradient-color-3: #eae2ff;
+  --gradient-color-4: #b9beff;
+}
+
+#gradient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width:100%;
+  height:100%;
+}
 </style>
+<script>
+    import { Gradient } from '../pages/mesh.js'
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches;
+
+    if (!isReducedMotion) {
+    const gradient = new Gradient();
+    gradient.initGradient('canvas');
+  }
+</script>
