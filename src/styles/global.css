@@ -627,14 +627,14 @@ figure > img {
   }
 
   .card--quote p {
-    font-size: var(--step--1);
-    line-height: var(--leading-standard);
+    font-size: var(--step-0);
+    line-height: var(--leading-tight);
     padding: var(--space-m-l);
   }
 
   .card--quote .meta {
     display: flex;
-    font-size: var(--step--2);
+    font-size: var(--step--1);
     padding: var(--space-s) var(--space-l);
     background-color: #fafbff;
     border-bottom-left-radius: clamp(4px, 2vw, 32px);
