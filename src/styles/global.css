@@ -348,9 +348,9 @@ body {
   margin-block: var(--space-m);
   padding-block: var(--space-xs);
   padding-inline: var(--space-m);
-  background-color: white;
+  /* background-color: white; */
   border-radius: 32px;
-  box-shadow: var(--shadows-elevation1);
+  /* box-shadow: var(--shadows-elevation1); */
 }
 
 @media (min-width: 30rem) {
