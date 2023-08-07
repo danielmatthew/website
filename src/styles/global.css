@@ -347,7 +347,7 @@ body {
   flex-wrap: wrap;
   margin-block: var(--space-m);
   padding-block: var(--space-xs);
-  padding-inline: var(--space-m);
+  padding-inline: var(--space-l);
   /* background-color: white; */
   border-radius: 32px;
   /* box-shadow: var(--shadows-elevation1); */
