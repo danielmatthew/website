@@ -1,103 +1,79 @@
 ---
-// import { CollectionEntry, getCollection } from "astro:content";
-import { contentfulClient } from "../../lib/contentful";
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-import { BLOCKS } from "@contentful/rich-text-types";
-import type { portfolioEntry } from "../../lib/contentful";
-
+import { CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Nav from "../../components/Nav.astro";
 
-// interface Props {
-//   entry: CollectionEntry<"work">;
-// }
+interface Props {
+  entry: CollectionEntry<"work">;
+}
 
 // This is a dynamic route that generates a page for every Markdown file in src/content/
 // Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
 // https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
 export async function getStaticPaths() {
-  // const work = await getCollection("work");
-  // return work.map((entry) => ({
-  //   params: { slug: entry.slug },
-  //   props: { entry },
-  // }));
-
-  const renderOptions = {
-    renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        return `<figure class="flow"><img class="img-fluid" src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" loading="lazy" />
-        <figcaption>${node.data.target.fields.description}</figcaption>
-        </figure>`;
-      },
-    },
-  };
-
-  const entries = await contentfulClient.getEntries<portfolioEntry>({
-    content_type: "blogPost",
-  });
-
-  const pages = entries.items.map((item) => ({
-    params: { slug: item.fields.slug },
-    props: {
-      title: item.fields.title,
-      machineDate: item.fields.date,
-      date: new Date(item.fields.date).toLocaleDateString("en-gb", {
-        year: "numeric",
-        month: "long",
-      }),
-      summary: item.fields.summary,
-      roles: item.fields.role,
-      content: documentToHtmlString(
-        item.fields.portfolioContent,
-        renderOptions
-      ),
-    },
+  const work = await getCollection("work");
+  return work.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
   }));
-
-  return pages;
 }
 
-// Get list of projects to show in aside
-const projects = await contentfulClient.getEntries<portfolioEntry>({
-  content_type: "blogPost",
-  order: "-fields.date",
-  include: 10,
-});
+//   const pages = entries.items.map((item) => ({
+//     params: { slug: item.fields.slug },
+//     props: {
+//       title: item.fields.title,
+//       machineDate: item.fields.date,
+//       date: new Date(item.fields.date).toLocaleDateString("en-gb", {
+//         year: "numeric",
+//         month: "long",
+//       }),
+//       summary: item.fields.summary,
+//       roles: item.fields.role,
+//       content: documentToHtmlString(
+//         item.fields.portfolioContent,
+//         renderOptions
+//       ),
+//     },
+//   }));
 
-// const { entry } = Astro.props;
-const { content, title, date, machineDate, roles, summary } = Astro.props;
-// const { Content } = await entry.render();
+//   return pages;
+// }
+
+const { entry } = Astro.props;
+// const { content, title, date, machineDate, roles, summary } = Astro.props;
+const { Content } = await entry.render();
 const cssModifier = "work";
 ---
 
 <BaseLayout
-  title={`${title} | Dan Matthew – Interaction Designer`}
+  title={entry.data.title}
   modifier={cssModifier}
 >
   <main>
     <article class="wrapper">
       <header>
         <div class="flow masthead">
-          <h1>{title}</h1>
+          <h1>{entry.data.title}</h1>
 
           <div class="meta">
             <span class="org">Talis</span>
-            <time datetime={machineDate}>{date}</time>
+            <time datetime={entry.data.publishDate}>
+              {entry.data.projectDate}
+            </time>
           </div>
           {
-            roles && (
+            entry.data.tags && (
               <ul class="roles">
-                {roles.map((role) => (
+                {entry.data.tags.map((role) => (
                   <li>{role}</li>
                 ))}
               </ul>
             )
           }
-          <p class="lede">{summary}</p>
+          <p class="lede">{entry.data.description}</p>
         </div>
       </header>
       <section class="layout content flow">
-        <Fragment set:html={content} />
+        <Content />
       </section>
     </article>
   </main>
@@ -153,6 +129,7 @@ const cssModifier = "work";
   }
 
   .layout {
+    max-width: 65ch;
     margin-block-start: var(--space-m);
     margin-inline: auto;
     padding-inline: clamp(var(--space-xs), 2.5vw, var(--space-xl));

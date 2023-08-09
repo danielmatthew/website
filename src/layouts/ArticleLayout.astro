@@ -1,0 +1,82 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.data.title}>
+  <main>
+    <article class="wrapper">
+      <header>
+        <div class="flow masthead">
+          <h1>{frontmatter.data.title}</h1>
+
+          {frontmatter.data.originalSource && <p class="lede">Originally published at <a href={frontmatter.data.originalSource.url}>{frontmatter.data.originalSource.label}</a>.</p>}
+        </div>
+      </header>
+      <section class="layout content flow">
+        <slot />
+      </section>
+    </article>
+  </main>
+</BaseLayout>
+<style>
+  .content {
+    font-size: var(--step-1);
+  }
+
+  .roles {
+    list-style-type: none;
+    padding: 0;
+    margin-block-end: 0;
+  }
+
+  .meta,
+  .roles {
+    display: flex;
+    justify-content: center;
+    font-size: var(--step-0);
+  }
+
+  .meta {
+    margin-block-start: var(--space-s);
+  }
+
+  .roles {
+    font-size: var(--step--1);
+    flex-wrap: wrap;
+  }
+
+  .roles li {
+    background-color: var(--gradient-color-2);
+    padding: var(--space-3xs) var(--space-2xs);
+    color: #fff;
+    border-radius: var(--border-radius-m);
+    margin-inline-end: var(--space-3xs);
+    margin-block-start: var(--space-3xs);
+  }
+
+  .meta > *:not(:last-child)::after {
+    content: "·";
+    padding-inline-start: var(--space-3xs);
+    margin-inline-end: var(--space-3xs);
+  }
+
+  .meta > * + * {
+    margin-top: 0;
+  }
+  [role="list"] {
+    padding: 0;
+    list-style: none;
+  }
+
+  .layout {
+    margin-block-start: var(--space-m);
+    margin-inline: auto;
+    padding-inline: clamp(var(--space-xs), 2.5vw, var(--space-xl));
+    padding-block: var(--space-l);
+    background-color: white;
+    border-radius: clamp(4px, 2vw, 32px);
+    /* box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06); */
+    box-shadow: var(--shadows-elevation2);
+  }
+</style>

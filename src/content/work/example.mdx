@@ -1,0 +1,71 @@
+---
+title: Designing an accessible combobox for Talis Elevate
+slug: create-module-combobox
+projectDate: 15 Sep 2022
+publishDate: 2022-09-15 00:00:00
+img: https://res.cloudinary.com/danmatthew/image/upload/v1691504002/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Proposals_duzklp.jpg
+img_alt: ''
+description: |
+  I had to find a way to help academics find their teaching modules within the university hierarchy.
+tags:
+  - User research
+  - Wireframes
+  - Prototyping
+  - Interaction design
+  - User testing
+---
+<figure>
+  <picture>
+    <img src="https://res.cloudinary.com/danmatthew/image/upload/v1691590194/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Existing_work_e1zjnw.webp" />
+    <figcaption>A screenshot of a sequence of wireframes illustrating the user journey</figcaption>
+  </picture>
+</figure>
+
+## The challenge
+[Talis](https://talis.com) is a SaaS provider that creates solutions for higher education (HE). Their products include [Aspire](https://talis.com/aspire), a reading list solution for university libraries, and [Elevate](https://talis.com/elevate), a collaborative annotation tool designed with the classroom in mind.
+The two applications don't need to be used together, but if a customer elects to purchase both, we can reflect the teaching modules from Aspire inside Elevate – a useful convenience when an academic is uploading teaching material.
+
+The goal for this project was to augment the 'Create new module' screen in Elevate with a way to allow an academic to create a new and standalone teaching module, or reference a pre-existing module from Aspire. Referencing an existing module helps keep modules on the two platforms in sync, helps with reporting, and also provides supplementary information, such as knowing how many students are registered for the class.
+
+## What I did
+### Research
+I used [Miro](https://miro.com) to collate examples of similar solutions in our own products, and other locations on the internet. I then grouped screenshots according to the functionality they offered.
+
+<figure>
+  <picture>
+  <img src="https://res.cloudinary.com/danmatthew/image/upload/v1691590194/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Existing_work_e1zjnw.jpg" alt="" />
+  </picture>
+  <figcaption>Examples of existing work and solutions from around the web to examine how this problem has been solved before.</figcaption>
+</figure>
+
+<iframe width="100%" height="432" src="https://miro.com/app/live-embed/uXjVM3i-ejo=/?moveToViewport=3545,-1594,5940,3984&embedId=618161750554" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+
+
+### Design
+In the past, I had discovered that a rough and ready approach to early idea generation helped avoid colleagues poking holes at any superficial issues, and concentrated minds on the problem to be solved. To that end, I used [Excalidraw](https://excalidraw.com) to sketch out a number of solutions to the problem, illustrating several different techniques I could take forward and test.
+
+I looked at:
+- Having an input field pull double duty and offer the ability to search the Aspire hierarchy – results would be displayed in a dialog.
+- Having an input field pull double duty and offer the ability to search the Aspire hierarchy, with results being displayed in a dropdown underneath the input.
+- Linking to a search page, with the prompt 'Create new module… or find existing module'. Results would be displayed in a list.
+- Offering a discrete control with the sole duty of accepting input and displaying search results in a dropdown list. Upon selecting an option, the appropriate form fields would be automatically populated. I [prototyped this idea in Figma](https://www.figma.com/proto/N1cqGBRBblddah5AdcdQEQ/Elevate%3A-Aspire-Module-Typeahead-Options?page-id=0%3A1&node-id=5-35&starting-point-node-id=2%3A6), and had fun having it respond to keyboard input rather than clicks…
+- A variant of the above, but also including a button which would take control of populating the form fields. This allowed the selection of a dropdown item to complete the associated input, while still allowing some manual completion of the rest of the form.
+
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FN1cqGBRBblddah5AdcdQEQ%2FElevate%253A-Aspire-Module-Typeahead-Options%3Fpage-id%3D0%253A1%26type%3Ddesign%26node-id%3D14-7%26viewport%3D124%252C391%252C0.15%26t%3DUIRyYj5Q5Xq2CLaV-1%26scaling%3Dmin-zoom%26starting-point-node-id%3D14%253A7%26show-proto-sidebar%3D1%26mode%3Ddesign" allowfullscreen></iframe>
+
+I added these to a new frame in the project's Miro board and circulated them amongst my colleagues in the design and engineering teams in order to garner their feedback.
+
+Secretly I think I had already chosen my preferred solution – from design, technical, and accessibility considerations – and had presented some of the other options as sacrificial pawns. It would have been interesting to have had somebody prefer one of my least-favoured options and to have the opportunity to examine why.
+
+I returned to the chosen solution and applied actions from the feedback received, refining the placement of the search button, implementing some help text to provide some contextual information, and updated the copy on the button from a vague - and incorrect - 'Search' to 'Fill form'.
+
+<figure>
+<picture>
+<img src="https://res.cloudinary.com/danmatthew/image/upload/v1691504000/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Proposal_cykge0.jpg" />
+</picture>
+<figcaption>I updated designs incorporating feedback, and illustrated the 'happy path' user journey.</figcaption>
+</figure>
+
+I worked with the engineers to ensure the dropdown was fully keyboard-accessible, trapped focus correctly, and implemented the correct ARIA attributes so that assistive technologies would be able to make sense of the widget. Special care needed to be taken when informing users that the subsequent form had now been completed on their behalf.
+
+## The impact
