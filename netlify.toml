@@ -9,8 +9,8 @@
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     Content-Security-Policy = """
-      default-src 'self';
-      img-src 'self' images.ctfassets.net cdn.usefathom.com;
+      default-src 'self' miro.com figma.com;
+      img-src 'self' res.cloudinary.com images.ctfassets.net cdn.usefathom.com;
       script-src 'self' 'unsafe-inline' cdn.usefathom.com;
       style-src 'self' 'unsafe-inline' rsms.me fonts.googleapis.com;
       font-src 'self' rsms.me fonts.gstatic.com"""
