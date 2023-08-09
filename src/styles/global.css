@@ -274,6 +274,7 @@ body {
   }
 
   figcaption {
+    margin-block-start: var(--space-2xs);
     font-size: var(--step-0);
     font-style: italic;
     max-width: 65ch;
@@ -392,6 +393,10 @@ body {
   container-name: work;
 }
 
+.card--example {
+  grid-column: span 9;
+}
+
 .card--project {
   grid-column: span 9;
 }
@@ -422,6 +427,11 @@ body {
   .card--header.card--header {
     grid-column: span 4;
   }
+
+  .card--example.card--example {
+    grid-column: span 9;
+  }
+
 
   .card--project:first-of-type {
     grid-column: span 5;
@@ -479,12 +489,12 @@ footer {
   color: inherit;
 }
 
-figure > img {
+figure img {
   border-radius: max(
     0px,
     min(var(--border-radius-m), calc((100vw - 4px - 100%) * 9999))
   );
-  box-shadow: var(--shadows-elevation3);
+  box-shadow: var(--shadows-elevation1);
 }
 
 @layer components {
