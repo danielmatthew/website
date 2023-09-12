@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.1.0](https://github.com/danielmatthew/website/compare/v5.0.0...v5.1.0) (2023-09-12)
+
+
+### Features
+
+* add canvas ([996e718](https://github.com/danielmatthew/website/commit/996e718ea036f6eb1b41b9dc44fb7d6c95e2c05b))
+* add resume page ([be8d2ff](https://github.com/danielmatthew/website/commit/be8d2ffa1023f5da4d36cc399a2ca973634606b4))
+* add work listing ([d53a536](https://github.com/danielmatthew/website/commit/d53a536ceac64b2c4eab68251d9ea95e211c6bd1))
+* prefer local content ([af1e51b](https://github.com/danielmatthew/website/commit/af1e51b09a13f47f5c85d13a71e66600e32f6b18))
+* **resume:** add print styles ([f1c312b](https://github.com/danielmatthew/website/commit/f1c312bb7eacfbb7724979076e672d5e082904c2))
+* September visual refresh ([#99](https://github.com/danielmatthew/website/issues/99)) ([e089972](https://github.com/danielmatthew/website/commit/e0899720d9ca17d5a349c1e9c63df03881c1bc62))
+
+
+### Bug Fixes
+
+* amend styles ([41f8f84](https://github.com/danielmatthew/website/commit/41f8f84185e99d18080cd0856aba15bf2e2f5de7))
+* **csp:** yawn ([7216d2a](https://github.com/danielmatthew/website/commit/7216d2a957c5d9a0b069aaf3dffb3e37419757ab))
+* god i hate csp ([dc8a4c6](https://github.com/danielmatthew/website/commit/dc8a4c6f7bbb17f979f173dcc72b694452a8790f))
+* remove debugging ([9e4fa01](https://github.com/danielmatthew/website/commit/9e4fa0108bc312a5efffac2d12e3e577ef4e3324))
+* remove loading attribute ([e3211a9](https://github.com/danielmatthew/website/commit/e3211a90012f04031b4ac2c610d7715a5ce4c322))
+* remove theme code ([9a08d76](https://github.com/danielmatthew/website/commit/9a08d7699e48e704f252be9ae4540c77fa8d9444))
+* **resume:** add mobile styles ([44f0bcd](https://github.com/danielmatthew/website/commit/44f0bcd7c43ec28671237c004e6e00f600c29565))
+* space changes ([e6c4ab4](https://github.com/danielmatthew/website/commit/e6c4ab43a6e117549331724a7f0cfe0418b8a234))
+* spacing ([b7f22f6](https://github.com/danielmatthew/website/commit/b7f22f6b3c3380cf467920ae010485f12652cbed))
+* tweak nav ([1994126](https://github.com/danielmatthew/website/commit/19941262f1b5b931f745a47b274cb524e445ad0f))
+* tweak nav ([3ecb772](https://github.com/danielmatthew/website/commit/3ecb77259b745b41da8f4a03a24aaae9d40dce2d))
+* tweak quote size ([200ac3d](https://github.com/danielmatthew/website/commit/200ac3d39e02c7b8347025fb3136b8e82328641b))
+* update layout ([2277eaa](https://github.com/danielmatthew/website/commit/2277eaa7b44f7dab85fe65a244e4f90e3654810b))
+* update shadows and grid ([5bacd17](https://github.com/danielmatthew/website/commit/5bacd175aacabce39cb6da80e01b069cbc06c017))
+* update tilt logic ([1bc9eeb](https://github.com/danielmatthew/website/commit/1bc9eeb5a5284184de30e6749587d0fc22b6738a))
+* update typo ([d7f46bb](https://github.com/danielmatthew/website/commit/d7f46bb8d973751b87572642b74f8b92525ddec3))
+
 ## [5.0.0](https://github.com/danielmatthew/website/compare/v4.3.0...v5.0.0) (2023-07-12)
 
 
