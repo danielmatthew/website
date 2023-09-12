@@ -1,5 +1,4 @@
 ---
-layout: layouts/post.njk
 title: Access local server from Parallels VM
 published: true
 date: 2021-05-09T18:28:53.885Z

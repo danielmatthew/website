@@ -1,5 +1,4 @@
 ---
-layout: layouts/post.njk
 title: Glofox Data Breach March 2020
 published: true
 metaDesc: "A recap of Glofox's data breach and their lack of interest in
@@ -20,7 +19,7 @@ Lame. I was under the impression that under data protection legislation, organis
 
 Whoops. Did Glofox pass this responsibility on to their customers, or are they not bothered? Note the date of the Irish Times report: November 2020.
 
-In January 2021 I was alerted to the breach thanks to a service called [Have I Been Pwned](https://haveibeenpwned.com/PwnedWebsites#Glofox). It's integrated in my password manager, [1Password](https://1password.com/). 
+In January 2021 I was alerted to the breach thanks to a service called [Have I Been Pwned](https://haveibeenpwned.com/PwnedWebsites#Glofox). It's integrated in my password manager, [1Password](https://1password.com/).
 
 Since the Glofox dashboard does not offer a way to delete an account, it took an email to [dataprivacy@glofox.com](mailto:dataprivacy@glofox.com) to do so.
 
