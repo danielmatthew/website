@@ -1,47 +1,49 @@
 ---
+import type { CollectionEntry } from "astro:content";
+
 interface Props {
-  fields: Object;
+  project: CollectionEntry<'work'>;
 }
 
-const { fields } = Astro.props.project;
+const { project } = Astro.props;
 
-if (Astro.props.index >= 3) {
-  Astro.props.index = 0;
-}
-
-let src;
-
-switch (Astro.props.index) {
-  case 0:
-    src = "combobox";
-    break;
-  case 1:
-    src = "elevate";
-    break;
-  case 2:
-    src = "forms";
-  default:
-    break;
-}
-
-const date = new Date(fields.date).toLocaleDateString("en-gb", {
+const date = new Date(data?.date).toLocaleDateString("en-gb", {
   year: "numeric",
   month: "long",
 });
+
+const fullLayout = Astro.props;
 ---
 
-<article class="card card--project">
-  <img
-    src={`../img/${src}@2x.png`}
-    alt=""
-    width="326"
-    height="263"
-  />
-  <div class="project-details">
-    <a href={`/work/${fields.slug}`} class="title">{fields.title}</a>
-    <div class="meta">
-      <span class="org">Talis</span>
-      <time class="date" datetime={fields.date}>{date}</time>
+{
+  fullLayout ? (
+    <article class="">
+      <div>
+        <img src="https://placehold.it/300/300" alt="">
+      </div>
+      <div class="project-details">
+        <a href={`/work/${fields.slug}`} class="title">
+          {fields.title}
+        </a>
+        <div class="meta">
+          <span class="org">Talis</span>
+          <time class="date" datetime={fields.date}>
+            {date}
+          </time>
+        </div>
+      </div>
+    </article>
+  ) : (
+    <div class="project-listing">
+      <a href={`/work/${fields.slug}`} class="title">
+        {fields.title}
+      </a>
+      <div class="meta">
+        <span class="org">Talis</span>
+        <time class="date" datetime={fields.date}>
+          {date}
+        </time>
+      </div>
     </div>
-  </div>
-</article>
+  )
+}

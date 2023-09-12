@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// const notes = (await getCollection('posts'));
+
+// Get date from filenames
+const notesWithDate =
+  (await getCollection('posts'))
+  // .map((note) => {
+  //   // Notes with no date
+  //   if (!note.data.date) {
+  //     const dateFormat = new RegExp('^[0-9]{4}-[0-9]{2}-[0-9]{2}');
+  //     const matches = note.id.match(dateFormat);
+  //     if (matches?.[0]) {
+  //       const realDate = new Date(matches[0]);
+  //       note.data.date = realDate;
+  //     }
+  //   } else {
+  //     const realDate = new Date(note.data.date);
+  //     note.data.date = realDate;
+  //   }
+  // })
+  .sort((a, b) => b.data.date?.valueOf() - a.data.date?.valueOf());
+
+---
+<BaseLayout title="Notes | Dan Matthew">
+  <main class="wrapper">
+  <h1>Notes</h1>
+
+  <ul class="">
+    {
+      notesWithDate.map((note) => (
+        <li>
+          <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
+        </li>
+      ))
+    }
+  </ul>
+  </main>
+</BaseLayout>
+<style>
+  ul {
+    list-style: none;
+  }
+
+  li {
+    margin-block-end: var(--space-xl);
+  }
+</style>

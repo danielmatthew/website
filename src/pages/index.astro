@@ -1,17 +1,14 @@
 ---
+import { CollectionEntry, getCollection } from "astro:content";
+import { contentfulClient } from "../lib/contentful";
+
 import HomeLayout from "../layouts/HomeLayout.astro";
-import ContactCTA from "../components/ContactCTA.astro";
-import Quotes from "../components/Quotes.astro";
 
-import { contentfulClient } from '../lib/contentful';
-import type { portfolioEntry } from '../lib/contentful';
+import PortfolioPreview from "../components/PortfolioPreview.astro";
+import Quote from "../components/Quote.astro";
 
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Quote from '../components/Quote.astro';
-
-const projects = await contentfulClient.getEntries<portfolioEntry>({
-  content_type: 'blogPost',
-  order: '-fields.date',
+const projects = await getCollection("work", ({ data }) => {
+  return data.draft !== true;
 });
 
 function shuffle(array) {
@@ -42,48 +39,98 @@ const quotes = await contentfulClient
     return {
       items: shuffle(response.items),
     };
-  })
-  .then((response) => {
-    return {
-      items: response.items.slice(0, 9),
-    };
   });
-
-const newQuotes = quotes.items.map((quote) => quote);
 ---
-<HomeLayout >
-  <main class="grid wrapper">
-    <header class="card card--header">
+
+<HomeLayout>
+  <main class="flow wrapper">
+    <header class="">
       <hgroup class="flow">
         <h1>Dan Matthew</h1>
-        <p class="lede">Designer and developer of <b>accessible</b> and <b>user-centred</b> digital products.</p>
-        <p>I champion and teach <b>accessibility</b> to design, engineering, and product teams.</p>
-        <p>I create <b>prototypes</b> to aid the design process, and use my experience in both design and development to bridge the knowledge gap between teams, using <b>design systems</b>, and <b>web components</b> to support <b>design ops</b>.</p>
+        <p class="lede">
+          Interaction designer and developer of <b>accessible</b> and <b
+            >user-centred</b
+          > digital products.
+        </p>
+        <p>
+          I champion and teach <b>accessibility</b> to design, engineering, and product
+          teams.
+        </p>
+        <p>
+          I create <b>prototypes</b> to aid the design process, and use my experience
+          in both design and development to bridge the knowledge gap between teams,
+          using <b>design systems</b>, and <b>web components</b> to support <b
+            >design ops</b
+          >.
+        </p>
       </hgroup>
     </header>
-    <PortfolioPreview project={projects.items[0]} index={0} />
-    <Quote quote={newQuotes[0]} />
-    <Quote quote={newQuotes[4]} />
-    <PortfolioPreview project={projects.items[2]} index={2} />
-    <Quote quote={newQuotes[1]} />
-    <Quote quote={newQuotes[2]} />
-    <PortfolioPreview project={projects.items[1]} index={1} />
-    <Quote quote={newQuotes[5]} />
-    <Quote quote={newQuotes[3]} />
+
+    <section class="wrapper--projects">
+      <h2 class="visually-hidden">Work</h2>
+      <ol class="projects grid">
+        {
+          projects.map((project) => (
+            <li class="card card--project">
+              <div class="project-listing">
+                <div class="card__cover">
+                  <div class="thumb-grid">
+                    {[...Array(9)].map(() => (
+                      <div class="thumb-grid__thumb">
+                        <img
+                          src={project.data.img}
+                          alt=""
+                          class="cover__thumb"
+                          height="50"
+                          width="50"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div class="card__content flow">
+                  <a href={`/work/${project.slug}`} class="title">
+                    {project.data.title}
+                  </a>
+                  <div class="meta">
+                    <span class="org">Talis</span>
+                    <time
+                      class="date"
+                      datetime={project.data.publishDate.toISOString()}
+                    >
+                      {project.data.projectDate}
+                    </time>
+                  </div>
+                  <p>{project.data.description}</p>
+                  <ul class="roles" role="list">
+                    {project.data.tags.map((tag) => (
+                      <li>{tag}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
+      <!-- <div class="card card--example">
+        <Browser />
+      </div>
+      <div class="card card--example">
+        <Volume/>
+      </div> -->
+    </section>
+    <div class="wrapper--quotes">
+      <section class="quotes">
+        <hgroup class="flow">
+          <h2>Quotes</h2>
+          <p>Some nice things people have said about me</p>
+        </hgroup>
+        <div class="quote-scroller">
+          {quotes.items.map((quote) => <Quote quote={quote} />)}
+        </div>
+      </section>
+    </div>
   </main>
 </HomeLayout>
-<script>
-  import VanillaTilt from "vanilla-tilt";
-
-  const isReducedMotion = window.matchMedia('(prefers-reduced-motion)').matches;
-  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
-
-  if (!isReducedMotion && !isCoarsePointer) {
-    VanillaTilt.init(document.querySelectorAll(".card--project"), {
-      max: 1.5,
-      glare: true,
-      "max-glare": 0.125,
-      gyroscope: false
-    });
-  }
-</script>
