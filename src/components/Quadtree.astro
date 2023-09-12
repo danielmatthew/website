@@ -1,0 +1,101 @@
+---
+// Quadtree
+---
+
+<div id="quadtree"></div>
+<style>
+
+  #quadtree {
+    display: block;
+    height: 4rem;
+    width: 4rem;
+  }
+
+</style>
+<script>
+  import Quadtree from "https://cdn.skypack.dev/@timohausmann/quadtree-js@1.2.4";
+  import {
+    createQtGrid,
+    randomBias,
+    randomSnap,
+    random,
+  } from "https://cdn.skypack.dev/@georgedoescode/generative-utils";
+  import { SVG } from "https://cdn.skypack.dev/@svgdotjs/svg.js";
+
+  const width = 192;
+  const height = 192;
+
+  const svg = SVG().viewbox(0, 0, width, height).addTo("#quadtree");
+
+  const focus = {
+    x: random(0, width),
+    y: random(0, height),
+  };
+
+  const points = [...Array(100)].map(() => {
+    return {
+      x: randomBias(0, width, focus.x, 1),
+      y: randomBias(0, height, focus.y, 1),
+      width: 4,
+      height: 4,
+    };
+  });
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = width;
+  canvas.height = height;
+
+  const imageUrl = "/img/pentagon.png";
+  const img = document.createElement("img");
+  img.crossOrigin = "anonymous";
+  img.src = imageUrl;
+
+  img.onload = () => {
+    ctx.drawImage(img, 0, 0);
+
+    const points = [];
+
+    for (let x = 0; x < width; x++) {
+      for (let y = 0; y < height; y++) {
+        const { data } = ctx.getImageData(x, y, 1, 1);
+
+        if (data[0] + data[1] + data[2] === 0) {
+          points.push({ x, y, width: 1, height: 1 });
+        }
+      }
+    }
+
+    const grid = createQtGrid({
+      width,
+      height,
+      points,
+      gap: 1,
+      maxQtLevels: 4,
+    });
+    grid.areas.forEach((area) => {
+      // svg
+      //   .rect(area.width, area.height)
+      //   .x(area.x)
+      //   .y(area.y)
+      //   .fill('none')
+      //   .stroke('#002642');
+
+      if (random(0, 1) > 0.35) {
+        if (random(0, 1) > 0.25) {
+          svg
+            .rect(area.width, area.height)
+            .x(area.x)
+            .y(area.y)
+            .fill(random(["#fd7b2b", "#002642", "#fff"]));
+        } else {
+          svg
+            .circle(Math.min(area.width, area.height))
+            .x(area.x)
+            .y(area.y)
+            .fill(random(["#fd7b2b", "#002642", "#fff"]));
+        }
+      }
+    });
+  };
+</script>
