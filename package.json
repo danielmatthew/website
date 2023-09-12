@@ -54,7 +54,10 @@
   "dependencies": {
     "@astrojs/mdx": "^1.0.3",
     "@contentful/rich-text-html-renderer": "^16.0.2",
+    "@georgedoescode/generative-utils": "^1.0.38",
     "@stackblitz/sdk": "^1.9.0",
+    "@svgdotjs/svg.js": "^3.2.0",
+    "@timohausmann/quadtree-js": "^1.2.5",
     "astro": "^3.0.12",
     "contentful": "^9.3.3"
   }
