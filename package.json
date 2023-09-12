@@ -5,7 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@open-wc/eslint-config": "^9.2.2",
-    "cypress": "^10.7.0",
+    "cypress": "^13.1.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.1.0",
     "netlify-cli": "^12.10.0",
