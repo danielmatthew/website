@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/danielmatthew/website/compare/v5.1.0...v6.0.0) (2023-09-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* use local deps
+
+### Features
+
+* use local deps ([87eeb58](https://github.com/danielmatthew/website/commit/87eeb5813b61a275343b8f6ca6471b63b2afc1b1))
+
 ## [5.1.0](https://github.com/danielmatthew/website/compare/v5.0.0...v5.1.0) (2023-09-12)
 
 
