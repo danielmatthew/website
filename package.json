@@ -52,11 +52,10 @@
   },
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
-    "@astrojs/mdx": "^0.19.7",
-    "@astrojs/netlify": "^2.1.1",
+    "@astrojs/mdx": "^1.0.3",
     "@contentful/rich-text-html-renderer": "^16.0.2",
-    "astro": "^2.0.6",
-    "contentful": "^9.3.3",
-    "vanilla-tilt": "^1.8.0"
+    "@stackblitz/sdk": "^1.9.0",
+    "astro": "^3.0.12",
+    "contentful": "^9.3.3"
   }
 }
