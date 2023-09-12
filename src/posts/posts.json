@@ -1,5 +1,0 @@
-{
-  "layout": "layouts/post.njk",
-  "permalink": "/notes/{{ page.fileSlug }}/",
-  "syndicate": false
-}

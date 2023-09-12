@@ -1,0 +1,269 @@
+---
+---
+<div class="c-browser-wrapper">
+  <div class="c-browser">
+    <div class="c-browser__titlebar">
+      <span class="c-browser__btn c-browser__btn--close"></span>
+      <span class="c-browser__btn c-browser__btn--min"></span>
+      <span class="c-browser__btn c-browser__btn--max"></span>
+      <span class="c-browser__notch">
+        <span class="c-browser__speaker"></span>
+      </span>
+    </div>
+    <div class="c-browser__canvas c-browser__canvas--elevate" style="transform: translate(0px);"></div>
+    <div class="c-browser__shadow"></div>
+  </div>
+  <div class="c-browser__credits">Designed and built by Dan Matthew ❤️</div>
+</div>
+<style>
+.c-browser-wrapper {
+  overflow: hidden;
+}
+
+.c-browser {
+  --pink: #ff5f57;
+  --yellow: #febc2e;
+  --mint: #28c840;
+  position: relative;
+  margin: auto;
+  border: 1.5rem solid rgb(248, 249, 250);
+  border-top-width: 0.5rem;
+  border-bottom-width: 0;
+  width: 90%;
+  max-width: 80rem;
+  height: 100vw;
+  background-color: rgb(248, 249, 250);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+  box-shadow: 0 1rem 2rem 0 rgba(0, 0, 0, 0.13);
+  overflow: hidden;
+  perspective: 1px;
+}
+
+.c-browser__canvas {
+  position: absolute;
+  z-index: 5;
+  top: 1.5rem;
+  bottom: 0;
+  width: 100%;
+  padding-top: calc(590 / 290 * 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top-right-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
+  background-color: white;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position-y: 0;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  transition-duration: 0.25s;
+  will-change: transform;
+}
+
+.c-browser__titlebar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  height: 1rem;
+  background-color: rgb(248, 249, 250);
+  border-top-left-radius: 1rem 1rem;
+  border-top-right-radius: 1rem 1rem;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.05); */
+}
+
+.c-browser__notch {
+  position: relative;
+  display: flex;
+  background-color: var(--grey);
+  height: 1rem;
+  top: 1.5rem;
+  width: 25vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  z-index: 1;
+  justify-content: center;
+}
+
+.c-browser__speaker {
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 0.5rem;
+  width: 25%;
+  border-radius: 1rem;
+}
+
+.c-browser__canvas--aspire {
+  background-image: url('../images/aspire/aspire--mobile.jpg');
+
+  @media (min-resolution: 2dppx) {
+    background-image: url('../images/aspire/aspire--mobile@2x.jpg');
+  }
+}
+
+.c-browser__canvas--elevate {
+  background-image: url('../images/elevate/elevate--mobile.jpg');
+
+  @media (min-resolution: 2dppx) {
+    background-image: url('../images/elevate/elevate--mobile@2x.jpg');
+  }
+}
+
+.c-browser__shadow {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  box-shadow: inset 0px -1rem 1rem -1rem rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 48rem) {
+  .c-browser-wrapper {
+    position: relative;
+  }
+
+  .c-browser {
+    border: 0;
+    height: 40rem;
+  }
+
+  .c-browser,
+  .c-browser__titlebar {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+
+  .c-browser__canvas {
+    top: 3rem;
+    padding-top: calc(1091 / 1293 * 100%);
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+
+  .c-browser__titlebar {
+    padding-left: 1rem;
+    height: 3rem;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .c-browser__notch {
+    display: none;
+  }
+
+  .c-browser__btn {
+    margin-right: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: rgb(216, 216, 216);
+    border-radius: 1rem;
+  }
+
+  .c-browser__btn--close:hover {
+    background-color: var(--pink);
+  }
+
+  .c-browser__btn--min:hover {
+    background-color: var(--yellow);
+  }
+
+  .c-browser__btn--max:hover {
+    background-color: var(--mint);
+  }
+
+  .c-browser__canvas--aspire {
+    background-image: url('../images/aspire/aspire--desktop.jpg');
+
+    @media (min-resolution: 2dppx) {
+      background-image: url('../images/aspire/aspire--desktop@2x.jpg');
+    }
+  }
+
+  .c-browser__canvas--elevate {
+    background-image: url('../images/elevate/elevate--desktop.jpg');
+
+    @media (min-resolution: 2dppx) {
+      background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1280&q=80');
+    }
+  }
+}
+
+.c-browser__credits {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transform: translateY(50vh) scale(0);
+  text-align: center;
+}
+
+.js-browser--hide {
+  animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) hideBrowser;
+}
+
+.js-fadein {
+  animation: 5s cubic-bezier(0.165, 0.84, 0.44, 1) rollCredits;
+}
+
+@keyframes rollCredits {
+  5% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  75% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(50vh) scale(0);
+  }
+}
+
+@keyframes hideBrowser {
+  5% {
+    transform: translateY(100%);
+  }
+
+  90% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    transform: translate(-50%, -40%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+</style>
+<script>
+document.querySelectorAll('.c-browser__btn').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelector('.c-browser').classList.add('js-browser--hide');
+    document.querySelector('.c-browser__credits').classList.add('js-fadein');
+  });
+});
+</script>

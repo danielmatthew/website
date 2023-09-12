@@ -1,33 +1,64 @@
 ---
-import { contentfulClient } from '../lib/contentful';
-import type { portfolioEntry } from '../lib/contentful';
 
-const projects = await contentfulClient.getEntries<portfolioEntry>({
-  content_type: 'blogPost',
-});
 
-// import { getCollection } from 'astro:content';
+import { CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 
-// const projects = (await getCollection('work')).sort(
-// 	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-// );
+const projects = await getCollection("work", ({ data }) => {
+  return data.draft !== true;
+});
 
 ---
 <BaseLayout title="Work | Dan Matthew">
   <main class="wrapper">
   <h1>Work</h1>
 
-  <ul class="">
-    {
-      projects.items.map((project, idx) => (
-        <li>
-          <PortfolioPreview project={project} index={idx} />
-        </li>
-      ))
-    }
-  </ul>
+      <ol class="projects grid">
+        {
+          projects.map((project) => (
+            <li class="card card--project">
+              <div class="project-listing">
+                <div class="card__cover">
+                  <div class="thumb-grid">
+                    {[...Array(9)].map(() => (
+                      <div class="thumb-grid__thumb">
+                        <img
+                          src={project.data.img}
+                          alt=""
+                          class="cover__thumb"
+                          height="50"
+                          width="50"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div class="card__content flow">
+                  <a href={`/work/${project.slug}`} class="title">
+                    {project.data.title}
+                  </a>
+                  <div class="meta">
+                    <span class="org">Talis</span>
+                    <time
+                      class="date"
+                      datetime={project.data.publishDate.toISOString()}
+                    >
+                      {project.data.projectDate}
+                    </time>
+                  </div>
+                  <p>{project.data.description}</p>
+                  <ul class="roles" role="list">
+                    {project.data.tags.map((tag) => (
+                      <li>{tag}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+
   </main>
 </BaseLayout>
 <style>

@@ -1,10 +1,14 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import Quadtree from './Quadtree.astro';
 ---
 
 <header class="wrapper">
   <nav class="banner">
-    <a href="/" class="logotype">Dan Matthew</a>
+    <a href="/">
+      <Quadtree />
+      <span class="visually-hidden">Dan Matthew</span>
+    </a>
   </nav>
 
   <!-- <ThemeToggle /> -->

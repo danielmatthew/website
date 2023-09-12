@@ -1,0 +1,40 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+
+interface Props {
+  entry: CollectionEntry<'posts'>;
+}
+
+export async function getStaticPaths() {
+  const notes = await getCollection("posts");
+  return notes.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+<BaseLayout
+  title={`${entry.data.title} | Dan Matthew – Interaction Designer`}
+>
+  <main>
+    <article class="wrapper">
+      <header>
+        <div class="flow masthead">
+          <h1>{entry.data.title}</h1>
+          <div class="meta">
+            <time>{entry.data.publishedDate}</time>
+          </div>
+        </div>
+      </header>
+      <section class="layout content flow">
+        <Content />
+      </section>
+    </article>
+  </main>
+</BaseLayout>

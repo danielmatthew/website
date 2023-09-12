@@ -1,0 +1,58 @@
+---
+---
+<div>
+  <ul class="carousel">
+    <li>
+      <figure>
+        <picture>
+          <img src="https://res.cloudinary.com/danmatthew/image/upload/v1691590194/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Existing_work_e1zjnw.webp" />
+          <figcaption>A screenshot of a sequence of wireframes illustrating the user journey</figcaption>
+        </picture>
+      </figure>
+    </li>
+    <li>
+      <figure>
+        <picture>
+          <img src="https://res.cloudinary.com/danmatthew/image/upload/v1691590194/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Existing_work_e1zjnw.webp" />
+          <figcaption>A screenshot of a sequence of wireframes illustrating the user journey</figcaption>
+        </picture>
+      </figure>
+    </li>
+    <li>
+      <figure>
+        <picture>
+          <img src="https://res.cloudinary.com/danmatthew/image/upload/v1691590194/Case%20Study%20Assets/Module_combobox_____Talis_Elevate_-_Existing_work_e1zjnw.webp" />
+          <figcaption>A screenshot of a sequence of wireframes illustrating the user journey</figcaption>
+        </picture>
+      </figure>
+    </li>
+  </ul>
+  <div class="controls">
+
+  </div>
+</div>
+<style>
+  .carousel {
+    display: flex;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+  }
+
+  .carousel li {
+    display: block;
+    width: 100%;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+</style>
+<script>
+  function scrollToItem(itemPosition, numItems, scroller) {
+    scroller.scrollTo({
+      scrollLeft: Math.floor(
+        scroller.scrollWidth * (itemPosition / numItems)
+      ),
+      behaviour: 'smooth'
+    })
+  }
+</script>

@@ -9,10 +9,9 @@ interface Props {
   modifier?: string | undefined;
 }
 
-const { title, description, modifier, frontmatter } = Astro.props;
-
-const cssModifier = 'home';
+const { title, description, modifier } = Astro.props;
 ---
+<!DOCTYPE html>
 <html lang="en-gb">
   <head>
     <meta charset="utf-8">
@@ -21,7 +20,6 @@ const cssModifier = 'home';
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,300;1,600&display=swap" rel="stylesheet">
-    <script src="https://cdn.usefathom.com/script.js" data-site="XISHJDYZ" data-excluded-domains="localhost" defer></script>
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
@@ -65,16 +63,14 @@ const cssModifier = 'home';
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#112caf">
-    <meta name="msapplication-TileColor" content="#ffc40d">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fd7b2b">
+    <meta name="msapplication-TileColor" content="#fd7b2b">
     <meta name="theme-color" content="hsl(0, 0%, 99%)">
   </head>
-  <body class={modifier}>
+  <body>
     <Nav />
     <slot />
     <Footer />
-    <canvas id="gradient-canvas" />
-
   </body>
 </html>
 <style>
@@ -100,6 +96,6 @@ const cssModifier = 'home';
 
     if (!isReducedMotion) {
     const gradient = new Gradient();
-    gradient.initGradient('canvas');
+    // gradient.initGradient('canvas');
   }
 </script>

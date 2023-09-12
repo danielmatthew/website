@@ -1,5 +1,4 @@
 ---
-
 title: Variable Scope in JavaScript
 ---
 
