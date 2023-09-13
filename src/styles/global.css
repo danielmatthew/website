@@ -12,8 +12,9 @@
   --color-accent-200: #e5653f;
   --color-accent-300: #fabd37;
 
-  --orange: #fd7b2b;
+  --carrot: #fd7b2b;
   --navy: #002642;
+  --sand: #ede0d4;
 
   --color-background: var(--color-theme-300);
   --scheme-color: var(--color-light);
@@ -289,7 +290,7 @@ body {
 
   a {
     color: currentColor;
-    text-decoration-color: var(--orange);
+    text-decoration-color: var(--navy);
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2ex;
   }
@@ -297,7 +298,13 @@ body {
   a:hover,
   a:focus {
     text-underline-offset: 0.3ex;
-    outline-color: var(--orange);
+  }
+
+  a:focus-visible {
+    background: var(--navy);
+    color: #fff;
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
   }
 
   .toc {
@@ -455,10 +462,6 @@ footer > div {
   margin-inline-end: var(--space-3xs);
 }
 
-.socials a {
-  color: inherit;
-}
-
 figure img {
   border-radius: max(
     0px,
@@ -481,7 +484,7 @@ figure img {
 
   .card__cover {
     position: relative;
-    background-color: var(--orange);
+    background-color: var(--carrot);
     width: 100%;
     overflow: hidden;
   }
@@ -496,7 +499,7 @@ figure img {
     z-index: 1;
     height: 100%;
     width: 100%;
-    background-color: var(--orange);
+    background-color: var(--carrot);
     mix-blend-mode: soft-light;
   }
 
@@ -534,7 +537,6 @@ figure img {
 
   .card a {
     display: block;
-    color: black;
     transition: transform 0.2s ease;
     text-decoration: underline;
     text-decoration-color: #fd7b2b;
@@ -550,11 +552,7 @@ figure img {
   }
 
   .card a:focus {
-    outline: none;
-  }
-
-  .card a:focus-visible {
-    outline: 2px solid var(--orange);
+    outline: 2px solid var(--carrot);
     outline-offset: 2px;
   }
 
@@ -723,7 +721,7 @@ figure img {
   }
 
   .quote-scroller:focus-visible {
-    outline: 2px solid var(--orange);
+    outline: 2px solid var(--carrot);
   }
 
   .card--quote {
