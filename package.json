@@ -58,6 +58,7 @@
     "@stackblitz/sdk": "^1.9.0",
     "@svgdotjs/svg.js": "^3.2.0",
     "@timohausmann/quadtree-js": "^1.2.5",
+    "@vercel/analytics": "^1.0.2",
     "astro": "^3.0.12",
     "contentful": "^9.3.3"
   }
