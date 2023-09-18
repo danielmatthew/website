@@ -16,6 +16,10 @@
   --navy: #002642;
   --sand: #ede0d4;
 
+  --background: var(--sand);
+  --text: var(--navy);
+  --accent: var(--carrot);
+
   --color-background: var(--color-theme-300);
   --scheme-color: var(--color-light);
 
@@ -70,52 +74,13 @@
   --theme-background: var(--light, var(--color-background))
     var(--dark, var(--color-theme-400));
   --theme-transition: 0.2s ease-in-out;
-  --theme-gradient: var(
-      --light,
-      linear-gradient(
-        to left top,
-        #061475,
-        #09187f,
-        #0b1d8a,
-        #0d2195,
-        #0f26a0,
-        #122bab,
-        #1530b5,
-        #1735c0,
-        #1b3ccd,
-        #1e42da,
-        #2049e7,
-        #2250f4
-      )
-    )
-    var(
-      --dark,
-      linear-gradient(
-        to right bottom,
-        #030935,
-        #000e41,
-        #00114d,
-        #001259,
-        #001365,
-        #001365,
-        #001365,
-        #001365,
-        #001259,
-        #00114d,
-        #000e41,
-        #030935
-      )
-    );
-
-  --theme-article-bg: var(--light, #fff) var(--dark, #030935);
-
-  --wave-fill: var(--theme-article-bg);
 
   --ON: initial;
   --OFF: ;
 
   --serif: Georgia, "Times New Roman", Times, serif;
   --sans-serif: "Barlow", sans-serif;
+  --titles: "Barlow Condensed", sans-serif;
 
   --shadows: 0px 0px 1px rgba(20, 20, 21, 0.18),
     0px 8px 16px -8px rgba(20, 20, 21, 0.15),
@@ -232,8 +197,8 @@ html,
 body {
   /* background-color: hsl(0, 0%, 99%); */
   /* background-color: #e5dada; */
-  background-color: #ede0d4;
-  color: var(--color-dark);
+  background-color: var(--background);
+  color: var(--text);
   font-family: var(--sans-serif);
   font-size: var(--step-0);
   line-height: var(--leading-standard, 1.6);
@@ -270,6 +235,7 @@ body {
   h1,
   h2,
   h3 {
+    font-family: var(--titles);
     line-height: 1.1;
   }
 
@@ -482,6 +448,10 @@ figure img {
     overflow: hidden;
   }
 
+  .card--project p {
+    font-size: var(--step--1);
+  }
+
   .card__cover {
     position: relative;
     background-color: var(--carrot);
@@ -621,6 +591,7 @@ figure img {
   }
 
   a.title {
+    font-family: var(--titles);
     line-height: var(--leading-tight);
     font-weight: 700;
     font-size: var(--step-1);
