@@ -5,11 +5,8 @@
   "main": "index.js",
   "devDependencies": {
     "@open-wc/eslint-config": "^9.2.2",
-    "cypress": "^10.7.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.1.0",
-    "netlify-cli": "^12.10.0",
-    "netlify-plugin-hashfiles": "^4.0.2",
     "prettier": "^2.8.3"
   },
   "browserslist": [
@@ -58,7 +55,6 @@
     "@stackblitz/sdk": "^1.9.0",
     "@svgdotjs/svg.js": "^3.2.0",
     "@timohausmann/quadtree-js": "^1.2.5",
-    "@vercel/analytics": "^1.0.2",
     "astro": "^3.0.12",
     "contentful": "^9.3.3"
   }
