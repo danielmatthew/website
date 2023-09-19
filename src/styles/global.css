@@ -247,6 +247,10 @@ body {
     --flow-space: 0.5em;
   }
 
+  .lede b {
+    font-weight: 600;
+  }
+
   figcaption {
     margin-block-start: var(--space-2xs);
     font-size: var(--step-0);
@@ -440,6 +444,7 @@ figure img {
   .card {
     position: relative;
     background-color: #fff;
+    border: 1px solid hsl(29, 31%, 78%);
     border-radius: 12px;
     transition: box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   }
