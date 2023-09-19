@@ -13,13 +13,13 @@
   --color-accent-300: #fabd37;
 
   --carrot: #fd7b2b;
-  --navy: #002642;
+  --beyond-the-stars: #002642;
   --sand: #ede0d4;
 
   --sand-80: hsl(29, 31%, 78%);
 
   --background: var(--sand);
-  --text: var(--navy);
+  --text: var(--beyond-the-stars);
   --accent: var(--carrot);
   --border: var(--sand-80);
 
@@ -263,7 +263,7 @@ body {
 
   a {
     color: currentColor;
-    text-decoration-color: var(--navy);
+    text-decoration-color: var(--text);
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2ex;
   }
@@ -274,9 +274,9 @@ body {
   }
 
   a:focus-visible {
-    background: var(--navy);
+    background: var(--text);
     color: #fff;
-    outline: 2px solid var(--navy);
+    outline: 2px solid var(--text);
     outline-offset: 2px;
   }
 
@@ -647,7 +647,7 @@ figure img {
   }
 
   .roles li {
-    background-color: var(--navy);
+    background-color: var(--text);
     padding: var(--space-3xs) var(--space-2xs);
     color: #fff;
     border-radius: var(--border-radius-m);
@@ -707,7 +707,7 @@ figure img {
   }
 
   .quote-scroller:focus-visible {
-    outline: 2px solid var(--carrot);
+    outline: 2px solid var(--text);
   }
 
   .card--quote {
