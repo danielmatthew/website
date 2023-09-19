@@ -73,8 +73,7 @@ I identified that:
 - implement oft-requested quality-of-life features
 
 ### Design
-I used Excalidraw to wireframe each screen that would make up the Module Manager, and the user journeys between them
-published
+I used Excalidraw to wireframe each screen that would make up the Module Manager, and the user journeys between them.
 
 Some of the key design decisions were:
 - Incorporate breadcrumbs on each page to help the user orientate themselves
