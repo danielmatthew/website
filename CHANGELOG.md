@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.1](https://github.com/danielmatthew/website/compare/v6.0.0...v6.0.1) (2023-09-19)
+
+
+### Bug Fixes
+
+* add condensed ([8cf3573](https://github.com/danielmatthew/website/commit/8cf3573600f1a1e58dd5cf6f242b3698fc0ed6e0))
+* colours ([62eba05](https://github.com/danielmatthew/website/commit/62eba0510bedfeb74c66ee74e44cee666fe3c03e))
+* load vercel script in prod ([f3beaa4](https://github.com/danielmatthew/website/commit/f3beaa4b3fa893f349166eec3bc1a993ff964624))
+* update card appearance ([#101](https://github.com/danielmatthew/website/issues/101)) ([6ea2615](https://github.com/danielmatthew/website/commit/6ea261548abc3f2c10900ca55ed7dbd1b7f2fd8c))
+* update headline ([5312873](https://github.com/danielmatthew/website/commit/5312873694cc3892fd0667744604467ec016275d))
+
 ## [6.0.0](https://github.com/danielmatthew/website/compare/v5.1.0...v6.0.0) (2023-09-12)
 
 
