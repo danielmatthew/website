@@ -199,6 +199,7 @@ html,
   --border: var(--sand-80);
   --card-bg: #fff;
   --badge-bg: var(--beyond-the-stars);
+  --badge-fg: var(--card-bg);
   --card-footer-bg: hsl(206,32%,98%);
 }
 
@@ -210,10 +211,10 @@ html,
     --accent: var(--beyond-the-stars);
     --border: hsl(206,72%, 16%);
     --badge-bg: hsl(206,72%,7%);
+    --badge-fg: var(--text);
     --card-bg: hsl(206,72%, 10%);
     --card-footer-bg: hsl(206,72%,7%);
   }
-
 }
 
 body {
@@ -463,6 +464,11 @@ figure img {
 }
 
 @layer components {
+  .badge {
+    background-color: var(--badge-bg);
+    color: var(--badge-fg);
+  }
+
   .card {
     position: relative;
     background-color: var(--card-bg);
@@ -668,7 +674,7 @@ figure img {
   .roles li {
     background-color: var(--badge-bg);
     padding: var(--space-3xs) var(--space-2xs);
-    color: #fff;
+    color: var(--badge-fg);
     border-radius: var(--border-radius-m);
     margin-inline-end: var(--space-3xs);
     margin-block-start: var(--space-3xs);
@@ -745,7 +751,7 @@ figure img {
     top: 0;
     left: 50%;
     content: "";
-    background-color: var(--beyond-the-stars);
+    background-color: hsl(206,72%,7%);
     color: #fff;
     border-radius: 50%;
     height: 3rem;
