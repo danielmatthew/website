@@ -123,7 +123,7 @@ const quotes = await contentfulClient
           <h2>Quotes</h2>
           <p>Some nice things people have said about me</p>
         </hgroup>
-        <div class="quote-scroller">
+        <div class="quote-scroller" tabindex="0">
           {quotes.items.map((quote) => <Quote quote={quote} />)}
         </div>
       </section>
