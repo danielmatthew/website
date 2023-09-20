@@ -18,11 +18,6 @@
 
   --sand-80: hsl(29, 31%, 78%);
 
-  --background: var(--sand);
-  --text: var(--beyond-the-stars);
-  --accent: var(--carrot);
-  --border: var(--sand-80);
-
   --color-background: var(--color-theme-300);
   --scheme-color: var(--color-light);
 
@@ -197,6 +192,30 @@ html,
   }
 }
 
+:root {
+  --background: var(--sand);
+  --text: var(--beyond-the-stars);
+  --accent: var(--carrot);
+  --border: var(--sand-80);
+  --card-bg: #fff;
+  --badge-bg: var(--beyond-the-stars);
+  --card-footer-bg: hsl(206,32%,98%);
+}
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    --background: var(--beyond-the-stars);
+    --text: var(--sand);
+    --accent: var(--beyond-the-stars);
+    --border: hsl(206,72%, 16%);
+    --badge-bg: hsl(206,72%,7%);
+    --card-bg: hsl(206,72%, 10%);
+    --card-footer-bg: hsl(206,72%,7%);
+  }
+
+}
+
 body {
   /* background-color: hsl(0, 0%, 99%); */
   /* background-color: #e5dada; */
@@ -275,7 +294,7 @@ body {
 
   a:focus-visible {
     background: var(--text);
-    color: #fff;
+    color: var(--background);
     outline: 2px solid var(--text);
     outline-offset: 2px;
   }
@@ -446,7 +465,7 @@ figure img {
 @layer components {
   .card {
     position: relative;
-    background-color: #fff;
+    background-color: var(--card-bg);
     border: 1px solid var(--border);
     border-radius: 12px;
     transition: box-shadow 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -462,7 +481,7 @@ figure img {
 
   .card__cover {
     position: relative;
-    background-color: var(--carrot);
+    background-color: var(--accent);
     width: 100%;
     overflow: hidden;
   }
@@ -477,7 +496,7 @@ figure img {
     z-index: 1;
     height: 100%;
     width: 100%;
-    background-color: var(--carrot);
+    background-color: var(--accent);
     mix-blend-mode: soft-light;
   }
 
@@ -517,7 +536,7 @@ figure img {
     display: block;
     transition: transform 0.2s ease;
     text-decoration: underline;
-    text-decoration-color: #fd7b2b;
+    text-decoration-color: var(--accent);
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2ex;
     text-decoration-skip-ink: auto;
@@ -530,7 +549,7 @@ figure img {
   }
 
   .card a:focus {
-    outline: 2px solid var(--carrot);
+    outline: 2px solid var(--text);
     outline-offset: 2px;
   }
 
@@ -647,7 +666,7 @@ figure img {
   }
 
   .roles li {
-    background-color: var(--text);
+    background-color: var(--badge-bg);
     padding: var(--space-3xs) var(--space-2xs);
     color: #fff;
     border-radius: var(--border-radius-m);
@@ -726,7 +745,7 @@ figure img {
     top: 0;
     left: 50%;
     content: "";
-    background-color: #002642;
+    background-color: var(--beyond-the-stars);
     color: #fff;
     border-radius: 50%;
     height: 3rem;
@@ -760,7 +779,7 @@ figure img {
     display: flex;
     font-size: var(--step--1);
     padding: var(--space-s) var(--space-l);
-    background-color: hsl(206,32%,98%);
+    background-color: var(--card-footer-bg);
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
     justify-content: center;
