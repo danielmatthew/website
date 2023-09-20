@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.2](https://github.com/danielmatthew/website/compare/v6.0.1...v6.0.2) (2023-09-20)
+
+
+### Bug Fixes
+
+* add tabindex to scrollable area ([732e7af](https://github.com/danielmatthew/website/commit/732e7af6bd2018a1ea3b5ec4ce4f0c8509040e95))
+
 ### [6.0.1](https://github.com/danielmatthew/website/compare/v6.0.0...v6.0.1) (2023-09-19)
 
 
