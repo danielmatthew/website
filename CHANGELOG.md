@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/danielmatthew/website/compare/v6.0.2...v6.1.0) (2023-09-20)
+
+
+### Features
+
+* add dark theme ([#102](https://github.com/danielmatthew/website/issues/102)) ([af9f3a8](https://github.com/danielmatthew/website/commit/af9f3a8191c2c3dcddf9af7e49bcc74cfcd07de9))
+
 ### [6.0.2](https://github.com/danielmatthew/website/compare/v6.0.1...v6.0.2) (2023-09-20)
 
 
