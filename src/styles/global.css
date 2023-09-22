@@ -602,6 +602,30 @@ figure img {
     object-fit: cover;
   }
 
+  .wrapper--links {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .elsewhere, .talks {
+    display: grid;
+  }
+
+  @media (min-width: 30rem) {
+    .elsewhere,.talks {
+    gap: var(--space-xl);
+
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+
+  .elsewhere li,
+  .talks li {
+    padding-block-end: var(--space-xs);
+    border-bottom: 1px dashed var(--border);
+  }
+
   .wrapper--projects {
     position: relative;
     grid-template-columns: auto 1fr;
