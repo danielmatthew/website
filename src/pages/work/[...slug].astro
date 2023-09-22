@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
+import { number } from "astro/zod";
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -10,15 +11,27 @@ export async function getStaticPaths() {
   const work = await getCollection("work", ({data}) => {
     return data.draft !== true;
   });
-  return work.map((entry) => ({
+
+  const numberOfPosts = work.length;
+
+  return work.map((entry, index) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+      prevPost:
+        index + 1 === numberOfPosts
+        ? { frontmatter: ''}
+        : work[index + 1],
+      nextPost:
+        index === 0
+        ? { frontmatter: ''}
+        : work[index - 1],
+    },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, prevPost, nextPost } = Astro.props;
 const { Content, headings } = await entry.render();
-
 ---
 
 <BaseLayout
@@ -64,9 +77,42 @@ const { Content, headings } = await entry.render();
         </div>
       </section>
     </article>
+    <nav aria-label="Other work">
+      {prevPost &&
+        <a href={`/${prevPost.slug}/`}>
+          {prevPost.data.title}
+        </a>
+      }
+      {nextPost &&
+        <a href={`/${nextPost.slug}/`}>
+          {nextPost.data.title}
+        </a>
+      }
+    </nav>
   </main>
 </BaseLayout>
 <style>
+
+  nav {
+    display: flex;
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    justify-content: space-between;
+  }
+
+  nav > a {
+    display: block;
+    margin: var(--space-xs);
+    padding: var(--space-xs);
+    flex: 1;
+  }
+
+  nav > a:hover,
+  nav > a:focus {
+    background-color: var(--text);
+    text-decoration-color: var(--background);
+    color: var(--background);
+  }
 
 
   .roles {
