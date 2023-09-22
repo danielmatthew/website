@@ -78,13 +78,13 @@ const { Content, headings } = await entry.render();
       </section>
     </article>
     <nav aria-label="Other work">
-      {prevPost &&
-        <a href={`/${prevPost.slug}/`}>
+      {prevPost.slug &&
+        <a href={`/work/${prevPost.slug}/`}>
           {prevPost.data.title}
         </a>
       }
-      {nextPost &&
-        <a href={`/${nextPost.slug}/`}>
+      {nextPost.slug &&
+        <a href={`/work/${nextPost.slug}/`}>
           {nextPost.data.title}
         </a>
       }
@@ -102,9 +102,10 @@ const { Content, headings } = await entry.render();
 
   nav > a {
     display: block;
-    margin: var(--space-xs);
+    margin-block: var(--space-xs);
     padding: var(--space-xs);
-    flex: 1;
+    width: 50%;
+    font-size: var(--step--1);
   }
 
   nav > a:hover,
@@ -112,6 +113,10 @@ const { Content, headings } = await entry.render();
     background-color: var(--text);
     text-decoration-color: var(--background);
     color: var(--background);
+  }
+
+  nav > a:nth-of-type(2) {
+    text-align: right;
   }
 
 
