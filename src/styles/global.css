@@ -16,7 +16,7 @@
   --beyond-the-stars: #002642;
   --sand: #ede0d4;
 
-  --sand-80: hsl(29, 31%, 78%);
+  --sand-80: hsla(29, 31%, 78%, 100%);
 
   --color-background: var(--color-theme-300);
   --scheme-color: var(--color-light);
@@ -201,6 +201,10 @@ html,
   --badge-bg: var(--beyond-the-stars);
   --badge-fg: var(--card-bg);
   --card-footer-bg: hsl(206,32%,98%);
+  --card-shadow:
+    0px 0px 1px hsla(29, 31%, 28%, 0.14),
+    0px 4px 8px -4px hsla(29, 31%, 28%, 0.35);
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -212,8 +216,11 @@ html,
     --border: hsl(206,72%, 16%);
     --badge-bg: hsl(206,72%,7%);
     --badge-fg: var(--text);
-    --card-bg: hsl(206,72%, 10%);
-    --card-footer-bg: hsl(206,72%,7%);
+    --card-bg: hsl(206,72%, 20%);
+    --card-footer-bg: hsl(206,72%,18%);
+    --card-shadow:
+      0px 0px 1px hsla(206, 72%, 5%, 0.14),
+      0px 4px 8px -4px hsla(206, 72%, 5%, 0.35);
   }
 }
 
@@ -531,7 +538,7 @@ figure img {
 
   .card:hover,
   .card:focus-within {
-    box-shadow: var(--shadows-elevation2);
+    box-shadow: var(--card-shadow);
   }
 
   :is(.card:focus-within, .card:hover) .thumb-grid {
