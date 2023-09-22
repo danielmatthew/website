@@ -60,7 +60,7 @@
   --leading-loose: 1.8;
   --leading-tight: 1.4;
 
-  --wrapper-width: 70rem;
+  --wrapper-width: 80rem;
   --dynamic-space: calc((100vw - var(--wrapper-width)) / 2);
   --negative-dynamic-space: calc(var(--wrapper-width) * -1);
 
@@ -342,7 +342,7 @@ body {
 
 @layer utilities {
   .wrapper {
-    padding-inline: max(var(--space-xs), (50% - 30rem));
+    padding-inline: max(var(--space-xs), (50% - 40rem));
   }
 
   .img-fluid {
