@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0](https://github.com/danielmatthew/website/compare/v6.1.0...v6.2.0) (2023-09-22)
+
+
+### Features
+
+* add pagination ([#103](https://github.com/danielmatthew/website/issues/103)) ([b9a888b](https://github.com/danielmatthew/website/commit/b9a888bfa7c4752a281f68142dbd0671710e281a))
+
+
+### Bug Fixes
+
+* increase wrapper size ([5f044a0](https://github.com/danielmatthew/website/commit/5f044a07c0a5be4373f0b68c27f255d71bbf6936))
+* update card shadows ([84864c8](https://github.com/danielmatthew/website/commit/84864c8d5f005e62ac81567c900b46831c999c4a))
+* update logo ([9059bd5](https://github.com/danielmatthew/website/commit/9059bd51bae6d67bbfa794e70ceb6b436df7e6d3))
+
 ## [6.1.0](https://github.com/danielmatthew/website/compare/v6.0.2...v6.1.0) (2023-09-20)
 
 
