@@ -1,10 +1,9 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import { contentfulClient } from "../lib/contentful";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
 
-import PortfolioPreview from "../components/PortfolioPreview.astro";
 import Quote from "../components/Quote.astro";
 
 const projects = await getCollection("work", ({ data }) => {

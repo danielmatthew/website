@@ -27,7 +27,22 @@
 
   const svg = SVG().viewbox(0, 0, width, height).addTo("#quadtree");
 
+  let colour1 = getComputedStyle(document.documentElement).getPropertyValue('--text');
+  let colour2 = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  mql.onchange = (e) => {
+    if (e.matches) {
+      drawLogo()
+      colour1 = getComputedStyle(document.documentElement).getPropertyValue('--text');
+      colour2 = getComputedStyle(document.documentElement).getPropertyValue('--accent');
+    }
+  }
+
+
   document.querySelector('#quadtree > svg').setAttribute('aria-hidden', 'true');
+
+  function drawLogo() {
 
   const focus = {
     x: random(0, width),
@@ -89,15 +104,18 @@
             .rect(area.width, area.height)
             .x(area.x)
             .y(area.y)
-            .fill(random(["#fd7b2b", "#002642", "#fff"]));
+            .fill(random([colour1, colour2, "#fff"]));
         } else {
           svg
             .circle(Math.min(area.width, area.height))
             .x(area.x)
             .y(area.y)
-            .fill(random(["#fd7b2b", "#002642", "#fff"]));
+            .fill(random([colour1, colour2, "#fff"]));
         }
       }
     });
   };
+}
+
+(drawLogo());
 </script>
