@@ -384,6 +384,12 @@ body {
   padding-block: var(--space-xs);
 }
 
+#quadtree {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+}
+
 .logo {
   display: flex;
   align-items: center;
