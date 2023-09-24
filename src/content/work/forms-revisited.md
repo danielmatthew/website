@@ -5,7 +5,7 @@ publishDate: 2021-05-31 00:00:00
 img: https://res.cloudinary.com/danmatthew/image/upload/ar_1.0,c_lfill,w_600/Case%20Study%20Assets/talis.github.io_bootstrap-theme_forms__jblsox.webp
 img_alt: A bright pink sheet of paper used to wrap flowers curves in front of rich blue background
 description: |
-  I led an initiative to discover, consolidate, and refine the many approaches to forms and form validation used across Talis products.
+  I led an initiative to discover, consolidate, and refine the many approaches to forms and form validation used across Talis products. I reduced errors, support tickets, technical and design debt.
 tags:
   - Research
   - Prototyping
