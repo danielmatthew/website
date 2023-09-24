@@ -19,19 +19,13 @@ tags:
 <figcaption>A demonstration of the refreshed form design.</figcaption>
 </figure>
 
-<section>
-
 ## The challenge
-
-<div>
 
 Talis is a software company that creates digital products for the higher education sector. Our products include a [reading list solution (Aspire)](https://talis.com/aspire) for libraries, and a [collaborative annotation tool (Elevate)](https://talis.com/elevate) designed for teaching and learning.
 
 As befits a contemporary software-as-a-service (SaaS), both products feature a range of different forms to be completed by users. Having grown organically over more than a decade, Aspire and Elevate incorporated numerous combinations of visuals, interactions, and feedback mechanisms. One facet of good user experience is that functionality which purports to do the same thing looks and works the same throughout your time on the application. This is also beneficial from an accessibility perspective, particularly for those with cognitive disorders, where a predictable user interface makes it easier to use.
 
 The goal for this project was to specify, design, and implement a cohesive and accessible form implementation across Talis products.
-</div>
-</section>
 
 <figure>
   <picture>
@@ -40,11 +34,7 @@ The goal for this project was to specify, design, and implement a cohesive and a
   <figcaption>A selection of some of the form designs that were in use around Talis products. You can almost pick out how trends have changed over the past 15 years. I wonder if you can guess which were the first parts of the product to be built?</figcaption>
 </figure>
 
-<section>
-
 ## What I did
-
-<div>
 
 ### Research
 To kick things off, I audited both applications and took screenshots of as many variations as I could find. I compiled them together on a Miro board, ready to group and categorise them.
@@ -88,8 +78,6 @@ Some of the key findings were:
 - Users liked the clear and consistent error messages, but wanted the inline messages to disappear once the mistake had been rectified.
 - Users found that the vertical form layout was easier to scan, particularly when using a device with a smaller screen.
 - The inline help messages were deemed particularly useful for helping to remember the required format for dates.
-</div>
-</section>
 
 <figure>
 <picture>
@@ -98,15 +86,10 @@ Some of the key findings were:
 <figcaption>The prototype I built to illustrate the range of form controls and their behaviour. The inline messages next to the start and end date fields were a particular bugbear. I made sure to add implementation guidelines to the page too – this was before I had found a public home for the design system.</figcaption>
 </figure>
 
-<section>
-
 ## The impact
 
-<div>
 Based on the testing results, I made some iterations on the form validation technique, updating the client-side code to remove the inline error message from a previously 'dirty' and invalid input when it lost focus.
 
 I shared this proposal along with my research findings and testing feedback with my UX colleagues, as well as the Tech and Product members of the product trio. I received positive responses and the nod to begin rolling these guidelines out to production. I made sure to document design and development guidelines, and created a number of Sketch components for others to use.
 
 At the time of writing, our 'modern' applications are using this approach to forms. We've seen a decrease in tickets relating to form validation, and from our product stats, we see that users are encountering fewer validation issues. I'm looking forward to seeing it rolled out to locations which receive the most traffic – our resource bookmark screen and the accompanying browser extension.
-</div>
-</section>

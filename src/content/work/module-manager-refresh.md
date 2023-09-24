@@ -22,19 +22,13 @@ tags:
   </figcaption>
 </figure>
 
-<section>
-
 ## The challenge
-
-<div>
 
 Talis is a SaaS provider that creates digital products for the higher education (HE) sector. Our products include Aspire, a reading list solution for university libraries, and Elevate, a collaborative annotation tool designed with the classroom in mind.
 
 Since its initial spike in 2014, Elevate was an AngularJS project that had effectively reached the end of its life. The engineering team decided to port the application to React with the goals of ditching an old JavaScript framework, eliminating its security burden, and offering something more appealing to work on for current and future colleagues.
 
 While this project was ostensibly to update the tech stack, it offered an opportunity for the Product and UX teams to examine functionality and design and examine whether we could prune some lesser-used features - and save the engineering team some work! - while improving others.
-</div>
-</section>
 
 <figure>
   <picture>
@@ -54,15 +48,7 @@ While this project was ostensibly to update the tech stack, it offered an opport
   </figcaption>
 </figure>
 
-
-<section>
-
-
-
 ## What I did
-
-<div>
-
 ### Research
 I knew from our analytics that certain prominent features were barely used, while more popular features were hidden away in menus.
 Conversations with customers told us that other functionality was difficult to use: complex UI components were crammed into modal dialogue boxes, while these same UI components were different to those they were familiar with from other products.
@@ -81,10 +67,6 @@ Some of the key design decisions were:
 - Remove steps from processes to reduce the friction in completing tasks
 - Give the application room to grow while using the existing structure: the old iteration crammed everything onto a single page, needing a number of overflow menus to contain all the features on offer.
 
-
-
-
-
 While I was away on leave, my colleague, Ana, took my sketches and worked them up using our design system in Sketch in order to facilitate further discussion with the engineering team.
 
 On my return, I created a [HTML prototype](https://talis.github.io/bootstrap-theme/otis/page-layout/) using [Eleventy](https://www.11ty.dev/) in order to help sell the concept to my colleagues and hash out some of the proposed interactions.
@@ -96,9 +78,6 @@ Some of the key findings were:
 - Users appreciated the breadcrumbs!
 - The UI was deemed 'cleaner'
 - But… it appeared we upset several users by relegating *their* most common tasks
-
-</div>
-</section>
 
 <figure>
   <picture>
@@ -119,14 +98,8 @@ Some of the key findings were:
   </figcaption>
 </figure>
 
-<section>
-
 ## The impact
 
-<div>
 While it's true that you can't please all of the people all of the time, I revisited the workflow that allowed users to archive their teaching modules. I'd originally opted to show these on the list of all modules, but given a different visual treatment. In the end, I moved these to their own page, which was now addressable by its own URL.
 
 This revamped module manager rolled out to our academic users in time for the start of the 2022-23 academic year and has been well-received.
-</div>
-</section>
-
