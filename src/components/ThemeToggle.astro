@@ -31,17 +31,17 @@
     border: 0;
     border-radius: 999rem;
     padding: 0;
-    background-color: var(--color-theme-400);
-    box-shadow: inset 0 0 0 1px var(--color-accent-300);
+    background-color: var(--text);
+    box-shadow: inset 0 0 0 1px var(--carrot);
     cursor: pointer;
   }
 
 
-  .sun { fill: black; }
-  .moon { fill: white; }
+  .sun { fill: var(--text); }
+  .moon { fill: var(--background); }
 
-  :global(.theme-dark) .sun { fill: white; }
-  :global(.theme-dark) .moon { fill: black; }
+  :global(.theme-dark) .sun { fill: var(--background); }
+  :global(.theme-dark) .moon { fill: var(--text); }
 
   .icon {
     z-index: 1;
@@ -58,7 +58,7 @@
     z-index: -1;
     position: absolute;
     inset: 0;
-    background-color: var(--color-accent-300);
+    background-color: var(--carrot);
     border-radius: 999rem;
   }
 
