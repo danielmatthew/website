@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.4.0](https://github.com/danielmatthew/website/compare/v6.3.1...v6.4.0) (2023-10-11)
+
+
+### Features
+
+* enable theme toggle ([#105](https://github.com/danielmatthew/website/issues/105)) ([8f45107](https://github.com/danielmatthew/website/commit/8f45107f2f4ef98150e92ece995e1f0b69e6057b))
+
+
+### Bug Fixes
+
+* set system-ui as fallback ([a917ff1](https://github.com/danielmatthew/website/commit/a917ff1d742f7105bbff2c76d6205fa84d452f83))
+* toggle icon bg ([4328331](https://github.com/danielmatthew/website/commit/4328331c6c00bda3e6424a6b6991cf087184ce86))
+* update content width ([01a6cda](https://github.com/danielmatthew/website/commit/01a6cda75d10078bb1333191f9b13c67f40fc4d9))
+* update quadtree styles ([b1ec99c](https://github.com/danielmatthew/website/commit/b1ec99c39bd4a2fcf7fe92cdbc748c70402f7fea))
+
 ### [6.3.1](https://github.com/danielmatthew/website/compare/v6.3.0...v6.3.1) (2023-09-22)
 
 ## [6.3.0](https://github.com/danielmatthew/website/compare/v6.2.0...v6.3.0) (2023-09-22)
