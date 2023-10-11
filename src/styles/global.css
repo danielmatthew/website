@@ -204,7 +204,6 @@ html,
   --card-shadow:
     0px 0px 1px hsla(29, 31%, 28%, 0.14),
     0px 4px 8px -4px hsla(29, 31%, 28%, 0.35);
-
 }
 
 @media (prefers-color-scheme: dark) {
@@ -222,6 +221,20 @@ html,
       0px 0px 1px hsla(206, 72%, 5%, 0.14),
       0px 4px 8px -4px hsla(206, 72%, 5%, 0.35);
   }
+}
+
+:root.theme-dark {
+    --background: var(--beyond-the-stars);
+    --text: var(--sand);
+    --accent: var(--beyond-the-stars);
+    --border: hsl(206,72%, 16%);
+    --badge-bg: hsl(206,72%,7%);
+    --badge-fg: var(--text);
+    --card-bg: hsl(206,72%, 20%);
+    --card-footer-bg: hsl(206,72%,18%);
+    --card-shadow:
+      0px 0px 1px hsla(206, 72%, 5%, 0.14),
+      0px 4px 8px -4px hsla(206, 72%, 5%, 0.35);
 }
 
 body {
@@ -310,12 +323,16 @@ body {
   .toc {
     margin-block-start: var(--space-xl) !important;
     border-top: 1px solid var(--border);
-    padding-block-start: var(--space-xl);
+    /* padding-block-start: var(--space-xl); */
   }
 
   .toc > ol {
+    font-size: var(--step-0);
+    /* padding-inline: 0; */
+  }
+
+  .toc ol ol {
     font-size: var(--step--1);
-    padding-inline: 0;
   }
 
   .summary {
@@ -412,7 +429,7 @@ body {
 
 @media (min-width: 30rem) {
   .banner {
-    margin-block: var(--space-xl);
+    margin-block-end: var(--space-l);
   }
 }
 
