@@ -1,15 +1,13 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
 import Quadtree from './Quadtree.astro';
+import Avatar from '../components/Avatar.astro';
+
 ---
 
+<a href="#content" class="skip-link visually-hidden-focusable">Skip to content</a>
 <header class="banner wrapper">
-  <nav>
-    <a href="/" class="logo">
-      <Quadtree />
-      <span>Home</span>
-    </a>
-  </nav>
-
-  <ThemeToggle />
+  <a href="/" class="logo">
+    <Avatar />
+  </a>
 </header>
