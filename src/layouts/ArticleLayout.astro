@@ -1,11 +1,12 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Hero from '../components/Hero.astro';
 const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout title={frontmatter.data.title}>
-  <main>
-    <article class="wrapper">
+<Hero />
+    <div class="wrapper">
       <header>
         <div class="flow masthead">
           <h1>{frontmatter.data.title}</h1>
@@ -13,11 +14,13 @@ const { frontmatter } = Astro.props;
           {frontmatter.data.originalSource && <p class="lede">Originally published at <a href={frontmatter.data.originalSource.url}>{frontmatter.data.originalSource.label}</a>.</p>}
         </div>
       </header>
-      <section class="layout content flow">
+  <main>
+
+      <article class="layout content flow">
         <slot />
-      </section>
-    </article>
-  </main>
+      </article>
+    </main>
+    </div>
 </BaseLayout>
 <style>
   .content {
