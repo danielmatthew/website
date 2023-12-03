@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import { contentfulClient } from "../lib/contentful";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
-
+import Hero from'../components/Hero.astro';
 import Quote from "../components/Quote.astro";
 
 const projects = await getCollection("work", ({ data }) => {
@@ -42,25 +42,23 @@ const quotes = await contentfulClient
 ---
 
 <HomeLayout>
+  <Hero title="Dan Matthew">
+    <div slot="header-extras">
+    <p>
+      Interaction designer and developer of <b>accessible</b> and <b
+        >user-centred</b
+      > digital products.
+    </p>
+    <p>
+      I champion and teach <b>accessibility</b> to design, engineering, and product
+      teams.
+    </p>
+    <p>
+      I use my experience in both design and development to bridge the knowledge gap between teams, using <b>design systems</b>, <b>web components</b>, and <b>prototypes</b> to amplify the value of my design practice.
+    </p>
+    </div>
+  </Hero>
   <main class="flow wrapper">
-    <header class="">
-      <hgroup class="flow">
-        <h1>Dan Matthew</h1>
-        <p class="lede">
-          Interaction designer and developer of <b>accessible</b> and <b
-            >user-centred</b
-          > digital products.
-        </p>
-        <p>
-          I champion and teach <b>accessibility</b> to design, engineering, and product
-          teams.
-        </p>
-        <p>
-          I use my experience in both design and development to bridge the knowledge gap between teams, using <b>design systems</b>, <b>web components</b>, and <b>prototypes</b> to amplify the value of my design practice.
-        </p>
-      </hgroup>
-    </header>
-
     <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>
       <ol class="projects grid">
@@ -121,15 +119,18 @@ const quotes = await contentfulClient
       <h2>Talks</h2>
         <ul role="list" class="flow">
           <li>
-            <a href="https://noti.st/danielmatthew/5fk25b/a11y-101">Feb 2023: Accessibility 101</a>
+            <a href="https://noti.st/danielmatthew/5fk25b/a11y-101">Accessibility 101</a>
+            <time class="meta">Feb 2023</time>
           </li>
 
         <li>
-          <a href="https://noti.st/danielmatthew/pocE5Y/accessibility-testing">BrumJS, May 2018: Accessibility Testing</a>
+          <a href="https://noti.st/danielmatthew/pocE5Y/accessibility-testing">Accessibility Testing</a>
+          <span class="meta">BrumJS, &nbsp; <time>May 2018</time></span>
         </li>
 
         <li>
-          <a href="https://noti.st/danielmatthew/hzSpy0/screenreader-accessibility">Codelicious, July 2016: Screenreader Accessibility</a>
+          <a href="https://noti.st/danielmatthew/hzSpy0/screenreader-accessibility">Screenreader Accessibility</a>
+          <span class="meta">Codelicious, &nbsp;<time>July 2016</time></span>
         </li>
 
       </ul>
@@ -139,11 +140,13 @@ const quotes = await contentfulClient
       <h2>Elsewhere</h2>
         <ul role="list" class="flow">
           <li>
-            <a href="https://talis.com/2020/09/24/why-we-think-accessibility-is-important/">Talis: Why we think accessibility is important</a>
+            <a href="https://talis.com/2020/09/24/why-we-think-accessibility-is-important/">Why we think accessibility is important</a>
+            <span class="meta">Talis</span>
           </li>
 
         <li>
-          <a href="https://www.codeenigma.com/blog/interview-accessibility-expert-daniel-matthew">CodeEnigma: Interview with an accessibility expert</a>
+          <a href="https://www.codeenigma.com/blog/interview-accessibility-expert-daniel-matthew">Interview with an accessibility expert</a>
+          <span class="meta">CodeEnigma</span>
         </li>
 
       </ul>

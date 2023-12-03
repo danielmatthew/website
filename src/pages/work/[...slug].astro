@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
+import Hero from "../../components/Hero.astro";
 import { number } from "astro/zod";
 interface Props {
   entry: CollectionEntry<"work">;
@@ -37,29 +38,29 @@ const { Content, headings } = await entry.render();
 <BaseLayout
   title={entry.data.title}
 >
+  <Hero title={entry.data.title}>
+    <div slot="header-extras">
+      <div class="meta">
+        <span class="org">Talis</span>
+        <time datetime={entry.data.publishDate.toISOString()}>
+          {entry.data.projectDate}
+        </time>
+      </div>
+      {
+        entry.data.tags && (
+          <ul class="roles">
+            {entry.data.tags.map((role) => (
+              <li>{role}</li>
+            ))}
+          </ul>
+        )
+      }
+  </div>
+
+  </Hero>
+
   <main class="wrapper">
     <article>
-      <header>
-        <div class="flow masthead">
-          <h1>{entry.data.title}</h1>
-
-          <div class="meta">
-            <span class="org">Talis</span>
-            <time datetime={entry.data.publishDate.toISOString()}>
-              {entry.data.projectDate}
-            </time>
-          </div>
-          {
-            entry.data.tags && (
-              <ul class="roles">
-                {entry.data.tags.map((role) => (
-                  <li>{role}</li>
-                ))}
-              </ul>
-            )
-          }
-        </div>
-      </header>
       <section class="layout">
 
         <div class="summary flow">
