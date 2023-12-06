@@ -487,7 +487,7 @@ canvas {
 .hero {
   position: relative;
   background-color: var(--background--hero);
-  background-image: url('./img/noise.svg');
+  background-image: url('/img/noise.svg');
   background-blend-mode: overlay;
 }
 
