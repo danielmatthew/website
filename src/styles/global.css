@@ -394,8 +394,9 @@ body {
 }
 
 .filmstrip {
-  background-color: var(--background);
-  padding-block: var(--space-s);
+  background-color: var(--background--hero);
+  padding-block: var(--space-xs);
+  font-size: var(--step--1);
   text-align: center;
 }
 
