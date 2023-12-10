@@ -51,9 +51,6 @@ novalidate
 </form>
 <style>
     form {
-      background-color: var(--color-theme-400);
-      padding: 2rem;
-      border-radius: 1.5rem
     }
     .form-group + .form-group {
       margin-top: 1.5em;
@@ -69,7 +66,7 @@ novalidate
       box-sizing: border-box;
       display: block;
       width: 100%;
-      border: 2px solid var(--scheme-color);
+      border: 2px solid var(--accent);
       border-radius: 0.25rem;
       padding: 0.25em 0.5em;
       margin-bottom: 1rem;
@@ -93,7 +90,7 @@ novalidate
       min-height: 44px;
       text-align: center;
       line-height: 1;
-      background-color: #D13745;
+      background-color: var(--accent);
       color: #fff;
       transition: 180ms all ease-in-out;
     }
@@ -102,7 +99,7 @@ novalidate
     .form-button:focus {
       outline-style: solid;
       outline-color: transparent;
-      box-shadow: 0 0 0 0.05em currentColor, 0 0 0.15em 0.15em #e5653f;
+      box-shadow: 0 0 0 0.05em var(--accent), 0 0 0.15em 0.15em var(--accent);
     }
 
     .field-error {
@@ -125,32 +122,14 @@ novalidate
 
     @media screen and (-ms-high-contrast: active) {
       .form-button {
-        border: 2px solid currentColor;
+        border: 2px solid var(--accent);
       }
     }
 
     :is(input,textarea, button):focus {
-      outline: 2px solid var(--scheme-color);
+      outline: 2px solid var(--accent);
       outline-offset: 2px;
-      box-shadow: 0 0 0.35em -0.1em var(--scheme-color);
-    }
-
-    @media(prefers-color-scheme: dark) {
-      :root {
-        --scheme-color: var(--color-dark);
-      }
-
-      body {
-        color: var(--scheme-color);
-      }
-
-      input, textarea, button {
-      border: 2px solid var(--scheme-color);
-    }
-
-    :is(input,textarea, button):focus {
-      outline-color: var(--scheme-color);
-    }
+      box-shadow: 0 0 0.35em -0.1em var(--accent);
     }
 
 </style>

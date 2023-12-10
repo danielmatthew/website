@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import Nav from "../components/Nav.astro";
 import Footer from '../components/Footer.astro';
 
 interface Props {
@@ -20,17 +19,39 @@ const { title, description, modifier } = Astro.props;
     <title>{title && `${title} | `}Dan Matthew is a designer and developer.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700&family=Barlow:ital,wght@0,400;0,700;1,300;1,700&display=swap" rel="stylesheet">
-    <script is:inline>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">     <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
           return localStorage.getItem('theme');
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+
+        if (getThemePreference() === 'dark' || !getThemePreference() && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('pause-transitions');
+        document.documentElement.classList.add('theme-dark');
+        document.head.querySelector('meta[name="theme-color"]').setAttribute('content', 'hsl(0, 0%, 0%)');
+
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove('pause-transitions');
+        });
+
+        return 'theme-dark';
+      } else {
+        document.documentElement.classList.add('pause-transitions');
+        document.documentElement.classList.add('theme-light');
+        document.head.querySelector('meta[name="theme-color"]').setAttribute('content', '#fcfcfc');
+
+        requestAnimationFrame(() => {
+          document.documentElement.classList.remove('pause-transitions');
+        });
+
+        return 'theme-light';
+      }
       };
-      const isDark = getThemePreference() === 'dark';
-      document.documentElement.classList[isDark ? 'add' : 'remove']('theme-dark');
+
+
+
 
       if (typeof localStorage !== 'undefined') {
         // Watch the document element and persist user preference when it changes.
@@ -75,7 +96,6 @@ const { title, description, modifier } = Astro.props;
     <meta name="theme-color" content="hsl(0, 0%, 99%)">
   </head>
   <body>
-    <Nav />
     <slot />
     <Footer />
   </body>

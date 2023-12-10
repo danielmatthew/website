@@ -16,6 +16,7 @@
   --beyond-the-stars: #002642;
   --sand: #ede0d4;
 
+  --sand-10: #F0E5DB;
   --sand-80: hsla(29, 31%, 78%, 100%);
 
   --color-background: var(--color-theme-300);
@@ -64,7 +65,7 @@
   --dynamic-space: calc((100vw - var(--wrapper-width)) / 2);
   --negative-dynamic-space: calc(var(--wrapper-width) * -1);
 
-  --line-length: 60ch;
+  --line-length: 65ch;
 
   --border-radius-m: 4px;
   --border-radius-s: 2px;
@@ -77,8 +78,8 @@
   --OFF: ;
 
   --serif: Georgia, "Times New Roman", Times, serif;
-  --sans-serif: "Barlow", -system-ui, sans-serif;
-  --titles: "Barlow Condensed", -system-ui, sans-serif;
+  --sans-serif: -system-ui, sans-serif;
+  --titles: "Bricolage Grotesque", -system-ui, sans-serif;
 
   --shadows: 0px 0px 1px rgba(20, 20, 21, 0.18),
     0px 8px 16px -8px rgba(20, 20, 21, 0.15),
@@ -193,7 +194,8 @@ html,
 }
 
 :root {
-  --background: var(--sand);
+  --background: var(--sand-10);
+  --background--hero: var(--sand);
   --text: var(--beyond-the-stars);
   --accent: var(--carrot);
   --border: var(--sand-80);
@@ -210,6 +212,7 @@ html,
 
   :root {
     --background: var(--beyond-the-stars);
+    --background--hero: hsl(206,72%, 20%);
     --text: var(--sand);
     --accent: var(--beyond-the-stars);
     --border: hsl(206,72%, 16%);
@@ -225,6 +228,7 @@ html,
 
 :root.theme-dark {
     --background: var(--beyond-the-stars);
+    --background--hero: hsl(206,72%, 20%);
     --text: var(--sand);
     --accent: var(--beyond-the-stars);
     --border: hsl(206,72%, 16%);
@@ -313,7 +317,7 @@ body {
     text-underline-offset: 0.3ex;
   }
 
-  a:focus-visible {
+  a:focus-visible:not(.logo) {
     background: var(--text);
     color: var(--background);
     outline: 2px solid var(--text);
@@ -345,12 +349,8 @@ body {
   }
 
   .lede {
-    max-width: 65ch;
-    font-size: var(--step-1);
-    font-weight: 300;
-    font-style: italic;
+    font-family: var(--titles);
     text-wrap: balance;
-    line-height: var(--leading-tight);
   }
 
   .lede + * {
@@ -393,13 +393,26 @@ body {
   }
 }
 
+.filmstrip {
+  background-color: var(--background--hero);
+  padding-block: var(--space-xs);
+  font-size: var(--step--1);
+  text-align: center;
+}
+
 .banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-block: var(--space-m);
-  padding-block: var(--space-xs);
+  padding-block: var(--space-xl) 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: var(--space-xs);
 }
 
 #quadtree {
@@ -411,8 +424,24 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-xs);
+}
+
+.logo:focus-visible {
+  outline: none;
+}
+
+.logo:focus-visible .avatar {
+    background-color: var(--text);
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.logo:focus-visible .avatar path {
+  /* fill: var(--accent); */
+}
+
+.logo span {
+  padding-left: var(--space-s);
 }
 
 .logo:not(:focus):not(:focus-within) span {
@@ -448,7 +477,6 @@ body {
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
     grid-auto-flow: dense;
     gap: var(--space-xs);
   }
@@ -473,8 +501,30 @@ canvas {
   }
 }
 
+.terrazo {
+  background-color: var(--background);
+  background-image:
+    linear-gradient(transparent, var(--background) 10% ),
+    /* radial-gradient(circle, var(--background) 50vw, transparent ), */
+    url('./img/terrazo.svg');
+
+}
+
+.hero {
+  position: relative;
+  background-color: var(--background--hero);
+  background-image: url('/img/noise.svg');
+  background-blend-mode: overlay;
+}
+
+#waves path {
+  fill: var(--background);
+}
+
 header hgroup {
-  max-width: 65ch;
+  padding-block-end: var(--space-l-xl);
+  text-wrap: pretty;
+  font-size: var(--step-2);
 }
 
 footer {
@@ -653,9 +703,8 @@ figure img {
     position: relative;
     grid-template-columns: auto 1fr;
     gap: var(--space-m);
-    margin-top: var(--space-xl);
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--border);
+    margin-top: var(--space-l);
+    padding-top: var(--space-l);
   }
 
   .wrapper--quotes {
