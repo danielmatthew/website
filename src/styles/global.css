@@ -317,7 +317,7 @@ body {
     text-underline-offset: 0.3ex;
   }
 
-  a:focus-visible {
+  a:focus-visible:not(.logo) {
     background: var(--text);
     color: var(--background);
     outline: 2px solid var(--text);
@@ -424,6 +424,24 @@ body {
 .logo {
   display: flex;
   align-items: center;
+}
+
+.logo:focus-visible {
+  outline: none;
+}
+
+.logo:focus-visible .avatar {
+    background-color: var(--text);
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+}
+
+.logo:focus-visible .avatar path {
+  /* fill: var(--accent); */
+}
+
+.logo span {
+  padding-left: var(--space-s);
 }
 
 .logo:not(:focus):not(:focus-within) span {
