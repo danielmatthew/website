@@ -1,6 +1,7 @@
 ---
 title: Remove Child Nodes In JavaScript
 published: true
+publishedDate: 2013-12-11
 ---
 
 After discovering whether an element has children, one may want to go ahead and remove them. The brutalist approach involves setting the node's `innerHTML` property to an empty string.

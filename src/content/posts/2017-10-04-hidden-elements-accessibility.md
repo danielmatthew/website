@@ -1,6 +1,7 @@
 ---
 title: Hide An Element From A Screenreader
 published: true
+publishedDate: 2017-10-04
 ---
 
 I recently discovered that it's not enough to rely on either `role="presentation"` or `aria-hidden="true"` to remove an element from the accessibility tree. Just like CSS quirks, in order to ensure an element is truly hidden from screenreaders across operating systems and browsers, you will want to double-up on the attributes:

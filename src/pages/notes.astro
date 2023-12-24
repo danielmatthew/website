@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro";
-
+import Hero from "../components/Hero.astro";
 // const notes = (await getCollection('posts'));
 
 // Get date from filenames
@@ -21,18 +21,20 @@ const notesWithDate =
   //     note.data.date = realDate;
   //   }
   // })
-  .sort((a, b) => b.data.date?.valueOf() - a.data.date?.valueOf());
+  .sort((a, b) => {
+    return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
+  });
 
 ---
-<BaseLayout title="Notes | Dan Matthew">
+<BaseLayout title="Notes">
+  <Hero title="Notes"/>
   <main class="wrapper">
-  <h1>Notes</h1>
-
-  <ul class="">
+  <ul class="content flow">
     {
       notesWithDate.map((note) => (
         <li>
           <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
+          <time datetime={note.data.publishedDate}>{note.data.publishedDate}</time>
         </li>
       ))
     }

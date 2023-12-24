@@ -7,6 +7,7 @@ tags:
   - 2020
 syndicate: false
 published: true
+publishedDate: 2020-10-25
 ---
 
 I'm super consistent with writing these, eh?

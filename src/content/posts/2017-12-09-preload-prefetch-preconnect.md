@@ -1,6 +1,7 @@
 ---
 title: Preload, Prefetch, and Preconnect
 published: true
+publishedDate: 2017-12-09
 ---
 
 Working on a Polymer project recently, I got to experiment with serving the content from Firebase Hosting, which now [offers support for HTTP/2 and Server Push](https://firebase.googleblog.com/2016/09/http2-comes-to-firebase-hosting.html). Server Push allows content to be delivered speculatively: content is delivered whether or not the user has it already, and in some cases it might not be required at all.

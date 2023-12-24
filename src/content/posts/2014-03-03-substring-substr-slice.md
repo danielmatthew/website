@@ -1,6 +1,6 @@
 ---
 title: Substring, Substr, and Slice.
-
+publishedDate: 2014-03-03
 ---
 
 When dealing with strings in JavaScript, there are several options available when needing to return a particular section:

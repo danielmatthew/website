@@ -1,6 +1,7 @@
 ---
 title: Checking Date Equality in JavaScript
 published: true
+publishedDate: 2014-04-16
 ---
 
 Checking whether one date is equal to another is made difficult because of the way object equality works in JavaScript. Object equality isn't tested by the internal value of the object, but by identity. If the date object isn't a straight copy, it isn't considered equal. The following example will never return `true`:

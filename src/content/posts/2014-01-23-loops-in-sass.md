@@ -1,6 +1,7 @@
 ---
 
 title: Loops in Sass
+publishedDate: 2014-01-23
 ---
 
 Sass makes it dead simple to automate repetitive tasks we might encounter when writing CSS.

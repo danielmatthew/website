@@ -1,6 +1,6 @@
 ---
 title: this and that in JavaScript
-
+publishedDate: 2015-04-24
 ---
 
 <p class="lead">When looking at code written by others, you may wonder why JavaScript developers will often alias <code>this</code> as <code>that</code>, or <code>self</code>, within a function. Why is this? Surely <code>this</code> always refers to the current object?</p><p class="lead">Short story: nope.</p>

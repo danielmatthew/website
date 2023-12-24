@@ -2,7 +2,7 @@
 import { CollectionEntry, getCollection } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
+import Hero from "../../components/Hero.astro";
 
 interface Props {
   entry: CollectionEntry<'posts'>;
@@ -20,19 +20,12 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 <BaseLayout
-  title={`${entry.data.title} | Dan Matthew – Interaction Designer`}
+  title={`${entry.data.title}`}
 >
-  <main>
-    <article class="wrapper">
-      <header>
-        <div class="flow masthead">
-          <h1>{entry.data.title}</h1>
-          <div class="meta">
-            <time>{entry.data.publishedDate}</time>
-          </div>
-        </div>
-      </header>
-      <section class="layout content flow">
+<Hero title={entry.data.title} />
+  <main class="wrapper">
+    <article >
+      <section class="layout content">
         <Content />
       </section>
     </article>

@@ -1,6 +1,6 @@
 ---
-
 title: Function declarations versus function expressions
+publishedDate: 2013-05-23
 ---
 ### Function declaration
 A function declaration is written like so:

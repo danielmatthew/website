@@ -1,5 +1,6 @@
 ---
 title: Variable Scope in JavaScript
+publishedDate: 2013-05-18
 ---
 
 Variables belong to a scope, and that particular scope determines where a variable can be used. Scope is delineated with `{` and `}`

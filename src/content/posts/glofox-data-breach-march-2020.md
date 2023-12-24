@@ -3,7 +3,7 @@ title: Glofox Data Breach March 2020
 published: true
 metaDesc: "A recap of Glofox's data breach and their lack of interest in
   alerting their customers that their details have been stolen. "
-date: 2021-05-25T16:32:11.921Z
+publishedDate: 2021-05-25T16:32:11.921Z
 ---
 Have you heard of a company called [Glofox](https://www.glofox.com)? Their software provides the booking system for gyms and fitness studios.
 

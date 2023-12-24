@@ -1,6 +1,7 @@
 ---
 title: Automating the Build Process with Travis-CI
 published: true
+publishedDate: 2017-11-20
 ---
 
 _Updated 9th December to illustrate latest iteration of Travis.yml_

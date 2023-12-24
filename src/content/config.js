@@ -10,12 +10,15 @@ export const collections = {
       tags: z.array(z.string()),
       img: z.string(),
       img_alt: z.string().optional(),
-      draft: z.boolean().optional(),
+      draft: z.boolean().default(false).optional(),
     }),
   }),
   posts: defineCollection({
     schema: z.object({
-      title: z.string()
+      title: z.string(),
+      publishedDate: z.string().or(z.date()).transform((val) => new Date(val)),
+      updatedDate: z.string().optional().transform((str) => (str ? new Date(str): undefined)),
+      draft: z.boolean().optional()
     }),
   }),
   articles: defineCollection({

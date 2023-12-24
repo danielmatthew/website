@@ -1,6 +1,6 @@
 ---
 title: Each, Map, and Reduce
-
+publishedDate: 2015-05-22
 ---
 
 <p class="lead">Functional programming (FP) aims to create predictable code by eliminating so-called <a href="https://programmers.stackexchange.com/questions/40297/what-is-a-side-effect">side effects</a>, bringing with it  confidence that the same code with the same arguments will produce the same results. In order to achieve this, developers rely on <i>higher-order functions</i>: functions that operate on other functions.</p>

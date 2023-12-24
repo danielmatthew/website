@@ -3,6 +3,7 @@
 title: Numbers In JavaScript
 featured: true
 tags: javascript development
+publishedDate: 2013-06-02
 ---
 ## The basics
 Because JavaScript is a dynamically-typed language, we can declare a new number variable just as we would any other type: with the use of the `var` keyword, a name, the assignment operator, and optionally, its value.

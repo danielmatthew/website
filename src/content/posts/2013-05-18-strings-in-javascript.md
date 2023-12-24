@@ -1,8 +1,8 @@
 ---
-
 title: Strings in JavaScript
 featured: true
 tags: javascript development
+publishedDate: 2013-05-18
 ---
 
 ## Escape Characters

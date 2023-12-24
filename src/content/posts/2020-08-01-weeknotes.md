@@ -7,6 +7,7 @@ tags:
   - 2020
 syndicate: true
 published: true
+publishedDate: 2020-08-01
 ---
 
 - I spent a day off watching a series of talks from [JAMstack Conf](https://www.youtube.com/c/JAMstackConf), before getting wet and wild out on the bike: that was not a pleasurable experience.

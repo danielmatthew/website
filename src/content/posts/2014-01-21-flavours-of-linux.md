@@ -1,6 +1,7 @@
 ---
 
 title: Flavours of Linux
+publishedDate: 2014-01-21
 ---
 
 For whatever reason, I have found myself looking after two VPS set-ups: the first running CentOS with [South West Broadband](http://swbroadband.co.uk), the second an Ubuntu droplet over at [Digital Ocean](http://digitalocean.com). Thing is, after learning the basics of server configuration, and getting comfortable with the way CentOS does things, I've only gone and confused myself by flitting between the variants. Common tasks are carried out in quite different ways.

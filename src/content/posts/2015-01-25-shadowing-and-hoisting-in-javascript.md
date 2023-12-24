@@ -1,6 +1,7 @@
 ---
 title: Shadowing And Hoisting In JavaScript
 published: true
+publishedDate: 2015-01-25
 ---
 
 ## Shadowing

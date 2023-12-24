@@ -6,6 +6,7 @@ tags:
   - web-components
   - accessibility
   - side-projects
+publishedDate: 2020-07-12
 ---
 
 ## The web component

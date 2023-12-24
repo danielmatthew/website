@@ -1,6 +1,7 @@
 ---
 
 title: Replace Contents Of Element In JavaScript
+publishedDate: 2013-12-15
 ---
 
 ```js

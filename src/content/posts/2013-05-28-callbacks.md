@@ -1,6 +1,7 @@
 ---
 
 title: JavaScript Callbacks
+publishedDate: 2013-05-28
 ---
 A callback is a method designated to handle the response of an AJAX call once it gets back to your method.
 JavaScript methods are treated as first-class objects, which means that they can be passed around just like objects, and they can be attached to all manner of events.
