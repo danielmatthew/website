@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.6.0](https://github.com/danielmatthew/website/compare/v6.5.0...v6.6.0) (2023-12-30)
+
+
+### Features
+
+* show notes ([#108](https://github.com/danielmatthew/website/issues/108)) ([c231c2b](https://github.com/danielmatthew/website/commit/c231c2bcb8afb06ebca2ccfe92d0da24af32344d))
+
 ## [6.5.0](https://github.com/danielmatthew/website/compare/v6.4.0...v6.5.0) (2023-12-10)
 
 
