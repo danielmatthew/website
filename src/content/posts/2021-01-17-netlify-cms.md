@@ -2,6 +2,7 @@
 title: Netlify CMS
 published: true
 date: 2021-01-17T20:42:30.898Z
+publishedDate: 2021-01-17
 ---
 I've been experimenting with services such as [Contentful](https://www.contentful.com/), [Prismic](https://prismic.io/), and finally [Sanity](http://sanity.io). Currently, each post on this site is a Markdown file, and it is converted into a HTML page by 11ty when the site is built. The "content-as-a-service" platforms return data over the wire, and each record in the GraphQL response is turned into the post it represents.
 

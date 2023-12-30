@@ -1,6 +1,7 @@
 ---
 title: Implementing Responsive Images
 published: false
+publishedDate: 2015-04-19
 ---
 
 **Updated 26/06/2015:** The [`sizes` attribute is no longer optional](http://alistapart.com/blog/post/article-update-dont-rely-on-default-sizes) if you want your code to validate.

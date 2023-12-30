@@ -2,6 +2,7 @@
 title: Pharmaceuticals
 syndicate: true
 published: true
+publishedDate: 2020-12-08
 ---
 
 I thought I was an OK runner. I trained hard over the course of 2018 and aimed to get under 1:40 at the Great North Run. I ran 1:31, and then a few weeks later went 1:27 at Birmingham's Great Run.

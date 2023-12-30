@@ -2,6 +2,7 @@
 title: npm 101 – Version Ranges
 
 published: true
+publishedDate: 2016-01-25
 ---
 
 The following is a snippet from this site's `package.json`:

@@ -2,6 +2,7 @@
 title: "What's new in WCAG 2.1"
 
 published: false
+publishedDate: 2018-01-30
 ---
 
 ## What is WCAG 2.1?

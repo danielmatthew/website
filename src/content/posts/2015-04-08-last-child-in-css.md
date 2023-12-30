@@ -1,6 +1,6 @@
 ---
 title: last-child in CSS
-
+publishedDate: 2015-04-08
 ---
 
 The `:last-child` psuedo-selector allows the developer to target the last child element of its parent. But you need to qualify it with the element that you are targetting. Something that has caught me out in the past has been applying the selector to the parent itself:

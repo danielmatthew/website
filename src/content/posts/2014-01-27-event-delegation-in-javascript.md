@@ -1,6 +1,7 @@
 ---
 
 title: Event Delegation In JavaScript
+publishedDate: 2014-01-27
 ---
 
 First, some markup:

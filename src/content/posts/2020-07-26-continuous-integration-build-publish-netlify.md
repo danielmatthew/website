@@ -7,6 +7,7 @@ tags:
   - eleventy
   - travis-ci
   - cypress
+publishedDate: 2020-07-26
 ---
 
 Last week, Chris Coyier [published a post on CSS Tricks which covered an approach to the simplest of testing set-ups](https://css-tricks.com/develop-preview-test/): ensuring the website loads and displays some content. A "smoke test".

@@ -2,6 +2,7 @@
 title: "Goodbye Gatsby; Hello Eleventy!"
 metaDesc: Porting the website from Gatsby to Eleventy, and the friends we made along the way.
 published: true
+publishedDate: 2020-07-05
 ---
 
 Hello there. It's been a good while since anything new content has appeared on this website, and while I've tinkered with the splash page on occasion, it's not displayed anything more than my name in a `<h1>`.

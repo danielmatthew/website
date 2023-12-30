@@ -1,6 +1,7 @@
 ---
 
 title: Ensure A Table Fills Its Containing Element
+publishedDate: 2014-01-24
 ---
 
 ```css

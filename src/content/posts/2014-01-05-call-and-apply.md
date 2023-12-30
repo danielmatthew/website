@@ -1,6 +1,7 @@
 ---
 
 title: call() and apply()
+publishedDate: 2014-01-05
 ---
 
 - `apply()` invokes the named function with an array of arguments

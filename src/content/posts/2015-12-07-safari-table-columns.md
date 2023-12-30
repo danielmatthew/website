@@ -3,6 +3,7 @@ title: Column Sizing and Captions in Safari
 
 tags: [css, web development]
 published: true
+publishedDate: 2015-12-07
 ---
 
 

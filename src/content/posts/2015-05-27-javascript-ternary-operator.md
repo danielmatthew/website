@@ -1,6 +1,6 @@
 ---
 title: JavaScript's Ternary Operator
-
+publishedDate: 2015-05-27
 ---
 
 <p class="lead">When you've been writing code for a good while, you start looking at ways to speed up the process. Perhaps the most obvious method to achieve this is to write fewer lines of code.</p>

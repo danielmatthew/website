@@ -1,6 +1,7 @@
 ---
 
 title: DOM Selectors 101
+publishedDate: 2013-06-22
 ---
 
 There are a variety of methods available that allow us to grab elements that are present in the Document Object Model (DOM).

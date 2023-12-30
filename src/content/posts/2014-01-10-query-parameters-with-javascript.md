@@ -1,6 +1,7 @@
 ---
 
 title: Access URL Query Parameters With JavaScript
+publishedDate: 2014-01-10
 ---
 
 I was recently tasked with building a promotional page for [Didlr](http://didlr.com/promotions/year-of-donuts?username=dan) which needed to feature a personalised call to action. Typically, this would have been done server-side, but as visitors would be landing on the page via one of the mobile apps, we'd have to append the username when delivering the ads with our API. Thus, I would have to access this information on the client. And this is how I did it:

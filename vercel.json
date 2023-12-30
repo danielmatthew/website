@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:year/:month/:date/:slug",
+      "destination": "/notes/:slug",
+      "permanent": true
+    }
+  ]
+}

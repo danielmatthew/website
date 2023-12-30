@@ -1,6 +1,7 @@
 ---
 
 title: The Path to Mastery
+publishedDate: 2014-01-22
 ---
 
 After reading [Zach Wentz's Medium post on CodeSchool](https://medium.com/i-m-h-o/56ed7faaad58), I resolved to reminding myself of the concepts I'd encountered while studying for my Computer Science degree.

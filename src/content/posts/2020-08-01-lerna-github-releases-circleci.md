@@ -8,7 +8,7 @@ tags:
  - github
 syndicate: false
 published: true
-date: 2020-08-03
+publishedDate: 2020-08-01
 ---
 
 Reducing the number of manual steps needed to get code live is a good thing. This is how I create Github releases from the CI process.

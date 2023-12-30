@@ -1,6 +1,6 @@
 ---
 title: setTimeout and setInterval
-
+publishedDate: 2015-04-21
 ---
 
 <p class="lead">JavaScript features a couple of useful utilities that allow the developer to schedule code to run outside of the normal execution flow.</p>

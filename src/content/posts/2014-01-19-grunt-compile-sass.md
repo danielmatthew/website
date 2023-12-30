@@ -1,6 +1,7 @@
 ---
 
 title: Using Grunt to Compile Sass
+publishedDate: 2014-01-19
 ---
 
 A quick snippet from my `gruntfile.js` that illustrates how I'm using Grunt to watch my Sass directory for changes, before compiling and outputting minified CSS.

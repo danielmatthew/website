@@ -1,6 +1,7 @@
 ---
 
 title: Get The Day Of The Week In JavaScript
+publishedDate: 2014-01-27
 ---
 
 ```js

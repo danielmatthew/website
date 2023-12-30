@@ -1,6 +1,7 @@
 ---
 
 title: JavaScript Constants
+publishedDate: 2015-03-26
 ---
 
 The new ES6 JavaScript standard finally allows developers to declare variables using the handy `const` keyword. This prevents the value from being reassigned - somewhat reassuring if that's a requirement.

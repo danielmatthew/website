@@ -3,6 +3,8 @@ import ThemeToggle from './ThemeToggle.astro';
 import Quadtree from './Quadtree.astro';
 import Avatar from '../components/Avatar.astro';
 
+const currentPath = Astro.url.pathname;
+
 ---
 
 <a href="#content" class="skip-link visually-hidden-focusable">Skip to content</a>
@@ -11,4 +13,8 @@ import Avatar from '../components/Avatar.astro';
     <Avatar />
     <span class="sr-only">Home</span>
   </a>
+
+  <nav>
+    {currentPath === '/notes' ? <a href="/notes" aria-current="page">Notes</a> : <a href="/notes">Notes</a>}
+  </nav>
 </header>

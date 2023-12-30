@@ -1,6 +1,7 @@
 ---
 
 title: JavaScript Feature Detection
+publishedDate: 2014-01-26
 ---
 
 Some JavaScript features just don't work in certain browsers. While it used to be a common practice to 'sniff' the user-agent string of the browser, [this is now frowned-upon](https://developer.mozilla.org/en-US/docs/Browser_Detection_and_Cross_Browser_Support). The preferred approach is for developers to implement feature detection. That is, testing the ability of the browser to carry out the desired task. If the feature is not supported, we write our code intelligently in order to cater for this eventuality.

@@ -1,6 +1,7 @@
 ---
 
 title: Finding Child Elements In JavaScript
+publishedDate: 2013-12-10
 ---
 
 There are several techniques that allow us to discover if a particular DOM element has any children - whether there are any nodes contained within.
