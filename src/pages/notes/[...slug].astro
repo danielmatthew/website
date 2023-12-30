@@ -8,26 +8,104 @@ interface Props {
   entry: CollectionEntry<'posts'>;
 }
 
+// export async function getStaticPaths() {
+//   const notes = await getCollection("posts");
+//   return notes.map((entry) => ({
+//     params: { slug: entry.slug },
+//     props: { entry },
+//   }));
+// }
+
 export async function getStaticPaths() {
-  const notes = await getCollection("posts");
-  return notes.map((entry) => ({
+  const notes = await getCollection("posts", ({data}) => {
+    return data.published !== false;
+  });
+
+  const numberOfPosts = notes.length;
+
+  return notes.map((entry, index) => ({
     params: { slug: entry.slug },
-    props: { entry },
+    props: {
+      entry,
+      prevPost:
+        index + 1 === numberOfPosts
+        ? { frontmatter: ''}
+        : notes[index + 1],
+      nextPost:
+        index === 0
+        ? { frontmatter: ''}
+        : notes[index - 1],
+    },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, prevPost, nextPost } = Astro.props;
+
 const { Content } = await entry.render();
 ---
 <BaseLayout
   title={`${entry.data.title}`}
 >
-<Hero title={entry.data.title} />
-  <main class="wrapper">
-    <article >
-      <section class="layout content">
+<Hero title={entry.data.title}>
+  <div slot="header-extras">
+    <div class="meta">
+      <time datetime={entry.data.publishedDate.toISOString()}>
+        {entry.data.publishedDate.toLocaleDateString()}
+      </time>
+    </div>
+  </div>
+</Hero>
+  <main class="wrapper" id="content">
+    <article>
+      <section class="layout content flow">
         <Content />
       </section>
     </article>
+
+    <nav aria-label="Notes pagination">
+      {nextPost.slug &&
+        <a href={`/notes/${nextPost.slug}/`}>
+          {nextPost.data.title}
+        </a>
+      }
+      {prevPost.slug &&
+        <a href={`/notes/${prevPost.slug}/`}>
+          {prevPost.data.title}
+        </a>
+      }
+    </nav>
   </main>
 </BaseLayout>
+<style>
+    .meta,
+  .roles {
+    display: flex;
+    font-size: var(--step-0);
+  }
+
+  nav {
+    display: flex;
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    justify-content: space-between;
+  }
+
+  nav > a {
+    display: block;
+    margin-block: var(--space-xs);
+    padding: var(--space-xs);
+    width: 50%;
+    font-size: var(--step--1);
+  }
+
+  nav > a:hover,
+  nav > a:focus {
+    background-color: var(--text);
+    text-decoration-color: var(--background);
+    color: var(--background);
+  }
+
+  nav > a:nth-of-type(2) {
+    text-align: right;
+  }
+</style>

@@ -719,6 +719,8 @@ figure img {
     container-name: work;
     list-style: none;
     padding: 0;
+    perspective: 50cm;
+    perspective-origin: center;
   }
 
   @container work (min-width: 30rem) {
@@ -727,9 +729,9 @@ figure img {
       align-items: flex-start;
     }
 
-    .card--project:nth-of-type(2) {
+    /* .card--project:nth-of-type(2) {
       transform: scale(1.05);
-    }
+    } */
 
     .project-details {
       font-size: 3rem;
@@ -926,7 +928,7 @@ figure img {
 }
 
 .content {
-  border-top: 1px solid var(--border);
+  /* border-top: 1px solid var(--border); */
   margin-block-start: var(--space-xl);
   padding-block-start: var(--space-xl);
 }

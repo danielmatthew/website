@@ -2,25 +2,12 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
-// const notes = (await getCollection('posts'));
 
-// Get date from filenames
 const notesWithDate =
-  (await getCollection('posts'))
-  // .map((note) => {
-  //   // Notes with no date
-  //   if (!note.data.date) {
-  //     const dateFormat = new RegExp('^[0-9]{4}-[0-9]{2}-[0-9]{2}');
-  //     const matches = note.id.match(dateFormat);
-  //     if (matches?.[0]) {
-  //       const realDate = new Date(matches[0]);
-  //       note.data.date = realDate;
-  //     }
-  //   } else {
-  //     const realDate = new Date(note.data.date);
-  //     note.data.date = realDate;
-  //   }
-  // })
+  (await getCollection('posts', ({data}) => {
+    return data.published !== false;
+  }))
+
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
   });
@@ -29,24 +16,15 @@ const notesWithDate =
 <BaseLayout title="Notes">
   <Hero title="Notes"/>
   <main class="wrapper">
-  <ul class="content flow">
+  <ol class="content flow" style="--flow-space: var(--space-m);" role="list" reversed>
     {
       notesWithDate.map((note) => (
         <li>
           <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
-          <time datetime={note.data.publishedDate}>{note.data.publishedDate}</time>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString()}</time>
         </li>
       ))
     }
-  </ul>
+  </ol>
   </main>
 </BaseLayout>
-<style>
-  ul {
-    list-style: none;
-  }
-
-  li {
-    margin-block-end: var(--space-xl);
-  }
-</style>
