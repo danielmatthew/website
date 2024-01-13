@@ -863,6 +863,7 @@ figure img {
   .card--quote {
     position: relative;
     display: flex;
+    height: 100%;
     flex-direction: column;
     justify-content: space-between;
     flex: 1 0 auto;
