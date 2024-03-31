@@ -16,13 +16,10 @@ const { title, description, modifier } = Astro.props;
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title && `${title}: `} Dan Matthew is a designer and developer</title>
-
+    <title>{title && `${title}: `}Dan Matthew is a designer and developer.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- <script is:inline>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">     <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
         if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -64,9 +61,8 @@ const { title, description, modifier } = Astro.props;
         });
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
-    </script> -->
-
-    <!-- <script defer>
+    </script>
+    <script defer>
       const konamiCode = '38,38,40,40,37,39,37,39,66,65';
       const keyPresses = [];
       const checkKonami = (e) => {
@@ -80,13 +76,14 @@ const { title, description, modifier } = Astro.props;
       }
 
       document.addEventListener('keyup', checkKonami);
-    </script> -->
+    </script>
     {isProd &&
       <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
       </script>
       <script defer src="/_vercel/insights/script.js"></script>
     }
+    <meta name="description" content="Dan Matthew is a designer and developer from the UK.">
     <meta name="view-transition" content="same-origin">
     <link rel="icon" href="/favicon.ico" sizes="any">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">

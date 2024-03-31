@@ -14,15 +14,10 @@
 
   --carrot: #fd7b2b;
   --beyond-the-stars: #002642;
-
   --sand: #ede0d4;
+
   --sand-10: #F0E5DB;
   --sand-80: hsla(29, 31%, 78%, 100%);
-
-  --midnight: #002A54;
-  --porcelain: #FAFBF4;
-  --salmon: #E3A9A0;
-  --blush: #ED6B5D;
 
   --color-background: var(--color-theme-300);
   --scheme-color: var(--color-light);
@@ -82,13 +77,9 @@
   --ON: initial;
   --OFF: ;
 
-  --serif: 'IBM Plex Serif', "Times New Roman", Times, serif;
-  --sans-serif: 'Lexend', -system-ui, sans-serif;
-  --sans-serif: 'IBM Plex Sans', -system-ui, sans-serif;
-  --sans-serif: 'Fira Sans', -system-ui, sans-serif;
-
-  --body: var(--sans-serif);
-  --titles: var(--sans-serif);
+  --serif: Georgia, "Times New Roman", Times, serif;
+  --sans-serif: -system-ui, sans-serif;
+  --titles: "Bricolage Grotesque", -system-ui, sans-serif;
 
   --shadows: 0px 0px 1px rgba(20, 20, 21, 0.18),
     0px 8px 16px -8px rgba(20, 20, 21, 0.15),
@@ -217,11 +208,11 @@ html,
     0px 4px 8px -4px hsla(29, 31%, 28%, 0.35);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 
   :root {
-    --background--hero: var(--beyond-the-stars);
-    --background: hsl(206,72%, 20%);
+    --background: var(--beyond-the-stars);
+    --background--hero: hsl(206,72%, 20%);
     --text: var(--sand);
     --accent: var(--beyond-the-stars);
     --border: hsl(206,72%, 16%);
@@ -233,7 +224,7 @@ html,
       0px 0px 1px hsla(206, 72%, 5%, 0.14),
       0px 4px 8px -4px hsla(206, 72%, 5%, 0.35);
   }
-} */
+}
 
 :root.theme-dark {
     --background: var(--beyond-the-stars);
@@ -251,11 +242,12 @@ html,
 }
 
 body {
+  /* background-color: hsl(0, 0%, 99%); */
+  /* background-color: #e5dada; */
   background-color: var(--background);
   color: var(--text);
-  font-family: var(--body);
+  font-family: var(--sans-serif);
   font-size: var(--step-0);
-  /* font-weight: 300; */
   line-height: var(--leading-standard, 1.6);
 }
 
@@ -348,7 +340,13 @@ body {
   }
 
   .summary {
+    background-color: var(--background--hero);
     margin-block-start: var(--space-xl, 1em);
+    padding: var(--space-3xl);
+    border-top-left-radius: 40% 90%;
+    border-top-right-radius:  60% 90%;
+    border-bottom-left-radius: 40% 90%;
+    border-bottom-right-radius: 90% 90%;
   }
 
   .lede {
@@ -962,14 +960,14 @@ figure img {
     outline-color: var(--scheme-color);
   }
 
-  /* img {
+  img {
     opacity: 0.75;
     transition: opacity 0.5s ease-in-out;
   }
 
   img:hover {
     opacity: 1;
-  } */
+  }
 }
 
 @keyframes fade-in {
