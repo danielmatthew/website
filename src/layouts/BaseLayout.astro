@@ -18,9 +18,9 @@ const { title, description, modifier } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{title && `${title}: `} Dan Matthew is a designer and developer</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://use.typekit.net">
+    <link rel="preconnect" href="https://p.typekit.net" crossorigin>
+    <link rel="stylesheet" href="https://use.typekit.net/zst5wvn.css">
 
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
@@ -52,9 +52,6 @@ const { title, description, modifier } = Astro.props;
         return 'theme-light';
       }
       };
-
-
-
 
       if (typeof localStorage !== 'undefined') {
         // Watch the document element and persist user preference when it changes.

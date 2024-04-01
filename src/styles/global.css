@@ -85,7 +85,7 @@
   --serif: 'IBM Plex Serif', "Times New Roman", Times, serif;
   --sans-serif: 'Lexend', -system-ui, sans-serif;
   --sans-serif: 'IBM Plex Sans', -system-ui, sans-serif;
-  --sans-serif: 'Fira Sans', -system-ui, sans-serif;
+  --sans-serif: fira-sans, -system-ui, sans-serif;
 
   --body: var(--sans-serif);
   --titles: var(--sans-serif);
@@ -250,12 +250,18 @@ html,
       0px 4px 8px -4px hsla(206, 72%, 5%, 0.35);
 }
 
+@font-feature-values 'Fira Sans' {
+  @styleset {
+    alta: 4;
+  }
+}
+
 body {
   background-color: var(--background);
   color: var(--text);
   font-family: var(--body);
   font-size: var(--step-0);
-  /* font-weight: 300; */
+  font-feature-settings: "onum", "zero", "ss04", "ss03", "liga", "clig";
   line-height: var(--leading-standard, 1.6);
 }
 
