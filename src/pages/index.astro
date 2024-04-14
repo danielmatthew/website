@@ -158,9 +158,41 @@ const quotes = await contentfulClient
           <h2>Quotes</h2>
           <p>Some nice things people have said about me</p>
         </hgroup>
-        <div class="quote-scroller" tabindex="0">
-          {quotes.items.map((quote) => <Quote quote={quote} />)}
+        <div class="quote-container js-at-start">
+          <div class="quote-scroller" tabindex="0">
+            {quotes.items.map((quote) => <Quote quote={quote} />)}
+          </div>
         </div>
+        <script is:inline>
+          const scroller = document.querySelector('.quote-scroller');
+          const container = document.querySelector('.quote-container');
+          let x = scroller.scrollLeft;
+
+          function updateScroller(scrollPos) {
+            const scrollerWidth = scroller.scrollWidth - scroller.clientWidth;
+
+            if (scrollPos === 0) {
+              container.classList.remove('js-at-start');
+            }
+
+            if (scrollPos > 0 ) {
+              container.classList.add('js-at-start');
+            }
+
+            if (scrollPos < scrollerWidth) {
+              container.classList.add('js-at-end');
+            }
+
+            if (scrollPos === scrollerWidth) {
+              container.classList.remove('js-at-end');
+            }
+          }
+
+          scroller.addEventListener('scroll', (event) => {
+            x = scroller.scrollLeft;
+            updateScroller(x);
+          });
+        </script>
       </section>
     </div>
   </main>
