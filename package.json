@@ -55,7 +55,7 @@
     "@stackblitz/sdk": "^1.9.0",
     "@svgdotjs/svg.js": "^3.2.0",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^4.6.3",
-    "contentful": "^10.8.8"
+    "astro": "^4.7.0",
+    "contentful": "^10.9.1"
   }
 }
