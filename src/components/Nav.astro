@@ -11,10 +11,12 @@ const currentPath = Astro.url.pathname;
 <header class="banner wrapper">
   <a href="/" class="logo">
     <Avatar />
-    <span class="sr-only">Home</span>
+    <span class="sr-only">Dan Matthew</span>
   </a>
 
   <nav>
     {currentPath === '/notes' ? <a href="/notes" aria-current="page">Notes</a> : <a href="/notes">Notes</a>}
+
+    {currentPath === '/work' ? <a href="/work" aria-current="page">Work</a> : <a href="/work">Work</a>}
   </nav>
 </header>
