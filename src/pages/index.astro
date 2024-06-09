@@ -6,6 +6,14 @@ import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from'../components/Hero.astro';
 import Quote from "../components/Quote.astro";
 
+const notesWithDate =
+  (await getCollection('posts', ({data}) => {
+    return data.published !== false;
+  }))
+  .sort((a, b) => {
+    return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
+  });
+
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
 });
@@ -58,6 +66,14 @@ const quotes = await contentfulClient
     </div>
   </Hero>
   <main class="flow wrapper" id="content">
+    {
+      notesWithDate.map((note) => (
+        <li>
+          <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString()}</time>
+        </li>
+      ))
+    }
     <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>
       <ol class="projects grid">
