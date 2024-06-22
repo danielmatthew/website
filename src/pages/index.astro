@@ -3,16 +3,18 @@ import { getCollection } from "astro:content";
 import { contentfulClient } from "../lib/contentful";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
-import Hero from'../components/Hero.astro';
+import Hero from "../components/Hero.astro";
 import Quote from "../components/Quote.astro";
 
-const notesWithDate =
-  (await getCollection('posts', ({data}) => {
+const notesWithDate = (
+  await getCollection("posts", ({ data }) => {
     return data.published !== false;
-  }))
+  })
+)
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
-  });
+  })
+  .slice(0, 10);
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
@@ -50,31 +52,37 @@ const quotes = await contentfulClient
 ---
 
 <HomeLayout>
-  <Hero title="Accessibility designer, consultant, and speaker">
+  <Hero title="Accessibility designer, consultant, and speaker.">
     <div slot="header-extras" class="flow">
-    <p>
-      Interaction designer and developer of <b>accessible</b> and <b
-        >user-centred</b
-      > digital products.
-    </p>
-    <p>
-      I champion and teach <b>accessibility</b> to design, engineering, and product teams.
-    </p>
-    <p>
-      I use my experience in both design and development to bridge the knowledge gap between teams, using <b>design systems</b>, <b>web components</b>, and <b>prototypes</b> to amplify the value of my design practice.
-    </p>
+      <p>
+        Interaction designer and developer of <b>accessible</b> and <b
+          >user-centred</b
+        > digital products.
+      </p>
+      <p>
+        I champion and teach <b>accessibility</b> to design, engineering, and product
+        teams.
+      </p>
     </div>
   </Hero>
-  <main class="flow wrapper" id="content">
-    {
-      notesWithDate.map((note) => (
-        <li>
-          <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
-          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString()}</time>
-        </li>
-      ))
-    }
-    <section class="wrapper--projects">
+  <main class="flow wrapper" id="main">
+      <ul class="flow posts" role="list">
+        {
+          notesWithDate.map((note) => (
+            <li>
+
+              <a href={`/notes/${note.slug}`}>{note.data.title}</a>
+              <time
+                class="meta"
+                datetime={note.data.publishedDate.toDateString()}
+              >
+                {note.data.publishedDate.toLocaleDateString('en-gb')}
+              </time>
+            </li>
+          ))
+        }
+      </ul>
+    <!-- <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>
       <ol class="projects grid">
         {
@@ -122,15 +130,15 @@ const quotes = await contentfulClient
         }
       </ol>
 
-      <!-- <div class="card card--example">
+      <div class="card card--example">
         <Browser />
       </div>
       <div class="card card--example">
         <Volume/>
-      </div> -->
-    </section>
+      </div>
+    </section> -->
 
-    <section class="talks wrapper--links">
+    <!-- <section class="talks wrapper--links">
       <h2>Talks</h2>
         <ol role="list" class="flow">
           <li>
@@ -149,9 +157,9 @@ const quotes = await contentfulClient
         </li>
 
       </ol>
-    </section>
+    </section> -->
 
-    <section class="elsewhere wrapper--links">
+    <!-- <section class="elsewhere wrapper--links">
       <h2>Elsewhere</h2>
         <ol role="list" class="flow">
           <li>
@@ -165,9 +173,9 @@ const quotes = await contentfulClient
         </li>
 
       </ol>
-    </section>
+    </section> -->
 
-    <div class="wrapper--quotes">
+    <!-- <div class="wrapper--quotes">
       <section class="quotes">
         <hgroup class="flow">
           <h2>Quotes</h2>
@@ -209,6 +217,6 @@ const quotes = await contentfulClient
           });
         </script>
       </section>
-    </div>
+    </div> -->
   </main>
 </HomeLayout>

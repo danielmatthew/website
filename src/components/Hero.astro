@@ -5,20 +5,17 @@ const { title } = Astro.props;
 ---
 
 <div class="hero">
+
   <Nav />
 
-<header>
-  <div class="wrapper">
-    <hgroup class="flow lede">
-      <h1>{title}</h1>
+  <header>
+    <div class="wrapper">
+      <hgroup class="flow lede">
+        <h1>{title}</h1>
 
-      <slot name="header-extras" />
+        <slot name="header-extras" />
 
-    </hgroup>
-  </div>
-
-  <svg id="waves" width="100%" height="50" viewBox="0 0 1280 50" fill="none" xmlns="http://www.w3.org/2000/svg" role="presentation">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8.27206L27.0899 11.0294C53.3333 13.7868 106.667 19.4853 160 23.5294C213.333 27.7574 266.667 30.5147 320 33.2721C373.333 36.0294 426.667 38.7868 480 40.2574C533.333 41.7279 586.667 41.7279 640 38.7868C693.333 36.0294 746.667 30.5147 800 26.2868C853.333 22.2426 906.667 19.4853 960 16.5441C1013.33 13.7868 1066.67 11.0294 1120 8.27206C1173.33 5.51471 1226.67 2.75735 1253.76 1.28676L1280 0V50H1253.76C1226.67 50 1173.33 50 1120 50C1066.67 50 1013.33 50 960 50C906.667 50 853.333 50 800 50C746.667 50 693.333 50 640 50C586.667 50 533.333 50 480 50C426.667 50 373.333 50 320 50C266.667 50 213.333 50 160 50C106.667 50 53.3333 50 27.0899 50H0L0 8.27206Z" fill="#F0E5DB" />
-    </svg>
-</header>
+      </hgroup>
+    </div>
+  </header>
 </div>

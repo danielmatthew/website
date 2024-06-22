@@ -262,6 +262,7 @@ body {
   font-size: var(--step-0);
   font-feature-settings: "onum", "zero", "ss04", "ss03", "liga", "clig";
   line-height: var(--leading-standard, 1.6);
+  padding: var(--space-2xl);
 }
 
 @layer typography {
@@ -410,11 +411,12 @@ body {
 
 .banner {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding-block: var(--space-xl) 0;
+  border: .25rem solid;
+  padding-block: var(--space-xl);
+
 }
 
 .skip-link {
@@ -521,9 +523,6 @@ canvas {
 
 .hero {
   position: relative;
-  background-color: var(--background--hero);
-  background-image: url('/img/noise.svg');
-  background-blend-mode: overlay;
 }
 
 #waves path {
@@ -823,6 +822,17 @@ figure img {
   time,
   .org {
     display: block;
+  }
+
+  .posts li {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  .posts time {
+    align-self: flex-end;
+    color: ;
   }
 
   @media (min-width: 30rem) {
