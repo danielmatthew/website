@@ -7,7 +7,7 @@
     "@open-wc/eslint-config": "^12.0.3",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.3.2"
+    "prettier": "^3.3.3"
   },
   "browserslist": [
     "last 2 versions"
@@ -49,13 +49,13 @@
   },
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
-    "@astrojs/mdx": "^3.1.0",
-    "@contentful/rich-text-html-renderer": "^16.5.2",
+    "@astrojs/mdx": "^3.1.2",
+    "@contentful/rich-text-html-renderer": "^16.6.1",
     "@georgedoescode/generative-utils": "^1.0.38",
-    "@stackblitz/sdk": "^1.10.0",
-    "@svgdotjs/svg.js": "^3.2.0",
+    "@stackblitz/sdk": "^1.11.0",
+    "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^4.10.2",
-    "contentful": "^10.12.0"
+    "astro": "^4.11.5",
+    "contentful": "^10.12.8"
   }
 }
