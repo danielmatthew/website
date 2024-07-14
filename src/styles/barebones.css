@@ -202,7 +202,6 @@
   }
 
   a {
-    text-decoration-color: var(--text);
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2ex;
   }
@@ -213,10 +212,9 @@
   }
 
   a:focus-visible:not(.logo) {
-    background: var(--text);
-    color: var(--background);
-    outline: 2px solid var(--text);
-    outline-offset: 2px;
+    background: yellow;
+    color: black;
+    outline: 2px solid black;
   }
 
   .toc {
@@ -284,6 +282,6 @@
   footer {
     display: flex;
     margin-block-start: var(--space-xl);
-    font-size: var(--step-0);
+    font-size: var(--step--1);
   }
 }

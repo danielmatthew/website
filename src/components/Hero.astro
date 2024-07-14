@@ -1,21 +1,8 @@
 ---
-import Nav from './Nav.astro'
-
 const { title } = Astro.props;
 ---
+<hgroup class="flow lede">
+  <h1>{title}</h1>
 
-<div class="hero">
-
-  <Nav />
-
-  <section>
-    <div class="wrapper">
-      <hgroup class="flow lede">
-        <h1>{title}</h1>
-
-        <slot name="header-extras" />
-
-      </hgroup>
-    </div>
-  </section>
-</div>
+  <slot name="header-extras" />
+</hgroup>

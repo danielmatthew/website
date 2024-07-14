@@ -49,23 +49,18 @@ const quotes = await contentfulClient
       items: shuffle(response.items),
     };
   });
+
+const title = "Accessibility and design systems consultant."
 ---
 
 <HomeLayout>
-  <Hero title="Accessibility and design systems consultant.">
-    <div slot="header-extras" class="flow">
-      <p>
-        Interaction designer and developer of <b>accessible</b> and <b
-          >user-centred</b
-        > digital products.
-      </p>
-      <p>
-        I champion and teach <b>accessibility</b> to design, engineering, and product
-        teams.
-      </p>
-    </div>
-  </Hero>
-  <main class="flow wrapper" id="main">
+      <Hero title={title}>
+          <p slot="header-extras">
+            I champion and teach <b>accessibility</b> within design, engineering, and product
+            teams.
+          </p>
+      </Hero>
+
       <ul class="flow posts" role="list">
         {
           notesWithDate.map((note) => (
@@ -218,5 +213,5 @@ const quotes = await contentfulClient
         </script>
       </section>
     </div> -->
-  </main>
+
 </HomeLayout>
