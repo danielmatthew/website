@@ -3,20 +3,18 @@ const currentPath = Astro.url.pathname;
 ---
 
 <a href="#main" class="skip-link visually-hidden-focusable">Skip to content</a>
-<header class="banner wrapper space-apart">
-  <a href="/" class="logo"> Dan Matthew </a>
+<header class="banner space-apart">
+  {
+    currentPath === "/" ? (
+      <a href="/" class="logo" aria-current="page">
+        Dan Matthew
+      </a>
+    ) : (
+      <a href="/" class="logo">Dan Matthew</a>
+    )
+  }
 
   <nav>
-    {
-      currentPath === "/notes" ? (
-        <a href="/notes" aria-current="page">
-          Notes
-        </a>
-      ) : (
-        <a href="/notes">Notes</a>
-      )
-    }
-
     {
       currentPath === "/work" ? (
         <a href="/work" aria-current="page">
@@ -26,5 +24,44 @@ const currentPath = Astro.url.pathname;
         <a href="/work">Work</a>
       )
     }
+
+    {
+      currentPath === "/articles" ? (
+        <a href="/articles" aria-current="page">
+          Articles
+        </a>
+      ) : (
+        <a href="/articles">Articles</a>
+      )
+    }
+
+    {
+      currentPath === "/notes" ? (
+        <a href="/notes" aria-current="page">
+          Notes
+        </a>
+      ) : (
+        <a href="/notes">Notes</a>
+      )
+    }
   </nav>
 </header>
+<style>
+  nav {
+    white-space: collapse;
+    display: flex;
+    gap: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  [aria-current] {
+    text-decoration: underline;
+  }
+</style>
