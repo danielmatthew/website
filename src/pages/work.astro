@@ -1,8 +1,7 @@
 ---
-
-
 import { CollectionEntry, getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
@@ -10,63 +9,36 @@ const projects = await getCollection("work", ({ data }) => {
 
 ---
 <BaseLayout title="Work | Dan Matthew">
-  <main class="wrapper">
-  <h1>Work</h1>
+  <Hero title="Work"/>
 
-      <ol class="projects grid">
-        {
-          projects.map((project) => (
-            <li class="card card--project">
-              <div class="project-listing">
-                <div class="card__cover">
-                  <div class="thumb-grid">
-                    {[...Array(9)].map(() => (
-                      <div class="thumb-grid__thumb">
-                        <img
-                          src={project.data.img}
-                          alt=""
-                          class="cover__thumb"
-                          height="50"
-                          width="50"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div class="card__content flow">
-                  <a href={`/work/${project.slug}`} class="title">
-                    {project.data.title}
-                  </a>
-                  <div class="meta">
-                    <span class="org">Talis</span>
-                    <time
-                      class="date"
-                      datetime={project.data.publishDate.toISOString()}
-                    >
-                      {project.data.projectDate}
-                    </time>
-                  </div>
-                  <p>{project.data.description}</p>
-                  <ul class="roles" role="list">
-                    {project.data.tags.map((tag) => (
-                      <li>{tag}</li>
-                    ))}
-                  </ul>
-                </div>
+  <ol class="projects grid content flow posts" role="list">
+    {
+      projects.map((project) => (
+        <li class="card card--project">
+          <div class="project-listing">
+            <div class="card__content flow">
+              <a href={`/work/${project.slug}`} class="title">
+                {project.data.title}
+              </a>
+              <div class="meta">
+                <span class="org">Talis</span>
+                <time
+                  class="date"
+                  datetime={project.data.publishDate.toISOString()}
+                >
+                  {project.data.projectDate}
+                </time>
               </div>
-            </li>
-          ))
-        }
-      </ol>
-
-  </main>
+              <p>{project.data.description}</p>
+              <ul class="roles" role="list">
+                {project.data.tags.map((tag) => (
+                  <li class="badge">{tag}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
 </BaseLayout>
-<style>
-  ul {
-    list-style: none;
-  }
-
-  li {
-    margin-block-end: var(--space-xl);
-  }
-</style>

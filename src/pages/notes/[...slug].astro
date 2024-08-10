@@ -55,11 +55,10 @@ const { Content } = await entry.render();
     </div>
   </div>
 </Hero>
-  <main class="wrapper" id="content">
     <article>
-      <section class="layout content flow">
+      <div class="layout content flow">
         <Content />
-      </section>
+      </div>
     </article>
 
     <nav aria-label="Notes pagination">
@@ -74,7 +73,6 @@ const { Content } = await entry.render();
         </a>
       }
     </nav>
-  </main>
 </BaseLayout>
 <style>
     .meta,

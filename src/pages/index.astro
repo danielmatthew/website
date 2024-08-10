@@ -14,7 +14,7 @@ const notesWithDate = (
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
   })
-  .slice(0, 10);
+  .slice(0, 5);
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
@@ -50,33 +50,45 @@ const quotes = await contentfulClient
     };
   });
 
-const title = "Accessibility and design systems consultant."
+const title = "Accessibility and design systems consultant"
 ---
 
 <HomeLayout>
       <Hero title={title}>
           <p slot="header-extras">
-            I champion and teach <b>accessibility</b> within design, engineering, and product
-            teams.
+            I embed <b>accessibility</b> in design systems. Currently building <a href="https://www.publicisgroupeuk.com/news-and-views/news/after-another-record-year-ahead-of-expectations-publicis-unveils-ai-strategy-to-lead-group-into-its-second-century/">CoreAI</a> @ <a href="https://publicissapient.com">Publicis Sapient</a>.
           </p>
       </Hero>
 
-      <ul class="flow posts" role="list">
-        {
-          notesWithDate.map((note) => (
-            <li>
+      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter: url(#displacementFilter)">
 
-              <a href={`/notes/${note.slug}`}>{note.data.title}</a>
-              <time
-                class="meta"
-                datetime={note.data.publishedDate.toDateString()}
-              >
-                {note.data.publishedDate.toLocaleDateString('en-gb')}
-              </time>
-            </li>
-          ))
-        }
-      </ul>
+        <circle cx="250" cy="250" r="10" stroke="currentColor" stroke-width="2"/>
+        <circle cx="249" cy="249" r="45" stroke="currentColor" stroke-width="3"/>
+        <circle cx="251" cy="251" r="80" stroke="currentColor" stroke-width="3"/>
+        <circle cx="250" cy="250" r="105" stroke="currentColor" stroke-width="3"/>
+        <circle cx="249" cy="249" r="125" stroke="currentColor" stroke-width="3"/>
+        <circle cx="251" cy="251" r="155" stroke="currentColor" stroke-width="2"/>
+        <circle cx="249" cy="249" r="175" stroke="currentColor" stroke-width="3"/>
+        <circle cx="251" cy="251" r="200" stroke="currentColor" stroke-width="3"/>
+        <circle cx="250" cy="250" r="220" stroke="currentColor" stroke-width="3"/>
+        <circle cx="250" cy="250" r="249" stroke="currentColor" stroke-width="3" />
+
+        <filter id="displacementFilter">
+          <feTurbulence
+            type="turbulence"
+            baseFrequency="0.05"
+            numOctaves="1"
+            result="turbulence" />
+          <feDisplacementMap
+            in2="turbulence"
+            in="SourceGraphic"
+            scale="2"
+            xChannelSelector="R"
+            yChannelSelector="G" />
+        </filter>
+
+        </svg>
+
     <!-- <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>
       <ol class="projects grid">
@@ -181,36 +193,6 @@ const title = "Accessibility and design systems consultant."
             {quotes.items.map((quote) => <Quote quote={quote} />)}
           </div>
         </div>
-        <script is:inline>
-          const scroller = document.querySelector('.quote-scroller');
-          const container = document.querySelector('.quote-container');
-          let x = scroller.scrollLeft;
-
-          function updateScroller(scrollPos) {
-            const scrollerWidth = scroller.scrollWidth - scroller.clientWidth;
-
-            if (scrollPos === 0) {
-              container.classList.remove('js-at-start');
-            }
-
-            if (scrollPos > 0 ) {
-              container.classList.add('js-at-start');
-            }
-
-            if (scrollPos < scrollerWidth) {
-              container.classList.add('js-at-end');
-            }
-
-            if (scrollPos === scrollerWidth) {
-              container.classList.remove('js-at-end');
-            }
-          }
-
-          scroller.addEventListener('scroll', (event) => {
-            x = scroller.scrollLeft;
-            updateScroller(x);
-          });
-        </script>
       </section>
     </div> -->
 

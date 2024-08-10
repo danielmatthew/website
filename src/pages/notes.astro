@@ -15,8 +15,7 @@ const notesWithDate =
 ---
 <BaseLayout title="Notes">
   <Hero title="Notes"/>
-  <main class="wrapper">
-  <ol class="content flow" style="--flow-space: var(--space-m);" role="list" reversed>
+  <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
     {
       notesWithDate.map((note) => (
         <li>
@@ -26,5 +25,4 @@ const notesWithDate =
       ))
     }
   </ol>
-  </main>
 </BaseLayout>
