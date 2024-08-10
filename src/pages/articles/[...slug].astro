@@ -2,24 +2,47 @@
 import { CollectionEntry, getCollection } from "astro:content";
 
 import ArticleLayout from "../../layouts/ArticleLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+
 
 interface Props {
   entry: CollectionEntry<'articles'>;
 }
 
 export async function getStaticPaths() {
-  const articles = await getCollection("articles");
-  return articles.map((entry) => ({
-    params: { slug: entry.slug, title: entry.title },
-    props: { entry },
-  }));
+  const notes = await getCollection("articles", ({data}) => {
+    return data.published !== false;
+  });
 
-  console.log(articles);
+  const numberOfPosts = notes.length;
+
+  return notes.map((entry, index) => ({
+    params: { slug: entry.slug },
+    props: {
+      entry,
+      prevPost:
+        index + 1 === numberOfPosts
+        ? { frontmatter: ''}
+        : notes[index + 1],
+      nextPost:
+        index === 0
+        ? { frontmatter: ''}
+        : notes[index - 1],
+    },
+  }));
 }
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
-<ArticleLayout frontmatter={entry}>
-  <Content />
-</ArticleLayout>
+<BaseLayout
+  title={`${entry.data.title}`}
+>
+<Hero title={entry.data.title}></Hero>
+<article>
+  <div class="layout content flow">
+    <Content />
+  </div>
+</article>
+</BaseLayout>

@@ -24,6 +24,9 @@ export const collections = {
   articles: defineCollection({
     schema: z.object({
       title: z.string(),
+      publishedDate: z.string().or(z.date()).transform((val) => new Date(val)),
+      updatedDate: z.string().optional().transform((str) => (str ? new Date(str): undefined)),
+      published: z.boolean().default(false).optional(),
       originalSource: z.object({
         url: z.string(),
         label: z.string(),
