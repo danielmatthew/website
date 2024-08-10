@@ -3,16 +3,6 @@
 
   --flow-space: var(--space-s);
 
-  --step--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
-  --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
-  --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
-  --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
-  --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
-  --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
-  --step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
-  --step-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
-
-
   --sans-serif: system-ui, sans-serif;
   --body: var(--sans-serif);
   --titles: var(--sans-serif);
@@ -23,10 +13,18 @@
 
   --line-length: 65ch;
 
+  --step--2: clamp(0.69rem, calc(0.66rem + 0.18vw), 0.8rem);
+  --step--1: clamp(0.83rem, calc(0.78rem + 0.29vw), 1rem);
+  --step-0: clamp(1rem, calc(0.91rem + 0.43vw), 1.25rem);
+  --step-1: clamp(1.2rem, calc(1.07rem + 0.63vw), 1.56rem);
+  --step-2: clamp(1.44rem, calc(1.26rem + 0.89vw), 1.95rem);
+  --step-3: clamp(1.73rem, calc(1.48rem + 1.24vw), 2.44rem);
+  --step-4: clamp(2.07rem, calc(1.73rem + 1.7vw), 3.05rem);
+  --step-5: clamp(2.49rem, calc(2.03rem + 2.31vw), 3.82rem);
+
   --wrapper-width: 80rem;
   --dynamic-space: calc((100vw - var(--wrapper-width)) / 2);
   --negative-dynamic-space: calc(var(--wrapper-width) * -1);
-
 
   --space-3xs: clamp(0.31rem, calc(0.31rem + 0vw), 0.31rem);
   --space-2xs: clamp(0.56rem, calc(0.54rem + 0.11vw), 0.63rem);
@@ -37,9 +35,12 @@
   --space-xl: clamp(3.38rem, calc(3.24rem + 0.65vw), 3.75rem);
   --space-2xl: clamp(4.5rem, calc(4.33rem + 0.87vw), 5rem);
   --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
-
   --space-s-l: clamp(1.13rem, calc(0.65rem + 2.39vw), 2.5rem);
 
+  --colour-bg: #f7f6f4;
+
+  --badge-bg: black;
+  --badge-fg: white;
 }
 
 @layer reset {
@@ -146,6 +147,7 @@
   body {
     font-family: var(--body);
     font-size: var(--step-1);
+
   }
 
   h1,
@@ -161,10 +163,6 @@
   h1 {
     font-size: var(--step-5);
     max-width: 25ch;
-  }
-
-  .jumbo {
-    font-size: clamp(4.5rem, 17vw, 13rem);
   }
 
   h2 {
@@ -201,7 +199,8 @@
     max-width: 65ch;
   }
 
-  a {
+  a,
+  [aria-current] {
     text-decoration-thickness: 2px;
     text-underline-offset: 0.2ex;
   }
@@ -211,10 +210,15 @@
     text-underline-offset: 0.3ex;
   }
 
-  a:focus-visible:not(.logo) {
-    background: yellow;
+  a:focus-visible {
+    background: #fd0;
     color: black;
-    outline: 2px solid black;
+    outline: 3px solid rgba(0,0,0,0);
+    box-shadow: 0 -2px #fd0,0 4px #0b0c0c;
+  }
+
+  .logo {
+    font-weight: 600;
   }
 
   .toc {
@@ -235,7 +239,6 @@
   }
 
   .lede {
-    font-size: var(--step-4);
     line-height: var(--leading-tight);
     text-wrap: balance;
   }
@@ -245,9 +248,7 @@
   }
 
   time {
-    display: block;
     font-variant: tabular-nums;
-    font-size: var(--step--1);
   }
 }
 
@@ -256,7 +257,6 @@
     padding-block: var(--space-xl);
     padding-inline: var(--space-s-l);
     max-width: var(--wrapper-width);
-    position: relative;
   }
 
   .skip-link {
@@ -268,6 +268,10 @@
     color: white;
     outline: 2px solid black;
     outline-offset: 2px;
+  }
+
+  hgroup {
+    margin-block-start: var(--space-l);
   }
 
   .posts {
@@ -283,5 +287,71 @@
     display: flex;
     margin-block-start: var(--space-xl);
     font-size: var(--step--1);
+    gap: var(--space-m);
+  }
+
+  .meta {
+    display: flex;
+    font-size: var(--step--1);
+    margin-block-start: var(--space-3xs);
+  }
+
+  .meta > *:not(:last-child)::after {
+    content: "·";
+    padding-inline-start: var(--space-3xs);
+    margin-inline-end: var(--space-3xs);
+  }
+
+  [role="list"] {
+    padding: 0;
+    list-style: none;
+  }
+
+  .roles {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: var(--step--2);
+  }
+}
+
+@layer components {
+  .badge {
+    margin-inline-end: var(--space-3xs);
+    padding: var(--space-3xs) var(--space-2xs);
+    background-color: var(--badge-bg);
+    color: var(--badge-fg);
+    border-radius: var(--border-radius-m);
+  }
+
+  .pagination {
+    display: flex;
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    justify-content: space-between;
+  }
+
+  .pagination > a {
+    display: block;
+    margin-block: var(--space-xs);
+    padding: var(--space-xs);
+    width: 50%;
+    font-size: var(--step--1);
+  }
+
+  .pagination > a:hover,
+  .pagination > a:focus {
+    background-color: var(--text);
+    text-decoration-color: var(--background);
+    color: var(--background);
+  }
+
+  .pagination > a:nth-of-type(2) {
+    text-align: right;
+  }
+}
+
+@layer theme {
+  body {
+    background-color: var(--colour-bg);
   }
 }
