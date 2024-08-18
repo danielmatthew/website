@@ -48,9 +48,9 @@ const { Content, headings } = await entry.render();
       </div>
       {
         entry.data.tags && (
-          <ul class="roles">
+          <ul class="roles" role="list">
             {entry.data.tags.map((role) => (
-              <li>{role}</li>
+              <li class="badge">{role}</li>
             ))}
           </ul>
         )
@@ -59,7 +59,6 @@ const { Content, headings } = await entry.render();
 
   </Hero>
 
-  <main class="wrapper" id="content">
     <article>
       <section class="layout">
 
@@ -78,7 +77,7 @@ const { Content, headings } = await entry.render();
         </div>
       </section>
     </article>
-    <nav class="pagination" aria-label="Other work">
+    <nav class="pagination" aria-label="Work">
       {prevPost.slug &&
         <a href={`/work/${prevPost.slug}/`}>
           {prevPost.data.title}
@@ -90,5 +89,4 @@ const { Content, headings } = await entry.render();
         </a>
       }
     </nav>
-  </main>
 </BaseLayout>

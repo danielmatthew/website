@@ -20,7 +20,7 @@ const notesWithDate =
       notesWithDate.map((note) => (
         <li>
           <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
-          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString()}</time>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
         </li>
       ))
     }
