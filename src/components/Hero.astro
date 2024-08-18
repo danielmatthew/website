@@ -1,8 +1,46 @@
 ---
 const { title } = Astro.props;
+const currentPath = Astro.url.pathname;
 ---
-<hgroup class="flow">
+<hgroup class="hero" class:list={[{'hero--grid': currentPath === '/'}]}>
+  <div class="flow">
   <h1>{title}</h1>
 
   <slot name="header-extras"/>
+</div>
+  {
+    currentPath === "/" ? (
+    <div class="svg-wrapper">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter: url(#displacementFilter)">
+
+          <circle cx="250" cy="250" r="10" stroke="currentColor" stroke-width="2"/>
+          <circle cx="249" cy="249" r="45" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="80" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="105" stroke="currentColor" stroke-width="3"/>
+          <circle cx="249" cy="249" r="125" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="155" stroke="currentColor" stroke-width="2"/>
+          <circle cx="249" cy="249" r="175" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="200" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="220" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="249" stroke="currentColor" stroke-width="3" />
+
+          <filter id="displacementFilter">
+            <feTurbulence
+              type="turbulence"
+              baseFrequency="0.05"
+              numOctaves="1"
+              result="turbulence" />
+            <feDisplacementMap
+              in2="turbulence"
+              in="SourceGraphic"
+              scale="2"
+              xChannelSelector="R"
+              yChannelSelector="G" />
+          </filter>
+
+        </svg>
+      </div>
+
+    ) : false
+  }
 </hgroup>
