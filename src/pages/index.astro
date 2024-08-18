@@ -2,6 +2,8 @@
 import { getCollection } from "astro:content";
 import { contentfulClient } from "../lib/contentful";
 
+import shuffle from '../utils/shuffle';
+
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
 import Quote from "../components/Quote.astro";
@@ -20,25 +22,6 @@ const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
 });
 
-function shuffle(array) {
-  let counter = array.length;
-
-  // While there are elements in the array
-  while (counter > 0) {
-    // Pick a random index
-    let index = Math.floor(Math.random() * counter);
-
-    // Decrease counter by 1
-    counter--;
-
-    // And swap the last element with it
-    let temp = array[counter];
-    array[counter] = array[index];
-    array[index] = temp;
-  }
-
-  return array;
-}
 
 const quotes = await contentfulClient
   .getEntries({
@@ -54,40 +37,63 @@ const title = "Accessibility and design systems consultant"
 ---
 
 <HomeLayout>
+      <section>
       <Hero title={title}>
           <p slot="header-extras">
             I embed <b>accessibility</b> in design systems. Currently building <a href="https://www.publicisgroupeuk.com/news-and-views/news/after-another-record-year-ahead-of-expectations-publicis-unveils-ai-strategy-to-lead-group-into-its-second-century/">CoreAI</a> @ <a href="https://publicissapient.com">Publicis Sapient</a>.
           </p>
       </Hero>
+      <div class="svg-wrapper">
+        <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter: url(#displacementFilter)">
 
-      <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter: url(#displacementFilter)">
+          <circle cx="250" cy="250" r="10" stroke="currentColor" stroke-width="2"/>
+          <circle cx="249" cy="249" r="45" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="80" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="105" stroke="currentColor" stroke-width="3"/>
+          <circle cx="249" cy="249" r="125" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="155" stroke="currentColor" stroke-width="2"/>
+          <circle cx="249" cy="249" r="175" stroke="currentColor" stroke-width="3"/>
+          <circle cx="251" cy="251" r="200" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="220" stroke="currentColor" stroke-width="3"/>
+          <circle cx="250" cy="250" r="249" stroke="currentColor" stroke-width="3" />
 
-        <circle cx="250" cy="250" r="10" stroke="currentColor" stroke-width="2"/>
-        <circle cx="249" cy="249" r="45" stroke="currentColor" stroke-width="3"/>
-        <circle cx="251" cy="251" r="80" stroke="currentColor" stroke-width="3"/>
-        <circle cx="250" cy="250" r="105" stroke="currentColor" stroke-width="3"/>
-        <circle cx="249" cy="249" r="125" stroke="currentColor" stroke-width="3"/>
-        <circle cx="251" cy="251" r="155" stroke="currentColor" stroke-width="2"/>
-        <circle cx="249" cy="249" r="175" stroke="currentColor" stroke-width="3"/>
-        <circle cx="251" cy="251" r="200" stroke="currentColor" stroke-width="3"/>
-        <circle cx="250" cy="250" r="220" stroke="currentColor" stroke-width="3"/>
-        <circle cx="250" cy="250" r="249" stroke="currentColor" stroke-width="3" />
-
-        <filter id="displacementFilter">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.05"
-            numOctaves="1"
-            result="turbulence" />
-          <feDisplacementMap
-            in2="turbulence"
-            in="SourceGraphic"
-            scale="2"
-            xChannelSelector="R"
-            yChannelSelector="G" />
-        </filter>
+          <filter id="displacementFilter">
+            <feTurbulence
+              type="turbulence"
+              baseFrequency="0.05"
+              numOctaves="1"
+              result="turbulence" />
+            <feDisplacementMap
+              in2="turbulence"
+              in="SourceGraphic"
+              scale="2"
+              xChannelSelector="R"
+              yChannelSelector="G" />
+          </filter>
 
         </svg>
+      </div>
+      </section>
+
+      <ul class="socials" role="list">
+        <li><a rel="me" href="/resume">Résumé</a></li>
+        <li>
+          <a rel="me external" href="https://photos.danmatthew.co.uk">Photography</a>
+        </li>
+        <li>
+          <a rel="me external" href="https://adplist.org/mentors/dan-matthew">ADPList</a>
+        </li>
+        <li>
+          <a rel="me external" href="https://front-end.social/@danielm">Mastodon</a>
+        </li>
+        <li><a rel="me external" href="https://github.com/danielmatthew">Github</a></li>
+        <li><a rel="me external" href="https://codepen.io/danielmatthew">CodePen</a></li>
+        <li>
+          <a rel="me external" href="https://linkedin.com/in/danielmatthew/">LinkedIn</a>
+        </li>
+        <li><a rel="me external" href="https://noti.st/danielmatthew">Notist</a></li>
+      </ul>
+
 
     <!-- <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>

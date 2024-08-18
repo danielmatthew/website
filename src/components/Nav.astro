@@ -3,16 +3,8 @@ const currentPath = Astro.url.pathname;
 ---
 
 <a href="#main" class="skip-link visually-hidden-focusable">Skip to content</a>
-<header class="banner space-apart">
-  {
-    currentPath === "/" ? (
-      <a href="/" class="logo" aria-current="page">
-        Dan Matthew
-      </a>
-    ) : (
-      <a href="/" class="logo">Dan Matthew</a>
-    )
-  }
+<header class="banner">
+  <a href="/" class="logo">Dan Matthew</a>
 
   <nav>
     {
