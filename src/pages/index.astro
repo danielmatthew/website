@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import { contentfulClient } from "../lib/contentful";
 
-import shuffle from '../utils/shuffle';
+import shuffle from "../utils/shuffle";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
@@ -22,7 +22,6 @@ const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
 });
 
-
 const quotes = await contentfulClient
   .getEntries({
     content_type: "testimonial",
@@ -33,36 +32,79 @@ const quotes = await contentfulClient
     };
   });
 
-const title = "Accessibility and design systems consultant"
+const title = "Accessibility and design systems consultant";
 ---
 
 <HomeLayout>
-      <Hero title={title}>
-          <p slot="header-extras">
-            I embed <b>accessibility</b> in design systems. Currently building <a href="https://www.publicisgroupeuk.com/news-and-views/news/after-another-record-year-ahead-of-expectations-publicis-unveils-ai-strategy-to-lead-group-into-its-second-century/">CoreAI</a> @ <a href="https://publicissapient.com">Publicis Sapient</a>.
-          </p>
-      </Hero>
-      <ul class="socials" role="list">
-        <li><a rel="me" href="/resume">Résumé</a></li>
-        <li>
-          <a rel="me external" href="https://photos.danmatthew.co.uk">Photography</a>
-        </li>
-        <li>
-          <a rel="me external" href="https://adplist.org/mentors/dan-matthew">ADPList</a>
-        </li>
-        <li>
-          <a rel="me external" href="https://front-end.social/@danielm">Mastodon</a>
-        </li>
-        <li><a rel="me external" href="https://github.com/danielmatthew">Github</a></li>
-        <li><a rel="me external" href="https://codepen.io/danielmatthew">CodePen</a></li>
-        <li>
-          <a rel="me external" href="https://linkedin.com/in/danielmatthew/">LinkedIn</a>
-        </li>
-        <li><a rel="me external" href="https://noti.st/danielmatthew">Notist</a></li>
-      </ul>
+  <Hero title={title}>
+    <p slot="header-extras">
+      I embed <b>accessibility</b> in design systems. Currently building <a
+        href="https://www.publicisgroupeuk.com/news-and-views/news/after-another-record-year-ahead-of-expectations-publicis-unveils-ai-strategy-to-lead-group-into-its-second-century/"
+        >CoreAI</a
+      > @ <a href="https://publicissapient.com">Publicis Sapient</a>.
+    </p>
+  </Hero>
+  <ul class="socials" role="list">
+    <li>
+      <a rel="me" href="/resume"
+        >Résumé
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://photos.danmatthew.co.uk"
+        >Photography
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://adplist.org/mentors/dan-matthew"
+        >ADPList
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg></a
+      >
+    </li>
+    <li>
+      <a rel="me external" href="https://front-end.social/@danielm"
+        >Mastodon
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://github.com/danielmatthew"
+        >Github
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://codepen.io/danielmatthew"
+        >CodePen
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://linkedin.com/in/danielmatthew/"
+        >LinkedIn
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+    <li>
+      <a rel="me external" href="https://noti.st/danielmatthew"
+        >Notist
+        <svg aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+      </a>
+    </li>
+  </ul>
 
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol viewBox="0 0 448 512" id="arrow"
+      ><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+      <path
+        d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+      ></path></symbol
+    ></svg
+  >
 
-    <!-- <section class="wrapper--projects">
+  <!-- <section class="wrapper--projects">
       <h2 class="visually-hidden">Work</h2>
       <ol class="projects grid">
         {
@@ -118,7 +160,7 @@ const title = "Accessibility and design systems consultant"
       </div>
     </section> -->
 
-    <!-- <section class="talks wrapper--links">
+  <!-- <section class="talks wrapper--links">
       <h2>Talks</h2>
         <ol role="list" class="flow">
           <li>
@@ -139,7 +181,7 @@ const title = "Accessibility and design systems consultant"
       </ol>
     </section> -->
 
-    <!-- <section class="elsewhere wrapper--links">
+  <!-- <section class="elsewhere wrapper--links">
       <h2>Elsewhere</h2>
         <ol role="list" class="flow">
           <li>
@@ -155,7 +197,7 @@ const title = "Accessibility and design systems consultant"
       </ol>
     </section> -->
 
-    <!-- <div class="wrapper--quotes">
+  <!-- <div class="wrapper--quotes">
       <section class="quotes">
         <hgroup class="flow">
           <h2>Quotes</h2>
@@ -168,5 +210,4 @@ const title = "Accessibility and design systems consultant"
         </div>
       </section>
     </div> -->
-
 </HomeLayout>
