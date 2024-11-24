@@ -39,11 +39,15 @@
 
   --cream: #f7f6f6;
   --klein: #0e00f5;
+  --neon-blue: #3B0AFF;
+  --neon-blue2: #2323ff;
+  --pinky: #FFF3F1;
   --carrot: #fd7b2b;
   --salmon: #d4594e;
   --blush: #dca181;
   --pink: #E4A9A5;
   --beyond-the-stars: #002642;
+  --midnight-blue: #272757;
   --ombre: hsl(16 53.8% 47.5%);
   --cloud: rgba(112 107 87 / 0.25);
 
@@ -57,15 +61,15 @@
   --bg-400: 46 28.3% 82%;
   --bg-500: 47 27% 71%;
 
-  --border: var(--cloud);
+  --border: color-mix(in hsl, var(--pinky), var(--salmon) 20%);
   --border-width: 1px;
 
-  --link: var(--beyond-the-stars);
+  --link: var(--neon-blue2);
 
-  --colour-bg: var(--cream);
+  --colour-bg: var(--pinky);
   --colour-primary: var(--klein);
 
-  --text-dark: var(--beyond-the-stars);
+  --text-dark: var(--neon-blue2);
 
   --badge-bg: var(--beyond-the-stars);
   --badge-fg: var(--cream);
@@ -242,16 +246,6 @@
     text-underline-offset: 0.3ex;
   }
 
-  a:focus-visible {
-    text-decoration: none;
-    background: #fd0;
-    color: black;
-    outline: 3px solid rgba(0, 0, 0, 0);
-    box-shadow:
-      0 -2px #fd0,
-      0 4px #0b0c0c;
-  }
-
   .logo {
     font-weight: 600;
   }
@@ -320,7 +314,7 @@
   .banner {
     display: flex;
     flex-direction: column;
-    /* border-bottom: var(--border-width) solid var(--border); */
+    border-bottom: var(--border-width) solid var(--border);
   }
 
   .banner div {
@@ -336,7 +330,8 @@
   }
 
   .hero {
-    padding-block: var(--space-xl);
+    padding-block: var(--space-l);
+    border-bottom: var(--border-width) solid var(--border);
   }
 
   .hero > div {
@@ -347,33 +342,21 @@
   .hero--grid {
     position: relative;
     padding-inline: var(--space-m);
-    /* background-image:
-    url('../../public/img/terrazo.svg'),
-    linear-gradient(
-      175deg,
-      #E7B1AC 0 60%,
-      #E39B92 60% 100%
-    ); */
-    background-color: var(--klein);
     background-image:
-    /* url('../../public/img/terrazo.svg'), */
+    url('../images/circles.svg'),
     linear-gradient(
       175deg,
-      color-mix(in srgb, rgb(255 255 255) 50%, var(--klein) 50%) 0 60%,
-      var(--klein) 60% 100%
+      #EDECE4 0 60%,
+      #fff 60% 100%
     );
-
-    /* background-blend-mode: screen, luminosity; */
-    overflow: hidden;
-    min-height: 50vh;
-    color: whitesmoke;
+    background-size: cover;
+    background-blend-mode: darken, normal;
   }
 
   #circles {
     position: absolute;
-    color: color-mix(in srgb, rgba(255 255 255 / 90%) 80%, var(--pink));
-    top: -50%;
-    opacity: 0.5;
+    color: color-mix(in srgb, rgba(255 255 255) 90%, var(--beyond-the-stars));
+    bottom: -100%;
   }
 
   .posts {
@@ -471,6 +454,17 @@
     color: light-dark(var(--link), var(--salmon));
     color: var(--link);
   }
+
+  a:focus-visible {
+    text-decoration: none;
+    background: #fd0;
+    color: black;
+    outline: 3px solid rgba(0, 0, 0, 0);
+    box-shadow:
+      0 -2px #fd0,
+      0 4px #0b0c0c;
+  }
+
 
   .svg-wrapper svg {
     color: var(--beyond-the-stars);
