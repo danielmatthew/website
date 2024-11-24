@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/danielmatthew/website/compare/v6.6.0...v7.0.0) (2024-11-24)
+
+
+### ⚠ BREAKING CHANGES
+
+* v7 (#121)
+
+### Features
+
+* add shadows to scroller ([e31d542](https://github.com/danielmatthew/website/commit/e31d5423806b4a5b4a6e518dd31f04723723d454))
+* v7 ([#121](https://github.com/danielmatthew/website/issues/121)) ([cf1d5c3](https://github.com/danielmatthew/website/commit/cf1d5c33cd416b04220e4412b2d235b1eb79fc02))
+
+
+### Bug Fixes
+
+* cards take up container height ([ddfd2f2](https://github.com/danielmatthew/website/commit/ddfd2f2bccc69e6b2e36ad9ddac2622d27013653))
+* celebrating CSS Naked Day ([e2c5798](https://github.com/danielmatthew/website/commit/e2c5798d64a2ab0c830b0f6d0217ae7853190332))
+* restore the styles ([d147285](https://github.com/danielmatthew/website/commit/d1472856ccdb329a29930fa83fb277c4f05ff3a0))
+* typeface fiddling ([#109](https://github.com/danielmatthew/website/issues/109)) ([5375dbf](https://github.com/danielmatthew/website/commit/5375dbf8a9677d90ec8769b2327f27ee83ed1072))
+* typeface fiddling ([#111](https://github.com/danielmatthew/website/issues/111)) ([8a72743](https://github.com/danielmatthew/website/commit/8a72743d1f730e75a6001006021dff71973d52c2))
+* use typekit ([8bdc9d3](https://github.com/danielmatthew/website/commit/8bdc9d363a1f486ce393cfb58161c20729695e65))
+
 ## [6.6.0](https://github.com/danielmatthew/website/compare/v6.5.0...v6.6.0) (2023-12-30)
 
 
