@@ -50,13 +50,13 @@
   },
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
-    "@astrojs/mdx": "^3.1.2",
-    "@contentful/rich-text-html-renderer": "^16.6.1",
+    "@astrojs/mdx": "^3.1.9",
+    "@contentful/rich-text-html-renderer": "^16.6.10",
     "@georgedoescode/generative-utils": "^1.0.38",
     "@stackblitz/sdk": "^1.11.0",
     "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^4.11.5",
-    "contentful": "^10.12.8"
+    "astro": "^4.16.14",
+    "contentful": "^10.15.1"
   }
 }
