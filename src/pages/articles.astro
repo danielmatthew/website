@@ -4,7 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 
 const notesWithDate =
-  (await getCollection('posts', ({data}) => {
+  (await getCollection('articles', ({data}) => {
     return data.published !== false;
   }))
 
@@ -13,14 +13,14 @@ const notesWithDate =
   });
 
 ---
-<BaseLayout title="Notes">
-  <Hero title="Notes" />
+<BaseLayout title="Articles">
+  <Hero title="Articles"/>
   <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
     {
       notesWithDate.map((note) => (
         <li>
           <a href={`/notes/${note.slug}`}>{ note.data.title }</a>
-          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString()}</time>
         </li>
       ))
     }

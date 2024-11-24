@@ -1,5 +1,6 @@
 ---
 title: Why I think accessibility is important
+publishedDate: 2020-09-24
 originalSource:
  url: https://talis.com/2020/09/24/why-we-think-accessibility-is-important/
  label: Talis

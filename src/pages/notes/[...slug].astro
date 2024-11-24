@@ -5,7 +5,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 
 interface Props {
-  entry: CollectionEntry<'posts'>;
+  entry: CollectionEntry<"posts">;
 }
 
 // export async function getStaticPaths() {
@@ -17,7 +17,7 @@ interface Props {
 // }
 
 export async function getStaticPaths() {
-  const notes = await getCollection("posts", ({data}) => {
+  const notes = await getCollection("posts", ({ data }) => {
     return data.published !== false;
   });
 
@@ -28,13 +28,8 @@ export async function getStaticPaths() {
     props: {
       entry,
       prevPost:
-        index + 1 === numberOfPosts
-        ? { frontmatter: ''}
-        : notes[index + 1],
-      nextPost:
-        index === 0
-        ? { frontmatter: ''}
-        : notes[index - 1],
+        index + 1 === numberOfPosts ? { frontmatter: "" } : notes[index + 1],
+      nextPost: index === 0 ? { frontmatter: "" } : notes[index - 1],
     },
   }));
 }
@@ -43,46 +38,36 @@ const { entry, prevPost, nextPost } = Astro.props;
 
 const { Content } = await entry.render();
 ---
-<BaseLayout
-  title={`${entry.data.title}`}
->
-<Hero title={entry.data.title}>
-  <div slot="header-extras">
-    <div class="meta">
-      <time datetime={entry.data.publishedDate.toISOString()}>
-        {entry.data.publishedDate.toLocaleDateString()}
-      </time>
-    </div>
-  </div>
-</Hero>
-  <main class="wrapper" id="content">
-    <article>
-      <section class="layout content flow">
-        <Content />
-      </section>
-    </article>
 
-    <nav aria-label="Notes pagination">
-      {nextPost.slug &&
-        <a href={`/notes/${nextPost.slug}/`}>
-          {nextPost.data.title}
-        </a>
-      }
-      {prevPost.slug &&
-        <a href={`/notes/${prevPost.slug}/`}>
-          {prevPost.data.title}
-        </a>
-      }
-    </nav>
-  </main>
+<BaseLayout title={`${entry.data.title}`}>
+  <article>
+    <Hero title={entry.data.title}>
+      <div slot="header-extras">
+        <div class="meta">
+          <time datetime={entry.data.publishedDate.toISOString()}>
+            {entry.data.publishedDate.toLocaleDateString("en-GB")}
+          </time>
+        </div>
+      </div>
+    </Hero>
+    <section class="flow">
+      <Content />
+    </section>
+  </article>
+  <nav aria-label="Notes pagination">
+    {
+      nextPost.slug && (
+        <a href={`/notes/${nextPost.slug}/`}>{nextPost.data.title}</a>
+      )
+    }
+    {
+      prevPost.slug && (
+        <a href={`/notes/${prevPost.slug}/`}>{prevPost.data.title}</a>
+      )
+    }
+  </nav>
 </BaseLayout>
 <style>
-    .meta,
-  .roles {
-    display: flex;
-    font-size: var(--step-0);
-  }
-
   nav {
     display: flex;
     margin-top: var(--space-xl);

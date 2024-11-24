@@ -48,9 +48,9 @@ const { Content, headings } = await entry.render();
       </div>
       {
         entry.data.tags && (
-          <ul class="roles">
+          <ul class="roles" role="list">
             {entry.data.tags.map((role) => (
-              <li>{role}</li>
+              <li class="badge">{role}</li>
             ))}
           </ul>
         )
@@ -59,7 +59,6 @@ const { Content, headings } = await entry.render();
 
   </Hero>
 
-  <main class="wrapper" id="content">
     <article>
       <section class="layout">
 
@@ -70,7 +69,7 @@ const { Content, headings } = await entry.render();
           </p>
         </div>
 
-        <!-- <TableOfContents headings={headings} /> -->
+        <TableOfContents headings={headings} />
 
         <div class="content flow">
           <Content />
@@ -78,7 +77,7 @@ const { Content, headings } = await entry.render();
         </div>
       </section>
     </article>
-    <nav aria-label="Other work">
+    <nav class="pagination" aria-label="Work">
       {prevPost.slug &&
         <a href={`/work/${prevPost.slug}/`}>
           {prevPost.data.title}
@@ -90,66 +89,4 @@ const { Content, headings } = await entry.render();
         </a>
       }
     </nav>
-  </main>
 </BaseLayout>
-<style>
-
-  nav {
-    display: flex;
-    margin-top: var(--space-xl);
-    border-top: 1px solid var(--border);
-    justify-content: space-between;
-  }
-
-  nav > a {
-    display: block;
-    margin-block: var(--space-xs);
-    padding: var(--space-xs);
-    width: 50%;
-    font-size: var(--step--1);
-  }
-
-  nav > a:hover,
-  nav > a:focus {
-    background-color: var(--text);
-    text-decoration-color: var(--background);
-    color: var(--background);
-  }
-
-  nav > a:nth-of-type(2) {
-    text-align: right;
-  }
-
-
-  .roles {
-    list-style-type: none;
-    padding: 0;
-    margin-block-end: 0;
-  }
-
-  .meta,
-  .roles {
-    display: flex;
-    font-size: var(--step-0);
-  }
-
-  .meta {
-    margin-block-start: var(--space-s);
-  }
-
-  .roles {
-    font-size: var(--step--1);
-    flex-wrap: wrap;
-  }
-
-  .meta > *:not(:last-child)::after {
-    content: "·";
-    padding-inline-start: var(--space-3xs);
-    margin-inline-end: var(--space-3xs);
-  }
-
-  .meta > * + * {
-    margin-top: 0;
-  }
-
-</style>

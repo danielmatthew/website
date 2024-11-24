@@ -1,5 +1,6 @@
 ---
 title: Interview with an Accessibility Expert - Dan Matthew
+publishedDate: 2019-10-22
 originalSource:
  url: https://www.codeenigma.com/blog/interview-accessibility-expert-daniel-matthew
  label: CodeEnigma

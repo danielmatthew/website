@@ -1,6 +1,8 @@
 ---
-import '../styles/global.css';
-import Footer from '../components/Footer.astro';
+import "../styles/barebones.css";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title?: string | undefined;
@@ -11,17 +13,18 @@ interface Props {
 const isProd = import.meta.env.PROD;
 const { title, description, modifier } = Astro.props;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en-gb">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{title && `${title}: `} Dan Matthew is a designer and developer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {title && `${title}: `} Dan Matthew is an accessibility and design systems consultant
+    </title>
 
-    <link rel="preconnect" href="https://use.typekit.net">
-    <link rel="preconnect" href="https://p.typekit.net" crossorigin>
-    <link rel="stylesheet" href="https://use.typekit.net/zst5wvn.css">
-
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=ibm-plex-sans:400,600,700" rel="stylesheet" />
     <!-- <script is:inline>
       // This code is inlined in the head to make dark mode instant & blocking.
       const getThemePreference = () => {
@@ -62,41 +65,22 @@ const { title, description, modifier } = Astro.props;
         observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
       }
     </script> -->
-
-    <!-- <script defer>
-      const konamiCode = '38,38,40,40,37,39,37,39,66,65';
-      const keyPresses = [];
-      const checkKonami = (e) => {
-        keyPresses.push(e.keyCode);
-        if (keyPresses.slice(keyPresses.length - 10).join() === konamiCode) {
-          runKonami();
-        }
-      }
-      const runKonami = () => {
-        console.info('Cheat code activated!');
-      }
-
-      document.addEventListener('keyup', checkKonami);
-    </script> -->
-    {isProd &&
-      <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-      </script>
-      <script defer src="/_vercel/insights/script.js"></script>
-    }
-    <meta name="view-transition" content="same-origin">
-    <link rel="icon" href="/favicon.ico" sizes="any">
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fd7b2b">
-    <meta name="msapplication-TileColor" content="#fd7b2b">
-    <meta name="theme-color" content="hsl(0, 0%, 99%)">
+    <meta name="view-transition" content="same-origin" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fd7b2b" />
+    <meta name="msapplication-TileColor" content="#fd7b2b" />
+    <meta name="theme-color" content="hsl(0, 0%, 99%)" />
   </head>
   <body>
-    <slot />
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
     <Footer />
   </body>
 </html>
