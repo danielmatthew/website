@@ -4,11 +4,10 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@open-wc/eslint-config": "^12.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "prettier": "^3.3.3"
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "^3.4.1"
   },
   "browserslist": [
     "last 2 versions"
@@ -51,12 +50,11 @@
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
-    "@contentful/rich-text-html-renderer": "^16.6.10",
     "@georgedoescode/generative-utils": "^1.0.38",
     "@stackblitz/sdk": "^1.11.0",
     "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^4.16.14",
-    "contentful": "^10.15.1"
+    "astro": "^4.16.16",
+    "eslint": "^9.15.0"
   }
 }
