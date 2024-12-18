@@ -54,7 +54,7 @@
     "@stackblitz/sdk": "^1.11.0",
     "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^4.16.16",
+    "astro": "^4.16.17",
     "eslint": "^9.15.0"
   }
 }
