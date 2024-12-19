@@ -55,6 +55,7 @@
     "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
     "astro": "^4.16.16",
+    "contentful": "^11.3.3",
     "eslint": "^9.15.0"
   }
 }
