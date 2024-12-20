@@ -1,4 +1,4 @@
-import contentful from 'contentful';
+import * as contentful from 'contentful';
 import type { Document } from '@contentful/rich-text-types';
 
 export interface portfolioEntry {
