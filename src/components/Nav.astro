@@ -1,9 +1,39 @@
 ---
 const currentPath = Astro.url.pathname;
+
+function daysUntil(futureDate) {
+  // Convert input to Date if string provided
+  const targetDate = new Date(futureDate);
+  const today = new Date();
+
+  // Validate future date
+  if (targetDate < today) {
+    throw new Error('Please provide a future date');
+  }
+
+  // Calculate difference in milliseconds
+  const diffInMs = targetDate - today;
+
+  // Convert to days and round down
+  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+
+  return diffInDays;
+}
+
+// Usage example:
+// const christmas = daysUntil('2024-12-25');
+// const newYears = daysUntil(new Date(2025, 0, 1));
+const EAA = daysUntil('2025-06-28');
 ---
 
 <a href="#main" class="skip-link visually-hidden-focusable">Skip to content</a>
+{ EAA ? (
+  <small class="announcement">
+    Only {EAA} days until the <a href="https://accessibilityassociation.org" target="_blank" rel="noopener">European Accessiblity Act</a> comes into force. Are you and your organisation ready? Schedule a <a href="https://calendly.com/a11y-hours/office-hours" rel="me"> free introductory call</a> to find out more.
+  </small>
+) : ''}
 <header class="banner">
+
   <div>
     <a href="/" class="logo">Dan Matthew</a>
   </div>
@@ -40,3 +70,13 @@ const currentPath = Astro.url.pathname;
     }
   </nav>
 </header>
+<style>
+  .announcement {
+    display: block;
+    padding-block: var(--space-s);
+    border-block-end: 1px solid var(--border);
+    margin-block-end: var(--space-s);
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+</style>
