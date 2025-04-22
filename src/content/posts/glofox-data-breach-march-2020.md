@@ -11,7 +11,7 @@ They suffered a data breach in March 2020, [but haven't said much about it](http
 
 > Glofox has not responded to media requests for comment on a possible security breach but it has, in recent days, responded to individuals on Twitter who posed questions to the company after being informed its website had been compromised.
 
-Lame. I was under the impression that under data protection legislation, organisations must contact the appropriate body and make a public statement as soon as they have knowledge of a breach. As an Irish company, they should have reported it to the [Data Protection Commission](https://www.dataprotection.ie/):
+Rubbish. I was under the impression that under data protection legislation, organisations must contact the appropriate body and make a public statement as soon as they have knowledge of a breach. As an Irish company, they should have reported it to the [Data Protection Commission](https://www.dataprotection.ie/):
 
 > From 25 May 2018, the General Data Protection Regulation (GDPR) introduces a requirement for organisations to report personal data breaches to the relevant supervisory authority, where the breach presents a risk to the affected individuals. Organisations must do this within72 hours of becoming aware of the breach.
 >
