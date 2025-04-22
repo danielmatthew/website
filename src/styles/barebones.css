@@ -341,25 +341,6 @@
     z-index: 1;
   }
 
-  .hero--grid {
-    position: relative;
-    padding-inline: var(--space-m);
-    background-image:
-    url('../images/circles.svg'),
-    linear-gradient(
-      175deg,
-      #EDECE4 0 60%,
-      #fff 60% 100%
-    );
-    background-size: cover;
-    background-blend-mode: darken, normal;
-  }
-
-  #circles {
-    position: absolute;
-    color: color-mix(in srgb, rgba(255 255 255) 90%, var(--beyond-the-stars));
-    bottom: -100%;
-  }
 
   .posts {
     padding-inline-start: 0;
