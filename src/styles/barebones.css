@@ -447,24 +447,4 @@
       0 -2px #fd0,
       0 4px #0b0c0c;
   }
-
-
-  .svg-wrapper svg {
-    color: var(--beyond-the-stars);
-  }
-
-/* @media (prefers-color-scheme: dark) {
-  .svg-wrapper {
-    border-color: var(--blush);
-    background-image: linear-gradient(
-      170deg,
-      var(--blush) 0 60%,
-      var(--salmon) 55% 100%
-    );
-  }
-
-  .svg-wrapper svg {
-    color: var(--cream);
-  }
-} */
 }
