@@ -25,6 +25,7 @@ export const collections = {
         .optional()
         .transform((str) => (str ? new Date(str) : undefined)),
       published: z.boolean().default(false).optional(),
+      link: z.string().url().optional(),
     }),
   }),
   articles: defineCollection({
@@ -45,6 +46,15 @@ export const collections = {
           label: z.string(),
         })
         .optional(),
+    }),
+  }),
+  links: defineCollection({
+    schema: z.object({
+      date: z
+        .string()
+        .or(z.date())
+        .transform((val) => new Date(val)),
+      url: z.string().url(),
     }),
   }),
 };

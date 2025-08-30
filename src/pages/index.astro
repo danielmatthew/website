@@ -7,16 +7,21 @@ import shuffle from "../utils/shuffle";
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
 import Quote from "../components/Quote.astro";
+import Notes from "./notes.astro";
 
-const notesWithDate = (
-  await getCollection("posts", ({ data }) => {
+const notesWithDate = (await Promise.all(
+  (await getCollection("posts", ({ data }) => {
     return data.published !== false;
-  })
-)
+  }))
+  .map(async (note) => ({
+    ...note,
+    renderedContent: note.data.link ? await note.render() : null
+  }))
+))
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
   })
-  .slice(0, 5);
+  .slice(0, 10);
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
@@ -32,18 +37,29 @@ const quotes = await contentfulClient
     };
   });
 
+
 const title = "Accessibility and design systems consultant";
 ---
 
 <HomeLayout>
-  <Hero title={title}>
-    <p slot="header-extras">
-      I help embed <b>accessibility</b> within processes, systems, and teams. Leading accessibility strategy for <a
-        href="https://www.publicisgroupeuk.com/news-and-views/news/after-another-record-year-ahead-of-expectations-publicis-unveils-ai-strategy-to-lead-group-into-its-second-century/"
-        >CoreAI</a
-      > @ <a href="https://publicissapient.com">Publicis Sapient</a>.
-    </p>
-  </Hero>
+  <ol class="content flow posts"  role="list" reversed style="--flow-space: 1rem;">
+    {
+      notesWithDate.map((note) => (
+        <li>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
+
+          <a href={note.data.link || `/notes/${note.slug}`}>{ note.data.title }</a>
+
+          { note.data.link && note.renderedContent && (
+            <div class="note-excerpt">
+              <note.renderedContent.Content />
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+
   <ul class="socials" role="list">
     <li>
       <a rel="me external" href="https://photos.danmatthew.co.uk"

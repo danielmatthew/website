@@ -1,11 +1,13 @@
 :root {
   color-scheme: light dark;
 
-  --flow-space: var(--space-s);
+  --flow-space: 1lh;
 
-  --sans-serif: "IBM Plex Sans", system-ui, sans-serif;
+  --sans-serif: "iA Writer Quattro V", system-ui, sans-serif;
+  --serif: "Spectral", serif;
+
   --body: var(--sans-serif);
-  --titles: var(--sans-serif);
+  --titles: var(--serif);
 
   --leading-standard: 1.6;
   --leading-loose: 1.8;
@@ -24,7 +26,7 @@
   --step-4: clamp(2.3328rem, 1.8704rem + 2.3118vw, 3.6621rem);
   --step-5: clamp(2.7994rem, 2.1808rem + 3.0927vw, 4.5776rem);
 
-  --wrapper-width: 80rem;
+  --wrapper-width: 65ch;
   --dynamic-space: calc((100vw - var(--wrapper-width)) / 2);
   --negative-dynamic-space: calc(var(--wrapper-width) * -1);
 
@@ -39,23 +41,26 @@
   --space-3xl: clamp(6.75rem, calc(6.49rem + 1.3vw), 7.5rem);
   --space-s-l: clamp(1.13rem, calc(0.65rem + 2.39vw), 2.5rem);
 
-  --cream: #f7f6f6;
+  --cream: #f7f6f4;
+  --magnolia: #F3EDE1;
   --klein: #0e00f5;
   --neon-blue: #3B0AFF;
   --neon-blue2: #2323ff;
   --pinky: #FFF3F1;
   --carrot: #fd7b2b;
   --salmon: #d4594e;
+  --salmon-alt: #FF6B5D;
   --blush: #dca181;
   --pink: #E4A9A5;
   --beyond-the-stars: #002642;
   --midnight-blue: #272757;
   --ombre: hsl(16 53.8% 47.5%);
-  --cloud: rgba(112 107 87 / 0.25);
+  --cloud: rgb(112 107 87);
 
-  --accent-main-000: 15 52.7% 43.9%;
-  --accent-main-100: 16 53.8% 47.5%;
-  --accent-main-200: 15 55.6% 52.4%;
+  --accent-main-000: hsl(15 52.7% 43.9%);
+  --accent-main-100: hsl(16 53.8% 47.5%);
+  --accent-main-200: hsl(15 55.6% 52.4%);
+
   --bg-000: 60 6.7% 97.1%;
   --bg-100: 50 23.1% 94.9%;
   --bg-200: 49 26.8% 92%;
@@ -63,7 +68,7 @@
   --bg-400: 46 28.3% 82%;
   --bg-500: 47 27% 71%;
 
-  --border: color-mix(in hsl, var(--pinky), var(--salmon) 20%);
+  --border: color-mix(in hsl, var(--beyond-the-stars), var(--cream) 80%);
   --border-width: 1px;
 
   --link: var(--neon-blue2);
@@ -71,7 +76,7 @@
   --colour-bg: var(--pinky);
   --colour-primary: var(--neon-blue2);
 
-  --text-dark: var(--neon-blue2);
+  --text-dark: var(--beyond-the-stars);
 
   --badge-bg: var(--beyond-the-stars);
   --badge-fg: var(--cream);
@@ -154,6 +159,7 @@
 
   .flow > * + * {
     margin-block-start: var(--flow-space, 1em);
+    margin-block-start: var(--flow-space, 1lh);
   }
 
   .space-apart {
@@ -215,6 +221,7 @@
   h2,
   h3 {
     font-family: var(--titles);
+    font-variation-settings: "wdth" 50;
     line-height: 1.1;
   }
 
@@ -249,7 +256,8 @@
   }
 
   .logo {
-    font-weight: 600;
+    font-stretch: condensed;
+    font-size: var(--step--1);
   }
 
   nav {
@@ -289,7 +297,7 @@
   }
 
   .socials {
-    font-size: var(--step-0);
+    font-size: var(--step--1);
   }
 
   :is(.socials, header) a:not(:hover) {
@@ -316,12 +324,10 @@
   .banner {
     display: flex;
     flex-direction: column;
-    border-bottom: var(--border-width) solid var(--border);
   }
 
   .banner div {
     padding-block: var(--space-s);
-    border-bottom: var(--border-width) solid var(--border);
   }
 
   nav {
@@ -333,7 +339,6 @@
 
   .hero {
     padding-block: var(--space-l);
-    border-bottom: var(--border-width) solid var(--border);
   }
 
   .hero > div {
@@ -341,9 +346,26 @@
     z-index: 1;
   }
 
-
   .posts {
     padding-inline-start: 0;
+  }
+
+  .posts li {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .posts a {
+    font-weight: 900;
+  }
+
+  .note-excerpt {
+    font-size: var(--step--1);
+  }
+
+
+  .posts a:not(:hover,:focus) {
+    text-decoration: none;
   }
 
   .socials {
@@ -373,14 +395,21 @@
 
   footer {
     padding-block-start: var(--space-m);
-    border-top: var(--border-width) solid var(--border);
     font-size: var(--step--1);
+    font-variation-settings: "wdth" 86;
+    font-weight: 300
   }
 
   .meta {
-    display: flex;
-    font-size: var(--step--1);
-    margin-block-start: var(--space-3xs);
+    align-self: flex-start;
+    /* padding: var(--space-3xs) var(--space-2xs); */
+    /* border-radius: var(--space-xs); */
+    line-height: 1;
+    font-weight: 300;
+    /* font-stretch: condensed; */
+    font-variation-settings: "wdth" 86;
+    font-size: var(--step--2);
+    /* background-color: rgba(0,0,0,0.05) */
   }
 
   .meta > *:not(:last-child)::after {
@@ -427,14 +456,11 @@
 
 @layer theme {
   body {
-    color: light-dark(var(--text-dark), var(--cream));
     color: var(--text-dark);
-    background-color: light-dark(var(--colour-bg), var(--beyond-the-stars));
-    background-color: var(--colour-bg);
+    background-color: var(--magnolia);
   }
 
   a {
-    color: light-dark(var(--link), var(--salmon));
     color: var(--link);
   }
 
@@ -446,5 +472,9 @@
     box-shadow:
       0 -2px #fd0,
       0 4px #0b0c0c;
+  }
+
+  .logo {
+    color: var(--text-dark)
   }
 }
