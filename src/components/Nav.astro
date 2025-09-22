@@ -23,9 +23,8 @@ function daysUntil(futureDate) {
 // Usage example:
 // const christmas = daysUntil('2024-12-25');
 // const newYears = daysUntil(new Date(2025, 0, 1));
-const EAA = daysUntil('2025-06-28');
+// const EAA = daysUntil('2025-06-28');
 ---
-
 <a href="#main" class="skip-link visually-hidden-focusable">Skip to content</a>
 <header class="banner">
 
@@ -33,7 +32,7 @@ const EAA = daysUntil('2025-06-28');
     <a href="/" class="logo">Dan Matthew</a>
   </div>
 
-  <nav>
+  <!-- <nav>
     {
       currentPath === "/notes" ? (
         <a href="/notes" aria-current="page">
@@ -43,15 +42,26 @@ const EAA = daysUntil('2025-06-28');
         <a href="/notes">Notes</a>
       )
     }
-  </nav>
+
+  </nav> -->
+  <dialog>
+    <header>
+      <h2>Settings</h2>
+    </header>
+
+    <button type="button">Close</button>
+  </dialog>
 </header>
-<style>
-  .announcement {
-    display: block;
-    padding-block: var(--space-s);
-    border-block-end: 1px solid var(--border);
-    margin-block-end: var(--space-s);
-    font-size: var(--step--1);
-    font-weight: 600;
-  }
-</style>
+<script>
+  const dialog = document.querySelector('dialog');
+  const button = document.querySelector('button[type="button"]');
+  const closeButton = dialog.querySelector('dialog button');
+
+  button.addEventListener('click', () => {
+    dialog.showModal();
+  });
+
+  closeButton.addEventListener('click', () => {
+    dialog.close();
+  });
+</script>
