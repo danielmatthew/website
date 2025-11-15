@@ -42,7 +42,7 @@ export default defineConfig({
           },
           {
             type: "datetime",
-            name: "posted",
+            name: "publishedDate",
             "label": "Date posted",
             required: true,
           },
