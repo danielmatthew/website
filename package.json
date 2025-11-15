@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "@guidepup/playwright": "^0.14.2",
+    "@playwright/test": "^1.56.1",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
@@ -36,6 +38,11 @@
     "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
     "format:prettier": "prettier \"**/*.js\" --write",
     "test": "cypress run --spec \"cypress/integration/home_page.spec.js\"",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:debug": "playwright test --debug",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:report": "playwright show-report",
     "release": "npx standard-version && git push --follow-tags"
   },
   "repository": {
