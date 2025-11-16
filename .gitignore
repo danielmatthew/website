@@ -12,3 +12,5 @@ cypress/integration/examples
 .netlify
 .env
 .astro
+
+node_modules

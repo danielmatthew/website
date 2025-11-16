@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
+    "@tinacms/cli": "^1.10.3",
+    "@types/node": "^24.5.2",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
@@ -25,9 +27,9 @@
     ]
   },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro start",
-    "build": "astro build",
+    "build": "tinacms build && astro build",
     "preview": "astro preview",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
@@ -57,7 +59,8 @@
     "@timohausmann/quadtree-js": "^1.2.6",
     "astro": "^5.1.0",
     "contentful": "^11.3.3",
-    "eslint": "^9.15.0"
+    "eslint": "^9.15.0",
+    "tinacms": "^2.8.3"
   },
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
 }
