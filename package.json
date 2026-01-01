@@ -57,7 +57,7 @@
     "@stackblitz/sdk": "^1.11.0",
     "@svgdotjs/svg.js": "^3.2.4",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^5.1.0",
+    "astro": "^5.15.9",
     "contentful": "^11.3.3",
     "eslint": "^9.15.0",
     "tinacms": "^2.8.3"
