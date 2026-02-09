@@ -1,5 +1,5 @@
 [build]
-  command = "tinacms build && astro build"
+  command = "pnpm build"
   publish = "dist"
 
 [[headers]]
