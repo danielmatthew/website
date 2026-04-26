@@ -61,7 +61,9 @@
     "astro": "^5.1.0",
     "contentful": "^11.3.3",
     "eslint": "^9.15.0",
+    "markdown-it": "^14.1.1",
+    "sanitize-html": "^2.17.3",
     "tinacms": "^2.8.3"
   },
-  "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af"
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

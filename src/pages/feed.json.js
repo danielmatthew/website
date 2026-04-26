@@ -12,7 +12,7 @@ export async function GET(context) {
 
   const feed = {
     version: 'https://jsonfeed.org/version/1.1',
-    title: 'Dan Matthew - Notes',
+    title: 'Dan Matthew',
     home_page_url: siteUrl,
     feed_url: `${siteUrl}/feed.json`,
     description: 'Notes and thoughts from Dan Matthew, an accessibility and design systems consultant',

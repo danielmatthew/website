@@ -1,6 +1,10 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
+import sanitizeHtml from 'sanitize-html';
+import MarkdownIt from 'markdown-it';
+const parser = new MarkdownIt();
+
 export async function GET(context) {
   const posts = await getCollection('posts');
 
@@ -10,7 +14,7 @@ export async function GET(context) {
     .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
 
   return rss({
-    title: 'Dan Matthew - Notes',
+    title: 'Dan Matthew',
     description: 'Notes and thoughts from Dan Matthew, an accessibility and design systems consultant',
     site: context.site || 'https://danmatthew.co.uk',
     items: publishedPosts.map((post) => ({
@@ -18,11 +22,10 @@ export async function GET(context) {
       pubDate: post.data.publishedDate,
       link: `/notes/${post.slug}/`,
       description: post.data.description || '',
-    })),
-    customData: `<language>en-gb</language>`,
-    xmlns: {
-      atom: 'http://www.w3.org/2005/Atom',
-    },
-    stylesheet: false,
+      content: sanitizeHtml(parser.render(post.body), {
+        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
+        }),
+        ...post.data,
+      })),
   });
 }
