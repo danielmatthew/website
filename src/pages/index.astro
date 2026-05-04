@@ -16,7 +16,7 @@ const notesWithDate = (
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
   })
-  .slice(0, 5);
+  .slice(0, 3);
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;
@@ -38,9 +38,22 @@ const title = "Accessibility and design systems consultant";
 <HomeLayout>
   <Hero title={title}>
     <p slot="header-extras">
-      I help embed <b>accessibility</b> within processes, systems, and teams.
+      I help organisations embed <b>accessibility</b> within processes, systems, and teams.
     </p>
   </Hero>
+
+    <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
+    {
+      notesWithDate.map((note) => (
+        <li>
+          <a href={`/notes/${note.id}`}>{ note.data.title }</a>
+          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
+        </li>
+      ))
+    }
+  </ol>
+
+
   <ul class="socials" role="list">
     <li>
       <a rel="me external" href="https://photos.danmatthew.co.uk"
