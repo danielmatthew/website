@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@tinacms/cli": "^1.10.3",
-    "@types/node": "^24.5.2",
-    "eslint-config-prettier": "^9.1.0",
+    "@tinacms/cli": "^2.2.5",
+    "@types/node": "^24.12.2",
+    "eslint-config-prettier": "^9.1.2",
     "husky": "^9.1.7",
-    "lint-staged": "^15.2.10",
-    "prettier": "^3.4.1"
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.8.3"
   },
   "browserslist": [
     "last 2 versions"
@@ -51,19 +51,19 @@
   },
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
-    "@astrojs/mdx": "^4.0.2",
-    "@astrojs/rss": "^4.0.14",
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/rss": "^4.0.18",
     "@contentful/rich-text-html-renderer": "^16.6.10",
     "@georgedoescode/generative-utils": "^1.0.38",
     "@stackblitz/sdk": "^1.11.0",
-    "@svgdotjs/svg.js": "^3.2.4",
+    "@svgdotjs/svg.js": "^3.2.5",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^5.1.0",
-    "contentful": "^11.3.3",
-    "eslint": "^9.15.0",
+    "astro": "^6.2.2",
+    "contentful": "^11.12.1",
+    "eslint": "^9.39.4",
     "markdown-it": "^14.1.1",
     "sanitize-html": "^2.17.3",
-    "tinacms": "^3.1.1"
+    "tinacms": "^3.7.5"
   },
   "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8"
 }

@@ -1,5 +1,6 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
@@ -24,7 +25,7 @@ export async function getStaticPaths() {
   const numberOfPosts = notes.length;
 
   return notes.map((entry, index) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: {
       entry,
       prevPost:
@@ -36,7 +37,7 @@ export async function getStaticPaths() {
 
 const { entry, prevPost, nextPost } = Astro.props;
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <BaseLayout title={`${entry.data.title}`}>
@@ -56,13 +57,13 @@ const { Content } = await entry.render();
   </article>
   <nav aria-label="Notes pagination">
     {
-      nextPost.slug && (
-        <a href={`/notes/${nextPost.slug}/`}>{nextPost.data.title}</a>
+      nextPost.id && (
+        <a href={`/notes/${nextPost.id}/`}>{nextPost.data.title}</a>
       )
     }
     {
-      prevPost.slug && (
-        <a href={`/notes/${prevPost.slug}/`}>{prevPost.data.title}</a>
+      prevPost.id && (
+        <a href={`/notes/${prevPost.id}/`}>{prevPost.data.title}</a>
       )
     }
   </nav>

@@ -1,9 +1,10 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Hero from "../../components/Hero.astro";
-import { number } from "astro/zod";
+
 interface Props {
   entry: CollectionEntry<"work">;
 }
@@ -16,7 +17,7 @@ export async function getStaticPaths() {
   const numberOfPosts = work.length;
 
   return work.map((entry, index) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: {
       entry,
       prevPost:
@@ -32,7 +33,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, prevPost, nextPost } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content, headings } = await render(entry);
 ---
 
 <BaseLayout
@@ -49,7 +50,7 @@ const { Content, headings } = await entry.render();
       {
         entry.data.tags && (
           <ul class="roles" role="list">
-            {entry.data.tags.map((role) => (
+            {entry.data.tags.map((role: string) => (
               <li class="badge">{role}</li>
             ))}
           </ul>
@@ -78,13 +79,13 @@ const { Content, headings } = await entry.render();
       </section>
     </article>
     <nav class="pagination" aria-label="Work">
-      {prevPost.slug &&
-        <a href={`/work/${prevPost.slug}/`}>
+      {prevPost.id &&
+        <a href={`/work/${prevPost.id}/`}>
           {prevPost.data.title}
         </a>
       }
-      {nextPost.slug &&
-        <a href={`/work/${nextPost.slug}/`}>
+      {nextPost.id &&
+        <a href={`/work/${nextPost.id}/`}>
           {nextPost.data.title}
         </a>
       }
