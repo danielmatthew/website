@@ -5,6 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "@guidepup/playwright": "^0.14.2",
+    "@guidepup/virtual-screen-reader": "^0.32.1",
     "@playwright/test": "^1.56.1",
     "eslint-config-prettier": "^9.1.0",
     "husky": "^9.1.7",
