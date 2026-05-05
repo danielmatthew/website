@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.1.0](https://github.com/danielmatthew/website/compare/v7.0.0...v7.1.0) (2026-05-05)
+
+
+### Features
+
+* add tina cms ([#129](https://github.com/danielmatthew/website/issues/129)) ([690e977](https://github.com/danielmatthew/website/commit/690e977bf66a95c8efc2696ccfcebd5f9f6abac2))
+* astro v6; posts on home ([#139](https://github.com/danielmatthew/website/issues/139)) ([445bb06](https://github.com/danielmatthew/website/commit/445bb063359cd26a2c08b1d6b5cdd2b82af483ef))
+* re-enable feeds ([#138](https://github.com/danielmatthew/website/issues/138)) ([292794f](https://github.com/danielmatthew/website/commit/292794fc5842d79d5214af29851200c4318c89cb))
+
+
+### Bug Fixes
+
+* actually build tinacms ([06c8e9c](https://github.com/danielmatthew/website/commit/06c8e9c98c1690d9e213d192c66bd216c4786d39))
+* add banner ([b5ebb7f](https://github.com/danielmatthew/website/commit/b5ebb7fa0d6b4bb92b48972bc97b47357199538c))
+* attempt to build again ([a37af80](https://github.com/danielmatthew/website/commit/a37af8078e8af8e5c2dea98786b1638100175140))
+* minor tweaks ([8436d49](https://github.com/danielmatthew/website/commit/8436d4989aa09c4fedb19613e4ba91d737b0c5cb))
+* remove eaa banner ([16e7c80](https://github.com/danielmatthew/website/commit/16e7c80f23c3d112f93bc22c35d0a4f3bce1edc5))
+* update csp ([779a1f8](https://github.com/danielmatthew/website/commit/779a1f87f9e65a4a3ac09bff9886665812a6d84a))
+
 ## [7.0.0](https://github.com/danielmatthew/website/compare/v6.6.0...v7.0.0) (2024-11-24)
 
 
