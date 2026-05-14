@@ -1,0 +1,57 @@
+name: Accessibility (axe-core)
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'astro.config.mjs'
+      - 'netlify.toml'
+
+jobs:
+  axe:
+    name: axe-core audit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build site
+        run: pnpm build:ci
+
+      - name: Start preview server
+        run: pnpm astro preview --port 4321 &
+
+      - name: Wait for server
+        run: npx wait-on http://localhost:4321 --timeout 30000
+
+      - name: Run axe-core audit
+        run: |
+          npx @axe-core/cli \
+            http://localhost:4321/ \
+            http://localhost:4321/about \
+            http://localhost:4321/work \
+            http://localhost:4321/articles \
+            http://localhost:4321/notes \
+            http://localhost:4321/resume \
+            --exit \
+            --reporter json \
+            --save axe-results.json
+
+      - name: Upload axe results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: axe-results
+          path: axe-results.json
