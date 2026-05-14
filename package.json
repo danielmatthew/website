@@ -30,6 +30,7 @@
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro start",
     "build": "tinacms build && astro build",
+    "build:ci": "astro build",
     "preview": "astro preview",
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
