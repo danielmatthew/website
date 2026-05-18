@@ -29,6 +29,7 @@ export const collections = {
         .optional()
         .transform((str) => (str ? new Date(str) : undefined)),
       published: z.boolean().default(true).optional(),
+      evergreen: z.boolean().optional(),
     }),
   }),
   articles: defineCollection({

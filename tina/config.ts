@@ -43,8 +43,26 @@ export default defineConfig({
           {
             type: "datetime",
             name: "publishedDate",
-            "label": "Date posted",
+            label: "Date posted",
             required: true,
+          },
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+            ui: {
+              defaultValue: true,
+            },
+          },
+          {
+            type: "boolean",
+            name: "evergreen",
+            label: "Evergreen",
+          },
+          {
+            type: "datetime",
+            name: "updatedDate",
+            label: "Last modified",
           },
           {
             type: "rich-text",

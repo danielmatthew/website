@@ -1,6 +1,8 @@
 ---
 title: My Accessibility Toolkit
 publishedDate: 2026-05-18T16:35:10.330Z
+published: false
+evergreen: true
 ---
 
 ## Browser extensions
