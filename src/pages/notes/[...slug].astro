@@ -38,20 +38,29 @@ export async function getStaticPaths() {
 const { entry, prevPost, nextPost } = Astro.props;
 
 const { Content } = await render(entry);
+
+const canonicalUrl = new URL(`/notes/${entry.id}/`, Astro.site).toString();
+const { syndicationUrl } = entry.data;
 ---
 
 <BaseLayout title={`${entry.data.title}`}>
-  <article>
+  <article class="h-entry">
     <Hero title={entry.data.title}>
       <div slot="header-extras">
         <div class="meta">
-          <time datetime={entry.data.publishedDate.toISOString()}>
+          <time class="dt-published" datetime={entry.data.publishedDate.toISOString()}>
             {entry.data.publishedDate.toLocaleDateString("en-GB")}
           </time>
         </div>
       </div>
     </Hero>
-    <section class="flow">
+    <data class="p-name" value={entry.data.title} hidden></data>
+    <a class="u-url" href={canonicalUrl} hidden></a>
+    {syndicationUrl
+      ? <a class="u-syndication" href={syndicationUrl} rel="syndication">View on Mastodon</a>
+      : <a class="u-syndication" href="https://brid.gy/publish/mastodon" rel="syndication" hidden></a>
+    }
+    <section class="e-content flow">
       <Content />
     </section>
   </article>
