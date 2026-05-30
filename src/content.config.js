@@ -30,6 +30,7 @@ export const collections = {
         .transform((str) => (str ? new Date(str) : undefined)),
       published: z.boolean().default(true).optional(),
       evergreen: z.boolean().optional(),
+      syndicationUrl: z.string().url().optional(),
     }),
   }),
   articles: defineCollection({
