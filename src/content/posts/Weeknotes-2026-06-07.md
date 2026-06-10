@@ -1,7 +1,7 @@
 ---
 title: 'Weeknotes: 2026-06-07'
 publishedDate: 2026-06-09T15:58:49.679Z
-published: false
+published: true
 ---
 
 It's odd, the hoops that some teams will jump through to make their work **appear** accessible rather than do the work to fix it. 
