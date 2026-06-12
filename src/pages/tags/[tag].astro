@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Hero from "../../components/Hero.astro";
+import slugify from "../../utils/slugify.js";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", ({ data }) => {
+    return data.published !== false;
+  });
+
+  const tags = new Map();
+
+  posts.forEach((post) => {
+    post.data.tags?.forEach((tag) => {
+      const slug = slugify(tag);
+      if (!tags.has(slug)) {
+        tags.set(slug, { tagName: tag, posts: [] });
+      }
+      tags.get(slug).posts.push(post);
+    });
+  });
+
+  return Array.from(tags.entries()).map(([slug, { tagName, posts }]) => ({
+    params: { tag: slug },
+    props: {
+      tagName,
+      posts: posts.sort(
+        (a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf(),
+      ),
+    },
+  }));
+}
+
+const { tagName, posts } = Astro.props;
+---
+
+<BaseLayout title={`Posts tagged "${tagName}"`}>
+  <Hero title={`Tag: ${tagName}`} />
+  <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/notes/${post.id}`}>{post.data.title}</a>
+          <time class="meta" datetime={post.data.publishedDate.toDateString()}>
+            {post.data.publishedDate.toLocaleDateString("en-GB")}
+          </time>
+        </li>
+      ))
+    }
+  </ol>
+</BaseLayout>

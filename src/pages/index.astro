@@ -16,7 +16,7 @@ const notesWithDate = (
   .sort((a, b) => {
     return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
   })
-  .slice(0, 3);
+  .slice(0, 5);
 
 const projects = await getCollection("work", ({ data }) => {
   return data.draft !== true;

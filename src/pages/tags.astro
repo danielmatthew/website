@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import slugify from "../utils/slugify.js";
+
+const posts = await getCollection("posts", ({ data }) => {
+  return data.published !== false;
+});
+
+const tags = new Map();
+
+posts.forEach((post) => {
+  post.data.tags?.forEach((tag) => {
+    const slug = slugify(tag);
+    if (!tags.has(slug)) {
+      tags.set(slug, tag);
+    }
+  });
+});
+
+const sortedTags = Array.from(tags.entries()).sort((a, b) =>
+  a[1].localeCompare(b[1]),
+);
+---
+
+<BaseLayout title="Tags">
+  <Hero title="Tags" />
+  <ul class="roles" role="list">
+    {
+      sortedTags.map(([slug, tagName]) => (
+        <li class="badge">
+          <a href={`/tags/${slug}/`}>{tagName}</a>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>

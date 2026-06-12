@@ -71,7 +71,7 @@
 
   --text-dark: var(--neon-blue2);
 
-  --badge-bg: var(--beyond-the-stars);
+  --badge-bg: var(--klein);
   --badge-fg: var(--cream);
 }
 
@@ -419,7 +419,10 @@
     padding: var(--space-3xs) var(--space-2xs);
     background-color: var(--badge-bg);
     color: var(--badge-fg);
-    border-radius: var(--border-radius-m);
+
+    a {
+      color: var(--cream);
+    }
   }
 
   .pagination {

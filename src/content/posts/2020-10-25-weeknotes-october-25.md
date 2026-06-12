@@ -4,7 +4,7 @@ metaDesc: A summary of the past week.
 tags:
   - weeknotes
   - october
-  - 2020
+  - "2020"
 syndicate: false
 published: true
 publishedDate: 2020-10-25

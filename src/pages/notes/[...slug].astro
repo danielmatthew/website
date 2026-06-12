@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
+import slugify from "../../utils/slugify.js";
 
 interface Props {
   entry: CollectionEntry<"posts">;
@@ -49,6 +50,17 @@ const { Content } = await render(entry);
             {entry.data.publishedDate.toLocaleDateString("en-GB")}
           </time>
         </div>
+        {
+          entry.data.tags?.length > 0 && (
+            <ul class="roles" role="list">
+              {entry.data.tags.map((tag) => (
+                <li class="badge">
+                  <a href={`/tags/${slugify(tag)}/`}>{tag}</a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
       </div>
     </Hero>
     <section class="flow">
