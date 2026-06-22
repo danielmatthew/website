@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "devDependencies": {
-    "@tinacms/cli": "^2.2.5",
+    "@tinacms/cli": "^2.4.3",
     "@types/node": "^24.12.2",
     "eslint-config-prettier": "^9.1.2",
     "husky": "^9.1.7",
