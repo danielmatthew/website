@@ -26,8 +26,9 @@ export const collections = {
         .transform((val) => new Date(val)),
       updatedDate: z
         .string()
+        .or(z.date())
         .optional()
-        .transform((str) => (str ? new Date(str) : undefined)),
+        .transform((val) => (val ? new Date(val) : undefined)),
       published: z.boolean().default(true).optional(),
       evergreen: z.boolean().optional(),
     }),
@@ -42,8 +43,9 @@ export const collections = {
         .transform((val) => new Date(val)),
       updatedDate: z
         .string()
+        .or(z.date())
         .optional()
-        .transform((str) => (str ? new Date(str) : undefined)),
+        .transform((val) => (val ? new Date(val) : undefined)),
       published: z.boolean().default(true).optional(),
       originalSource: z
         .object({
