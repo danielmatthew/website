@@ -59,7 +59,7 @@
     "@stackblitz/sdk": "^1.11.0",
     "@svgdotjs/svg.js": "^3.2.5",
     "@timohausmann/quadtree-js": "^1.2.6",
-    "astro": "^6.2.2",
+    "astro": "^7.1.0",
     "contentful": "^11.12.1",
     "eslint": "^9.39.4",
     "markdown-it": "^14.1.1",
