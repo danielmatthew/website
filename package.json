@@ -53,7 +53,7 @@
   "homepage": "https://github.com/danielmatthew/website",
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
-    "@astrojs/rss": "^4.0.18",
+    "@astrojs/rss": "^4.0.19",
     "@contentful/rich-text-html-renderer": "^16.6.10",
     "@georgedoescode/generative-utils": "^1.0.38",
     "@stackblitz/sdk": "^1.11.0",
