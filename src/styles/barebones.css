@@ -51,6 +51,16 @@
   --ombre: hsl(16 53.8% 47.5%);
   --cloud: rgba(112 107 87 / 0.25);
 
+  --trail: #4a9268;
+  --forest: rgb(26, 42, 32);
+  --paper: #f5f5f5;
+
+  --exhaust: #191502;
+  --olive: #4f4d3b;
+  --safety-orange: #dd683a;
+  --sand: #d6d1b3;
+  --cloud-alt: #f7f2e8;
+
   --accent-main-000: 15 52.7% 43.9%;
   --accent-main-100: 16 53.8% 47.5%;
   --accent-main-200: 15 55.6% 52.4%;
@@ -61,15 +71,17 @@
   --bg-400: 46 28.3% 82%;
   --bg-500: 47 27% 71%;
 
-  --border: color-mix(in hsl, var(--pinky), var(--salmon) 20%);
+  --border: color-mix(in hsl, var(--safety-orange), var(--cloud-alt) 70%);
   --border-width: 1px;
 
-  --link: var(--neon-blue2);
+  --colour-bg: var(--forest);
+  --colour-primary: var(--safety-orange);
 
-  --colour-bg: var(--pinky);
-  --colour-primary: var(--neon-blue2);
+  --text: var(--cloud-alt);
+  --text-light: var(--text);
+  --text-dark: var(--olive);
 
-  --text-dark: var(--neon-blue2);
+  --link: var(--colour-primary);
 
   --badge-bg: var(--beyond-the-stars);
   --badge-fg: var(--cream);
@@ -330,8 +342,17 @@
   }
 
   .hero {
+    position: relative;
     padding-block: var(--space-l);
     border-bottom: var(--border-width) solid var(--border);
+  }
+
+  .hero > svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
 
   .hero > div {
@@ -445,7 +466,7 @@
 @layer theme {
   body {
     color: light-dark(var(--text-dark), var(--cream));
-    color: var(--text-dark);
+    color: var(--text);
     background-color: light-dark(var(--colour-bg), var(--beyond-the-stars));
     background-color: var(--colour-bg);
   }
@@ -464,7 +485,6 @@
       0 -2px #fd0,
       0 4px #0b0c0c;
   }
-
 
   .svg-wrapper svg {
     color: var(--beyond-the-stars);

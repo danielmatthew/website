@@ -3,6 +3,13 @@ const { title } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 <hgroup class="hero">
+  <svg viewBox="0 0 1200 480" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <radialGradient id="topo-fade" cx="50%" cy="40%" r="65%"><stop offset="0%" stop-color="var(--cloud-alt)" stop-opacity="0"></stop><stop offset="100%" stop-color="var(--cloud-alt)" stop-opacity="0.85"></stop></radialGradient>
+    </defs>
+    <g stroke="var(--safety-orange)" stroke-width="1" fill="none" opacity="0.10" stroke-linecap="round"><path d="M-50,60 C200,30 420,90 660,55 C880,25 1050,75 1260,40"></path><path d="M-50,110 C200,80 420,140 660,105 C880,75 1050,125 1260,90"></path><path d="M-50,170 C220,140 440,200 700,165 C920,135 1080,185 1260,150"></path><path d="M-50,230 C240,200 460,260 720,225 C940,195 1100,245 1260,210"></path><path d="M-50,300 C220,270 460,330 700,295 C930,265 1100,315 1260,280"></path><path d="M-50,360 C200,330 440,390 680,355 C900,325 1080,375 1260,340"></path><path d="M-50,420 C220,390 460,450 720,415 C940,385 1100,435 1260,400"></path></g><g stroke="var(--safety-orange)" stroke-width="1" fill="none" opacity="0.06" stroke-linecap="round"><path d="M-50,30 C220,10 460,60 700,30 C920,5 1100,45 1260,15"></path><path d="M-50,90 C200,60 440,120 680,85 C900,60 1080,105 1260,75"></path><path d="M-50,200 C240,170 480,230 720,200 C940,170 1100,215 1260,185"></path><path d="M-50,270 C220,240 480,300 720,270 C940,240 1100,285 1260,255"></path><path d="M-50,330 C200,300 440,360 680,330 C900,305 1080,345 1260,315"></path><path d="M-50,390 C220,360 460,420 700,390 C920,360 1100,405 1260,375"></path></g>
+    <rect x="0" y="0" width="1200" height="480" fill="url(#topo-fade)"></rect>
+  </svg>
   <div class="flow">
   <h1>{title}</h1>
 
