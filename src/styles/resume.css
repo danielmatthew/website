@@ -365,7 +365,7 @@ blockquote > span {
     text-decoration: none;
   }
 
-  a::after:not(.pill--hollow a) {
+  a:not(.pill--hollow a)::after {
     content: ' – ('attr(href)')';
   }
 
