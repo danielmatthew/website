@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.2.0](https://github.com/danielmatthew/website/compare/v7.1.0...v7.2.0) (2026-10-11)
+
+
+### Features
+
+* add axe-core accessibility audit to PR pipeline ([#140](https://github.com/danielmatthew/website/issues/140)) ([eac1488](https://github.com/danielmatthew/website/commit/eac1488628ca5ca947b0a6c02ce14d188d69b67e))
+* update tinacms config ([e1033f1](https://github.com/danielmatthew/website/commit/e1033f1ebe5ab5ad4325275f2da86d74bdac8206))
+
+
+### Bug Fixes
+
+* dodgy timestamps ([deb6da2](https://github.com/danielmatthew/website/commit/deb6da23bdd7e2ac20f355e925a014103848a893))
+
 ## [7.1.0](https://github.com/danielmatthew/website/compare/v7.0.0...v7.1.0) (2026-05-05)
 
 
