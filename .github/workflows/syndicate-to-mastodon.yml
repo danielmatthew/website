@@ -1,0 +1,61 @@
+name: Syndicate to Mastodon via Bridgy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/content/posts/**"
+
+jobs:
+  syndicate:
+    name: Send webmentions to Bridgy Publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find added or modified posts
+        id: changed-posts
+        run: |
+          git diff --name-only --diff-filter=AM HEAD~1 HEAD -- src/content/posts/ \
+            | grep -E '\.(md|mdx)$' > changed_posts.txt || true
+          echo "Changed posts:"
+          cat changed_posts.txt
+
+      - name: Wait for Netlify deploy
+        run: |
+          echo "Waiting for site to reflect the latest deploy..."
+          for i in $(seq 1 30); do
+            STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://danmatthew.co.uk/)
+            if [ "$STATUS" = "200" ]; then
+              echo "Site is live (attempt $i)"
+              # Extra buffer to ensure new content is deployed
+              sleep 30
+              break
+            fi
+            echo "Not ready yet (attempt $i, status $STATUS), retrying in 10s..."
+            sleep 10
+          done
+
+      - name: Send webmentions to Bridgy
+        run: |
+          if [ ! -s changed_posts.txt ]; then
+            echo "No changed posts to syndicate."
+            exit 0
+          fi
+          while IFS= read -r post_file; do
+            if [ -z "$post_file" ]; then continue; fi
+            # Strip directory prefix and extension to get the slug
+            filename=$(basename "$post_file")
+            slug="${filename%.mdx}"
+            slug="${slug%.md}"
+            post_url="https://danmatthew.co.uk/notes/${slug}/"
+            echo "Sending webmention for: $post_url"
+            HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+              -X POST https://brid.gy/publish/webmention \
+              --data-urlencode "source=${post_url}" \
+              --data-urlencode "target=https://brid.gy/publish/mastodon")
+            echo "Bridgy responded with HTTP $HTTP_STATUS for $post_url"
+          done < changed_posts.txt
