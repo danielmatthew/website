@@ -41,19 +41,28 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout title={`${entry.data.title}`}>
-  <article>
+  <article class="h-entry">
     <Hero title={entry.data.title}>
       <div slot="header-extras">
         <div class="meta">
-          <time datetime={entry.data.publishedDate.toISOString()}>
+          <time class="dt-published" datetime={entry.data.publishedDate.toISOString()}>
             {entry.data.publishedDate.toLocaleDateString("en-GB")}
           </time>
         </div>
       </div>
     </Hero>
-    <section class="flow">
+    <section class="flow e-content">
       <Content />
     </section>
+    <footer hidden>
+      <data class="p-name" value={entry.data.title}></data>
+      <a class="u-url" href={`https://danmatthew.co.uk/notes/${entry.id}/`}></a>
+      <div class="p-author h-card">
+        <a class="u-url p-name" href="https://danmatthew.co.uk">Dan Matthew</a>
+      </div>
+      <a class="u-syndication" href="https://brid.gy/publish/mastodon" rel="syndication"></a>
+      <a class="u-syndication" href="https://brid.gy/publish/bluesky" rel="syndication"></a>
+    </footer>
   </article>
   <nav aria-label="Notes pagination">
     {
