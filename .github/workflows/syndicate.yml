@@ -1,0 +1,61 @@
+name: Syndicate new posts
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/posts/**'
+
+jobs:
+  syndicate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Find newly added posts
+        id: new-posts
+        run: |
+          NEW=$(git diff --name-only --diff-filter=A HEAD~1 HEAD -- 'src/content/posts/')
+          echo "new_posts<<EOF" >> $GITHUB_OUTPUT
+          echo "$NEW" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Wait for Netlify deploy
+        if: steps.new-posts.outputs.new_posts != ''
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          echo "Polling Netlify for deploy completion..."
+          for i in $(seq 1 30); do
+            STATE=$(curl -sf \
+              -H "Authorization: Bearer $NETLIFY_AUTH_TOKEN" \
+              "https://api.netlify.com/api/v1/sites/$NETLIFY_SITE_ID/deploys?per_page=1" \
+              | python3 -c "import sys,json; print(json.load(sys.stdin)[0]['state'])")
+            echo "  Attempt $i: $STATE"
+            [ "$STATE" = "ready" ] && break
+            sleep 20
+          done
+          [ "$STATE" != "ready" ] && echo "::warning::Deploy did not reach ready state; webmentions may fail."
+
+      - name: Send webmentions to Bridgy
+        if: steps.new-posts.outputs.new_posts != ''
+        run: |
+          while IFS= read -r file; do
+            [ -z "$file" ] && continue
+            slug=$(basename "${file%.mdx}")
+            slug=$(basename "${slug%.md}")
+            source="https://danmatthew.co.uk/notes/${slug}/"
+            echo "Syndicating $source"
+
+            for target in \
+              "https://brid.gy/publish/mastodon" \
+              "https://brid.gy/publish/bluesky"; do
+              status=$(curl -s -o /dev/null -w "%{http_code}" \
+                -d "source=${source}&target=${target}" \
+                https://brid.gy/publish/webmention)
+              echo "  $target → HTTP $status"
+            done
+          done <<< "${{ steps.new-posts.outputs.new_posts }}"
