@@ -11,9 +11,9 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const articles = await getCollection("articles", ({data}) => {
+  const articles = (await getCollection("articles", ({ data }) => {
     return data.published !== false;
-  });
+  })).sort((a, b) => b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf());
 
   const numberOfPosts = articles.length;
 
