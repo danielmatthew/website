@@ -6,7 +6,7 @@ evergreen: false
 updatedDate: 2026-10-16T20:41:33.233Z
 ---
 
-I encountered a curious behaviour while reviewing some work for a colleague. Now, as [documented by WebAIM](https://webaim.org/projects/screenreadersurvey11/?ref=frontenddogma.com) Chrome and VoiceOver are not the most popular screen reader pairing 
+I encountered a curious behaviour while reviewing some work for a colleague. Now, as [documented by WebAIM](https://webaim.org/projects/screenreadersurvey11/?ref=frontenddogma.com) Chrome and VoiceOver are not the most popular screen reader pairing
 
 A minimal reproducible example follows:
 
@@ -27,7 +27,7 @@ In Vivaldi, a Chromium-powered browser, and VoiceOver on macOS 27.0 (Golden Gate
 2. -9.1%, Month Date range start, stepper
 3. -0%, Year Date range start, stepper
 
-Weird, eh? Like the default values ("dd", “mm”, “yyyy”) are being cast to a different data type.
+![An input of type date in Firefox. It is labelled Date range start.](/Screen-Shot-2026-10-19-at-13.31.09.png)Weird, eh? Like the default values ("dd", “mm”, “yyyy”) are being cast to a different data type.
 
 Setting a default value on the date input appears to offer a consistent experience across browser and screen reader combinations:
 
