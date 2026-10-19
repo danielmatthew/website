@@ -15,7 +15,7 @@ A minimal reproducible example follows:
 <input type="date" id="startDate" />
 ```
 
-In Safari - a Webkit-powered browser - and VoiceOver on macOS 27.0 (Golden Gate), the by default the browser displays the current date as a placeholder value. The screen reader output is as follows:
+In Safari - a Webkit-powered browser - and VoiceOver on macOS 27.0 (Golden Gate), the browser displays the current date as a placeholder. The screen reader output is as follows:
 
 1. 0, day, stepper
 2. 0, month, stepper
