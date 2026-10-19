@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.3.0](https://github.com/danielmatthew/website/compare/v7.2.0...v7.3.0) (2026-10-19)
+
+
+### Features
+
+* configure syndication ([#162](https://github.com/danielmatthew/website/issues/162)) ([32256ae](https://github.com/danielmatthew/website/commit/32256aec44b51672e192363fa19cc36bef6fec93))
+
+
+### Bug Fixes
+
+* correct pagination sorting ([#161](https://github.com/danielmatthew/website/issues/161)) ([65ecdaf](https://github.com/danielmatthew/website/commit/65ecdafc3c5a47d6b6caf112cecda3ba13133746))
+
 ## [7.2.0](https://github.com/danielmatthew/website/compare/v7.1.0...v7.2.0) (2026-10-11)
 
 
