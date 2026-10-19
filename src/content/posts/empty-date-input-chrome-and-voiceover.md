@@ -21,7 +21,7 @@ In Safari - a Webkit-powered browser - and VoiceOver on macOS 27.0 (Golden Gate)
 2. 0, month, stepper
 3. 0, year, stepper
 
-![](/Screenshot-2026-10-19-at-13.34.33.png)
+![Input type date in Safari - the placeholder values show the current date](/Screenshot-2026-10-19-at-13.34.33.png)
 
 In Chromium-powered Vivaldi and VoiceOver on macOS 27.0 (Golden Gate), the output is as follows:
 
