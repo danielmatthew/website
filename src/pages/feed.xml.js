@@ -20,12 +20,11 @@ export async function GET(context) {
     items: publishedPosts.map((post) => ({
       title: post.data.title,
       pubDate: post.data.publishedDate,
-      link: `/notes/${post.slug}/`,
+      link: `/notes/${post.id}/`,
       description: post.data.description || '',
       content: sanitizeHtml(parser.render(post.body), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-        }),
-        ...post.data,
-      })),
+      }),
+    })),
   });
 }
