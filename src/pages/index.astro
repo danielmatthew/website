@@ -7,6 +7,7 @@ import shuffle from "../utils/shuffle";
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
 import Quote from "../components/Quote.astro";
+import ContactCTA from "../components/ContactCTA.astro";
 
 const notesWithDate = (
   await getCollection("posts", ({ data }) => {
@@ -200,6 +201,8 @@ const title = "Accessibility and design systems consultant";
 
       </ol>
     </section> -->
+
+  <ContactCTA />
 
   <!-- <div class="wrapper--quotes">
       <section class="quotes">
