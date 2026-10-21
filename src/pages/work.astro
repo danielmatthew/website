@@ -1,5 +1,5 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 
@@ -17,7 +17,7 @@ const projects = await getCollection("work", ({ data }) => {
         <li class="card card--project">
           <div class="project-listing">
             <div class="card__content flow">
-              <a href={`/work/${project.slug}`} class="title">
+              <a href={`/work/${project.id}`} class="title">
                 {project.data.title}
               </a>
               <div class="meta">

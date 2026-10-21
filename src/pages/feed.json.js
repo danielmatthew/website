@@ -22,8 +22,8 @@ export async function GET(context) {
     },
     language: 'en-gb',
     items: publishedPosts.map((post) => ({
-      id: `${siteUrl}/notes/${post.slug}/`,
-      url: `${siteUrl}/notes/${post.slug}/`,
+      id: `${siteUrl}/notes/${post.id}/`,
+      url: `${siteUrl}/notes/${post.id}/`,
       title: post.data.title,
       date_published: post.data.publishedDate.toISOString(),
       ...(post.data.updatedDate && { date_modified: post.data.updatedDate.toISOString() }),
