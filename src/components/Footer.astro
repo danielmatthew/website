@@ -1,8 +1,115 @@
 ---
-import ContactCTA from "./ContactCTA.astro";
 const currentYear = new Date().getFullYear();
+
+const socials = [
+  { label: "Bluesky", href: "https://bsky.app/profile/danmatthew.co.uk" },
+  { label: "GitHub", href: "https://github.com/danielmatthew" },
+  { label: "Mastodon", href: "https://front-end.social/@danielm" },
+  { label: "CodePen", href: "https://codepen.io/danielmatthew" },
+  { label: "LinkedIn", href: "https://linkedin.com/in/danielmatthew/" },
+  { label: "Notist", href: "https://noti.st/danielmatthew" },
+];
 ---
 
-<footer>
-    <span>&copy; {currentYear}</span>
+<footer id="contact" class="site-foot">
+  <svg class="trail" aria-hidden="true" viewBox="0 0 1280 160" preserveAspectRatio="none">
+    <path
+      d="M0 120 C120 120 160 30 260 40 C360 50 340 140 460 130 C580 120 560 20 700 30 C820 40 800 130 940 120 C1060 110 1080 60 1180 70"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="22"
+      stroke-linecap="round"></path>
+    <g class="flower" transform="translate(1235 72)">
+      <rect x="-7" y="-34" width="14" height="30" rx="2"></rect>
+      <rect x="-7" y="-34" width="14" height="30" rx="2" transform="rotate(72)"></rect>
+      <rect x="-7" y="-34" width="14" height="30" rx="2" transform="rotate(144)"></rect>
+      <rect x="-7" y="-34" width="14" height="30" rx="2" transform="rotate(216)"></rect>
+      <rect x="-7" y="-34" width="14" height="30" rx="2" transform="rotate(288)"></rect>
+      <circle r="9"></circle>
+    </g>
+  </svg>
+
+  <div class="site-foot__body">
+    <div class="site-foot__cta">
+      <p class="site-foot__title">Let's take the <em>accessible route.</em></p>
+      <a href="mailto:dan.matthew@hey.com" class="button button--solid">Get in touch →</a>
+    </div>
+
+    <ul class="socials" role="list">
+      {
+        socials.map(({ label, href }) => (
+          <li>
+            <a rel="me external" href={href}>
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <p class="site-foot__meta">&copy; {currentYear} Dan Matthew · Set in iA Writer Quattro</p>
 </footer>
+
+<style>
+  .site-foot {
+    position: relative;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding: 2.5rem 1.5rem 3.5rem;
+  }
+
+  .trail {
+    display: block;
+    width: 100%;
+    height: 120px;
+    margin-block-end: 2.5rem;
+    color: var(--cream);
+  }
+
+  .flower {
+    fill: var(--flame);
+  }
+
+  .site-foot__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .site-foot__cta {
+    flex: 1 1 460px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .site-foot__title {
+    font-size: clamp(2.75rem, 5vw, 4.75rem);
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+  }
+
+  .site-foot__title em {
+    color: var(--apricot);
+  }
+
+  .socials {
+    flex: 1 1 320px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem 2rem;
+    font-size: 1rem;
+  }
+
+  .site-foot__meta {
+    margin-block-start: 3rem;
+    font-size: 0.875rem;
+    color: var(--haze);
+  }
+</style>
