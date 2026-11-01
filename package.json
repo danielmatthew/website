@@ -12,8 +12,6 @@
     "@timohausmann/quadtree-js": "^1.2.6",
     "astro": "^7.3.8",
     "eslint": "^9.39.4",
-    "markdown-it": "^14.1.1",
-    "sanitize-html": "^2.17.4",
     "tinacms": "^3.14.3"
   },
   "devDependencies": {
