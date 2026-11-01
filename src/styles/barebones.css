@@ -485,3 +485,7 @@
   }
 } */
 }
+
+@view-transition {
+  navigation: auto;
+}

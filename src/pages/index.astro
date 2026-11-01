@@ -1,36 +1,11 @@
 ---
-import { getCollection } from "astro:content";
-import { contentfulClient } from "../lib/contentful";
-
-import shuffle from "../utils/shuffle";
+import { getPublishedPosts } from "../lib/collections";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
-import Quote from "../components/Quote.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-const notesWithDate = (
-  await getCollection("posts", ({ data }) => {
-    return data.published !== false;
-  })
-)
-  .sort((a, b) => {
-    return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
-  })
-  .slice(0, 3);
-
-const projects = await getCollection("work", ({ data }) => {
-  return data.draft !== true;
-});
-
-const quotes = await contentfulClient
-  .getEntries({
-    content_type: "testimonial",
-  })
-  .then((response) => {
-    return {
-      items: shuffle(response.items),
-    };
-  });
+const recentPosts = (await getPublishedPosts()).slice(0, 3);
 
 const title = "Accessibility and design systems consultant";
 ---
@@ -42,17 +17,16 @@ const title = "Accessibility and design systems consultant";
     </p>
   </Hero>
 
-    <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
+  <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
     {
-      notesWithDate.map((note) => (
+      recentPosts.map((note) => (
         <li>
-          <a href={`/notes/${note.id}`}>{ note.data.title }</a>
-          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
+          <a href={`/notes/${note.id}`}>{note.data.title}</a>
+          <FormattedDate date={note.data.publishedDate} class="meta" />
         </li>
       ))
     }
   </ol>
-
 
   <ul class="socials" role="list">
     <li>
@@ -107,111 +81,4 @@ const title = "Accessibility and design systems consultant";
       ></path></symbol
     ></svg
   >
-
-  <!-- <section class="wrapper--projects">
-      <h2 class="visually-hidden">Work</h2>
-      <ol class="projects grid">
-        {
-          projects.map((project) => (
-            <li class="card card--project">
-              <div class="project-listing">
-                <div class="card__cover">
-                  <div class="thumb-grid">
-                    {[...Array(9)].map(() => (
-                      <div class="thumb-grid__thumb">
-                        <img
-                          src={project.data.img}
-                          alt=""
-                          class="cover__thumb"
-                          height="50"
-                          width="50"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <div class="card__content flow">
-                  <a href={`/work/${project.slug}`} class="title">
-                    {project.data.title}
-                  </a>
-                  <div class="meta">
-                    <span class="org">Talis</span>
-                    <time
-                      class="date"
-                      datetime={project.data.publishDate.toISOString()}
-                    >
-                      {project.data.projectDate}
-                    </time>
-                  </div>
-                  <p>{project.data.description}</p>
-                  <ul class="roles" role="list">
-                    {project.data.tags.map((tag) => (
-                      <li>{tag}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </li>
-          ))
-        }
-      </ol>
-
-      <div class="card card--example">
-        <Browser />
-      </div>
-      <div class="card card--example">
-        <Volume/>
-      </div>
-    </section> -->
-
-  <!-- <section class="talks wrapper--links">
-      <h2>Talks</h2>
-        <ol role="list" class="flow">
-          <li>
-            <a href="https://noti.st/danielmatthew/5fk25b/a11y-101">Accessibility 101</a>
-            <time class="meta">Feb 2023</time>
-          </li>
-
-        <li>
-          <a href="https://noti.st/danielmatthew/pocE5Y/accessibility-testing">Accessibility Testing</a>
-          <span class="meta">BrumJS, &nbsp; <time>May 2018</time></span>
-        </li>
-
-        <li>
-          <a href="https://noti.st/danielmatthew/hzSpy0/screenreader-accessibility">Screenreader Accessibility</a>
-          <span class="meta">Codelicious, &nbsp;<time>July 2016</time></span>
-        </li>
-
-      </ol>
-    </section> -->
-
-  <!-- <section class="elsewhere wrapper--links">
-      <h2>Elsewhere</h2>
-        <ol role="list" class="flow">
-          <li>
-            <a href="https://talis.com/2020/09/24/why-we-think-accessibility-is-important/" rel="external">Why we think accessibility is important</a>
-            <span class="meta">Talis</span>
-          </li>
-
-        <li>
-          <a href="https://www.codeenigma.com/blog/interview-accessibility-expert-daniel-matthew" rel="external">Interview with an accessibility expert</a>
-          <span class="meta">CodeEnigma</span>
-        </li>
-
-      </ol>
-    </section> -->
-
-  <!-- <div class="wrapper--quotes">
-      <section class="quotes">
-        <hgroup class="flow">
-          <h2>Quotes</h2>
-          <p>Some nice things people have said about me</p>
-        </hgroup>
-        <div class="quote-container js-at-start">
-          <div class="quote-scroller" tabindex="0">
-            {quotes.items.map((quote) => <Quote quote={quote} />)}
-          </div>
-        </div>
-      </section>
-    </div> -->
 </HomeLayout>

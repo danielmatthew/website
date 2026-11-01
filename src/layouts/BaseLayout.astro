@@ -1,7 +1,7 @@
 ---
 import "../styles/barebones.css";
+import Font from "astro/components/Font.astro";
 import Nav from "../components/Nav.astro";
-import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 
 interface Props {
@@ -10,8 +10,11 @@ interface Props {
   modifier?: string | undefined;
 }
 
-const isProd = import.meta.env.PROD;
 const { title, description, modifier } = Astro.props;
+
+const siteTitle = "Dan Matthew — accessibility and design systems consultant";
+const pageTitle = title ? `${title} | Dan Matthew` : siteTitle;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
@@ -19,53 +22,23 @@ const { title, description, modifier } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>
-      {title && `${title}: `} Dan Matthew is an accessibility and design systems consultant
-    </title>
+    <title>{pageTitle}</title>
 
-    <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=ibm-plex-sans:400,600,700" rel="stylesheet" />
-    <!-- <script is:inline>
-      // This code is inlined in the head to make dark mode instant & blocking.
-      const getThemePreference = () => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonicalURL} />
 
+    <meta property="og:title" content={pageTitle} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dan Matthew" />
 
-        if (getThemePreference() === 'dark' || !getThemePreference() && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.documentElement.classList.add('pause-transitions');
-        document.documentElement.classList.add('theme-dark');
-        document.head.querySelector('meta[name="theme-color"]').setAttribute('content', 'hsl(0, 0%, 0%)');
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    {description && <meta name="twitter:description" content={description} />}
 
-        requestAnimationFrame(() => {
-          document.documentElement.classList.remove('pause-transitions');
-        });
+    <Font cssVariable="--font-ibm-plex" preload />
 
-        return 'theme-dark';
-      } else {
-        document.documentElement.classList.add('pause-transitions');
-        document.documentElement.classList.add('theme-light');
-        document.head.querySelector('meta[name="theme-color"]').setAttribute('content', '#fcfcfc');
-
-        requestAnimationFrame(() => {
-          document.documentElement.classList.remove('pause-transitions');
-        });
-
-        return 'theme-light';
-      }
-      };
-
-      if (typeof localStorage !== 'undefined') {
-        // Watch the document element and persist user preference when it changes.
-        const observer = new MutationObserver(() => {
-          const isDark = document.documentElement.classList.contains('theme-dark');
-          localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-      }
-    </script> -->
-    <meta name="view-transition" content="same-origin" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

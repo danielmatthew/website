@@ -7,10 +7,12 @@ import Hero from "../../components/Hero.astro";
 
 interface Props {
   entry: CollectionEntry<"work">;
+  prevPost: CollectionEntry<"work"> | undefined;
+  nextPost: CollectionEntry<"work"> | undefined;
 }
 
 export async function getStaticPaths() {
-  const work = await getCollection("work", ({data}) => {
+  const work = await getCollection("work", ({ data }) => {
     return data.draft !== true;
   });
 
@@ -20,14 +22,8 @@ export async function getStaticPaths() {
     params: { slug: entry.id },
     props: {
       entry,
-      prevPost:
-        index + 1 === numberOfPosts
-        ? { frontmatter: ''}
-        : work[index + 1],
-      nextPost:
-        index === 0
-        ? { frontmatter: ''}
-        : work[index - 1],
+      prevPost: index + 1 === numberOfPosts ? undefined : work[index + 1],
+      nextPost: index === 0 ? undefined : work[index - 1],
     },
   }));
 }
@@ -36,9 +32,7 @@ const { entry, prevPost, nextPost } = Astro.props;
 const { Content, headings } = await render(entry);
 ---
 
-<BaseLayout
-  title={entry.data.title}
->
+<BaseLayout title={entry.data.title}>
   <Hero title={entry.data.title}>
     <div slot="header-extras">
       <div class="meta">
@@ -56,38 +50,29 @@ const { Content, headings } = await render(entry);
           </ul>
         )
       }
-  </div>
-
+    </div>
   </Hero>
 
-    <article>
-      <section class="layout">
+  <article>
+    <section class="layout">
+      <div class="summary flow">
+        <strong>TL; DR</strong>
+        <p class="lede">{entry.data.description}</p>
+      </div>
 
-        <div class="summary flow">
-          <strong>TL; DR</strong>
-          <p class="lede">
-            {entry.data.description}
-          </p>
-        </div>
+      <TableOfContents headings={headings} />
 
-        <TableOfContents headings={headings} />
-
-        <div class="content flow">
-          <Content />
-
-        </div>
-      </section>
-    </article>
-    <nav class="pagination" aria-label="Work">
-      {prevPost.id &&
-        <a href={`/work/${prevPost.id}/`}>
-          {prevPost.data.title}
-        </a>
-      }
-      {nextPost.id &&
-        <a href={`/work/${nextPost.id}/`}>
-          {nextPost.data.title}
-        </a>
-      }
-    </nav>
+      <div class="content flow">
+        <Content />
+      </div>
+    </section>
+  </article>
+  <nav class="pagination" aria-label="Work">
+    {prevPost && (
+      <a href={`/work/${prevPost.id}/`}>{prevPost.data.title}</a>
+    )}
+    {nextPost && (
+      <a href={`/work/${nextPost.id}/`}>{nextPost.data.title}</a>
+    )}
+  </nav>
 </BaseLayout>

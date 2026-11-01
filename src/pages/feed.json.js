@@ -3,9 +3,8 @@ import { getCollection } from 'astro:content';
 export async function GET(context) {
   const posts = await getCollection('posts');
 
-  // Filter for published posts only and sort by date descending
   const publishedPosts = posts
-    .filter(post => post.data.published === true)
+    .filter(post => post.data.published !== false)
     .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
 
   const siteUrl = (context.site?.toString() || 'https://danmatthew.co.uk').replace(/\/$/, '');
@@ -22,8 +21,8 @@ export async function GET(context) {
     },
     language: 'en-gb',
     items: publishedPosts.map((post) => ({
-      id: `${siteUrl}/notes/${post.slug}/`,
-      url: `${siteUrl}/notes/${post.slug}/`,
+      id: `${siteUrl}/notes/${post.id}/`,
+      url: `${siteUrl}/notes/${post.id}/`,
       title: post.data.title,
       date_published: post.data.publishedDate.toISOString(),
       ...(post.data.updatedDate && { date_modified: post.data.updatedDate.toISOString() }),

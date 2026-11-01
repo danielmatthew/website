@@ -1,11 +1,22 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
-import mdx from "@astrojs/mdx";
-
-// https://astro.build/config
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://danmatthew.co.uk',
-  integrations: [mdx()]
+  trailingSlash: 'always',
+  prefetch: true,
+  integrations: [
+    mdx(),
+    sitemap(),
+  ],
+  fonts: [
+    {
+      provider: fontProviders.bunny(),
+      name: 'IBM Plex Sans',
+      cssVariable: '--font-ibm-plex',
+      weights: [400, 600, 700],
+      display: 'swap',
+    },
+  ],
 });

@@ -4,18 +4,13 @@ import { getCollection, render } from "astro:content";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 
 interface Props {
   entry: CollectionEntry<"posts">;
+  prevPost: CollectionEntry<"posts"> | undefined;
+  nextPost: CollectionEntry<"posts"> | undefined;
 }
-
-// export async function getStaticPaths() {
-//   const notes = await getCollection("posts");
-//   return notes.map((entry) => ({
-//     params: { slug: entry.slug },
-//     props: { entry },
-//   }));
-// }
 
 export async function getStaticPaths() {
   const notes = (await getCollection("posts", ({ data }) => {
@@ -28,9 +23,8 @@ export async function getStaticPaths() {
     params: { slug: entry.id },
     props: {
       entry,
-      prevPost:
-        index + 1 === numberOfPosts ? { frontmatter: "" } : notes[index + 1],
-      nextPost: index === 0 ? { frontmatter: "" } : notes[index - 1],
+      prevPost: index + 1 === numberOfPosts ? undefined : notes[index + 1],
+      nextPost: index === 0 ? undefined : notes[index - 1],
     },
   }));
 }
@@ -40,14 +34,12 @@ const { entry, prevPost, nextPost } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={`${entry.data.title}`}>
+<BaseLayout title={entry.data.title}>
   <article class="h-entry">
     <Hero title={entry.data.title}>
       <div slot="header-extras">
         <div class="meta">
-          <time class="dt-published" datetime={entry.data.publishedDate.toISOString()}>
-            {entry.data.publishedDate.toLocaleDateString("en-GB")}
-          </time>
+          <FormattedDate date={entry.data.publishedDate} class="dt-published" />
         </div>
       </div>
     </Hero>
@@ -65,16 +57,12 @@ const { Content } = await render(entry);
     </footer>
   </article>
   <nav aria-label="Notes pagination">
-    {
-      nextPost.id && (
-        <a href={`/notes/${nextPost.id}/`}>{nextPost.data.title}</a>
-      )
-    }
-    {
-      prevPost.id && (
-        <a href={`/notes/${prevPost.id}/`}>{prevPost.data.title}</a>
-      )
-    }
+    {nextPost && (
+      <a href={`/notes/${nextPost.id}/`}>{nextPost.data.title}</a>
+    )}
+    {prevPost && (
+      <a href={`/notes/${prevPost.id}/`}>{prevPost.data.title}</a>
+    )}
   </nav>
 </BaseLayout>
 <style>

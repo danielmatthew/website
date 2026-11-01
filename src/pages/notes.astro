@@ -1,26 +1,19 @@
 ---
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from "../lib/collections";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-const notesWithDate =
-  (await getCollection('posts', ({data}) => {
-    return data.published !== false;
-  }))
-
-  .sort((a, b) => {
-    return b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf();
-  });
-
+const posts = await getPublishedPosts();
 ---
 <BaseLayout title="Notes">
   <Hero title="Notes" />
   <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
     {
-      notesWithDate.map((note) => (
+      posts.map((post) => (
         <li>
-          <a href={`/notes/${note.id}`}>{ note.data.title }</a>
-          <time class="meta" datetime={note.data.publishedDate.toDateString()}>{note.data.publishedDate.toLocaleDateString('en-GB')}</time>
+          <a href={`/notes/${post.id}`}>{post.data.title}</a>
+          <FormattedDate date={post.data.publishedDate} class="meta" />
         </li>
       ))
     }
