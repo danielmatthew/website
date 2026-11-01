@@ -1,14 +1,9 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 
-import sanitizeHtml from 'sanitize-html';
-import MarkdownIt from 'markdown-it';
-const parser = new MarkdownIt();
-
 export async function GET(context) {
   const posts = await getCollection('posts');
 
-  // Filter for published posts only and sort by date descending
   const publishedPosts = posts
     .filter(post => post.data.published === true)
     .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
@@ -22,9 +17,7 @@ export async function GET(context) {
       pubDate: post.data.publishedDate,
       link: `/notes/${post.id}/`,
       description: post.data.description || '',
-      content: sanitizeHtml(parser.render(post.body), {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
-      }),
+      content: post.rendered?.html ?? '',
     })),
   });
 }
