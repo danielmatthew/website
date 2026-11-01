@@ -2,7 +2,6 @@
   "name": "danmatthew.co.uk",
   "version": "7.3.0",
   "description": "",
-  "main": "index.js",
   "dependencies": {
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/rss": "^4.0.19",
@@ -31,12 +30,6 @@
       "prettier --write"
     ]
   },
-  "eslintConfig": {
-    "extends": [
-      "@open-wc/eslint-config",
-      "eslint-config-prettier"
-    ]
-  },
   "scripts": {
     "dev": "tinacms dev -c \"astro dev\"",
     "start": "astro start",
@@ -44,12 +37,12 @@
     "build:ci": "astro build",
     "preview": "astro preview",
     "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "lint:eslint": "eslint .",
     "lint:prettier": "prettier \"**/*.js\" --list-different || (echo '↑↑ these files are not prettier formatted ↑↑' && exit 1)",
     "format": "npm run format:eslint && npm run format:prettier",
-    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "format:eslint": "eslint . --fix",
     "format:prettier": "prettier \"**/*.js\" --write",
-    "test": "cypress run --spec \"cypress/integration/home_page.spec.js\"",
+    "test": "playwright test",
     "release": "npx standard-version && git push --follow-tags"
   },
   "repository": {
