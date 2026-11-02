@@ -1,28 +1,5 @@
 ---
 const currentPath = Astro.url.pathname;
-
-function daysUntil(futureDate) {
-  // Convert input to Date if string provided
-  const targetDate = new Date(futureDate);
-  const today = new Date();
-
-  // Validate future date
-  if (targetDate < today) {
-    throw new Error('Please provide a future date');
-  }
-
-  // Calculate difference in milliseconds
-  const diffInMs = targetDate - today;
-
-  // Convert to days and round down
-  const diffInDays = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-  return diffInDays;
-}
-
-// Usage example:
-// const christmas = daysUntil('2024-12-25');
-// const newYears = daysUntil(new Date(2025, 0, 1));
 ---
 
 <header class="banner">
@@ -33,31 +10,9 @@ function daysUntil(futureDate) {
   </div>
 
   <nav>
-    <!-- {
-      currentPath === "/work" ? (
-        <a href="/work" aria-current="page">
-          Work
-        </a>
-      ) : (
-        <a href="/work">Work</a>
-      )
-    } -->
-
-    <!-- {
-      currentPath === "/articles" ? (
-        <a href="/articles" aria-current="page">
-          Articles
-        </a>
-      ) : (
-        <a href="/articles">Articles</a>
-      )
-    } -->
-
     {
       currentPath === "/notes" ? (
-        <a href="/notes" aria-current="page">
-          Notes
-        </a>
+        <a href="/notes" aria-current="page">Notes</a>
       ) : (
         <a href="/notes">Notes</a>
       )

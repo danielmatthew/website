@@ -3,7 +3,7 @@
 
   --flow-space: var(--space-s);
 
-  --sans-serif: "IBM Plex Sans", system-ui, sans-serif;
+  --sans-serif: var(--font-ibm-plex);
   --body: var(--sans-serif);
   --titles: var(--sans-serif);
 
@@ -484,4 +484,8 @@
     color: var(--cream);
   }
 } */
+}
+
+@view-transition {
+  navigation: auto;
 }

@@ -1,15 +1,12 @@
 ---
-import { getCollection } from "astro:content";
+import { getPublishedWork } from "../lib/collections";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 
-const projects = await getCollection("work", ({ data }) => {
-  return data.draft !== true;
-});
-
+const projects = await getPublishedWork();
 ---
-<BaseLayout title="Work | Dan Matthew">
-  <Hero title="Work"/>
+<BaseLayout title="Work">
+  <Hero title="Work" />
 
   <ol class="projects grid content flow posts" role="list">
     {
@@ -31,7 +28,7 @@ const projects = await getCollection("work", ({ data }) => {
               </div>
               <p>{project.data.description}</p>
               <ul class="roles" role="list">
-                {project.data.tags.map((tag) => (
+                {project.data.tags.map((tag: string) => (
                   <li class="badge">{tag}</li>
                 ))}
               </ul>
