@@ -1,7 +1,6 @@
 ---
 title: On Procrastination
 publishedDate: 2013-03-16
-draft: true
 published: false
 ---
 
