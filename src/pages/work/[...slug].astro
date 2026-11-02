@@ -4,6 +4,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import TableOfContents from "../../components/TableOfContents.astro";
 import Hero from "../../components/Hero.astro";
+import Pagination from "../../components/Pagination.astro";
 
 interface Props {
   entry: CollectionEntry<"work">;
@@ -67,12 +68,5 @@ const { Content, headings } = await render(entry);
       </div>
     </section>
   </article>
-  <nav class="pagination" aria-label="Work">
-    {prevPost && (
-      <a href={`/work/${prevPost.id}/`}>{prevPost.data.title}</a>
-    )}
-    {nextPost && (
-      <a href={`/work/${nextPost.id}/`}>{nextPost.data.title}</a>
-    )}
-  </nav>
+  <Pagination prev={prevPost} next={nextPost} basePath="work" label="Work pagination" />
 </BaseLayout>

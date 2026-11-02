@@ -1,0 +1,45 @@
+---
+interface Entry {
+  id: string;
+  data: { title: string };
+}
+
+interface Props {
+  prev: Entry | undefined;
+  next: Entry | undefined;
+  basePath: string;
+  label: string;
+}
+
+const { prev, next, basePath, label } = Astro.props;
+---
+
+<nav aria-label={label}>
+  {prev && (
+    <a href={`/${basePath}/${prev.id}/`}>{prev.data.title}</a>
+  )}
+  {next && (
+    <a href={`/${basePath}/${next.id}/`}>{next.data.title}</a>
+  )}
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    margin-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    justify-content: space-between;
+  }
+
+  nav > a {
+    display: block;
+    margin-block: var(--space-xs);
+    padding: var(--space-xs);
+    width: 50%;
+    font-size: var(--step--1);
+  }
+
+  nav > a:nth-of-type(2) {
+    text-align: right;
+  }
+</style>
