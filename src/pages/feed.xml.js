@@ -1,12 +1,11 @@
 import rss from '@astrojs/rss';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getPublishedPosts } from '../lib/collections';
+import { feedId } from '../lib/permalinks';
 
 export async function GET(context) {
-  const posts = await getCollection('posts');
-
-  const publishedPosts = posts
-    .filter(post => post.data.published !== false)
-    .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+  const publishedPosts = await getPublishedPosts();
+  const siteUrl = (context.site?.toString() || 'https://danmatthew.co.uk').replace(/\/$/, '');
 
   const items = await Promise.all(
     publishedPosts.map(async (post) => {
@@ -16,7 +15,10 @@ export async function GET(context) {
         pubDate: post.data.publishedDate,
         link: `/notes/${post.id}/`,
         description: post.data.description || '',
+        categories: [post.data.category, ...post.data.tags],
         content: rendered.html ?? '',
+        // Replaces the default guid (the link) so IDs survive URL changes
+        customData: `<guid isPermaLink="true">${feedId(siteUrl, post)}</guid>`,
       };
     })
   );

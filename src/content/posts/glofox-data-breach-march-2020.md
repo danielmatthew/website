@@ -1,7 +1,7 @@
 ---
 title: Glofox Data Breach March 2020
 published: true
-metaDesc: "A recap of Glofox's data breach and their lack of interest in
+description: "A recap of Glofox's data breach and their lack of interest in
   alerting their customers that their details have been stolen. "
 publishedDate: 2021-05-25T16:32:11.921Z
 ---

@@ -1,0 +1,22 @@
+---
+import { getAllTags, getPostsByTag } from "../../../lib/collections";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import PostList from "../../../components/PostList.astro";
+
+export async function getStaticPaths() {
+  const tags = await getAllTags();
+  return [...tags.keys()].map((tag) => ({ params: { tag } }));
+}
+
+const { tag } = Astro.params;
+const posts = await getPostsByTag(tag);
+---
+<BaseLayout title={`Notes tagged #${tag}`}>
+  <Hero title={`#${tag}`}>
+    <p slot="header-extras">
+      {posts.length} {posts.length === 1 ? "note" : "notes"} · <a href="/notes/tags/">All tags</a>
+    </p>
+  </Hero>
+  <PostList posts={posts} />
+</BaseLayout>

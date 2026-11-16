@@ -1,11 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
+import { getPublishedPosts } from "../../lib/collections";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Hero from "../../components/Hero.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Pagination from "../../components/Pagination.astro";
+import PostTaxonomy from "../../components/PostTaxonomy.astro";
+import OutdatedNotice from "../../components/OutdatedNotice.astro";
 
 interface Props {
   entry: CollectionEntry<"posts">;
@@ -14,9 +17,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const notes = (await getCollection("posts", ({ data }) => {
-    return data.published !== false;
-  })).sort((a, b) => b.data.publishedDate?.valueOf() - a.data.publishedDate?.valueOf());
+  const notes = await getPublishedPosts();
 
   const numberOfPosts = notes.length;
 
@@ -31,24 +32,41 @@ export async function getStaticPaths() {
 }
 
 const { entry, prevPost, nextPost } = Astro.props;
+const { title, description, publishedDate, updatedDate, evergreen, category, tags, link } = entry.data;
 
 const { Content } = await render(entry);
 ---
 
-<BaseLayout title={entry.data.title}>
+<BaseLayout title={title} description={description}>
   <article class="h-entry">
-    <Hero title={entry.data.title}>
+    <Hero title={title}>
       <div slot="header-extras">
         <div class="meta">
-          <FormattedDate date={entry.data.publishedDate} class="dt-published" />
+          <FormattedDate date={publishedDate} class="dt-published" />
+          {
+            evergreen && updatedDate && (
+              <>
+                · Last updated <FormattedDate date={updatedDate} class="dt-updated" />
+              </>
+            )
+          }
         </div>
+        <PostTaxonomy category={category} tags={tags} />
       </div>
     </Hero>
+    {!evergreen && <OutdatedNotice date={updatedDate ?? publishedDate} />}
+    {
+      link && (
+        <p class="post-link">
+          <a class="u-bookmark-of" href={link} rel="external">{link}</a>
+        </p>
+      )
+    }
     <section class="flow e-content">
       <Content />
     </section>
     <footer hidden>
-      <data class="p-name" value={entry.data.title}></data>
+      <data class="p-name" value={title}></data>
       <a class="u-url" href={`https://danmatthew.co.uk/notes/${entry.id}/`}></a>
       <div class="p-author h-card">
         <a class="u-url p-name" href="https://danmatthew.co.uk">Dan Matthew</a>

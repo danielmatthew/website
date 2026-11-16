@@ -1,0 +1,30 @@
+---
+import { OUTDATED_AFTER_YEARS } from "../lib/taxonomy";
+
+interface Props {
+  // The most recent of updatedDate and publishedDate
+  date: Date;
+}
+
+const { date } = Astro.props;
+
+const MS_PER_YEAR = 365.25 * 24 * 60 * 60 * 1000;
+const years = Math.floor((Date.now() - date.valueOf()) / MS_PER_YEAR);
+---
+{
+  years >= OUTDATED_AFTER_YEARS && (
+    <aside class="outdated-notice" aria-label="Post age">
+      <p>
+        <strong>Heads up:</strong> this post is over {years} years old, so some of its content
+        may be out of date.
+      </p>
+    </aside>
+  )
+}
+
+<style>
+  .outdated-notice {
+    border-inline-start: 0.25rem solid currentColor;
+    padding-inline-start: var(--space-s);
+  }
+</style>

@@ -1,10 +1,7 @@
 ---
 title: "Weeknotes: 2020-08-01"
-metaDesc: A summary of the past week.
-tags:
-  - weeknotes
-  - august
-  - 2020
+description: A summary of the past week.
+category: weeknote
 syndicate: true
 published: true
 publishedDate: 2020-08-01

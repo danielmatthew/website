@@ -1,5 +1,7 @@
 ---
 title: 'Weeknotes: 2026-10-11'
+slug: weeknotes-2026-10-11
+category: weeknote
 publishedDate: '2026-10-11T21:21:11.009Z'
 published: true
 ---

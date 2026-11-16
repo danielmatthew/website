@@ -3,9 +3,11 @@ import { getPublishedPosts } from "../lib/collections";
 
 import HomeLayout from "../layouts/HomeLayout.astro";
 import Hero from "../components/Hero.astro";
-import FormattedDate from "../components/FormattedDate.astro";
+import PostList from "../components/PostList.astro";
 
-const recentPosts = (await getPublishedPosts()).slice(0, 3);
+const posts = await getPublishedPosts();
+const featuredPosts = posts.filter((post) => post.data.featured);
+const recentPosts = posts.filter((post) => !post.data.featured).slice(0, 3);
 
 const title = "Accessibility and design systems consultant";
 ---
@@ -17,16 +19,19 @@ const title = "Accessibility and design systems consultant";
     </p>
   </Hero>
 
-  <ol class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed>
-    {
-      recentPosts.map((note) => (
-        <li>
-          <a href={`/notes/${note.id}`}>{note.data.title}</a>
-          <FormattedDate date={note.data.publishedDate} class="meta" />
-        </li>
-      ))
-    }
-  </ol>
+  {
+    featuredPosts.length > 0 && (
+      <section aria-labelledby="featured-heading" class="flow">
+        <h2 id="featured-heading">Featured</h2>
+        <PostList posts={featuredPosts} ordered={false} />
+      </section>
+    )
+  }
+
+  <section aria-labelledby="recent-heading" class="flow">
+    <h2 id="recent-heading">Recent notes</h2>
+    <PostList posts={recentPosts} />
+  </section>
 
   <ul class="socials" role="list">
     <li>

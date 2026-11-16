@@ -1,5 +1,6 @@
 ---
 title: "Added orientation support to tabs component"
+category: link
 link: https://github.com/danielmatthew/accessible-web-components/releases
 publishedDate: 2020-07-25
 ---

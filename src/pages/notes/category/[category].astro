@@ -1,0 +1,23 @@
+---
+import { getPostsByCategory } from "../../../lib/collections";
+import { CATEGORIES, CATEGORY_LABELS, type Category } from "../../../lib/taxonomy";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/Hero.astro";
+import PostList from "../../../components/PostList.astro";
+
+export function getStaticPaths() {
+  return CATEGORIES.map((category) => ({ params: { category } }));
+}
+
+const category = Astro.params.category as Category;
+const posts = await getPostsByCategory(category);
+const label = CATEGORY_LABELS[category];
+---
+<BaseLayout title={label}>
+  <Hero title={label}>
+    <p slot="header-extras">
+      {posts.length} {posts.length === 1 ? "post" : "posts"} · <a href="/notes/tags/">All tags</a>
+    </p>
+  </Hero>
+  <PostList posts={posts} />
+</BaseLayout>

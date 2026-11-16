@@ -1,5 +1,6 @@
 ---
 title: Styling visited links
+category: link
 link: https://developer.mozilla.org/en-US/docs/Web/CSS/Privacy_and_the_:visited_selector
 publishedDate: 2020-08-06
 ---
