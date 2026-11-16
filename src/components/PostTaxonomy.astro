@@ -1,0 +1,27 @@
+---
+import { CATEGORY_LABELS, type Category } from "../lib/taxonomy";
+
+interface Props {
+  category: Category;
+  tags: string[];
+}
+
+const { category, tags } = Astro.props;
+---
+<p class="meta post-taxonomy">
+  Filed under{" "}
+  <a class="p-category" href={`/notes/category/${category}/`}>{CATEGORY_LABELS[category]}</a>
+  {
+    tags.length > 0 && (
+      <>
+        {" · Tagged "}
+        {tags.map((tag, i) => (
+          <>
+            <a class="p-category" href={`/notes/tags/${tag}/`}>#{tag}</a>
+            {i < tags.length - 1 && ", "}
+          </>
+        ))}
+      </>
+    )
+  }
+</p>

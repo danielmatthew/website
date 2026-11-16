@@ -1,5 +1,6 @@
 ---
 title: CircleCI Node Images with Browsers
+category: link
 link: https://circleci.com/docs/2.0/docker-image-tags.json
 published: true
 publishedDate: 2020-07-27

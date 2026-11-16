@@ -10,13 +10,7 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <nav>
-    {
-      currentPath === "/notes" ? (
-        <a href="/notes" aria-current="page">Notes</a>
-      ) : (
-        <a href="/notes">Notes</a>
-      )
-    }
+    <a href="/notes/" aria-current={currentPath === "/notes/" ? "page" : undefined}>Notes</a>
   </nav>
 </header>
 <style>

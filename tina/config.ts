@@ -1,4 +1,5 @@
 import { defineConfig } from "tinacms";
+import { CATEGORIES } from "../src/lib/taxonomy";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -41,6 +42,14 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "description",
+            label: "Description",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
             type: "datetime",
             name: "publishedDate",
             label: "Date posted",
@@ -55,9 +64,51 @@ export default defineConfig({
             },
           },
           {
+            type: "string",
+            name: "category",
+            label: "Category",
+            options: [...CATEGORIES],
+            ui: {
+              defaultValue: "note",
+            },
+          },
+          {
+            type: "string",
+            name: "tags",
+            label: "Tags",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "link",
+            label: "External link",
+            description: "For link posts: the URL being shared",
+          },
+          {
+            type: "boolean",
+            name: "syndicate",
+            label: "Syndicate to Mastodon/Bluesky",
+            ui: {
+              defaultValue: true,
+            },
+          },
+          {
             type: "boolean",
             name: "evergreen",
             label: "Evergreen",
+            description: "Content that doesn't date; hides the age notice",
+          },
+          {
+            type: "boolean",
+            name: "featured",
+            label: "Featured",
+            description: "Show on the homepage",
+          },
+          {
+            type: "boolean",
+            name: "pinned",
+            label: "Pinned",
+            description: "Keep at the top of the notes list",
           },
           {
             type: "datetime",

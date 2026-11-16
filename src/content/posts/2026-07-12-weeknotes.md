@@ -1,5 +1,7 @@
 ---
 title: 'Weeknotes: 2026-07-12'
+slug: weeknotes-2026-07-12
+category: weeknote
 publishedDate: 2026-07-12T20:17:56.138Z
 published: true
 updatedDate: 2026-07-12T16:26:23.662Z

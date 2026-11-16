@@ -1,8 +1,8 @@
 ---
-
 title: Numbers In JavaScript
-featured: true
-tags: javascript development
+tags:
+  - javascript
+  - development
 publishedDate: 2013-06-02
 ---
 ## The basics

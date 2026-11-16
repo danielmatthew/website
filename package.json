@@ -5,7 +5,10 @@
   "dependencies": {
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/rss": "^4.0.19",
+    "@georgedoescode/generative-utils": "^2.0.1",
     "@stackblitz/sdk": "^1.11.0",
+    "@svgdotjs/svg.js": "^3.2.8",
+    "@timohausmann/quadtree-js": "^1.2.6",
     "astro": "^7.3.8",
     "tinacms": "^3.14.3"
   },
@@ -20,7 +23,8 @@
     "husky": "^9.1.7",
     "lint-staged": "^15.5.2",
     "prettier": "^3.8.3",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.72.2"
   },
   "browserslist": [
     "last 2 versions"

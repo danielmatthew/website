@@ -1,6 +1,6 @@
 ---
 title: "Accessible Web Components: Tabs"
-metaDesc: The process of creating and publishing an accessible tabbed interface web component
+description: The process of creating and publishing an accessible tabbed interface web component
 published: true
 tags:
   - web-components

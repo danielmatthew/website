@@ -45,8 +45,19 @@ jobs:
         run: |
           while IFS= read -r file; do
             [ -z "$file" ] && continue
-            slug=$(basename "${file%.mdx}")
-            slug=$(basename "${slug%.md}")
+            frontmatter=$(awk 'NR==1 && /^---$/ {p=1; next} p && /^---$/ {exit} p' "$file")
+            if echo "$frontmatter" | grep -Eq '^(published|syndicate):[[:space:]]*false[[:space:]]*$'; then
+              echo "Skipping $file (unpublished or syndicate: false)"
+              continue
+            fi
+            # Same rule as src/lib/permalinks.ts: frontmatter slug, else the
+            # lowercased filename without its YYYY-MM-DD- prefix
+            slug=$(echo "$frontmatter" | sed -nE "s/^slug:[[:space:]]*['\"]?([^'\"]+)['\"]?[[:space:]]*$/\1/p")
+            if [ -z "$slug" ]; then
+              slug=$(basename "${file%.mdx}")
+              slug=$(basename "${slug%.md}")
+              slug=$(echo "$slug" | tr '[:upper:]' '[:lower:]' | sed -E 's/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')
+            fi
             source="https://danmatthew.co.uk/notes/${slug}/"
             echo "Syndicating $source"
 

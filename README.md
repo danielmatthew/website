@@ -1,8 +1,6 @@
 # danmatthew.co.uk
 
-Personal site for Dan Matthew — accessibility and design systems consultant.
-
-Built with [Astro](https://astro.build) and [TinaCMS](https://tina.io), deployed on Netlify.
+Built with [Astro](https://astro.build) and [TinaCMS](https://tina.io). Deployed on Netlify.
 
 ## Prerequisites
 
@@ -45,7 +43,4 @@ pnpm format       # Prettier
 ```
 
 ## Content
-
-Posts live in `src/content/posts/`, articles in `src/content/articles/`, and work case studies in `src/content/work/`. All use Markdown or MDX.
-
 Set `published: false` in frontmatter to keep a post out of the build. TinaCMS reads and writes these files directly.

@@ -54,7 +54,7 @@ obj.foo(); // 2
 
 
 ### 3: Explicit Binding
-We can use the `call()` and `apply()` utilities to force a function to use a particular object for its `this` binding. For both utilities, the first parameter is the object to use. [As we've discovered previously](/2014/01/05/call-and-apply) `call()` takes a list of parameters, while `apply()` is given an array as its second argument.
+We can use the `call()` and `apply()` utilities to force a function to use a particular object for its `this` binding. For both utilities, the first parameter is the object to use. [As we've discovered previously](/notes/call-and-apply/) `call()` takes a list of parameters, while `apply()` is given an array as its second argument.
 
 ```js
 function foo() {

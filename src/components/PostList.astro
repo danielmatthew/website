@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+  // Chronological lists are numbered in reverse; curated lists are unordered
+  ordered?: boolean;
+}
+
+const { posts, ordered = true } = Astro.props;
+const List = ordered ? "ol" : "ul";
+---
+<List class="content flow posts" style="--flow-space: var(--space-m);" role="list" reversed={ordered || undefined}>
+  {
+    posts.map((post) => (
+      <li>
+        <a href={`/notes/${post.id}/`}>{post.data.title}</a>
+        <FormattedDate date={post.data.publishedDate} />
+      </li>
+    ))
+  }
+</List>

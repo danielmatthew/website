@@ -1,10 +1,7 @@
 ---
 title: "Weeknotes: 2020-10-25"
-metaDesc: A summary of the past week.
-tags:
-  - weeknotes
-  - october
-  - 2020
+description: A summary of the past week.
+category: weeknote
 syndicate: false
 published: true
 publishedDate: 2020-10-25

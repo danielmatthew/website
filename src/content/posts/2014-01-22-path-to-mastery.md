@@ -14,7 +14,7 @@ Of them, some came back incredibly quickly, while others were new - and I'm glad
 I've been drafting a series of posts that cover each of the topics Wentz suggested - I hope they're of use.
 
 ## Data Structures
-- [Linked Lists](/2014/01/23/linked-lists) (22/01)
+- [Linked Lists](/notes/linked-lists/) (22/01)
 - Binary Trees
 - Tries
 - Stacks

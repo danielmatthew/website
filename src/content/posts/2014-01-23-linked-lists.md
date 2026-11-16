@@ -4,7 +4,7 @@ title: Linked Lists
 publishedDate: 2014-01-23
 ---
 
-<p class="message">This is one of a series based around understanding a number of core Computer Science concepts - <a href="/2014/01/22/path-to-mastery/">please read the original post for the intentions behind it</a>.</p>
+<p class="message">This is one of a series based around understanding a number of core Computer Science concepts - <a href="/notes/path-to-mastery/">please read the original post for the intentions behind it</a>.</p>
 
 A linked list is often used to implement data structures including lists, stacks, queues, and associated arrays.
 It's constructed from a list of nodes which when linked together represent a sequence. Each node is built of its data and a pointer to the next node in the sequence. Elements can be inserted or removed at any position.

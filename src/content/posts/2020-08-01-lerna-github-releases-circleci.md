@@ -1,11 +1,11 @@
 ---
 title: Creating Github Releases With Lerna
-metaDesc: Automate all the things - using CircleCI with Lerna and Github
+description: Automate all the things - using CircleCI with Lerna and Github
 tags:
- - circleci
- - lerna
- - monorepo
- - github
+  - circleci
+  - lerna
+  - monorepo
+  - github
 syndicate: false
 published: true
 publishedDate: 2020-08-01

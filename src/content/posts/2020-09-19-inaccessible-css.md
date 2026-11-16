@@ -1,5 +1,6 @@
 ---
 title: inaccessible.css
+category: link
 link: https://www.npmjs.com/package/inaccessible.css
 publishedDate: 2020-09-19
 ---

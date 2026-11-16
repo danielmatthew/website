@@ -1,0 +1,35 @@
+---
+import { getAllTags } from "../../../lib/collections";
+import { CATEGORIES, CATEGORY_LABELS } from "../../../lib/taxonomy";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Hero from "../../../components/Hero.astro";
+
+const tags = await getAllTags();
+---
+<BaseLayout title="Tags">
+  <Hero title="Tags" />
+  <section aria-labelledby="categories-heading" class="content flow">
+    <h2 id="categories-heading">Categories</h2>
+    <ul role="list" class="flow">
+      {
+        CATEGORIES.map((category) => (
+          <li>
+            <a href={`/notes/category/${category}/`}>{CATEGORY_LABELS[category]}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+  <section aria-labelledby="tags-heading" class="content flow">
+    <h2 id="tags-heading">Tags</h2>
+    <ul role="list" class="flow">
+      {
+        [...tags].map(([tag, count]) => (
+          <li>
+            <a href={`/notes/tags/${tag}/`}>#{tag}</a> <span class="meta">({count})</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

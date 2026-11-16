@@ -1,11 +1,8 @@
-import { getCollection } from 'astro:content';
+import { getPublishedPosts } from '../lib/collections';
+import { feedId } from '../lib/permalinks';
 
 export async function GET(context) {
-  const posts = await getCollection('posts');
-
-  const publishedPosts = posts
-    .filter(post => post.data.published !== false)
-    .sort((a, b) => b.data.publishedDate.valueOf() - a.data.publishedDate.valueOf());
+  const publishedPosts = await getPublishedPosts();
 
   const siteUrl = (context.site?.toString() || 'https://danmatthew.co.uk').replace(/\/$/, '');
 
@@ -21,9 +18,12 @@ export async function GET(context) {
     },
     language: 'en-gb',
     items: publishedPosts.map((post) => ({
-      id: `${siteUrl}/notes/${post.id}/`,
+      id: feedId(siteUrl, post),
       url: `${siteUrl}/notes/${post.id}/`,
       title: post.data.title,
+      ...(post.data.description && { summary: post.data.description }),
+      ...(post.data.link && { external_url: post.data.link }),
+      tags: [post.data.category, ...post.data.tags],
       date_published: post.data.publishedDate.toISOString(),
       ...(post.data.updatedDate && { date_modified: post.data.updatedDate.toISOString() }),
     })),
